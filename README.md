@@ -10,11 +10,45 @@
 
 
 
-## 스택
+## 소개
 
-
-
-
+<table class="tg">
+    <tr align="left">
+      <th>프로젝트명</th>
+      <th>끼니끼리</th>
+    </tr>
+    <tr align="left">
+      <th>개발기간</th>
+      <th>2021.04.12 ~ 2021.00.00</th>
+    </tr>
+    <tr align="left">
+      <th>인원</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th colspan="2">사용 기술</th>
+    </tr>
+    <tr align="left">
+      <th>백엔드</th>
+      <th></th>
+    </tr>
+    <tr align="left">
+      <th>프론트엔드</th>
+      <th></th>
+    </tr>
+    <tr align="left">
+      <th>형상관리</th>
+      <th>Git, Github</th>
+    </tr>
+    <tr align="left">
+      <th>툴</th>
+      <th>Eclipse, STS, Visual Studio Code, Git Bash, Typora</th>
+    </tr>
+    <tr align="left">
+      <th>운영체제</th>
+      <th>Windows 10</th>
+    </tr>
+  </table>
 
 
 
