@@ -57,9 +57,9 @@ CREATE TABLE contact (
 	host_id NUMBER DEFAULT 1 NOT NULL, /* 호스트번호 */
 	guest_id NUMBER DEFAULT 1, /* 게스트번호 */
 	regi_date DATE, /* 등록일 */
-	contact_intro VARCHAR2(200), /* 컨택 소개 */
-	lotation VARCHAR2(10), /* 장소 */
-	meeting_time DATE, /* 시간 */
+	contact_intro VARCHAR2(500), /* 컨택 소개 */
+	lotation VARCHAR2(100), /* 장소 */
+	meeting_time VARCHAR2(30), /* 시간 */
 	start_value NUMBER, /* 시작가 */
 	last_value NUMBER NOT NULL, /* 최종가격 */
 	qr_check NUMBER(1) /* 만남확인 */
@@ -78,8 +78,8 @@ CREATE TABLE cmt (
 CREATE TABLE notice (
 	notice_no NUMBER NOT NULL, /* 공지사항번호 */
 	no_write_date DATE, /* 등록일 */
-	subject VARCHAR2(30), /* 제목 */
-	contents VARCHAR2(200) /* 내용 */
+	subject VARCHAR2(100), /* 제목 */
+	contents VARCHAR2(500) /* 내용 */
 );
 
 /* 매출액 */
@@ -101,3 +101,7 @@ CREATE TABLE contact_history (
 	price NUMBER, /* 가격 */
 	bid_time DATE /* 입찰시간 */
 );
+
+
+commit;
+
