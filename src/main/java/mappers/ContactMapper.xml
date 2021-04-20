@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="BoardDAO">
+	
+	<!-- 컨택 관련 매퍼 -->
+	
+	
+	<!-- 생성 -->
+	<insert id=""></insert>
+	
+	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
+	<update id=""></update>
+	
+	<!-- 마감 -->
+	<update id=""></update>
+	
+	<!-- 마감 이후 결제처리(95%:호스트, 5%:관리자) -->
+	<update id=""></update>
+	
+	<!-- 취소 -->
+	<delete id=""></delete>
+</mapper>
