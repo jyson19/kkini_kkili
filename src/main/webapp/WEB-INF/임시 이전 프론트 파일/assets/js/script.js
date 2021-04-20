@@ -228,4 +228,4 @@ function toggleFullScreen() {
     }
 }
 
-$("body").append('<div class="fixed-button active"><a href="" target="_blank" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 주목하기로 이동 </a> </div>');var $window=$(window),nav=$(".fixed-button");
+$("body").append('<div class="fixed-button active"><a href="" target="_blank" hidden="hidden" class="btn btn-md btn-primary"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 주목하기로 이동 </a> </div>');var $window=$(window),nav=$(".fixed-button");
