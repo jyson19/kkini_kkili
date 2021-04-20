@@ -1,16 +1,16 @@
 package com.kk.domain;
 
 // 호스트 객체(컨택+프로필)
-public class Host extends Member {
+public class HostVO extends MemberVO {
 	private String hostPic; // 프로필사진
 	private String company; // 회사
 	private String uni; // 대학교
 	private int hostValue; // 수익
 
-	public Host() {
+	public HostVO() {
 	}
 
-	public Host(String hostPic, String company, String uni, int hostValue) {
+	public HostVO(String hostPic, String company, String uni, int hostValue) {
 		super();
 		this.hostPic = hostPic;
 		this.company = company;

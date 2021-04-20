@@ -1,7 +1,7 @@
 package com.kk.domain;
 
 // 회원 DTO
-public class Member {
+public class MemberVO {
 	private int memberId; // 회원번호 pk
 	private String name; // 이름
 	private String email; // 이메일
@@ -11,10 +11,10 @@ public class Member {
 	private String joinDate; // 가입일자
 	private String lastConnDate; // 최근접속일
 
-	public Member() {
+	public MemberVO() {
 	}
 
-	public Member(int memberId, String name, String email, String password, int tel, int auth, String joinDate,
+	public MemberVO(int memberId, String name, String email, String password, int tel, int auth, String joinDate,
 			String lastConnDate) {
 		super();
 		this.memberId = memberId;

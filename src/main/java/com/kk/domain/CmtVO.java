@@ -1,17 +1,17 @@
 package com.kk.domain;
 
 // 댓글 DTO
-public class Cmt {
+public class CmtVO {
 	private int cmtId; // 댓글번호 pk
 	private int hostId; // 호스트번호 fk from member.memberId
 	private int guestId; // 게스트번호 fk from member.memberId
 	private String writeDate; // 등록일
 	private String content; // 댓글내용
 
-	public Cmt() {
+	public CmtVO() {
 	}
 
-	public Cmt(int cmtId, int hostId, int guestId, String writeDate, String content) {
+	public CmtVO(int cmtId, int hostId, int guestId, String writeDate, String content) {
 		super();
 		this.cmtId = cmtId;
 		this.hostId = hostId;

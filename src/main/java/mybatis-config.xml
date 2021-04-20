@@ -4,11 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
-	<!-- Alias 설정 
+	<!-- Alias 설정 -->
 	<typeAliases>
-		<typeAlias alias="board" type="com.kk.domain.TempVO" />		
+		<typeAlias alias="member" type="com.kk.domain.MemberVO" />		
+		<typeAlias alias="cmt" type="com.kk.domain.CmtVO" />		
+		<typeAlias alias="contact" type="com.kk.domain.ContactVO" />		
 	</typeAliases>
-	-->
 
 
 </configuration>

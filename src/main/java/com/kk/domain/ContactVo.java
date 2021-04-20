@@ -1,7 +1,7 @@
 package com.kk.domain;
 
 // 컨택 DTO
-public class Contact {
+public class ContactVo {
 	private int contactId; // 컨택번호 pk
 	private int hostId; // 호스트번호 fk from member.memberId
 	private int guestId; // 게스트번호 fk from member.memberId
@@ -13,10 +13,10 @@ public class Contact {
 	private int lastValue; // 최종가격
 	private int qrCheck; // 만남확인 {0:미완, 1:완료}
 
-	public Contact() {
+	public ContactVo() {
 	}
 
-	public Contact(int contactId, int hostId, int guestId, String regiDate, String contactIntro, String lotation,
+	public ContactVo(int contactId, int hostId, int guestId, String regiDate, String contactIntro, String lotation,
 			String meetingTime, int startValue, int lastValue, int qrCheck) {
 		super();
 		this.contactId = contactId;
