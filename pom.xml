@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.kk</groupId>
 	<artifactId>home</artifactId>
-	<name>k2</name>
+	<name>kkini_kkili</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
