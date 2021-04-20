@@ -2,7 +2,7 @@ package com.kk.domain;
 
 // 회원 DTO
 public class Member {
-	private int memberId; // 회원번호
+	private int memberId; // 회원번호 pk
 	private String name; // 이름
 	private String email; // 이메일
 	private String password; // 비밀번호
