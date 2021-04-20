@@ -80,3 +80,8 @@
   DROP TABLE testtable;
   ```
 
+
+- 해당 계정 테이블 조회
+  ```mariadb
+  SELECT * FROM tabs;
+  ```
