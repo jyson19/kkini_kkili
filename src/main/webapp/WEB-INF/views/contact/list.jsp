@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -141,17 +142,18 @@
         		</div> -->
           </div>
 
-		  
 			<div class="col-lg-9">
 				<div class="col-md-12">
+
+
+				<c:forEach items="${contactList }" var="contact">
 
 				  <div class="item border-top">
 					<div class="testimony-wrap d-flex">
 					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_2.jpg)">
 					</div>
 					  <div class="text ml-4">
-						<p class="mb-3">안녕하세요. <br><br> 
-							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
+						<p class="mb-3">${contactList}</p>
 							<p class="name">김라인</p>
 						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
 						<p class="name">10,000원</p> 
@@ -159,66 +161,8 @@
 					  </div>
 					</div>
 				  </div>
+				</c:forEach>
 
-				  <div class="item border-top">
-					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_1.jpg)">
-					</div>
-					  <div class="text ml-4">
-						<p class="mb-3">안녕하세요. <br><br> 
-							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
-							<p class="name">김라인</p>
-						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-						<p class="name">10,000원</p> 
-						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
-					  </div>
-					</div>
-				  </div>
-
-				  <div class="item border-top">
-					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_3.jpg)">
-					</div>
-					  <div class="text ml-4">
-						<p class="mb-3">안녕하세요. <br><br> 
-							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
-							<p class="name">김라인</p>
-						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-						<p class="name">10,000원</p> 
-						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
-					  </div>
-					</div>
-				  </div>
-
-				  <div class="item border-top">
-					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_4.jpg)">
-					</div>
-					  <div class="text ml-4">
-						<p class="mb-3">안녕하세요. <br><br> 
-							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
-							<p class="name">김라인</p>
-						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-						<p class="name">10,000원</p> 
-						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
-					  </div>
-					</div>
-				  </div>
-
-				  <div class="item border-top">
-					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_1.jpg)">
-					</div>
-					  <div class="text ml-4">
-						<p class="mb-3">안녕하세요. <br><br> 
-							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
-							<p class="name">김라인</p>
-						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-						<p class="name">10,000원</p> 
-						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
-					  </div>
-					</div>
-				  </div>
 
 				</div>
 			</div>

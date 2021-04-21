@@ -18,7 +18,8 @@ public class ContactDAOImpl implements ContactDAO{
 	@Override
 	public List<ContactVO> getContactList(ContactVO vo) {
 		System.out.println("ContactDAOImpl.getContactList");
-		return mybatis.selectList("ContactVO.getContactList", vo);
+		System.out.println("리스트 크기 : " + mybatis.selectList("contact.getContactList", vo).size());
+		return mybatis.selectList("contact.getContactList", vo);
 	}
 	
 }
