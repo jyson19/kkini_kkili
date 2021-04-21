@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <head>
-
+	
 </head>
 <body>
 	<header id="header">
@@ -17,7 +17,7 @@
 				<!-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> -->
 				<li class="nav-item"><a href="about.html" class="nav-link">공지사항</a></li>
 				<li class="nav-item"><a href="contact.html" class="nav-link">채용</a></li>
-				<li class="nav-item"><a href="tour.html" class="nav-link">컨택조회</a></li>
+				<li class="nav-item"><a href="contact/list.do" class="nav-link">컨택조회</a></li>
 				<!-- <li class="nav-item"><a href="hotel.html" class="nav-link">프로필조회</a></li> -->
 				<li class="nav-item"><a href="blog.html" class="nav-link">프로필조회</a></li>
 				<li class="nav-item"><a href="auth-normal-sign-in.html" class="nav-link">로그인</a></li>
