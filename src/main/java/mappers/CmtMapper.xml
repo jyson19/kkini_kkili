@@ -7,11 +7,8 @@
 	
 	
 	<!-- 생성 -->
-	<insert id=""></insert>
 	
 	<!-- 수정 -->
-	<update id=""></update>
 	
 	<!-- 삭제 -->
-	<delete id=""></delete>
 </mapper>

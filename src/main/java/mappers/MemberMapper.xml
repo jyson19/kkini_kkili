@@ -7,23 +7,17 @@
 	
 	
 	<!-- 가입 -->
-	<insert id=""></insert>
 	
 	<!-- 개인정보 수정 -->
-	<update id=""></update>
 	
 	<!-- 탈퇴 -->
-	<delete id=""></delete>
 
 	<!-- 호스트 인증처리 -->
-	<update id=""></update>	
 	
 	<!-- 로그인시 최근접속일 갱신 -->
-	<update id=""></update>
 	
 		
 	
 	
 	<!-- 관리자 초대 -->
-	<update id=""></update>
 </mapper>
