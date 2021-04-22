@@ -15,7 +15,7 @@
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
 				<!-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> -->
-				<li class="nav-item"><a href="about.html" class="nav-link">공지사항</a></li>
+				<li class="nav-item"><a href="notice/list.do" class="nav-link">공지사항</a></li>
 				<li class="nav-item"><a href="contact.html" class="nav-link">채용</a></li>
 				<li class="nav-item"><a href="contact/list.do" class="nav-link">컨택조회</a></li>
 				<!-- <li class="nav-item"><a href="hotel.html" class="nav-link">프로필조회</a></li> -->
