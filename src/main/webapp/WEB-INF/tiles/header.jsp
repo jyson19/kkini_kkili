@@ -17,7 +17,7 @@
 				<!-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> -->
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/notice/list.do" class="nav-link">공지사항</a></li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/main/contact.do" class="nav-link">채용</a></li>
-				<li class="nav-item"><a href="${pageContext.request.contextPath}/contact/list.do" class="nav-link">컨택조회</a></li>
+				<li class="nav-item"><a href="${pageContext.request.contextPath}/ct/list.do" class="nav-link">컨택조회</a></li>
 				<!-- <li class="nav-item"><a href="hotel.html" class="nav-link">프로필조회</a></li> -->
 				<li class="nav-item"><a href="blog.html" class="nav-link">프로필조회</a></li>
 				<li class="nav-item"><a href="auth-normal-sign-in.html" class="nav-link">로그인</a></li>
