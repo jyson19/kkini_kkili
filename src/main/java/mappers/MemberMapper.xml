@@ -5,7 +5,12 @@
 	
 	<!-- 회원 관련 매퍼 -->
 	
-
+	<!-- 단순 조회 -->
+	<select id="getMember" resultType="member">
+		SELECT *
+		 FROM member
+		 WHERE email = #{email}
+	</select>
 	
 	<!-- 가입 -->
 	
