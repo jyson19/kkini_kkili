@@ -166,13 +166,13 @@
 
 				  <div class="item border-top">
 					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_2.jpg)">
+					  <div class="user-img mb-4" style="background-image: url(./../resources/images/person_2.jpg)">
 					</div>
 					  <div class="text ml-4">
-						<p class="mb-3">${contactList}</p>
-							<p class="name">김라인</p>
-						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-						<p class="name">10,000원</p> 
+						<p class="mb-3">${contact.contactIntro}</p>
+							<p class="name">${contact.hostId} 이름매핑 추가</p>
+						<span class="position">${contact.location}</span>
+						<p class="name">${contact.lastValue}</p> 
 						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
 					  </div>
 					</div>

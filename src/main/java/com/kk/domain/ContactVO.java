@@ -31,6 +31,14 @@ public class ContactVO {
 		this.qrCheck = qrCheck;
 	}
 
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public int getContactId() {
 		return contactId;
 	}
@@ -71,14 +79,6 @@ public class ContactVO {
 		this.contactIntro = contactIntro;
 	}
 
-	public String getlocation() {
-		return location;
-	}
-
-	public void setlocation(String location) {
-		this.location = location;
-	}
-
 	public String getMeetingTime() {
 		return meetingTime;
 	}
@@ -113,10 +113,9 @@ public class ContactVO {
 
 	@Override
 	public String toString() {
-		return "Contact [contactId=" + contactId + ", hostId=" + hostId + ", guestId=" + guestId + ", regiDate="
+		return "ContactVO [contactId=" + contactId + ", hostId=" + hostId + ", guestId=" + guestId + ", regiDate="
 				+ regiDate + ", contactIntro=" + contactIntro + ", location=" + location + ", meetingTime="
 				+ meetingTime + ", startValue=" + startValue + ", lastValue=" + lastValue + ", qrCheck=" + qrCheck
 				+ "]";
 	}
-
 }
