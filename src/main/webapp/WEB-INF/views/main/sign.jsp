@@ -119,7 +119,7 @@
                                 </div>
                                 <!-- 이름 -->
                                 <div class="form-group form-primary">
-                                    <input type="text" id="name" name="user-name" class="form-control required" required>
+                                    <input type="text" id="name" name="name" class="form-control required" required>
                                     <span class="form-bar"></span>
                                     <label class="float-label">이름</label>
                                 </div>
@@ -134,7 +134,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <span><button id="check" type="button" class="btn btn-primary btn-md btn-blocktext-center m-b-20" disabled="disabled">중복 확인</button></span>
-                                        <input type="text" class="form-control col-md-8 f-right" placeholder="중복 여부 확인" readonly>
+                                        <input id="check_id" type="text" class="form-control col-md-8 f-right" placeholder="중복 여부 확인" readonly>
                                     </div>
                                 </div>
                                 
@@ -149,7 +149,7 @@
                                 
 
                                 <div class="form-group form-primary">
-                                    <input type="tel" id="tel" name="tel" class="form-control digits" id="tel" required>
+                                    <input type="tel" id="tel" name="tel" maxlength="11" class="form-control digits" id="tel" required>
                                     <span class="form-bar"></span>
                                     <label class="float-label">전화번호 11자리</label>
                                 </div>
@@ -169,12 +169,13 @@
                                             <label class="float-label">비밀번호 재확인</label>
                                         </div>
                                     </div>
+                                	<div class="col-sm-12" id="explaination"><p>비밀번호는 특수문자, 영어, 숫자  조합으로 6~12자이어야 합니다.</p></div>
                                 </div>
                                 <div class="row m-t-25 text-left">
                                     <div class="col-md-12">
                                         <div class="checkbox-fade fade-in-primary">
                                             <label>
-                                                <input type="checkbox" value="">
+                                                <input id="policy" type="checkbox" value="">
                                                 <span class="cr"><i class="cr-icon icofont icofont-ui-check txt-primary"></i></span>
                                                 <span class="text-inverse"> 이용약관을 읽고 동의합니다 <a href="${pageContext.request.contextPath}/main/term-and-policy.do" target="_blank"> (내용보기) </a></span>
                                             </label>
@@ -194,7 +195,7 @@
                                 </div>
                                 <div class="row m-t-30">
                                     <div class="col-md-12">
-                                        <button type="sumbit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">회원가입하기</button>
+                                        <button id="submit_btn" type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">회원가입하기</button>
                                     </div>
                                 </div>
                                 <hr/>
