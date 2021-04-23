@@ -167,7 +167,7 @@
 					
 					<div class="item border-top">
 					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(./../upload/host/picture/${contact.HOST_PIC})">
+					<div class="user-img mb-4" style="background-image: url('./../upload/host/${contact.HOST_PIC}')">
 					</div>
 					  <div class="text ml-4">
 						<p class="mb-3">${contact.CONTACT_INTRO}</p>
