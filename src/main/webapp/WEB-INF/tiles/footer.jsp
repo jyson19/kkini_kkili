@@ -26,7 +26,7 @@
 			  <li><a href="#" class="py-2 d-block">회사소개</a></li>
 			  <li><a href="${pageContext.request.contextPath}/index.jsp" class="py-2 d-block">서비스</a></li>
 			  <li><a href="${pageContext.request.contextPath}/main/term-and-policy.do" class="py-2 d-block">이용약관</a></li>
-			  <li><a href="${pageContext.request.contextPath}/main/contact.do" class="py-2 d-block">제휴문의</a></li>
+			  <li><a href="${pageContext.request.contextPath}/main/ct.do" class="py-2 d-block">제휴문의</a></li>
 			  <!-- <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li> -->
 			  <li><a href="#" class="py-2 d-block">개인정보보호정책</a></li>
 			</ul>
