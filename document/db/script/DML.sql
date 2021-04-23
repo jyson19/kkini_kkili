@@ -36,6 +36,15 @@ INSERT INTO member VALUES(seq_mid.nextval, '이승건', 'toss@gmail.com', 'toss1
 INSERT INTO member VALUES(seq_mid.nextval, '안성우', 'zigbang@gmail.com', 'zigbang123', 01012351111, 0, '2021-04-01', '2021-04-02');
 INSERT INTO member VALUES(seq_mid.nextval, '김팀쿡', 'apple@gmail.com', 'apple123', 01012353333, 0, '2021-04-02', '2021-04-14');
 
+/* host */
+/* 임시 DB상 회원번호 1~6번만 호스트 권한 보유 */
+INSERT INTO host VALUES(1, 'pic1.png', '삼성', '', 104500);
+INSERT INTO host VALUES(2, 'pic2.png', 'SK', '', 76000);
+INSERT INTO host VALUES(3, 'pic3.png', '쿠팡', '', 95000);
+INSERT INTO host VALUES(4, 'pic4.png', '네이버', '', 47500);
+INSERT INTO host VALUES(5, 'pic5.png', '카카오', '', 38000);
+INSERT INTO host VALUES(6, 'pic6.png', '라인', '', 47500);
+
 /* contact */
 INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, '2021-04-05', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-06 12:30:00', 1000, 20000, 1);
 INSERT INTO contact VALUES(seq_cid.nextval, 1, 9, '2021-04-06', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-07 12:30:00', 2000, 50000, 1);
