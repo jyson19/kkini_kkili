@@ -38,12 +38,12 @@ INSERT INTO member VALUES(seq_mid.nextval, '김팀쿡', 'apple@gmail.com', 'appl
 
 /* host */
 /* 임시 DB상 회원번호 1~6번만 호스트 권한 보유 */
-INSERT INTO host VALUES(1, 'pic1.png', '삼성', '', 104500);
-INSERT INTO host VALUES(2, 'pic2.png', 'SK', '', 76000);
+INSERT INTO host VALUES(1, 'pic1.jpg', '삼성', '', 104500);
+INSERT INTO host VALUES(2, 'pic2.jpg', 'SK', '', 76000);
 INSERT INTO host VALUES(3, 'pic3.png', '쿠팡', '', 95000);
-INSERT INTO host VALUES(4, 'pic4.png', '네이버', '', 47500);
-INSERT INTO host VALUES(5, 'pic5.png', '카카오', '', 38000);
-INSERT INTO host VALUES(6, 'pic6.png', '라인', '', 47500);
+INSERT INTO host VALUES(4, 'pic4.jfif', '네이버', '', 47500);
+INSERT INTO host VALUES(5, 'pic5.jpg', '카카오', '', 38000);
+INSERT INTO host VALUES(6, 'pic6.jpg', '라인', '', 47500);
 
 /* contact */
 INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, '2021-04-05', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-06 12:30:00', 1000, 20000, 1);

@@ -2,22 +2,54 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="contact">
-	
+
 	<!-- 컨택 관련 매퍼 -->
-	
+
 	<!-- 컨택 목록 -->
+	<!-- old -->
+	<!-- 
 	<select id="getContactList" resultType="contact">
 		SELECT *
-		 FROM contact
+		FROM contact
 	</select>
-	
+	 -->
+	<select id="getContactList" resultType="hashmap">
+		SELECT 
+			c.contact_id AS contact_id, 
+			c.host_id AS host_id, 
+			c.guest_id AS guest_id, 
+			c.regi_date AS regi_date, 
+			c.contact_intro AS contact_intro, 
+			c.location AS location, 
+			c.meeting_time AS meeting_time, 
+			c.start_value AS start_value, 
+			c.last_value AS last_value, 
+			c. qr_check AS qr_check, 
+    		m.name AS name, 
+    		h.company AS company, 
+    		h.host_pic AS host_pic
+		FROM contact c, member m, host h
+		WHERE c.host_id = m.member_id 
+			AND h.host_id = c.host_id 
+		ORDER BY c.meeting_time DESC
+	</select>
+
+
+	<!-- host join table 
+	<select id="" resultType="member">
+		SELECT m.member_id, m.name, m.email, m.password, m.tel, m.auth, m.join_date, m.last_conn_date
+		FROM member m, host h
+		WHERE m.member_id = h.host_id;
+	</select>
+	-->
+
 	<!-- 생성 -->
-	
+
 	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
-	
+
 	<!-- 마감 -->
-	
+
 	<!-- 마감 이후 결제처리(95%:호스트, 5%:관리자) -->
-	
+
 	<!-- 취소 -->
 </mapper>

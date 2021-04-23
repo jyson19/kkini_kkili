@@ -163,16 +163,17 @@
 				 -->
 
 				<c:forEach items="${contactList }" var="contact">
-
-				  <div class="item border-top">
+					<!--  ${contactList }-->
+					
+					<div class="item border-top">
 					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(./../resources/images/person_2.jpg)">
+					  <div class="user-img mb-4" style="background-image: url(./../upload/host/picture/${contact.HOST_PIC})">
 					</div>
 					  <div class="text ml-4">
-						<p class="mb-3">${contact.contactIntro}</p>
-							<p class="name">${contact.hostId} 이름매핑 추가</p>
-						<span class="position">${contact.location}</span>
-						<p class="name">${contact.lastValue}</p> 
+						<p class="mb-3">${contact.CONTACT_INTRO}</p>
+							<p class="name">${contact.NAME}</p>
+						<span class="position">${contact.LOCATION}</span>
+						<p class="name">${contact.LAST_VALUE}원</p> 
 						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
 					  </div>
 					</div>
@@ -415,13 +416,6 @@
 
     <!-- footer.html -->
 	<%@include file ="/WEB-INF/tiles/footer.jsp" %>
-
-	<!-- 헤더와 풋터 관리해주는 자바스크립트 -->
-	<script src="/resources/js/includeHTML.js"></script>
-	<script>
-	  	// 헤더, 풋터 등 불러오는 함수
-		includeHTML();
-	</script>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
