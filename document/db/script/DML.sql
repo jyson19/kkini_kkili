@@ -37,7 +37,16 @@ INSERT INTO member VALUES(seq_mid.nextval, '안성우', 'zigbang@gmail.com', 'zi
 INSERT INTO member VALUES(seq_mid.nextval, '김팀쿡', 'apple@gmail.com', 'apple123', 01012353333, 0, '2021-04-02', '2021-04-14');
 
 /* contact */
-INSERT INTO contact VALUES(seq_cid.nextval, 2, 9, '2021-04-05', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-06 12:30:00', 5000, 250000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, '2021-04-05', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-06 12:30:00', 1000, 20000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 1, 9, '2021-04-06', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-07 12:30:00', 2000, 50000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 2, 9, '2021-04-07', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-08 12:30:00', 3000, 10000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 3, 9, '2021-04-08', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-09 12:30:00', 4000, 20000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, '2021-04-09', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-10 12:30:00', 5000, 30000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 5, 9, '2021-04-10', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-11 12:30:00', 6000, 40000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 6, 9, '2021-04-11', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-12 12:30:00', 7000, 50000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 1, 9, '2021-04-12', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-13 12:30:00', 8000, 60000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 2, 9, '2021-04-13', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-14 12:30:00', 9000, 70000, 1);
+INSERT INTO contact VALUES(seq_cid.nextval, 3, 9, '2021-04-14', '코딩이 무엇인지 알려드리겠습니다', '판교역', '2021-04-15 12:30:00', 10000, 80000, 1);
 
 
 /* cmt */
