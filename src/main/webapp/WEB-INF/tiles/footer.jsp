@@ -40,7 +40,7 @@
 			  <li><a href="#" class="py-2 d-block">결제방법</a></li>
 			  <li><a href="#" class="py-2 d-block">이용방법</a></li>
 			  <li><a href="#" class="py-2 d-block">고객센터</a></li>
-			  <li><a href="admin/adminMain.do" class="py-2 d-block">관리자(임시)</a></li>
+			  <li><a href="${pageContext.request.contextPath}/admin/main.do" class="py-2 d-block">관리자(임시)</a></li>
 			</ul>
 		  </div>
 		</div>
