@@ -19,8 +19,9 @@ public class ContactController {
 	private ContactService contactService;
 	
 	@RequestMapping("contact/list.do")
-	public void getContactList(ContactVO vo, Model model) {
+	public void getContactList(Model model) {
 		System.out.println("ContactController.getContactList");
-		model.addAttribute("contactList", contactService.getContactList(vo));
+//		model.addAttribute("contactList", contactService.getContactList(conVO));
+		model.addAttribute("contactList", contactService.getContactList());
 	}
 }

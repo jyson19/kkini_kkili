@@ -145,18 +145,35 @@
 			<div class="col-lg-9">
 				<div class="col-md-12">
 
-
-				<c:forEach items="${contactList }" var="contact">
-
-				  <div class="item border-top">
+				<!-- 
+				<div class="item border-top">
 					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(/resources/images/person_2.jpg)">
+					  <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
 					</div>
 					  <div class="text ml-4">
-						<p class="mb-3">${contactList}</p>
+						<p class="mb-3">안녕하세요. <br><br> 
+							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
 							<p class="name">김라인</p>
 						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
 						<p class="name">10,000원</p> 
+						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
+					  </div>
+					</div>
+				  </div>
+				 -->
+
+				<c:forEach items="${contactList }" var="contact">
+					<!--  ${contactList }-->
+					
+					<div class="item border-top">
+					<div class="testimony-wrap d-flex">
+					  <div class="user-img mb-4" style="background-image: url(./../upload/host/picture/${contact.HOST_PIC})">
+					</div>
+					  <div class="text ml-4">
+						<p class="mb-3">${contact.CONTACT_INTRO}</p>
+							<p class="name">${contact.NAME}</p>
+						<span class="position">${contact.LOCATION}</span>
+						<p class="name">${contact.LAST_VALUE}원</p> 
 						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
 					  </div>
 					</div>
@@ -399,13 +416,6 @@
 
     <!-- footer.html -->
 	<%@include file ="/WEB-INF/tiles/footer.jsp" %>
-
-	<!-- 헤더와 풋터 관리해주는 자바스크립트 -->
-	<script src="/resources/js/includeHTML.js"></script>
-	<script>
-	  	// 헤더, 풋터 등 불러오는 함수
-		includeHTML();
-	</script>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
