@@ -1,0 +1,953 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+
+    <title>인생을 바꿀 한끼, 끼니끼리</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+	<!-- 한글 관련 css 적용 -->
+	<link rel="stylesheet" href="resources/css/korean.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+
+    <link rel="stylesheet" href="resources/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/animate.css">
+    
+    <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="resources/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="resources/css/aos.css">
+
+    <link rel="stylesheet" href="resources/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="resources/css/jquery.timepicker.css">
+    
+    <link rel="stylesheet" href="resources/css/flaticon.css">
+    <link rel="stylesheet" href="resources/css/icomoon.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+
+  </head>
+  <body>
+    
+	<!-- 헤더 -->
+	<!-- <div include-html="WEB-INF/tiles/header.html"></div> -->
+	<%@include file ="WEB-INF/tiles/header.jsp" %>
+	<!-- 헤더 종료 -->
+    
+	<!-- 검색창 -->
+    <div class="hero-wrap js-fullheight" style="background-image: url('resources/images/bg_1.jpg');">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-start" data-scrollax-parent="true">
+          <div class="col-md-9 ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+            <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>컨택 검색하기 <br></strong> </h1>
+            <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">당신에게 필요한 조언자를 찾으세요.</p>
+            <div class="block-17 my-4">
+              <form action="" method="post" class="d-block d-flex">
+                <div class="fields d-block d-flex">
+                  <div class="textfield-search one-third">
+                  	<input type="text" class="form-control" placeholder="회원명 또는 관심 키워드를 입력하세요">
+                  </div>
+                  <div class="select-wrap one-third">
+                    <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                    <select name="" id="" class="form-control" placeholder="키워드 검색">
+                      <option value="keyword">키워드</option>
+                      <option value="profile">프로필</option>
+                    </select>
+                  </div>
+                </div>
+                <input type="submit" class="search-submit btn btn-primary" value="검색">  
+              </form>
+            </div>
+            <p class="browse d-md-flex">
+            	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-fork"></i></a></span>
+            	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-hotel"></i></a></span> 
+            	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-meeting-point"></i></a></span> 
+            	<span class="d-flex justify-content-md-center align-items-md-	center" style="visibility: hidden;"><a href="#"><i class="flaticon-shopping-bag"></i></a></span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+	<!-- 검색창 종료-->
+	<!-- 간단한 소개란 -->
+    <section class="ftco-section services-section bg-dark">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-detective"></span></div></div>
+              <div class="media-body p-2 mt-2">
+                <h3 class="heading mb-3">현직자와의 만남</h3>
+                <p>취업 경험부터 현직 업무에 대한 조언까지, 의미있는 식시시간을 만들어봐요</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-meeting-point"></span></div></div>
+              <div class="media-body p-2 mt-2">
+                <h3 class="heading mb-3">근처에 있는 경험자</h3>
+                <p>현직 종사자, 미래의 대학교 선배로부터 노하우를 들어봐요</p>
+              </div>
+            </div>    
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-coffee-cup"></span></div></div>
+              <div class="media-body p-2 mt-2">
+                <h3 class="heading mb-3">가치있는 경험</h3>
+                <p>차를 마시면서 내가 궁금한 것을 직접 물어보세요</p>
+              </div>
+            </div>      
+          </div>
+          <div class="col-md-3 d-flex align-self-stretch ftco-animate">
+            <div class="media block-6 services d-block text-center">
+              <div class="d-flex justify-content-center"><div class="icon"><span class="flaticon-fork"></span></div></div>
+              <div class="media-body p-2 mt-2">
+                <h3 class="heading mb-3">기회와 만남의 장소</h3>
+                <p>진심이 담긴 정보 교환, 그리고 따듯한 밥 한끼로 유의미한 점심을 보내세요</p>
+              </div>
+            </div>      
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 간단한 소개란 종료 -->
+	<!-- 컨택 목록 -->
+	<section class="ftco-section testimony-section bg-light text-dark">
+		<div class="container">
+		  <div class="row justify-content-start">
+			<div class="col-md-5 heading-section ftco-animate">
+				<span class="subheading">한 끼니, 우리끼리</span>
+			  <h2 class="mb-4 pb-3"><strong>절호의 찬스</strong></h2>
+			  <p>현직 종사자의 조언이 필요한데 만날 수가 없나요?</p>
+			  <p>현업 프로젝트 경험을 듣고 싶지 않나요?</p>
+			  <p>미래의 대학교 선배 이야기가 필요하지 않나요?</p>
+			  <p>지금 인생을 바꿀 약속을 잡아보세요!</p>
+			  <p><a href="tour.html" class="btn btn-primary btn-outline-primary mt-4 px-4 py-3">더 많은 컨택보기</a></p>
+			</div>
+		  <div class="col-md-1"></div>
+			<div class="col-md-6 heading-section ftco-animate">
+				<span class="subheading">지금 당장 신청하세요</span>
+			  <h2 class="mb-4 pb-3"><strong>컨택 목록</strong></h2>
+				<div class="row ftco-animate">
+					<div class="col-md-12">
+					  <div class="carousel-testimony owl-carousel">
+						<div class="item border-top">
+							<div class="testimony-wrap d-flex">
+							  <div class="user-img mb-4" style="background-image: url(resources/images/person_1.jpg)">
+							</div>
+							  <div class="text ml-4">
+								<p class="mb-3">안녕하세요. <br><br> 
+									네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
+									<p class="name">김라인</p>
+								<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
+								<p class="name">10,000원</p> 
+							  </div>
+							</div>
+						  </div>
+						<div class="item">
+						  <div class="testimony-wrap d-flex">
+							<div class="user-img mb-5" style="background-image: url(resources/images/person_2.jpg)">
+							  <span class="quote d-flex align-items-center justify-content-center">
+								<i class="icon-quote-left"></i>
+							  </span>
+							</div>
+							<div class="text ml-md-4">
+								<p class="mb-5">네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다.</p>
+								<p class="name">김라인</p>
+								<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
+								<p class="name">50,000원</p>
+							  </div>
+						  </div>
+						</div>
+						<div class="item">
+						  <div class="testimony-wrap d-flex">
+							<div class="user-img mb-5" style="background-image: url(resources/images/person_3.jpg)">
+							  <span class="quote d-flex align-items-center justify-content-center">
+								<i class="icon-quote-left"></i>
+							  </span>
+							</div>
+							<div class="text ml-md-4">
+								<p class="mb-5">네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다.</p>
+								<p class="name">김라인</p>
+								<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
+								<p class="name">50,000원</p>
+							  </div>
+						  </div>
+						</div>
+					  </div>
+					</div>
+				  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>
+	
+	<!-- 컨택목록 - 슬라이더 변경 필요 -->
+    <!-- <section class="ftco-section">
+    	<div class="container">
+				<div class="row justify-content-start mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate">
+          	<span class="subheading">당신을 위한 특별한 제안</span>
+            <h2 class="mb-4"><strong>컨택 목록</strong></h2>
+			<h2 class="mb-4">추후 위아래 슬라이더로 바꿉시다</h2>
+          </div>
+        </div>    		
+    	</div>
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">김프랑</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 점</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">20,000원</span>
+    							</div>
+    						</div>
+    						<p>프랑스 유학생활 8년차로, 대학원에 다니고 있습니다. 오시면 제가 밥 사드릴테니 가볍게 컨택해주세요.</p>
+    						<p class="days"><span>PNP 파리바</span></p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> 에펠탑 앞</span> 
+    							<span class="ml-auto"><a href="#">컨택</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">박교수</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>10 점</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">10,000원</span>
+    							</div>
+    						</div>
+    						<p>서울대 교수로 재직 중에 있습니다.</p>
+    						<p class="days"><span>서울대학교</span></p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i>서울대학교 학생식당</span> 
+    							<span class="ml-auto"><a href="#">컨택</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">김상덕</a></h3>
+		    						<p class="rate">
+		    							<span>점수없음</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">10,000원</span>
+    							</div>
+    						</div>
+    						<p>알레스카에 있다가, 남극 세종기지로 발령이 났습니다. 최근 휴가차 서울에 와있는데 같이 점심드실 분 구합니다.</p>
+    						<p class="days"><span>남극 세종기지 연구원</span></p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> 서울시 서초구 낙원타코</span> 
+    							<span class="ml-auto"><a href="#">컨택</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">김덕배</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 점</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">40,000원</span>
+    							</div>
+    						</div>
+    						<p>영국 축구팀에서 활동했고 지금은 은퇴했습니다. 영국 생활이야기를 들려드리고 싶습니다.</p>
+    						<p class="days"><span>무직</span></p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i>서울시 이태원로 벨기에 와플집</span> 
+    							<span class="ml-auto"><a href="#">컨택</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/destination-5.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">호날두</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 점</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price">10,000원</span>
+    							</div>
+    						</div>
+    						<p>호주 유학생입니다. 유학 관련 상담 진행할 수 있습니다. 컨택 부탁드립니다.</p>
+    						<p class="days"><span>학생</span></p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> 서울시 강남구 해커스학원</span> 
+    							<span class="ml-auto"><a href="#">컨택</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section> -->
+	<!-- 컨택종료 -->
+
+	<!-- 프로필 사용 -->
+    <section class="ftco-section bg-light-brown">
+		<div class="container">
+		  <div class="row justify-content-start mb-5 pb-3">
+			<div class="col-md-7 heading-section ftco-animate">
+			  <span class="subheading">호스트</span>
+			  <h2><strong>프로필</strong></h2>
+			</div>
+		  </div>
+		  <div class="row d-flex">
+			<div class="col-md-3 d-flex ftco-animate">
+			  <div class="blog-entry align-self-stretch">
+				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_1.jpg');">
+				</a>
+				<div class="text p-4 d-block">
+					<span class="heading">김라인</span>
+					<h3 class="heading mt-3"><a href="#">안녕하세요. 네이버 개발자로 일하고 있습니다.</a></h3>
+					<div class="meta mb-3">
+					<div><a href="#">최근 컨택 2021년 05월 22일</a></div>
+					<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 후기 3</a></div>
+					</div>
+				  </div>
+			  </div>
+			</div>
+			<div class="col-md-3 d-flex ftco-animate">
+			  <div class="blog-entry align-self-stretch">
+				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_2.jpg');">
+				</a>
+				<div class="text p-4">
+					<span class="heading">알렉스</span>
+				  <h3 class="heading mt-3"><a href="#">산악자전거 동호회 회장 알렉스입니다. 여행 경험을 공유하고 싶어요.</a></h3>
+				  <div class="meta mb-3">
+					<div><a href="#">최근 컨택 2021년 06월 02일</a></div>
+					<div><a href="#" class="meta-chat"><span class="icon-chat"></span>후기 1</a></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="col-md-3 d-flex ftco-animate">
+			  <div class="blog-entry align-self-stretch">
+				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_3.jpg');">
+				</a>
+				<div class="text p-4">
+					<span class="heading">토마스</span>
+				  <h3 class="heading mt-3"><a href="#">산악자전거 동호회 회장 알렉스입니다. 여행 경험을 공유하고 싶어요.</a></h3>
+				  <div class="meta mb-3">
+					<div><a href="#">최근 컨택 2021년 06월 02일</a></div>
+					<div><a href="#" class="meta-chat"><span class="icon-chat"></span>후기 1</a></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+			<div class="col-md-3 d-flex ftco-animate">
+			  <div class="blog-entry align-self-stretch">
+				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_4.jpg');">
+				</a>
+				<div class="text p-4">
+					<span class="heading">귀찮스</span>
+				  <h3 class="heading mt-3"><a href="#">산악자전거 동호회 회장 알렉스입니다. 여행 경험을 공유하고 싶어요.</a></h3>
+				  <div class="meta mb-3">
+					<div><a href="#">최근 컨택 2021년 06월 02일</a></div>
+					<div><a href="#" class="meta-chat"><span class="icon-chat"></span>후기 1</a></div>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
+	  </section>
+	  <!-- 프로필 종료 -->
+
+	<!-- 매칭 건수 -->
+    <section class="ftco-section ftco-counter img" id="section-counter" style="background-image: url(resources/images/bg_1.jpg);">
+    	<div class="container">
+    		<div class="row justify-content-center mb-5 pb-3">
+          <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+            <h2 class="mb-4">현황판</h2>
+            <span class="subheading">경험이 전해지고 있습니다</span>
+          </div>
+        </div>
+    		<div class="row justify-content-center">
+    			<div class="col-md-10">
+		    		<div class="row">
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="12500">0</strong>
+		                <span>가입자수</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="41213">0</strong>
+		                <span>컨택 성사 건수</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="22310">0</strong>
+		                <span>컨택 예정 건수</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center">
+		              <div class="text">
+		                <strong class="number" data-number="10020400">0</strong>
+		                <span>컨택의 가치</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+
+    <!-- <section class="ftco-section">
+    	<div class="container">
+				<div class="row justify-content-start mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate">
+          	<span class="subheading">Special Offers</span>
+            <h2 class="mb-4"><strong>Popular</strong> Hotels &amp; Rooms</h2>
+          </div>
+        </div>    		
+    	</div>
+    	<div class="container-fluid">
+    		<div class="row">
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-1.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">Hotel, Italy</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 Rating</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price per-price">$40<br><small>/night</small></span>
+    							</div>
+    						</div>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-2.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">Hotel, Italy</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 Rating</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price per-price">$40<br><small>/night</small></span>
+    							</div>
+    						</div>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-3.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">Hotel, Italy</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 Rating</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price per-price">$40<br><small>/night</small></span>
+    							</div>
+    						</div>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-4.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">Hotel, Italy</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 Rating</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price per-price">$40<br><small>/night</small></span>
+    							</div>
+    						</div>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-sm col-md-6 col-lg ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/hotel-5.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<div class="d-flex">
+    							<div class="one">
+		    						<h3><a href="#">Hotel, Italy</a></h3>
+		    						<p class="rate">
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star"></i>
+		    							<i class="icon-star-o"></i>
+		    							<span>8 Rating</span>
+		    						</p>
+	    						</div>
+	    						<div class="two">
+	    							<span class="price per-price">$40<br><small>/night</small></span>
+    							</div>
+    						</div>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> Miami, Fl</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section> -->
+
+    
+
+    <!-- <section class="ftco-section">
+    	<div class="container">
+				<div class="row justify-content-start mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate">
+          	<span class="subheading">Special Offers</span>
+            <h2 class="mb-4"><strong>Popular</strong> Restaurants</h2>
+          </div>
+        </div>    		
+    		<div class="row">
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-1.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<h3><a href="#">Luxury Restaurant</a></h3>
+    						<p class="rate">
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star-o"></i>
+    							<span>8 Rating</span>
+    						</p>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+    							<span class="ml-auto"><a href="#">Discover</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-2.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<h3><a href="#">Luxury Restaurant</a></h3>
+    						<p class="rate">
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star-o"></i>
+    							<span>8 Rating</span>
+    						</p>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-3.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<h3><a href="#">Luxury Restaurant</a></h3>
+    						<p class="rate">
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star-o"></i>
+    							<span>8 Rating</span>
+    						</p>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="col-md-6 col-lg-3 ftco-animate">
+    				<div class="destination">
+    					<a href="#" class="img img-2 d-flex justify-content-center align-items-center" style="background-image: url(images/restaurant-4.jpg);">
+    						<div class="icon d-flex justify-content-center align-items-center">
+    							<span class="icon-search2"></span>
+    						</div>
+    					</a>
+    					<div class="text p-3">
+    						<h3><a href="#">Luxury Restaurant</a></h3>
+    						<p class="rate">
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star"></i>
+    							<i class="icon-star-o"></i>
+    							<span>8 Rating</span>
+    						</p>
+    						<p>Far far away, behind the word mountains, far from the countries</p>
+    						<hr>
+    						<p class="bottom-area d-flex">
+    							<span><i class="icon-map-o"></i> San Franciso, CA</span> 
+    							<span class="ml-auto"><a href="#">Book Now</a></span>
+    						</p>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section> -->
+
+	
+
+	<!-- 이벤트 파트 -->
+    <!-- <section class="ftco-section ftco-destination bg-light">
+    	<div class="container">
+    		<div class="row justify-content-start mb-5 pb-3">
+          <div class="col-md-7 heading-section ftco-animate">
+          	<span class="subheading">이벤트</span>
+            <h2 class="mb-4"><strong>사진참여 이벤트</strong></h2>
+          </div>
+        </div>
+    		<div class="row">
+    			<div class="col-md-12">
+    				<div class="destination-slider owl-carousel ftco-animate">
+    					<div class="item">
+		    				<div class="destination">
+		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-1.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-search2"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<h3><a href="#">BNP 파리바 주니어</a></h3>
+		    						<span class="listing">김프랑</span>
+		    					</div>
+		    				</div>
+	    				</div>
+	    				<div class="item">
+		    				<div class="destination">
+		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-2.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-search2"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<h3><a href="#">미국 구글 시니어</a></h3>
+		    						<span class="listing">알렉스</span>
+		    					</div>
+		    				</div>
+	    				</div>
+	    				<div class="item">
+		    				<div class="destination">
+		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-3.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-search2"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<h3><a href="#">네이버 개발자</a></h3>
+		    						<span class="listing">김라인</span>
+		    					</div>
+		    				</div>
+	    				</div>
+	    				<div class="item">
+		    				<div class="destination">
+		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-4.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-search2"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<h3><a href="#">서울대 교수</a></h3>
+		    						<span class="listing">박교수</span>
+		    					</div>
+		    				</div>
+	    				</div>
+	    				<div class="item">
+		    				<div class="destination">
+		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-5.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-search2"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<h3><a href="#">호주 교환학생</a></h3>
+		    						<span class="listing">호날두</span>
+		    					</div>
+		    				</div>
+	    				</div>
+	    				<div class="item">
+		    				<div class="destination">
+		    					<a href="#" class="img d-flex justify-content-center align-items-center" style="background-image: url(images/destination-6.jpg);">
+		    						<div class="icon d-flex justify-content-center align-items-center">
+		    							<span class="icon-search2"></span>
+		    						</div>
+		    					</a>
+		    					<div class="text p-3">
+		    						<h3><a href="#">카카오커머스 개발자</a></h3>
+		    						<span class="listing">김덕배</span>
+		    					</div>
+		    				</div>
+	    				</div>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </section> -->
+	<!-- 이벤트 파트 종료 -->
+		
+	<!-- <section class="ftco-section-parallax">
+      <div class="parallax-img d-flex align-items-center">
+        <div class="container">
+          <div class="row d-flex justify-content-center">
+            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+              <h2>Subcribe to our Newsletter</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in</p>
+              <div class="row d-flex justify-content-center mt-5">
+                <div class="col-md-8">
+                  <form action="#" class="subscribe-form">
+                    <div class="form-group d-flex">
+                      <input type="text" class="form-control" placeholder="Enter email address">
+                      <input type="submit" value="Subscribe" class="submit px-3">
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+	
+	<!-- footer.html -->
+	<!-- <div include-html="WEB-INF/tiles/footer.jsp"></div>-->
+	<%@include file ="WEB-INF/tiles/footer.jsp" %>
+
+	<!-- 헤더와 풋터 관리해주는 자바스크립트 -->
+	<script src="resources/js/includeHTML.js"></script>
+	<script>
+	  // 헤더, 풋터 등 불러오는 함수
+		  includeHTML();
+	</script>
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+	
+	<script src="resources/js/jquery.min.js"></script>
+	<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
+	<script src="resources/js/popper.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/js/jquery.easing.1.3.js"></script>
+	<script src="resources/js/jquery.waypoints.min.js"></script>
+	<script src="resources/js/jquery.stellar.min.js"></script>
+	<script src="resources/js/owl.carousel.min.js"></script>
+	<script src="resources/js/jquery.magnific-popup.min.js"></script>
+	<script src="resources/js/aos.js"></script>
+	<script src="resources/js/jquery.animateNumber.min.js"></script>
+	<script src="resources/js/bootstrap-datepicker.js"></script>
+	<script src="resources/js/jquery.timepicker.min.js"></script>
+	<script src="resources/js/scrollax.min.js"></script>
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
+	<script src="resources/js/google-map.js"></script>
+	<script src="resources/js/main.js"></script>
+    
+  </body>
+</html>
