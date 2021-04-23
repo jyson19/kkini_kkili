@@ -58,7 +58,7 @@ CREATE TABLE contact (
 	guest_id NUMBER DEFAULT 1, /* 게스트번호 */
 	regi_date DATE, /* 등록일 */
 	contact_intro VARCHAR2(500), /* 컨택 소개 */
-	lotation VARCHAR2(100), /* 장소 */
+	location VARCHAR2(100), /* 장소 */
 	meeting_time VARCHAR2(30), /* 시간 */
 	start_value NUMBER, /* 시작가 */
 	last_value NUMBER NOT NULL, /* 최종가격 */

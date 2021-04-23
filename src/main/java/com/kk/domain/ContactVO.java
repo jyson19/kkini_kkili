@@ -7,7 +7,7 @@ public class ContactVO {
 	private int guestId; // 게스트번호 fk from member.memberId
 	private String regiDate; // 등록일
 	private String contactIntro; // 컨택소개
-	private String lotation; // 장소
+	private String location; // 장소
 	private String meetingTime; // 시간
 	private int startValue; // 시작가
 	private int lastValue; // 최종가격
@@ -16,7 +16,7 @@ public class ContactVO {
 	public ContactVO() {
 	}
 
-	public ContactVO(int contactId, int hostId, int guestId, String regiDate, String contactIntro, String lotation,
+	public ContactVO(int contactId, int hostId, int guestId, String regiDate, String contactIntro, String location,
 			String meetingTime, int startValue, int lastValue, int qrCheck) {
 		super();
 		this.contactId = contactId;
@@ -24,7 +24,7 @@ public class ContactVO {
 		this.guestId = guestId;
 		this.regiDate = regiDate;
 		this.contactIntro = contactIntro;
-		this.lotation = lotation;
+		this.location = location;
 		this.meetingTime = meetingTime;
 		this.startValue = startValue;
 		this.lastValue = lastValue;
@@ -71,12 +71,12 @@ public class ContactVO {
 		this.contactIntro = contactIntro;
 	}
 
-	public String getLotation() {
-		return lotation;
+	public String getlocation() {
+		return location;
 	}
 
-	public void setLotation(String lotation) {
-		this.lotation = lotation;
+	public void setlocation(String location) {
+		this.location = location;
 	}
 
 	public String getMeetingTime() {
@@ -114,7 +114,7 @@ public class ContactVO {
 	@Override
 	public String toString() {
 		return "Contact [contactId=" + contactId + ", hostId=" + hostId + ", guestId=" + guestId + ", regiDate="
-				+ regiDate + ", contactIntro=" + contactIntro + ", lotation=" + lotation + ", meetingTime="
+				+ regiDate + ", contactIntro=" + contactIntro + ", location=" + location + ", meetingTime="
 				+ meetingTime + ", startValue=" + startValue + ", lastValue=" + lastValue + ", qrCheck=" + qrCheck
 				+ "]";
 	}
