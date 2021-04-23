@@ -14,5 +14,5 @@ public class BasicController {
 		System.out.println("BasicController : " + step + "페이지로 이동 요청");
 		return "main/" + step;
 	}
-	
+		
 }

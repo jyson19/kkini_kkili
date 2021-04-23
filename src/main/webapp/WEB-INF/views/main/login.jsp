@@ -14,7 +14,7 @@
       <!-- Meta -->
 
       <!-- 한글 관련 css 적용 -->
-	  <link rel="stylesheet" href="css/korean.css">
+	<link rel="stylesheet" href="./../resources/css/korean.css">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -23,28 +23,28 @@
       <meta name="author" content="Codedthemes" />
       <!-- Favicon icon -->
 
-      <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+      <link rel="icon" href="./../resources/assets/images/favicon.ico" type="image/x-icon">
       <!-- Google font-->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
       <!-- Required Fremwork -->
-      <link rel="stylesheet" type="text/css" href="assets/css/bootstrap/css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="./../resources/assets/css/bootstrap/css/bootstrap.min.css">
       <!-- waves.css -->
-      <link rel="stylesheet" href="assets/pages/waves/css/waves.min.css" type="text/css" media="all">
+      <link rel="stylesheet" href="./../resources/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
       <!-- themify-icons line icon -->
-      <link rel="stylesheet" type="text/css" href="assets/icon/themify-icons/themify-icons.css">
+      <link rel="stylesheet" type="text/css" href="./../resources/assets/icon/themify-icons/themify-icons.css">
       <!-- ico font -->
-      <link rel="stylesheet" type="text/css" href="assets/icon/icofont/css/icofont.css">
+      <link rel="stylesheet" type="text/css" href="./../resources/assets/icon/icofont/css/icofont.css">
       <!-- Font Awesome -->
-      <link rel="stylesheet" type="text/css" href="assets/icon/font-awesome/css/font-awesome.min.css">
+      <link rel="stylesheet" type="text/css" href="./../resources/assets/icon/font-awesome/css/font-awesome.min.css">
       <!-- Style.css -->
-      <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+      <link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
   </head>
 
   <body themebg-pattern="theme1">
 
 <!-- 헤더 -->
-<div include-html="header.html"></div>
-<!-- 헤더 종료 -->
+	<%@include file ="/WEB-INF/tiles/header.jsp" %>
+	<!-- 헤더 종료 -->
 
   <!-- Pre-loader start : 로딩 작업-->
   <div class="theme-loader">
@@ -140,7 +140,7 @@
                                                 </label>
                                             </div>
                                             <div class="forgot-phone text-right f-right">
-                                                <a href="auth-reset-password.html" class="text-right f-w-600"> 비밀번호 찾기</a>
+                                                <!--<a href="auth-reset-password.html" class="text-right f-w-600"> 비밀번호 찾기</a>-->
                                             </div>
                                         </div>
                                     </div>
@@ -216,22 +216,19 @@
 <![endif]-->
 <!-- Warning Section Ends -->
 <!-- Required Jquery -->
-<script type="text/javascript" src="assets/js/jquery/jquery.min.js "></script>
-<script type="text/javascript" src="assets/js/jquery-ui/jquery-ui.min.js "></script>
-<script type="text/javascript" src="assets/js/popper.js/popper.min.js"></script>
-<script type="text/javascript" src="assets/js/bootstrap/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="./../resources/assets/js/jquery/jquery.min.js "></script>
+<script type="text/javascript" src="./../resources/assets/js/jquery-ui/jquery-ui.min.js "></script>
+<script type="text/javascript" src="./../resources/assets/js/popper.js/popper.min.js"></script>
+<script type="text/javascript" src="./../resources/assets/js/bootstrap/js/bootstrap.min.js "></script>
 <!-- waves js -->
-<script src="assets/pages/waves/js/waves.min.js"></script>
+<script src="./../resources/assets/pages/waves/js/waves.min.js"></script>
 <!-- jquery slimscroll js -->
-<script type="text/javascript" src="assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
-<script type="text/javascript" src="assets/js/common-pages.js"></script>
+<script type="text/javascript" src="./../resources/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="./../resources/assets/js/common-pages.js"></script>
 
-<!-- 헤더와 풋터 관리해주는 자바스크립트 -->
-<script src="js/includeHTML.js"></script>
-<script>
-  // 헤더, 풋터 등 불러오는 함수
-      includeHTML();
-</script>
+
 </body>
 
 </html>
+
+
