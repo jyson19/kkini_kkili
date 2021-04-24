@@ -1,5 +1,7 @@
 package com.kk.domain;
 
+import java.text.DecimalFormat;
+
 // 컨택 DTO
 public class ContactVO {
 	private int contactId; // 컨택번호 pk
@@ -40,6 +42,12 @@ public class ContactVO {
 	}
 
 	public int getContactId() {
+		
+		
+		
+		
+		
+		
 		return contactId;
 	}
 

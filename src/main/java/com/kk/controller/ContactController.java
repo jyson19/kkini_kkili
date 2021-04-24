@@ -24,4 +24,10 @@ public class ContactController {
 //		model.addAttribute("contactList", contactService.getContactList(conVO));
 		model.addAttribute("contactList", contactService.getContactList());
 	}
+	
+	
+	@RequestMapping("host/profile.do")
+	public void temp() {
+		System.out.println("ContactController.temp");
+	};
 }
