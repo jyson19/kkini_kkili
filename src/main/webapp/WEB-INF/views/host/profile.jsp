@@ -37,7 +37,8 @@
 	<%@include file="/WEB-INF/tiles/header.jsp"%>
 	<!-- 헤더 종료 -->
     
-  <div class="hero-wrap js-fullheight" style="background-image: url('images/bg_4.jpg');">
+
+  <div class="hero-wrap js-fullheight" style="background-image: url('./../resources/images/bg_4.jpg');">
     <div class="overlay"></div>
     <div class="container">
       <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
@@ -64,6 +65,17 @@
                 <p>경력을 짧게 쓰면 사진이 크게 나옴</p>
               </div>
             </div>
+
+호스트 프로필 페이지 표기 목록
+  1. 사진
+  2. 소속(회사)
+  3. 생성했던 컨택 목록
+  4. 댓글
+  
+  제외 항목
+  1. 자기소개
+  2. 
+    
 
             <h2 class="mb-3">간단한 자기소개 부탁드립니다!</h2>
             <p>안녕하세요. 오늘 날씨가 참 좋습니다. 어떻게 잘 지내고 계신지는 모르겠어요. 요즘 저는 프로젝트하나라 바쁘게 지내는 것 같습니다. 요즘 저는 프로젝트하나라 바쁘게 지내는 것 같습니다. 요즘 저는 프로젝트하나라 바쁘게 지내는 것 같습니다. 토스도 공고 나왔던데 가고 싶어요. 아무튼 프로젝트 잘 해서 포트폴리오 한번 기막히게 구성해 봅시다.</p>
