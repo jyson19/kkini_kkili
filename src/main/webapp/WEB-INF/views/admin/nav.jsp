@@ -146,14 +146,14 @@
             <div class="pcoded-navigation-label">페이지 관리</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
-                    <a href="admin_chart.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/admin/users.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                         <span class="pcoded-mtext">이용자 수 조회</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="admin_table.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/admin/match.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                         <span class="pcoded-mtext">매칭현황 조회</span>
                         <span class="pcoded-mcaret"></span>
@@ -163,14 +163,14 @@
             <div class="pcoded-navigation-label">운영관리</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
-                    <a href="admin_table.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/admin/sales.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
                         <span class="pcoded-mtext">총매출 조회</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="admin_table.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/admin/book.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
                         <span class="pcoded-mtext">매출 장부 조회</span>
                         <span class="pcoded-mcaret"></span>

@@ -12,4 +12,12 @@ public interface AdminDAO {
 	List<MemberVO> getHostup(MemberVO vo);
 	
 	List<MemberVO> getDormancy(MemberVO vo);
+	
+	List<MemberVO> getUsers(MemberVO vo);
+	
+	List<MemberVO> getMatch(MemberVO vo);
+	
+	List<MemberVO> getSales(MemberVO vo);
+	
+	List<MemberVO> getBook(MemberVO vo);
 }
