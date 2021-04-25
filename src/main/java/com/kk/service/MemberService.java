@@ -10,5 +10,6 @@ import com.kk.domain.MemberVO;
 public interface MemberService {
 	MemberVO getMember(MemberVO vo);
 	List<MemberVO> getMemberList(MemberVO vo);
+	int insertMember(MemberVO vo);
 	
 }

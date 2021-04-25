@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.kk.domain.MemberVO;
 import com.kk.service.MemberService;
@@ -32,4 +33,20 @@ public class MemberController {
 		
 		return result;
 	}
+	
+	// 회원가입 sumbit -> Member Insert를 위한 메소드
+	@RequestMapping(value="main/signUp.do", produces="application/text; charset=utf8")
+	public String insertMember(MemberVO vo) {
+		
+		// 한번 더 유효성 검사
+		if( vo.getEmail()!=null && vo.getName()!=null && vo.getPassword()!=null && vo.getTel()!=0 ) {
+			System.out.println("MemberController : insertMember - 가입 진행");
+			memberService.insertMember(vo);
+		}
+		
+		return "redirect:login.do";
+	}
+	
+	
 }
+

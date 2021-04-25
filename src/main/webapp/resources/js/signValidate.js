@@ -10,6 +10,10 @@ checkbox : 이용약관 체크
 
 */
 
+/*테스트용
+ * email = true; email_check=true; email_confirm = true; password = true; cpassword = true; checkbox = true;
+ */
+
 // 아이디 중복 여부 확인
 	let email = false;
 	let email_check = false;
@@ -145,16 +149,82 @@ $(()=>{
         }
 	}); 
 	
+	// 이메일 인증키 관련 사항
+	$('#confirm').click(function(){
+		console.log("이메일 인증키 발송")
+		if(email_check==true){
+			// ajax 통신
+			$.ajax({
+	         	type :'post',
+	         	data : { "email" : $('#email').val()},               	
+	         	url : 'emailAuth/sendingEmail.do',
+	         	contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+	         	
+			}); // end of ajax    
+		}
+		
+		alert("인증 메일 전송 완료 : 사용하는 메일에 따라 최대 5분 정도의 시간이 걸릴 수 있습니다. 스팸메일함도 확인해주세요.")
+	})
+	
+	// 제출 버튼을 tab으로 옮겨서 들어오는 경우
+	$('#submit_btn').focus(function(){
+		// 이메일 인증 여부 최종 확인
+		ajax_email_check();
+	})
+	
+	// 제출 버튼에 마우스 올라갈 때
+	$('#submit_btn').hover(function(){
+		// 이메일 인증 여부 최종 확인
+		ajax_email_check();
+	})
+	
+	// 회원가입 버튼 클릭시 submit 발동 조건
 	$('#submit_btn').click(function(){
+		
+		if(email_confirm == false){
+			alert("이메일 인증이 아직 완료되지 않았습니다");
+			return;
+		}
+		
+		// 최종 검사
 		console.log(email == true, email_check == true, email_confirm == true, 
 			password == true, cpassword == true, checkbox == true);
+		
+		// 제출
 		if(email == true && email_check == true && email_confirm == true && 
 			password == true && cpassword == true && checkbox == true){
 			$('#registerForm').submit(); 			
 		}
+		
 	})
-	
+
 })
+
+function ajax_email_check(){
+	// 이메일 인증 여부 최종 확인
+	if(email_check==true && email_confirm==false){
+		// ajax 통신
+		$.ajax({
+         	type :'post',
+         	data : { "email" : $('#email').val()},               	
+         	url : 'emailAuth/signUp.do',
+         	contentType : "application/x-www-form-urlencoded; charset=UTF-8",
+         	success : email_auth_suc
+//        	,error : function(err){
+//        		alert('error');
+//        		console.log(err);
+//        	}
+		}); // end of ajax    
+	}
+}
+
+function email_auth_suc(data) {
+	if(data == "1"){
+		email_confirm = true;
+	} else {
+		email_confirm = false;
+	}
+}
 	
 function suc(data){
 	if(data == "1"){
