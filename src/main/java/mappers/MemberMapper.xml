@@ -12,7 +12,16 @@
 		 WHERE email = #{email}
 	</select>
 	
+	<select id="getMemberList" resultType="member">
+		SELECT *
+		FROM member
+	</select>
+	
 	<!-- 가입 -->
+	<insert id="insertMember">
+		INSERT INTO member(member_id, name, email, password, tel, auth, join_date, last_conn_date)
+		VALUES(seq_mid.nextval, #{name}, #{email}, #{password}, ${tel}, 0, SYSDATE, SYSDATE)
+	</insert>
 	
 	<!-- 개인정보 수정 -->
 	

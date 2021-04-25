@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emailAuth">
+
+	<!-- 이메일 인증 관련 매퍼 -->
+	<select id="getEmail" parameterType="emailAuth" resultType="emailAuth">
+		SELECT * FROM EMAIL_AUTH WHERE email = #{email}
+	</select>
+	
+	<insert id="insert" parameterType="emailAuth">
+		INSERT INTO EMAIL_AUTH(email, auth_key, auth_status) VALUES(#{email}, #{authKey}, #{authStatus})
+	</insert>
+
+	<update id="update" parameterType="emailAuth">
+		UPDATE EMAIL_AUTH SET auth_key = #{authKey}, auth_status = #{authStatus} WHERE email = #{email}
+	</update>
+
+</mapper>

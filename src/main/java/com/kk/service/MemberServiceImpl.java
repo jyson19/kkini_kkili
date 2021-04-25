@@ -21,8 +21,12 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public List<MemberVO> getMemberList(MemberVO vo) {
-		// TODO Auto-generated method stub
-		return null;
+		return memberDAO.getMemberList(vo);
+	}
+
+	@Override
+	public int insertMember(MemberVO vo) {
+		return memberDAO.insertMember(vo);
 	}
 	
 }

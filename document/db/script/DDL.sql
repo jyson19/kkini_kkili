@@ -30,6 +30,10 @@ DROP TABLE bookmark
 DROP TABLE contact_history 
 	CASCADE CONSTRAINTS;
 
+/* email 인증 */
+DROP TABLE email_auth
+	CASCADE CONSTRAINTS;
+
 /* 회원 */
 CREATE TABLE member (
 	member_id NUMBER NOT NULL, /* 회원번호 */
@@ -102,6 +106,12 @@ CREATE TABLE contact_history (
 	bid_time DATE /* 입찰시간 */
 );
 
+/* email 인증 */
+CREATE TABLE email_auth (
+	email VARCHAR2(30) PRIMARY KEY, /* 이메일 */
+	auth_key VARCHAR2(30) NOT NULL, /* 인증키*/
+	auth_status NUMBER(1) DEFAULT 0 NOT NULL /* 상태 : 1이면 인증 완료*/
+);
 
 commit;
 

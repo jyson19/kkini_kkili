@@ -106,7 +106,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-12">
-                    <form id="registerForm" class="md-float-material form-material">
+                    <form id="registerForm" class="md-float-material form-material" action="signUp.do" method="post">
                         <!-- <div class="text-center">
                             <img src="assets/images/logo.png" alt="logo.png">
                         </div> -->
@@ -142,12 +142,11 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <span><button id="confirm" type="button" class="btn btn-primary btn-md btn-blocktext-center m-b-20">이메일 인증</button></span>
-                                        <input type="text" class="form-control col-md-8 f-right" placeholder="인증키 입력">
+                                        <!-- <input type="text" class="form-control col-md-8 f-right"> -->
+                                        <div class="col-md-8 f-right"></div>
                                     </div>
                                 </div>
                                 
-                                
-
                                 <div class="form-group form-primary">
                                     <input type="tel" id="tel" name="tel" maxlength="11" class="form-control digits" id="tel" required>
                                     <span class="form-bar"></span>
