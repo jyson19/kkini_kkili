@@ -1,23 +1,24 @@
 package com.kk.dao;
 
 import java.util.List;
+import java.util.Map;
 
-import com.kk.domain.MemberVO;
+import com.kk.domain.AdminVO;
 
 public interface AdminDAO {
-	List<MemberVO> getAdminMain(MemberVO vo);
+	List<AdminVO> getAdminMain(AdminVO vo);
 	
-	List<MemberVO> getStaff(MemberVO vo);
+	List<AdminVO> getStaff(AdminVO vo);
 	
-	List<MemberVO> getHostup(MemberVO vo);
+	List<Map<String, String>> getHostup();
 	
-	List<MemberVO> getDormancy(MemberVO vo);
+	List<AdminVO> getDormancy(AdminVO vo);
 	
-	List<MemberVO> getUsers(MemberVO vo);
+	List<AdminVO> getUsers(AdminVO vo);
 	
-	List<MemberVO> getMatch(MemberVO vo);
+	List<AdminVO> getMatch(AdminVO vo);
 	
-	List<MemberVO> getSales(MemberVO vo);
+	List<AdminVO> getSales(AdminVO vo);
 	
-	List<MemberVO> getBook(MemberVO vo);
+	List<AdminVO> getBook(AdminVO vo);
 }

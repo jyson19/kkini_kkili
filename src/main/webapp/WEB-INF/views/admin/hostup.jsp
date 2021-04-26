@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <!DOCTYPE html>
+
 <html lang="ko">
 
 <head>
@@ -222,56 +224,79 @@
                                         <!-- Inverse table card end -->
                                         
                                         
-                                        <!-- Hover table card start -->
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h5>Hover Table</h5>
-                                                <span>use class <code>table-hover</code> inside table element</span>
-                                                <div class="card-header-right">
-                                                    <ul class="list-unstyled card-option">
-                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                                                        <li><i class="fa fa-minus minimize-card"></i></li>
-                                                        <li><i class="fa fa-refresh reload-card"></i></li>
-                                                        <li><i class="fa fa-trash close-card"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="card-block table-border-style">
-                                                <div class="table-responsive">
-                                                    <table class="table table-hover">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
+<!-- Hover table card start -->
+<div class="card">
+    <div class="card-header">
+        <h3>호스트 인증 관리</h3>
+        <span>요청 자료를 확인 후<code>호스트</code>권한을 부여해 주세요</span>
+        <div class="card-header-right">
+            <ul class="list-unstyled card-option">
+                <li><i class="fa fa fa-wrench open-card-option"></i></li>
+                <li><i class="fa fa-window-maximize full-card"></i></li>
+                <li><i class="fa fa-minus minimize-card"></i></li>
+                <li><i class="fa fa-refresh reload-card"></i></li>
+                <li><i class="fa fa-trash close-card"></i></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-block table-border-style">
+        <div class="table-responsive">
+        	<form action="호스트 요청 자료.do" method="post">
+	            <table class="table table-hover">
+	                <thead>
+	                    <tr>
+	                        <th>#</th>
+	                        <th>신청 일시</th>
+	                        <th>이름</th>
+	                        <th>핸드폰</th>
+	                        <th>이메일</th>
+	                        <th>인증</th>
+	                    </tr>
+	                </thead>
+	                <tbody>
+	                <!-- 
+	                    <tr>
+	                        <th scope="row">1</th>
+	                        <td>21/04/01</td>
+	                        <td>이재용</td>
+	                        <td>1012343333</td>
+	                        <td>samsung@gmail.com</td>
+	                        <td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
+	                    </tr>
+	                    <tr>
+	                        <th scope="row">2</th>
+	                        <td>21/04/01</td>
+	                        <td>최태원</td>
+	                        <td>1012342222</td>
+	                        <td>sk@gmail.com</td>                        
+	                        <td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
+	                    </tr>
+	                    <tr>
+	                        <th scope="row">3</th>
+	                        <td>21/04/01</td>
+	                        <td>김범석</td>
+	                        <td>1012342222</td>
+	                        <td>coopang@gmail.com</td>                        
+	                        <td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
+	                    </tr>
+	                 -->
+						<!-- 프라퍼티이름 변경 -->
+	                    <c:forEach items="${hostUpList}" var="a">
+						<tr>
+							<td>${a.MEMBER_ID }</td>
+							<td>${a.WRITE_DATE }</td>
+							<td>${a.NAME}</td>
+							<td>${a.TEL}</td>
+							<td>${a.EMAIL}</td>
+							<td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
+						</tr>
+						</c:forEach>
+	                </tbody>
+	            </table>
+            </form>
+        </div>
+    </div>
+</div>
                                         <!-- Hover table card end -->
                                         
                                         <!-- 
