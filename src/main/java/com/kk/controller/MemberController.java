@@ -39,7 +39,6 @@ public class MemberController {
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
 		if (memberService.memberSigninService(member) != null) {
 			session.setAttribute("email", memberService.memberSigninService(member).getEmail().trim());
-			System.out.println("1");
 			System.out.println(session.getAttribute("email"));
 			return "redirect:" + prevPage;
 		} else {
