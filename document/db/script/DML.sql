@@ -37,6 +37,7 @@ INSERT INTO member VALUES(seq_mid.nextval, '김봉진', 'baemin@gmail.com', 'bae
 INSERT INTO member VALUES(seq_mid.nextval, '이승건', 'toss@gmail.com', 'toss123', 01012349999, 0, '2021-04-12', '2021-04-13');
 INSERT INTO member VALUES(seq_mid.nextval, '안성우', 'zigbang@gmail.com', 'zigbang123', 01012351111, 0, '2021-04-01', '2021-04-02');
 INSERT INTO member VALUES(seq_mid.nextval, '김팀쿡', 'apple@gmail.com', 'apple123', 01012353333, 0, '2021-04-02', '2021-04-14');
+INSERT INTO member VALUES(seq_mid.nextval, '관리자', 'manager@kkinikkili.com', 'kkinimaster', 01012364444, 2, '2021-04-26', '2021-04-26');
 
 /* host */
 /* 임시 DB상 회원번호 1~6번만 호스트 권한 보유 */

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -27,8 +28,9 @@
                 </div>
                 <a href="index.html">
                     <!-- 로고 입력 -->
-                    <h3>끼니끼리</h3>
-                    <!-- <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" /> -->
+                    <h3></h3>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/resources/logo/kk-logo-white.png" alt="끼니끼리로고" height="50" width="auto"/></a>
+                    
                 </a>
                 <a class="mobile-options waves-effect waves-light">
                     <i class="ti-more"></i>
@@ -46,7 +48,7 @@
                     </li>
                 </ul>
                 <ul class="nav-right">
-                    <li class="header-notification">
+                    <%-- <li class="header-notification">
                         <a href="#!" class="waves-effect waves-light">
                             <i class="ti-bell"></i>
                             <span class="badge bg-c-red"></span>
@@ -60,7 +62,7 @@
                                 <div class="media">
                                     <img class="d-flex align-self-center img-radius" src="assets/images/avatar-2.jpg" alt="Generic placeholder image">
                                     <div class="media-body">
-                                        <h5 class="notification-user">John Doe</h5>
+                                        <h5 class="notification-user"><%=member.getName()%></h5>
                                         <p class="notification-msg">Lorem ipsum dolor sit amet, consectetuer elit.</p>
                                         <span class="notification-time">30 minutes ago</span>
                                     </div>
@@ -86,12 +88,12 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
-                    </li>
+                        </ul> 
+                    </li>--%>
                     <li class="user-profile header-notification">
                         <a href="#!" class="waves-effect waves-light">
-                            <img src="assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
-                            <span>John Doe</span>
+                            <img src="../resources/assets/images/avatar-4.jpg" class="img-radius" alt="User-Profile-Image">
+                            <span><%=member.getName()%></span>
                             <i class="ti-angle-down"></i>
                         </a>
                         <ul class="show-notification profile-notification">
@@ -116,7 +118,7 @@
                                 </a>
                             </li> -->
                             <li class="waves-effect waves-light">
-                                <a href="index.html">
+                                <a href="../sign/logout.do">
                                     <i class="ti-layout-sidebar-left"></i> 로그아웃
                                 </a>
                             </li>
