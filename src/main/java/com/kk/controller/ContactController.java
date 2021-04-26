@@ -1,6 +1,8 @@
 package com.kk.controller;
 
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,6 +10,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kk.domain.PageMaker;
+import com.kk.domain.PagingCriteria;
 import com.kk.service.ContactService;
 
 // 컨택 관련 controller
@@ -20,9 +24,16 @@ public class ContactController {
 
 	// 컨택 목록
 	@RequestMapping("contact/list.do")
-	public void getContactList(Model model) {
+	public void getContactList(PagingCriteria cri, Model model) {
 		System.out.println("ContactController.getContactList");
-		model.addAttribute("contactList", contactService.getContactList());
+		
+		List<Map<String, String>> boardList = contactService.getContactList(cri);
+		
+		int total = contactService.totalCnt();
+		System.out.println("컨택 글 갯수 : " + total);
+		
+		model.addAttribute("contactList", boardList);
+		model.addAttribute("paging",new PageMaker(cri,total));
 	}
 
 	// 컨택 검색(키워드 + 지역 + 날짜)

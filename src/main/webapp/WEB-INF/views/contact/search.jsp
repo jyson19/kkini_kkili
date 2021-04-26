@@ -147,6 +147,7 @@
 			</div>
 
 			<!-- 하단 숫자 -->
+			<!-- 
 			<div class="row mt-5">
 				<div class="col text-center">
 					<div class="block-27">
@@ -162,6 +163,7 @@
 					</div>
 				</div>
 			</div>
+			 -->
 		</div>
 		<!-- .col-md-8 -->
 		</div>
