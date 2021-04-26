@@ -30,8 +30,12 @@ DROP TABLE bookmark
 DROP TABLE contact_history 
 	CASCADE CONSTRAINTS;
 
-/* email 인증 */
-DROP TABLE email_auth
+/* 호스트인증 */
+DROP TABLE host_auth 
+	CASCADE CONSTRAINTS;
+
+/* 이메일인증 */
+DROP TABLE TABLE 
 	CASCADE CONSTRAINTS;
 
 /* 회원 */
@@ -48,7 +52,7 @@ CREATE TABLE member (
 
 /* 호스트 */
 CREATE TABLE host (
-	host_id NUMBER DEFAULT 1 NOT NULL, /* 호스트번호 */
+	host_id NUMBER NOT NULL, /* 호스트번호 */
 	host_pic VARCHAR2(30), /* 프로필사진 */
 	company VARCHAR2(30), /* 회사 */
 	uni VARCHAR2(30), /* 대학교 */
@@ -58,8 +62,8 @@ CREATE TABLE host (
 /* 컨택 */
 CREATE TABLE contact (
 	contact_id NUMBER NOT NULL, /* 컨택번호 */
-	host_id NUMBER DEFAULT 1 NOT NULL, /* 호스트번호 */
-	guest_id NUMBER DEFAULT 1, /* 게스트번호 */
+	host_id NUMBER NOT NULL, /* 호스트번호 */
+	guest_id NUMBER, /* 게스트번호 */
 	regi_date DATE, /* 등록일 */
 	contact_intro VARCHAR2(500), /* 컨택 소개 */
 	location VARCHAR2(100), /* 장소 */
@@ -72,8 +76,8 @@ CREATE TABLE contact (
 /* 댓글 */
 CREATE TABLE cmt (
 	cmt_id NUMBER NOT NULL, /* 댓글번호 */
-	host_id NUMBER DEFAULT 1 NOT NULL, /* 호스트번호 */
-	guest_id NUMBER DEFAULT 1, /* 게스트번호 */
+	host_id NUMBER NOT NULL, /* 호스트번호 */
+	guest_id NUMBER, /* 회원번호 */
 	write_date DATE, /* 등록일 */
 	content VARCHAR2(200) /* 댓글내용 */
 );
@@ -82,8 +86,8 @@ CREATE TABLE cmt (
 CREATE TABLE notice (
 	notice_no NUMBER NOT NULL, /* 공지사항번호 */
 	no_write_date DATE, /* 등록일 */
-	subject VARCHAR2(100), /* 제목 */
-	contents VARCHAR2(500) /* 내용 */
+	subject VARCHAR2(30), /* 제목 */
+	contents VARCHAR2(200) /* 내용 */
 );
 
 /* 매출액 */
@@ -94,8 +98,8 @@ CREATE TABLE account (
 
 /* 찜 */
 CREATE TABLE bookmark (
-	host_id NUMBER DEFAULT 1 NOT NULL, /* 호스트번호 */
-	guest_id NUMBER DEFAULT 1 /* 게스트번호 */
+	host_id NUMBER NOT NULL, /* 호스트번호 */
+	guest_id NUMBER /* 게스트번호 */
 );
 
 /* 입찰내역 */
@@ -106,12 +110,21 @@ CREATE TABLE contact_history (
 	bid_time DATE /* 입찰시간 */
 );
 
-/* email 인증 */
-CREATE TABLE email_auth (
-	email VARCHAR2(30) PRIMARY KEY, /* 이메일 */
-	auth_key VARCHAR2(30) NOT NULL, /* 인증키*/
-	auth_status NUMBER(1) DEFAULT 0 NOT NULL /* 상태 : 1이면 인증 완료*/
+/* 호스트인증 */
+CREATE TABLE host_auth (
+	member_id NUMBER NOT NULL, /* 회원번호 */
+	write_date DATE, /* 신청일자 */
+	auth_file VARCHAR2(30) NOT NULL, /* 인증파일 */
+	result NUMBER(1) NOT NULL /* 결과 */
 );
+
+/* 이메일인증 */
+CREATE TABLE TABLE (
+	email VARCHAR2(30) NOT NULL, /* 이메일 */
+	auth_key VARCHAR2(30) NOT NULL, /* 인증키 */
+	auth_status NUMBER(1) NOT NULL /* 상태 */
+);
+
 
 commit;
 
