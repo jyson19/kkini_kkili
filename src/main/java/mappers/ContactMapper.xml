@@ -20,6 +20,7 @@
 			c.guest_id AS guest_id, 
 			c.regi_date AS regi_date, 
 			c.contact_intro AS contact_intro, 
+			c.store_name AS store_name, 
 			c.location AS location, 
 			c.meeting_time AS meeting_time, 
 			c.start_value AS start_value, 

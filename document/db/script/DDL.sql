@@ -35,7 +35,7 @@ DROP TABLE host_auth
 	CASCADE CONSTRAINTS;
 
 /* 이메일인증 */
-DROP TABLE TABLE 
+DROP TABLE email_auth 
 	CASCADE CONSTRAINTS;
 
 /* 회원 */
@@ -66,9 +66,10 @@ CREATE TABLE contact (
 	guest_id NUMBER, /* 게스트번호 */
 	regi_date DATE, /* 등록일 */
 	contact_intro VARCHAR2(500), /* 컨택 소개 */
-	location VARCHAR2(100), /* 장소 */
+	store_name VARCHAR2(50) NOT NULL, /* 상호명 */
+	location VARCHAR2(100) NOT NULL, /* 주소 */
 	meeting_time VARCHAR2(30), /* 시간 */
-	start_value NUMBER, /* 시작가 */
+	start_value NUMBER NOT NULL, /* 시작가 */
 	last_value NUMBER NOT NULL, /* 최종가격 */
 	qr_check NUMBER(1) /* 만남확인 */
 );
@@ -119,12 +120,11 @@ CREATE TABLE host_auth (
 );
 
 /* 이메일인증 */
-CREATE TABLE TABLE (
+CREATE TABLE email_auth (
 	email VARCHAR2(30) NOT NULL, /* 이메일 */
 	auth_key VARCHAR2(30) NOT NULL, /* 인증키 */
 	auth_status NUMBER(1) NOT NULL /* 상태 */
 );
-
 
 commit;
 
