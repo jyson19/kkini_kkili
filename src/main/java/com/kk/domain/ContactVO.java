@@ -1,5 +1,7 @@
 package com.kk.domain;
 
+import java.text.DecimalFormat;
+
 // 컨택 DTO
 public class ContactVO {
 	private int contactId; // 컨택번호 pk
@@ -7,7 +9,8 @@ public class ContactVO {
 	private int guestId; // 게스트번호 fk from member.memberId
 	private String regiDate; // 등록일
 	private String contactIntro; // 컨택소개
-	private String location; // 장소
+	private String storeName; // 상호명
+	private String location; // 주소
 	private String meetingTime; // 시간
 	private int startValue; // 시작가
 	private int lastValue; // 최종가격
@@ -16,27 +19,20 @@ public class ContactVO {
 	public ContactVO() {
 	}
 
-	public ContactVO(int contactId, int hostId, int guestId, String regiDate, String contactIntro, String location,
-			String meetingTime, int startValue, int lastValue, int qrCheck) {
+	public ContactVO(int contactId, int hostId, int guestId, String regiDate, String contactIntro, String storeName,
+			String location, String meetingTime, int startValue, int lastValue, int qrCheck) {
 		super();
 		this.contactId = contactId;
 		this.hostId = hostId;
 		this.guestId = guestId;
 		this.regiDate = regiDate;
 		this.contactIntro = contactIntro;
+		this.storeName = storeName;
 		this.location = location;
 		this.meetingTime = meetingTime;
 		this.startValue = startValue;
 		this.lastValue = lastValue;
 		this.qrCheck = qrCheck;
-	}
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
 	}
 
 	public int getContactId() {
@@ -79,6 +75,22 @@ public class ContactVO {
 		this.contactIntro = contactIntro;
 	}
 
+	public String getStoreName() {
+		return storeName;
+	}
+
+	public void setStoreName(String storeName) {
+		this.storeName = storeName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
 	public String getMeetingTime() {
 		return meetingTime;
 	}
@@ -114,8 +126,8 @@ public class ContactVO {
 	@Override
 	public String toString() {
 		return "ContactVO [contactId=" + contactId + ", hostId=" + hostId + ", guestId=" + guestId + ", regiDate="
-				+ regiDate + ", contactIntro=" + contactIntro + ", location=" + location + ", meetingTime="
-				+ meetingTime + ", startValue=" + startValue + ", lastValue=" + lastValue + ", qrCheck=" + qrCheck
-				+ "]";
+				+ regiDate + ", contactIntro=" + contactIntro + ", storeName=" + storeName + ", location=" + location
+				+ ", meetingTime=" + meetingTime + ", startValue=" + startValue + ", lastValue=" + lastValue
+				+ ", qrCheck=" + qrCheck + "]";
 	}
 }

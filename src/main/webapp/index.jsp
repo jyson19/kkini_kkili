@@ -68,7 +68,7 @@
             	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-fork"></i></a></span>
             	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-hotel"></i></a></span> 
             	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-meeting-point"></i></a></span> 
-            	<span class="d-flex justify-content-md-center align-items-md-	center" style="visibility: hidden;"><a href="#"><i class="flaticon-shopping-bag"></i></a></span>
+            	<span class="d-flex justify-content-md-center align-items-md-center" style="visibility: hidden;"><a href="#"><i class="flaticon-shopping-bag"></i></a></span>
             </p>
           </div>
         </div>

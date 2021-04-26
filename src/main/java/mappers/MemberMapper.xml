@@ -11,12 +11,12 @@
 		FROM member
 		WHERE email = #{email}
 	</select>
-
+	
 	<select id="getMemberList" resultType="member">
 		SELECT *
 		FROM member
 	</select>
-
+	
 	<!-- 가입 -->
 	<insert id="insertMember">
 		INSERT INTO member(member_id, name, email, password, tel, auth, join_date, last_conn_date)
@@ -41,8 +41,6 @@
 	</select>
 
 	<!-- 로그인시 최근접속일 갱신 -->
-
-
 
 
 	<!-- 관리자 초대 -->

@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.kk.domain.MemberVO;
 import com.kk.service.MemberService;
@@ -17,7 +22,38 @@ import com.kk.service.MemberService;
 public class MemberController {
 
 	@Autowired
-	MemberService memberService;
+	private MemberService memberService;
+
+	// id check를 위한 메서드
+	@RequestMapping(value = "main/member/idCheck.do", produces = "application/text; charset=utf8")
+	@ResponseBody
+	public String getEmail(String email) {
+		System.out.println("MemberController : idCheck");
+		String result = "1"; // 기본적으로 해당 메일 사용불가
+
+		MemberVO vo = new MemberVO();
+
+		vo.setEmail(email);
+
+		if (memberService.getMember(vo) == null) { // DB에 없으면 해당 메일 사용 가능
+			result = "0";
+		}
+
+		return result;
+	}
+
+	// 회원가입 sumbit -> Member Insert를 위한 메소드
+	@RequestMapping(value = "main/signUp.do", produces = "application/text; charset=utf8")
+	public String insertMember(MemberVO vo) {
+
+		// 한번 더 유효성 검사
+		if (vo.getEmail() != null && vo.getName() != null && vo.getPassword() != null && vo.getTel() != 0) {
+			System.out.println("MemberController : insertMember - 가입 진행");
+			memberService.insertMember(vo);
+		}
+
+		return "redirect:login.do";
+	}
 
 	@RequestMapping(value = "signin.do", method = RequestMethod.GET)
 	public void signin(MemberVO member, HttpServletRequest request) {
@@ -26,7 +62,7 @@ public class MemberController {
 		String referrer = request.getHeader("Referer");
 		System.out.println(referrer);
 		// 이전 페이지가 로그인 페이지가 아니면 세션에 저장하기
-		if(!referrer.contains("sign")) {
+		if (!referrer.contains("sign")) {
 			request.getSession().setAttribute("prevPage", referrer);
 			System.out.println(request.getSession().getAttribute("prevPage"));
 		}

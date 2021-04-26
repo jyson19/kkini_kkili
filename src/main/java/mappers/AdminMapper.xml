@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Admin">
+	
+	
+	<!-- 관리자 초대 -->
+	
+	<!-- 호스트 인증처리 -->
+	<select id="getHostup" resultType="member">
+		SELECT * FROM host
+	</select>
+		
+	<!-- 휴먼 계정 -->
+	
+	<!-- 이용자 수 조회 -->
+	
+	<!-- 총 매출 조회 -->
+	
+	<!-- 매출 장부 조회 -->
+	
+	
+</mapper>
