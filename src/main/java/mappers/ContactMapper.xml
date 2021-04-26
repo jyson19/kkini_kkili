@@ -6,15 +6,9 @@
 	<!-- 컨택 관련 매퍼 -->
 
 	<!-- 컨택 목록 -->
-	<!-- old -->
-	<!-- 
-	<select id="getContactList" resultType="contact">
-		SELECT *
-		FROM contact
-	</select>
-	 -->
-	<select id="getContactList" resultType="hashmap">
-		SELECT 
+    <!-- 컨택 검색 -->
+	<select id="getContactList" resultType="hashmap" parameterType="java.util.HashMap">
+	SELECT 
 			c.contact_id AS contact_id, 
 			c.host_id AS host_id, 
 			c.guest_id AS guest_id, 
@@ -34,9 +28,45 @@
 		FROM contact c, member m, host h
 		WHERE c.host_id = m.member_id 
 			AND h.host_id = c.host_id 
+            
+            <if test="keyword != null">
+            AND (c.contact_intro LIKE '%'||#{keyword}||'%'
+            OR c.store_name LIKE '%'||#{keyword}||'%'
+            OR m.name LIKE '%'||#{keyword}||'%'
+            OR h.company LIKE '%'||#{keyword}||'%'
+            OR c.location LIKE '%'||#{keyword}||'%')
+            </if>
+			<if test='region == "1"'>
+				AND REGEXP_LIKE(c.location,'서울|경기|인천')
+			</if>
+			<if test='region == "2"'>
+				AND c.location LIKE '%강원%'
+			</if>
+			<if test='region == "3"'>
+				AND REGEXP_LIKE(c.location,'대전|세종|충북|충남')
+			</if>
+			<if test='region == "4"'>
+				AND REGEXP_LIKE(c.location,'광주|전북|전남')
+			</if>
+			<if test='region == "5"'>
+				AND REGEXP_LIKE(c.location,'부산|대구|울산|경북|경남')
+			</if>
+			<if test='region == "6"'>
+				AND c.location LIKE '%제주%'
+			</if>
+			
+			<if test='startdate != null'>
+			<![CDATA[
+				AND TO_DATE(c.meeting_time, 'YYYY-MM-DD HH24:MI') >= REPLACE(#{startdate}, '%2F', '/')
+			]]>
+			</if>
+			<if test='enddate != null'>
+			<![CDATA[
+				AND TO_DATE(c.meeting_time, 'YYYY-MM-DD HH24:MI') <= REPLACE(#{enddate}, '%2F', '/')
+			]]>
+			</if>
 		ORDER BY c.meeting_time DESC
 	</select>
-
 
 	<!-- host join table 
 	<select id="" resultType="member">

@@ -10,8 +10,8 @@ import com.kk.dao.ContactDAOImpl;
 
 // 컨택 서비스
 @Service("contactService")
-public class ContactServiceImpl implements ContactService{
-	
+public class ContactServiceImpl implements ContactService {
+
 	@Autowired
 	private ContactDAOImpl contactDAO;
 
@@ -21,7 +21,8 @@ public class ContactServiceImpl implements ContactService{
 	}
 
 	@Override
-	public List<Map<String, String>> searchContactList() {
-		return contactDAO.searchContactList();
+	public List<Map<String, String>> searchContactList(Map m) {
+		// TODO Auto-generated method stub
+		return contactDAO.searchContactList(m);
 	}
 }

@@ -24,10 +24,10 @@ public class ContactDAOImpl implements ContactDAO{
 	}
 
 	// 컨택 검색
-	public List<Map<String, String>> searchContactList() {
-		System.out.println("ContactDAOImpl.searchContactList");
-//		return mybatis.selectList("contact.searchContactList");
-		return null;
+	public List<Map<String, String>> searchContactList(Map m) {
+		// TODO Auto-generated method stub
+		System.out.println(mybatis.selectList("contact.getContactList", m).size());
+		return mybatis.selectList("contact.getContactList", m);
 	}
 	
 }

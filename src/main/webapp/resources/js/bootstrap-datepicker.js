@@ -199,7 +199,7 @@
 
 			o.weekStart %= 7;
 			o.weekEnd = ((o.weekStart + 6) % 7);
-			o.format = "yyyy/m/d"; // 지섭: 새롭게 추가
+			o.format = "yyyy-m-d"; // 지섭: 새롭게 추가
 			var format = DPGlobal.parseFormat(o.format);
 			
 			if (o.startDate !== -Infinity){
@@ -1435,7 +1435,7 @@
 			monthsShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
 			today: "오늘",
 			clear: "종료",
-			format:"yyyy/mm/dd",
+			format:"yyyy-mm-dd",
 			titleFormat:"yyyy년mm월",
 			weekStart:0
 		}

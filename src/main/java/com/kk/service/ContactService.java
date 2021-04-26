@@ -9,6 +9,6 @@ import com.kk.domain.ContactVO;
 public interface ContactService {
 
 	List<Map<String, String>> getContactList();
-	List<Map<String, String>> searchContactList();
+	List<Map<String, String>> searchContactList(Map m);
 	
 }

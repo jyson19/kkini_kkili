@@ -69,32 +69,35 @@
 				<div class="col-lg-3 sidebar ftco-animate">
 					<div class="sidebar-wrap bg-light ftco-animate">
 						<h3 class="heading mb-4">검색하기</h3>
-						<form action="#">
+						<form action="${pageContext.request.contextPath}/contact/search.do" method="get"> 
 							<div class="fields">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="관심 키워드 입력">
+									<input type="text" class="form-control" name="keyword" placeholder="관심 키워드 입력">
 								</div>
 								<div class="form-group">
 									<div class="select-wrap one-third">
 										<div class="icon">
 											<span class="ion-ios-arrow-down"></span>
 										</div>
-										<select name="" id="" class="form-control"
-											placeholder="Keyword search">
-											<option value="">지역</option>
-											<option value="seoul">서울</option>
-											<option value="gyeonggi">경기</option>
+										<select name="region" id="" class="form-control" placeholder="Keyword search">
+											<option value="0">지역</option>
+											<option value="1">서울 / 경기 / 인천</option>
+											<option value="2">강원</option>
+											<option value="3">대전 / 세종 / 충북 / 충남</option>
+											<option value="4">광주 / 전북 / 전남</option>
+											<option value="5">부산 / 대구 / 울산 / 경북 / 경남</option>
+											<option value="6">제주</option>
 											<!-- <option value="">Lodon United Kingdom</option>
 	                      <option value="">Paris Italy</option> -->
 										</select>
 									</div>
 								</div>
 								<div class="form-group">
-									<input type="text" id="checkin_date" class="form-control"
+									<input type="text" id="checkin_date" class="form-control" name="startdate" 
 										placeholder="시작일">
 								</div>
 								<div class="form-group">
-									<input type="text" id="checkout_date" class="form-control"
+									<input type="text" id="checkout_date" class="form-control" name="enddate" 
 										placeholder="마감일">
 								</div>
 								<div class="form-group">
@@ -110,7 +113,7 @@
 							</div>-->
 								</div>
 								<div class="form-group">
-									<a href="search.do"><input type="submit" value="검색" class="btn btn-primary py-3 px-5"></a>
+									<input type="submit" value="검색" class="btn btn-primary py-3 px-5">
 								</div>
 							</div>
 						</form>

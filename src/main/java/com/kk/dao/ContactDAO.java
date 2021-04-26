@@ -10,5 +10,5 @@ public interface ContactDAO {
 	
 	// 컨택 리스트
 	public List<Map<String, String>> getContactList();
-	public List<Map<String, String>> searchContactList();
+	public List<Map<String, String>> searchContactList(Map m);
 }
