@@ -1,19 +1,22 @@
 package com.kk.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.kk.dao.MemberDAO;
+import com.kk.dao.MemberDAOImpl;
 import com.kk.domain.MemberVO;
 
-@Service
-public class MemberServiceImpl implements MemberService{
+@Service("memberService")
+public class MemberServiceImpl implements MemberService {
 
 	@Autowired
-	MemberDAO memberDAO;
-	
+	private MemberDAOImpl memberDAO;
+
+	@Override
+	public MemberVO memberSigninService(MemberVO member) {
+		return memberDAO.memberSignin(member);
+	}
+
 	@Override
 	public MemberVO getMember(MemberVO vo) {
 		return memberDAO.getMember(vo);
@@ -28,5 +31,5 @@ public class MemberServiceImpl implements MemberService{
 	public int insertMember(MemberVO vo) {
 		return memberDAO.insertMember(vo);
 	}
-	
+
 }

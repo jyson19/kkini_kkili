@@ -8,12 +8,18 @@ import org.springframework.stereotype.Repository;
 
 import com.kk.domain.MemberVO;
 
-@Repository("MemberDAO")
+@Repository("memberDAO")
 public class MemberDAOImpl implements MemberDAO {
 
 	@Autowired
-	SqlSessionTemplate mybatis;
-	
+	public SqlSessionTemplate mybatis;
+
+	@Override
+	public MemberVO memberSignin(MemberVO member) {
+		System.out.println("memberSignin 메소드 호출");
+		return mybatis.selectOne("member.emailCheck", member);
+	}
+
 	@Override
 	public MemberVO getMember(MemberVO vo) {
 		return mybatis.selectOne("member.getMember", vo);
@@ -31,5 +37,4 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("MemberDAO: " + result);
 		return result;
 	}
-
 }

@@ -20,7 +20,8 @@
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/contact/list.do" class="nav-link">컨택조회</a></li>
 				<!-- <li class="nav-item"><a href="hotel.html" class="nav-link">프로필조회</a></li> -->
 				<li class="nav-item"><a href="blog.html" class="nav-link">프로필조회</a></li>
-				<li class="nav-item"><a href="${pageContext.request.contextPath}/main/login.do" class="nav-link">로그인</a></li>
+				
+				<li class="nav-item"><a href="${pageContext.request.contextPath}/sign/signin.do" class="nav-link">로그인</a></li>
 				<li class="nav-item cta"><a href="${pageContext.request.contextPath}/main/sign.do" class="nav-link"><span>가입하기</span></a></li>
 				</ul>
 			</div>
