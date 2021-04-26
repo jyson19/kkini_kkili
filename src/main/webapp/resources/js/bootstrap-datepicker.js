@@ -199,7 +199,7 @@
 
 			o.weekStart %= 7;
 			o.weekEnd = ((o.weekStart + 6) % 7);
-			o.format = "yyyy-m-d"; // 지섭: 새롭게 추가
+			o.format = "yyyy-mm-dd"; // 지섭: 새롭게 추가
 			var format = DPGlobal.parseFormat(o.format);
 			
 			if (o.startDate !== -Infinity){

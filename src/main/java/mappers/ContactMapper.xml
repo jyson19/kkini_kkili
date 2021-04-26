@@ -55,14 +55,14 @@
 				AND c.location LIKE '%제주%'
 			</if>
 			
-			<if test='startdate != null'>
+			<if test="startdate != null and startdate != ''">
 			<![CDATA[
-				AND TO_DATE(c.meeting_time, 'YYYY-MM-DD HH24:MI') >= REPLACE(#{startdate}, '%2F', '/')
+				AND TO_DATE(c.meeting_time, 'YYYY-MM-DD HH24:MI') >= #{startdate}
 			]]>
 			</if>
-			<if test='enddate != null'>
+			<if test="enddate != null and enddate != ''">
 			<![CDATA[
-				AND TO_DATE(c.meeting_time, 'YYYY-MM-DD HH24:MI') <= REPLACE(#{enddate}, '%2F', '/')
+				AND TO_DATE(c.meeting_time, 'YYYY-MM-DD HH24:MI') <= #{enddate}
 			]]>
 			</if>
 		ORDER BY c.meeting_time DESC

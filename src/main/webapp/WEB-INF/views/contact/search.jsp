@@ -52,19 +52,13 @@
 	<div class="hero-wrap bg-mint" style="height: 120px">
 		<div class="overlay"></div>
 		<div class="container">
-			<!-- <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
-          <div class="col-md-9 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><a href="index.html">Home</a></span> <span>Tour</span></p>
-            <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Destination</h1>
-          </div>
-        </div> -->
 		</div>
 	</div>
 
 	<section class="ftco-section ftco-degree-bg">
 
 		<div class="container">
-			<h2 class="mb-4 text-dark">컨택 조회</h2>
+			<h2 class="mb-4 text-dark">컨택 검색 결과</h2>
 			<div class="row">
 				<div class="col-lg-3 sidebar ftco-animate">
 					<div class="sidebar-wrap bg-light ftco-animate">
@@ -101,16 +95,6 @@
 										placeholder="마감일">
 								</div>
 								<div class="form-group">
-									<!-- <div class="range-slider">
-							  <p>가격</p>
-		              		<span>
-								<input type="number" value="10000" min="10000" max="120000"/>	-
-								<input type="number" value="50000" min="10000" max="120000"/>
-								</span>
-								<input value="1000" min="10000" max="1000000" step="1000" type="range"/>
-								<input value="50000" min="10000" max="1000000" step="1000" type="range"/>
-								</svg>
-							</div>-->
 								</div>
 								<div class="form-group">
 									<input type="submit" value="검색" class="btn btn-primary py-3 px-5">
@@ -122,23 +106,6 @@
 
 				<div class="col-lg-9">
 					<div class="col-md-12">
-
-						<!-- 
-				<div class="item border-top">
-					<div class="testimony-wrap d-flex">
-					  <div class="user-img mb-4" style="background-image: url(images/person_2.jpg)">
-					</div>
-					  <div class="text ml-4">
-						<p class="mb-3">안녕하세요. <br><br> 
-							네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
-							<p class="name">김라인</p>
-						<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-						<p class="name">10,000원</p> 
-						<p><a href="meeting_detail.html" class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택 신청</a></p>
-					  </div>
-					</div>
-				  </div>
-				 -->
 
 						<c:forEach items="${contactList }" var="contact">
 							<!--  ${contactList }-->
