@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kk.domain.MemberVO;
+import com.kk.domain.AdminVO;
 import com.kk.service.AdminService;
 import com.kk.service.NoticeService;
 
@@ -29,9 +29,14 @@ public class AdminController {
 	
 	// 호스트 인증 관리
 	@RequestMapping("admin/hostup.do")
-	public void getHostup(MemberVO vo, Model m) {
+	public void getHostup(Model m) {
 		System.out.println("getHostup 실행");
-//		m.addAttribute("", adminService.getHostup(vo));
+		m.addAttribute("hostUpList", adminService.getHostup());
+		
+		
+		
+		
+		
 	}
 	
 	// 휴먼 계정
