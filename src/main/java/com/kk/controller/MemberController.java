@@ -81,4 +81,10 @@ public class MemberController {
 			return "redirect:/sign/signin.do";
 		}
 	}
+	
+	@RequestMapping(value = "/sign/logout.do")
+	public String logout(MemberVO member, HttpServletRequest request, HttpSession session) {
+		session.removeAttribute("email");			
+		return "redirect:../index.jsp";
+	}
 }
