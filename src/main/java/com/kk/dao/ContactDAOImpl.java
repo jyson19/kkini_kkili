@@ -22,5 +22,12 @@ public class ContactDAOImpl implements ContactDAO{
 //		System.out.println("리스트 크기 : " + mybatis.selectList("contact.getContactList", vo).size());
 		return mybatis.selectList("contact.getContactList");
 	}
+
+	// 컨택 검색
+	public List<Map<String, String>> searchContactList() {
+		System.out.println("ContactDAOImpl.searchContactList");
+//		return mybatis.selectList("contact.searchContactList");
+		return null;
+	}
 	
 }

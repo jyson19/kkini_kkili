@@ -19,4 +19,9 @@ public class ContactServiceImpl implements ContactService{
 	public List<Map<String, String>> getContactList() {
 		return contactDAO.getContactList();
 	}
+
+	@Override
+	public List<Map<String, String>> searchContactList() {
+		return contactDAO.searchContactList();
+	}
 }

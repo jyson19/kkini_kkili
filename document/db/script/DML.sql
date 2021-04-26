@@ -1,3 +1,5 @@
+SET DEFINE OFF;
+
 DROP SEQUENCE seq_mid;
 DROP SEQUENCE seq_cid;
 DROP SEQUENCE seq_cmt_id;
