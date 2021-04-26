@@ -1,5 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ page import="com.kk.domain.MemberVO" %>
+
+<% 
+
+	MemberVO member = null;
+	if(session.getAttribute("member")!=null){
+		member = (MemberVO) session.getAttribute("member"); 	
+	}
+	
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -37,6 +49,7 @@
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/jquery.mCustomScrollbar.css">
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
+
 </head>
 
 <body>
@@ -99,13 +112,13 @@
         <div class="pcoded-overlay-box"></div>
         <div class="pcoded-container navbar-wrapper">
             <!-- 꼭추가 -->
-            <nav class="navbar header-navbar pcoded-header"><%@include file ="/WEB-INF/views/mypage/header.jsp" %></nav>
+            <nav class="navbar header-navbar pcoded-header"><%@include file ="header.jsp" %></nav>
 
             <div class="pcoded-main-container">
                 <div class="pcoded-wrapper">
                     
                     <!-- nav.html -->
-                    <nav class="pcoded-navbar"><%@include file ="/WEB-INF/views/mypage/nav.jsp" %></nav>
+                    <nav class="pcoded-navbar"><%@include file ="nav.jsp"%></nav>
  
                     <div class="pcoded-content">
                         <!-- Page-header start -->
@@ -532,7 +545,7 @@
     <script type="text/javascript" src="./../resources/assets/js/popper.js/popper.min.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/bootstrap/js/bootstrap.min.js "></script>
     <!-- waves js -->
-    <script src="assets/pages/waves/js/waves.min.js"></script>
+    <script src="./../resources/assets/pages/waves/js/waves.min.js"></script>
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="./../resources/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
 

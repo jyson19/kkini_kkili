@@ -82,9 +82,17 @@ public class MemberController {
 		}
 	}
 	
+	// 로그아웃시 세션 제거
 	@RequestMapping(value = "/sign/logout.do")
 	public String logout(MemberVO member, HttpServletRequest request, HttpSession session) {
 		session.removeAttribute("email");			
+		session.removeAttribute("member");			
+		return "redirect:../index.jsp";
+	}
+	
+	// 예외처리
+	@RequestMapping(value = "/sign/null")
+	public String nullException() {
 		return "redirect:../index.jsp";
 	}
 }

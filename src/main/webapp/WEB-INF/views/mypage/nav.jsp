@@ -1,9 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
 <head>
+
+
 
 </head>
 
@@ -11,11 +14,11 @@
     
         <div class="sidebar_toggle"><i class="icon-close icons"></i></div>
         <div class="pcoded-inner-navbar main-menu">
-            <div class="">
+            <div class="" style="position:relative; right:10px">
                 <div class="main-menu-header">
-                    <img class="img-80 img-radius" src="assets/images/avatar-4.jpg" alt="User-Profile-Image">
+                    <img class="img-80 img-radius" src="../resources/assets/images/avatar-4.jpg" alt="User-Profile-Image">
                     <div class="user-details">
-                        <span id="more-details">John Doe</span>
+                        <span id="more-details"><%=member.getName()%></span>
                     </div>
                 </div>
                 <!-- <div class="main-menu-content">
@@ -28,7 +31,7 @@
                     </ul>
                 </div> -->
             </div>
-            <div class="p-15 p-b-0">
+            <div class="p-15 p-b-0 col-md-10">
                 <form class="form-material">
                     <div class="form-group form-primary">
                         <input type="text" name="footer-email" class="form-control">
@@ -38,15 +41,15 @@
                 </form>
             </div>
             <div class="pcoded-navigation-label">전체</div>
-            <ul class="pcoded-item pcoded-left-item">
-                <li class="pcoded-hasmenu">
+            <ul class="pcoded-item pcoded-left-item col-md-10">
+                <li class="">
                     <a href="mypage.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                         <span class="pcoded-mtext">요약</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
-                <li class="pcoded-hasmenu">
+                <li class="">
                     <a href="bs-basic-table.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>D</b></span>
                         <span class="pcoded-mtext">관심 프로필 목록</span>
@@ -131,7 +134,7 @@
                 </li>
             </ul> -->
             <div class="pcoded-navigation-label">계정 관리</div>
-            <ul class="pcoded-item pcoded-left-item">
+            <ul class="pcoded-item pcoded-left-item col-md-10">
                 <li class="">
                     <a href="form-elements-component.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
@@ -148,7 +151,7 @@
                 </li>
             </ul>
             <div class="pcoded-navigation-label">사용 내역</div>
-            <ul class="pcoded-item pcoded-left-item">
+            <ul class="pcoded-item pcoded-left-item col-md-10">
                 <li class="">
                     <a href="bs-basic-table.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
@@ -159,7 +162,7 @@
             </ul>
 
             <div class="pcoded-navigation-label">호스트 신청</div>
-            <ul class="pcoded-item pcoded-left-item">
+            <ul class="pcoded-item pcoded-left-item col-md-10">
                 <li class="">
                     <a href="form-elements-component.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
@@ -220,6 +223,8 @@
                 </li>
             </ul> 
         </div>-->
+        </div>
+        
 </body>
 
 </html>
