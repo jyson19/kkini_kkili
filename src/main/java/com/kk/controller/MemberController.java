@@ -18,7 +18,6 @@ import com.kk.service.MemberService;
 
 // 회원 관련 controller
 @Controller
-@RequestMapping("/sign")
 public class MemberController {
 
 	@Autowired
@@ -52,10 +51,10 @@ public class MemberController {
 			memberService.insertMember(vo);
 		}
 
-		return "redirect:login.do";
+		return "redirect:../index.jsp";
 	}
 
-	@RequestMapping(value = "signin.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/sign/signin.do", method = RequestMethod.GET)
 	public void signin(MemberVO member, HttpServletRequest request) {
 		System.out.println("signin 메소드 호출");
 		// 이전 페이지를 변수에 저장하기
@@ -64,11 +63,12 @@ public class MemberController {
 		// 이전 페이지가 로그인 페이지가 아니면 세션에 저장하기
 		if (!referrer.contains("sign")) {
 			request.getSession().setAttribute("prevPage", referrer);
+			System.out.print("이전 페이지 : ");
 			System.out.println(request.getSession().getAttribute("prevPage"));
 		}
 	}
 
-	@RequestMapping(value = "signinattempt.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/sign/signinattempt.do", method = RequestMethod.POST)
 	public String signinAttempt(MemberVO member, HttpServletRequest request, HttpSession session) {
 		System.out.println("signinAttempt 메소드 호출");
 		// 이전 페이지를 세션에서 불러오기

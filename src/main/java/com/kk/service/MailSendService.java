@@ -2,6 +2,7 @@ package com.kk.service;
 
 import java.util.Random;
 
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.internet.InternetAddress;
@@ -77,6 +78,8 @@ public class MailSendService {
             mail.setSubject("회원가입 이메일 인증 ", "utf-8");
             mail.setText(mailContent, "utf-8", "html");
             mail.addRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            Address[] addr = {new InternetAddress("kkinikkili@gmail.com")};
+            mail.addFrom(addr);
             mailSender.send(mail);
         } catch (MessagingException e) {
             e.printStackTrace();
