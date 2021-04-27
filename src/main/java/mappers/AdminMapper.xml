@@ -9,15 +9,15 @@
 	<!-- 호스트 인증처리 -->
  	<select id="getHostup" resultType="hashmap">
 		SELECT 
-			h.member_id as member_id, 
+			m.member_id as member_id, 
 		 	h.write_date as write_date,
 		 	h.result as result,
 		 	m.name as name, 
 		 	m.email as email, 
 		 	m.tel as tel 
 		 	
-		FROM host_auth h, member m
-		WHERE h.member_id = m.member_id
+		FROM host h, member m
+		WHERE h.host_id = m.member_id
 	</select>
 		
 	<!-- 휴먼 계정 -->
