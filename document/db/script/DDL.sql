@@ -116,7 +116,7 @@ CREATE TABLE host_auth (
 	member_id NUMBER NOT NULL, /* 회원번호 */
 	write_date DATE, /* 신청일자 */
 	auth_file VARCHAR2(30) NOT NULL, /* 인증파일 */
-	result NUMBER(1) NOT NULL /* 결과 */
+	result VARCHAR2(30) /* 결과 */
 );
 
 /* 이메일인증 */
