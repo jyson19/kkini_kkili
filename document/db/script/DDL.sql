@@ -64,7 +64,7 @@ CREATE TABLE contact (
 	contact_id NUMBER NOT NULL, /* 컨택번호 */
 	host_id NUMBER NOT NULL, /* 호스트번호 */
 	guest_id NUMBER, /* 게스트번호 */
-	regi_date DATE, /* 등록일 */
+	regi_date VARCHAR2(30), /* 등록일 */
 	contact_intro VARCHAR2(500), /* 컨택 소개 */
 	store_name VARCHAR2(50) NOT NULL, /* 상호명 */
 	location VARCHAR2(100) NOT NULL, /* 주소 */
