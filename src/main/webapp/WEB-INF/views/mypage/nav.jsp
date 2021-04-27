@@ -14,7 +14,7 @@
     
         <div class="sidebar_toggle"><i class="icon-close icons"></i></div>
         <div class="pcoded-inner-navbar main-menu">
-            <div class="" style="position:relative; right:10px">
+            <div class="" >
                 <div class="main-menu-header">
                     <img class="img-80 img-radius" src="../resources/assets/images/avatar-4.jpg" alt="User-Profile-Image">
                     <div class="user-details">
@@ -31,7 +31,7 @@
                     </ul>
                 </div> -->
             </div>
-            <div class="p-15 p-b-0 col-md-10">
+            <div class="p-15 p-b-0">
                 <form class="form-material">
                     <div class="form-group form-primary">
                         <input type="text" name="footer-email" class="form-control">
@@ -41,7 +41,7 @@
                 </form>
             </div>
             <div class="pcoded-navigation-label">전체</div>
-            <ul class="pcoded-item pcoded-left-item col-md-10">
+            <ul class="pcoded-item pcoded-left-item">
                 <li class="">
                     <a href="mypage.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
@@ -134,7 +134,7 @@
                 </li>
             </ul> -->
             <div class="pcoded-navigation-label">계정 관리</div>
-            <ul class="pcoded-item pcoded-left-item col-md-10">
+            <ul class="pcoded-item pcoded-left-item">
                 <li class="">
                     <a href="form-elements-component.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
@@ -151,7 +151,7 @@
                 </li>
             </ul>
             <div class="pcoded-navigation-label">사용 내역</div>
-            <ul class="pcoded-item pcoded-left-item col-md-10">
+            <ul class="pcoded-item pcoded-left-item">
                 <li class="">
                     <a href="bs-basic-table.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
@@ -162,7 +162,7 @@
             </ul>
 
             <div class="pcoded-navigation-label">호스트 신청</div>
-            <ul class="pcoded-item pcoded-left-item col-md-10">
+            <ul class="pcoded-item pcoded-left-item">
                 <li class="">
                     <a href="form-elements-component.html" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>

@@ -74,8 +74,10 @@ public class MemberController {
 		// 이전 페이지를 세션에서 불러오기
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
 		if (memberService.memberSigninService(member) != null) {
-			session.setAttribute("email", memberService.memberSigninService(member).getEmail().trim());
-			System.out.println(session.getAttribute("email"));
+			session.setAttribute("member", (MemberVO) memberService.memberSigninService(member));
+			System.out.println(session.getAttribute("member"));
+//			session.setAttribute("member", (MemberVO) memberService.getMember(member));
+			
 			return "redirect:" + prevPage;
 		} else {
 			return "redirect:/sign/signin.do";
@@ -85,7 +87,7 @@ public class MemberController {
 	// 로그아웃시 세션 제거
 	@RequestMapping(value = "/sign/logout.do")
 	public String logout(MemberVO member, HttpServletRequest request, HttpSession session) {
-		session.removeAttribute("email");			
+//		session.removeAttribute("email");			
 		session.removeAttribute("member");			
 		return "redirect:../index.jsp";
 	}
