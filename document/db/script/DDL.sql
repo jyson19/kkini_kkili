@@ -56,7 +56,10 @@ CREATE TABLE host (
 	host_pic VARCHAR2(30), /* 프로필사진 */
 	company VARCHAR2(30), /* 회사 */
 	uni VARCHAR2(30), /* 대학교 */
-	host_value NUMBER /* 수익 */
+	host_value NUMBER, /* 수익 */
+	write_date DATE, /* 신청일자 */
+	auth_file VARCHAR2(30) NOT NULL, /* 인증파일 */
+	result VARCHAR2(30) /* 결과 */
 );
 
 /* 컨택 */
@@ -109,14 +112,6 @@ CREATE TABLE contact_history (
 	guest_id NUMBER, /* 게스트번호 */
 	price NUMBER, /* 가격 */
 	bid_time DATE /* 입찰시간 */
-);
-
-/* 호스트인증 */
-CREATE TABLE host_auth (
-	member_id NUMBER NOT NULL, /* 회원번호 */
-	write_date DATE, /* 신청일자 */
-	auth_file VARCHAR2(30) NOT NULL, /* 인증파일 */
-	result VARCHAR2(30) /* 결과 */
 );
 
 /* 이메일인증 */

@@ -41,12 +41,13 @@ INSERT INTO member VALUES(seq_mid.nextval, '관리자', 'manager@kkinikkili.com'
 
 /* host */
 /* 임시 DB상 회원번호 1~6번만 호스트 권한 보유 */
-INSERT INTO host VALUES(1, 'pic1.jpg', '삼성', '', 104500);
-INSERT INTO host VALUES(2, 'pic2.jpg', 'SK', '', 76000);
-INSERT INTO host VALUES(3, 'pic3.jpg', '쿠팡', '', 95000);
-INSERT INTO host VALUES(4, 'pic4.jfif', '네이버', '', 47500);
-INSERT INTO host VALUES(5, 'pic5.jpg', '카카오', '', 38000);
-INSERT INTO host VALUES(6, 'pic6.jpg', '라인', '', 47500);
+/* 신청일자 인증파일 결과 */
+INSERT INTO host VALUES(1, 'pic1.jpg', '삼성', '', 104500, '2021-04-01', '명함1.png', '2020-04-01');
+INSERT INTO host VALUES(2, 'pic2.jpg', 'SK', '', 76000, '2021-04-02', '명함2.png', '2020-04-02');
+INSERT INTO host VALUES(3, 'pic3.jpg', '쿠팡', '', 95000, '2021-04-02', '명함3.png', '2020-04-02');
+INSERT INTO host VALUES(4, 'pic4.jfif', '네이버', '', 47500, '2021-04-03', '명함4.png', '2020-04-03');
+INSERT INTO host VALUES(5, 'pic5.jpg', '카카오', '', 38000, '2021-04-04', '명함5.png', '2020-04-04');
+INSERT INTO host VALUES(6, 'pic6.jpg', '라인', '', 47500, '2021-04-05', '명함6.png', '2020-04-05');
 
 /* contact */
 INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, TO_CHAR(TO_DATE('20210405120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '구글링하지말고 이제 웨일링하자', '판교역', '경기 성남시 분당구 판교역로 지하 160', '2021-04-06 12:30', 1000, 20000, 1);
