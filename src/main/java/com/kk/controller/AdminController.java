@@ -33,10 +33,6 @@ public class AdminController {
 		System.out.println("getHostup 실행");
 		m.addAttribute("hostUpList", adminService.getHostup());
 		
-		
-		
-		
-		
 	}
 	
 	// 휴먼 계정

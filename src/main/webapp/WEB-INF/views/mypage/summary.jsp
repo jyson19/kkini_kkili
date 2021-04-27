@@ -10,6 +10,7 @@
 		member = (MemberVO) session.getAttribute("member"); 	
 	}
 	
+	
 %>
 
 <!DOCTYPE html>

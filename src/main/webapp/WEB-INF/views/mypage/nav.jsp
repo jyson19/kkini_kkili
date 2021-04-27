@@ -160,7 +160,8 @@
                     </a>
                 </li>
             </ul>
-
+			
+			<% if(member.getAuth()==0){ %>
             <div class="pcoded-navigation-label">호스트 신청</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
@@ -171,6 +172,42 @@
                     </a>
                 </li>
             </ul>
+            
+            <% } else if(member.getAuth()==1){ %>
+            
+            <div class="pcoded-navigation-label">호스트 기능</div>
+            <ul class="pcoded-item pcoded-left-item">
+                <li class="">
+                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-id-badge"></i><b>FC</b></span>
+                        <span class="pcoded-mtext">프로필 보기</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-user"></i><b>FC</b></span>
+                        <span class="pcoded-mtext">나를 주목하는 사람 목록</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>FC</b></span>
+                        <span class="pcoded-mtext">컨택 가치 확인</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                        <span class="pcoded-mtext">컨택 생성</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+            </ul>
+            
+            <% } %>
 
             <!-- <div class="pcoded-navigation-label">기록</div>
             <ul class="pcoded-item pcoded-left-item">
