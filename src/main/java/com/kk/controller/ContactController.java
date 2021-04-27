@@ -4,12 +4,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.mail.Session;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kk.domain.MemberVO;
 import com.kk.domain.PageMaker;
 import com.kk.domain.PagingCriteria;
 import com.kk.service.ContactService;
@@ -24,7 +28,7 @@ public class ContactController {
 
 	// 컨택 목록
 	@RequestMapping("contact/list.do")
-	public void getContactList(PagingCriteria cri, Model model) {
+	public void getContactList(PagingCriteria cri, Model model, HttpSession session) {
 		System.out.println("ContactController.getContactList");
 		
 		List<Map<String, String>> boardList = contactService.getContactList(cri);
@@ -34,6 +38,12 @@ public class ContactController {
 		
 		model.addAttribute("contactList", boardList);
 		model.addAttribute("paging",new PageMaker(cri,total));
+		
+		// 로그인 시
+		if(session.getAttribute("member") != null) {
+			int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
+			System.out.println("memberId : " + memberId);
+		}
 	}
 
 	// 컨택 검색(키워드 + 지역 + 날짜)

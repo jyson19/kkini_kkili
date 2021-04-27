@@ -8,6 +8,7 @@
 <%
 	if( session.getAttribute("member")!= null ) {
 		email = (String) ((MemberVO) session.getAttribute("member")).getEmail();
+		//System.out.println(session.getAttribute("member").getClass());
 	}
 	if(email.length()>=1 && email.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$")) {
 		login = true;
