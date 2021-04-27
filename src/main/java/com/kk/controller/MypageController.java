@@ -22,14 +22,12 @@ public class MypageController {
 	public String enterPage(HttpServletRequest request, HttpSession session) {
 		System.out.println("MypageController : enterPage 실행");
 		
-		MemberVO member = new MemberVO();
 		MemberVO memberSession;
-		String email = "";
 		
 		// 세션이 존재한다면 email 할당, 존재하지 않으면 로그인 창으로 이동
-		if(session.getAttribute("email")!=null) {		 
-			 member.setEmail((String) session.getAttribute("email"));
-			 memberSession = memberService.getMember(member);
+		if(session.getAttribute("member")!=null) {		 
+//			 member.setEmail((String) session.getAttribute("email"));
+			 memberSession = (MemberVO) session.getAttribute("member");
 			 session.setAttribute("member", memberSession);
 		} else {
 			return "redirect:/sign/signin.do";

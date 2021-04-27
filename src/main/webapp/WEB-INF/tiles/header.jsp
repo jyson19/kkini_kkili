@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.kk.domain.MemberVO" %>
 
 <%
 	String email = "";
 	Boolean login = false;
 	
-	if( session.getAttribute("email")!= null ) {
-		email = (String) session.getAttribute("email");
+	if( session.getAttribute("member")!= null ) {
+		email = (String) ((MemberVO) session.getAttribute("member")).getEmail();
 		
 	}
 	 
@@ -39,15 +40,18 @@
 				<!-- <li class="nav-item"><a href="hotel.html" class="nav-link">프로필조회</a></li> -->
 				<li class="nav-item"><a href="blog.html" class="nav-link">프로필조회</a></li>
 				
-				<c:set var="login" value ="${login}"/>
-					<c:if test="${login}">
-						<li class="nav-item"><a href="${pageContext.request.contextPath}/sign/logout.do" class="nav-link">로그아웃</a></li>
-						<li class="nav-item cta"><a href="${pageContext.request.contextPath}/mypage/enter.do" class="nav-link"><span>마이페이지</span></a></li>
-					</c:if>
-					<c:if test="${!login}">
-						<li class="nav-item"><a href="${pageContext.request.contextPath}/sign/signin.do" class="nav-link">로그인</a></li>
-						<li class="nav-item cta"><a href="${pageContext.request.contextPath}/main/sign.do" class="nav-link"><span>가입하기</span></a></li>
-					</c:if>
+				
+				<%if(login){ %>
+
+					<li class="nav-item"><a href="${pageContext.request.contextPath}/sign/logout.do" class="nav-link">로그아웃</a></li>
+					<li class="nav-item cta"><a href="${pageContext.request.contextPath}/mypage/enter.do" class="nav-link"><span>마이페이지</span></a></li>
+
+				<%} else {%>
+
+					<li class="nav-item"><a href="${pageContext.request.contextPath}/sign/signin.do" class="nav-link">로그인</a></li>
+					<li class="nav-item cta"><a href="${pageContext.request.contextPath}/main/sign.do" class="nav-link"><span>가입하기</span></a></li>
+
+				<%} %>
 				</ul>
 			</div>
 			</div>
