@@ -47,18 +47,7 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/jquery.mCustomScrollbar.css">
-    <script>
-    	$()=>{
-    		$("#delete_btn").click(function(){
-    			$.ajax({
-    				url:'deleteInterest.do',
-    				data: {"guestId" : $("#delete_btn").parent().parent().find("td:first-child").text()}​
-    	            success:function(data){
-    	                $(this).parent().parent().remove();
-    			});
-    		})
-    	}
-    </script>
+    
 </head>
 
 <body>
@@ -344,6 +333,7 @@
     <script src="./../resources/assets/js/vertical/vertical-layout.min.js"></script>
     <script src="./../resources/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/script.js"></script>
+    <script type="text/javascript" src="./../resources/assets/js/interest.js"></script>
 </body>
 
 </html>

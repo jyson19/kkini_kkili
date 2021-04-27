@@ -71,11 +71,8 @@ public class MypageController {
 			mv.addObject("memberList", bookmarkService.getMemberListByHostId(bookmark));
 			mv.setViewName("mypage/interest");
 			
-			System.out.println(bookmarkService.getMemberListByHostId(bookmark));
-			System.out.println(bookmark);
-			
 		} else {
-			mv.setViewName("redirect:/sign/signin.do");
+			mv.setViewName("/sign/signin");
 		}
 		
 		return mv;
@@ -99,7 +96,7 @@ public class MypageController {
 			mv.setViewName("mypage/interestReverse");
 			
 		} else {
-			mv.setViewName("redirect:/sign/signin.do");
+			mv.setViewName("sign/signin.do");
 		}
 		
 		return mv;
@@ -108,7 +105,14 @@ public class MypageController {
 	// 주목하기 삭제
 	@RequestMapping("mypage/deleteInterest.do")
 	@ResponseBody
-	public  deleteBookmark(HttpSession session) {
+	public String deleteBookmark(String guestId, HttpSession session) {
+		
+		BookmarkVO bookmark = new BookmarkVO(((MemberVO) session.getAttribute("member")) .getMemberId(), Integer.parseInt(guestId));
+		if(bookmarkService.deleteBookmark(bookmark)==1) {
+			return "1";
+		};
+		
+		return "0";
 		
 	}
 }
