@@ -44,7 +44,7 @@
 	<%@include file ="/WEB-INF/tiles/header.jsp" %>
 	<!-- 헤더 종료 -->
         <!-- Pre-loader start : 로딩 작업-->
-        <div class="theme-loader">
+        <!-- <div class="theme-loader">
             <div class="loader-track">
                 <div class="preloader-wrapper">
                     <div class="spinner-layer spinner-blue">
@@ -95,7 +95,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- Pre-loader end -->
 
         <section class="login-block p-md-4">

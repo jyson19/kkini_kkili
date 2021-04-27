@@ -16,7 +16,7 @@
         <div class="pcoded-inner-navbar main-menu">
             <div class="" >
                 <div class="main-menu-header">
-                    <img class="img-80 img-radius" src="../resources/assets/images/avatar-4.jpg" alt="User-Profile-Image">
+                    <img class="img-80 img-radius" src="../upload/host/pic${member.memberId}.jpg" alt="User-Profile-Image">
                     <div class="user-details">
                         <span id="more-details"><%=member.getName()%></span>
                     </div>
@@ -50,9 +50,9 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="bs-basic-table.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/interest.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>D</b></span>
-                        <span class="pcoded-mtext">관심 프로필 목록</span>
+                        <span class="pcoded-mtext">관심 호스트 목록</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
@@ -185,7 +185,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/interestReverse.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-user"></i><b>FC</b></span>
                         <span class="pcoded-mtext">나를 주목하는 사람 목록</span>
                         <span class="pcoded-mcaret"></span>
