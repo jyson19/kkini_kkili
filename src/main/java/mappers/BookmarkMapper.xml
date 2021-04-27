@@ -18,10 +18,10 @@
 	</select>
 	
 	<insert id="insertBookmark" parameterType="bookmarkVO">
-		INSERT INTO bookmark(host_id, guest_id) VALUES (${hostId}, ${guestId})
+		INSERT INTO bookmark(host_id, guest_id) VALUES (#{hostId}, #{guestId})
 	</insert>
  	
 	<delete id="deleteBookmark" parameterType="bookmarkVO">
-		DELETE FROM bookmark WHERE host_id = ${hostId} AND guest_id = ${guestId}
+		DELETE FROM bookmark WHERE host_id = #{hostId} AND guest_id = #{guestId}
 	</delete>
 </mapper>

@@ -47,6 +47,18 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/jquery.mCustomScrollbar.css">
+    <script>
+    	$()=>{
+    		$("#delete_btn").click(function(){
+    			$.ajax({
+    				url:'deleteInterest.do',
+    				data: {"guestId" : $("#delete_btn").parent().parent().find("td:first-child").text()}​
+    	            success:function(data){
+    	                $(this).parent().parent().remove();
+    			});
+    		})
+    	}
+    </script>
 </head>
 
 <body>
@@ -151,6 +163,7 @@
                                                                 <th>이름</th>
                                                                 <th>소속</th>
                                                                 <th>대학교</th>
+                                                                <th>삭제</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
@@ -160,6 +173,7 @@
 	                                                                <td><a href="">${member.name }</a></td>
 	                                                                <td>추후 업데이트 예정</td>
 	                                                                <td>추후 업데이트 예정</td>
+	                                                                <td><button id="delete_btn" class="btn btn-secondary">삭제</button></td>
 	                                                            </tr>
                                                             </c:forEach>
                                                         </tbody>
