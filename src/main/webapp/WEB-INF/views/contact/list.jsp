@@ -111,6 +111,7 @@
 				<div class="col-lg-9">
 					<div class="col-md-12">
 						<c:forEach items="${contactList }" var="contact">
+						<c:set var="idx" value="${idx+1 }"></c:set>
 							<!--  ${contactList }-->
 							<div class="item border-top">
 								<div class="testimony-wrap d-flex">
@@ -120,10 +121,8 @@
 												style="background-image: url('./../upload/host/${contact.HOST_PIC}')">
 											</div>
 											<div>
-												<p
-													style="font-size: 2.0vmin; margin-bottom: 0%; text-align: center; color: black; font-weight: bold;">${contact.NAME}</p>
-												<p
-													style="font-size: 1.7vmin; text-align: center; color: dimgrey;">${contact.COMPANY}</p>
+												<p style="font-size: 2.0vmin; margin-bottom: 0%; text-align: center; color: black; font-weight: bold;">${contact.NAME}</p>
+												<p style="font-size: 1.7vmin; text-align: center; color: dimgrey;">${contact.COMPANY}</p>
 											</div>
 										</div>
 									</a>
@@ -134,11 +133,11 @@
 										<span class="position">일시 : ${contact.MEETING_TIME}</span><br />
 										<span class="position">상호명 : ${contact.STORE_NAME}</span><br />
 										<span class="position">장소 : ${contact.LOCATION}</span>
-										<p class="name">마감 시간 : ${contact.REGI_DATE }</p>
+										<p class="name count_time_con">마감 시간 : <span class="count_time">${contact.REGI_DATE }</span></p>
 										<p class="name">현재 최고가 : ${contact.LAST_VALUE}원</p>
 										<p>
 											<a href="meeting_detail.html"
-												class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택
+												class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택
 												신청</a>
 										</p>
 									</div>
@@ -210,26 +209,7 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./../resources/js/google-map.js"></script>
 	<script src="./../resources/js/main.js"></script>
-	<script>
-		//페이지 번호 이동
-		$('#pagingDiv a').click(function(e) {
-			e.preventDefault();
-			$('#pageNum').val($(this).attr("href"));
-			pagingForm.submit();
-
-		});
-
-		//게시글에 pageNum넘기기
-		$('table a').click(
-				function(e) {
-					e.preventDefault();
-					var html = "<input type='hidden' name='idx' value='"
-							+ $(this).attr("href") + "'>";
-					$('#pagingFrm').append(html);
-					$('#pagingFrm').attr("action", "getContent.do");
-					$('#pagingFrm').submit();
-				});
-	</script>
+	<script src="./../resources/js/contact.js"></script>
 
 
 </body>
