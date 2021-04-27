@@ -129,7 +129,7 @@
 									<div class="text ml-4">
 
 										<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
-										<p class="mb-3">${contact.CONTACT_INTRO}</p>
+										<p style="font-size: 20px; font-weight: bolder;">${contact.CONTACT_INTRO}</p>
 										<span class="position">일시 : ${contact.MEETING_TIME}</span><br />
 										<span class="position">상호명 : ${contact.STORE_NAME}</span><br />
 										<span class="position">장소 : ${contact.LOCATION}</span>
