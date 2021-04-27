@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
 	<!-- 한글 관련 css 적용 -->
-	<link rel="stylesheet" href="/resources/css/korean.css">
+	<link rel="stylesheet" href="resources/css/korean.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
@@ -48,10 +48,14 @@
             <h1 class="mb-4" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><strong>컨택 검색하기 <br></strong> </h1>
             <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">당신에게 필요한 조언자를 찾으세요.</p>
             <div class="block-17 my-4">
-              <form action="" method="post" class="d-block d-flex">
+              <form action="${pageContext.request.contextPath}/contact/search.do" method="get" class="d-block d-flex">
                 <div class="fields d-block d-flex">
+                  	<input type="text" name="keyword" class="form-control" placeholder="관심 키워드를 입력하세요.   (현재 컨택검색만/ 추후 회원검색 추가예정)">
+                  	<input type="text" name="region" class="form-control" hidden="hidden">
+                  	<input type="text" name="startdate" class="form-control" hidden="hidden">
+                  	<input type="text" name="enddate" class="form-control" hidden="hidden">
+                  <!-- 
                   <div class="textfield-search one-third">
-                  	<input type="text" class="form-control" placeholder="회원명 또는 관심 키워드를 입력하세요">
                   </div>
                   <div class="select-wrap one-third">
                     <div class="icon"><span class="ion-ios-arrow-down"></span></div>
@@ -60,6 +64,7 @@
                       <option value="profile">프로필</option>
                     </select>
                   </div>
+                   -->
                 </div>
                 <input type="submit" class="search-submit btn btn-primary" value="검색">  
               </form>
