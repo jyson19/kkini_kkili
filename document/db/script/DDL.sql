@@ -59,7 +59,8 @@ CREATE TABLE host (
 	host_value NUMBER, /* 수익 */
 	write_date DATE, /* 신청일자 */
 	auth_file VARCHAR2(30) NOT NULL, /* 인증파일 */
-	result VARCHAR2(30) /* 결과 */
+    content VARCHAR2(2000) NOT NULL, /* 소개내용 */
+	result VARCHAR2(30) /* 결과 -> 등록일자*/
 );
 
 /* 컨택 */

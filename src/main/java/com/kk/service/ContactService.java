@@ -12,5 +12,6 @@ public interface ContactService {
 	List<Map<String, String>> getContactList(PagingCriteria cri);
 	List<Map<String, String>> searchContactList(Map m);
 	int totalCnt();
+	Map<String, String> getContactOne(int memberId);
 	
 }

@@ -15,4 +15,6 @@ public interface ContactDAO {
 	List<Map<String, String>> searchContactList(Map m);
 	
 	int totalCnt();
+	
+	Map<String, String> getContactOne(int memberId);
 }

@@ -1,13 +1,13 @@
 package com.kk.dao;
 
-import com.kk.domain.MemberVO;
+import com.kk.domain.HostVO;
 
 public interface ProfileDAO {
-	public void insertProfile(MemberVO vo);
+	public HostVO insertProfile(HostVO vo);
 
-	public void updateProfile(MemberVO vo);
+	public void updateProfile(HostVO vo);
 
-	public void deleteProfile(MemberVO vo);
+	public void deleteProfile(HostVO vo);
 
-	public MemberVO getProfile(MemberVO vo);
+	public HostVO getProfile(HostVO vo);
 }
