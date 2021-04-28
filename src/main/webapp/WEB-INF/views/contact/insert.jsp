@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%!
+	String email = "";
+	String name = "";
+	int auth = 0;
+	Boolean login = false;
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -6,39 +15,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- 한글 관련 css 적용 -->
-	  <link rel="stylesheet" href="css/korean.css">
+	  <link rel="stylesheet" href="./../resources/css/korean.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
 
-    <link rel="stylesheet" href="css/open-iconic-bootstrap.min.css">
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="./../resources/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="./../resources/css/animate.css">
     
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="./../resources/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="./../resources/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="./../resources/css/magnific-popup.css">
 
-    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="./../resources/css/aos.css">
 
-    <link rel="stylesheet" href="css/ionicons.min.css">
+    <link rel="stylesheet" href="./../resources/css/ionicons.min.css">
 
-    <link rel="stylesheet" href="css/bootstrap-datepicker.css">
-    <link rel="stylesheet" href="css/jquery.timepicker.css">
+    <link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="./../resources/css/jquery.timepicker.css">
 
     
-    <link rel="stylesheet" href="css/flaticon.css">
-    <link rel="stylesheet" href="css/icomoon.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./../resources/css/flaticon.css">
+    <link rel="stylesheet" href="./../resources/css/icomoon.css">
+    <link rel="stylesheet" href="./../resources/css/style.css">
     <style>
       #bid_price:focus{
         outline: none;
       }
 
     </style>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=LIBRARY"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=services,clusterer,drawing"></script>
+    
   </head>
   <body>
     
   <!-- 헤더 -->
-	<div include-html="header.html"></div>
+	<%@include file="/WEB-INF/tiles/header.jsp"%>
 	<!-- 헤더 종료 -->
     
   <div class="hero-wrap" style="background-color: #2DAD92; height: 120px;">
@@ -70,24 +84,62 @@
                 </div>
               </div>
             </div>
+              <div class="d-flex p-5">
               
-              <div class="row">
-                <h4 class="col-md-2">약속 시간</h4>
-                    <h5 class="col-md-4">2021년 04월 20일 12:00시</h5>
-                <h4 class="col-md-2">장소</h4>
-                    <h5 class="col-md-4">경기도 성남시 정자일로 198, 홍콩반점</h5>
-                <h4 class="col-md-2">마감 시간</h4>
-                    <h5 class="col-md-4">2021년 04월 19일 12:00시</h5>
-                <h4 class="col-md-2">현재 경매가</h4>
-                    <h5 class="col-md-4">198,000원</h5>
-                  <div class ="col-md-8"></div>
-                  <input id="bid_price" type="text" class="col-md-2" style="border: 0; border-bottom:1px solid; font-size:15px; text-align: right;" placeholder="새 경매가를 입력하세요">
-                  <input id="bid" type="button" value="경매 참여" class="btn py-2 px-2 btn-primary col-md-2">               
+              <div class="col-6 col" style="width:50%;">
+              	<div id="map" style="height:90%;float: left;"></div>
+              	<div style="width:100%; height:10%;float: left;">
+              		<form onsubmit="searchPlaces(); return false;">
+	              		<input type="text" style="width:90%; height:100%;"/>
+    	          		<button type="submit" style="width:10%; height:100%;">검색</button>
+              		</form>
+              	</div>
+              </div>
+              
+              
+              <div class="col-6 col" style="width:50%; float: right;">
+                <p>제목 : <input type="text" /></p>
+                <p>일시 : <input type="text" /></p>
+                <p>상호명 : <input type="text" /></p>
+                <p>장소 : <input type="text" /></p>
+                <p>경매 시작가 : <input type="text" /></p>
+                  <div class ="col-md-8">
+                  </div>
+                  <input id="bid" type="button" value="생성" class="btn py-2 px-2 btn-primary col-md-2">               
                 
+              
+              </div>
+              
               </div>
             </div>
 
           </div>
+          
+          <!-- 지도 테스트 -->
+ 		  <!-- 
+ 		  	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275"/>
+ 		  <div id="map" style="width:500px;height:400px;">
+ 		  </div>
+ 		   -->
+ 		   <!-- 
+ 		  <div id="map"></div>
+		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275"></script>
+		<script>
+			var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+			var options = { //지도를 생성할 때 필요한 기본 옵션
+				center: new kakao.maps.LatLng(37.160865, 127.754386), //지도의 중심좌표.
+				level: 13 //지도의 레벨(확대, 축소 정도)
+			};
+			var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+		</script>
+ 		    -->
+		
+
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=services"></script>
+<script>
+// 지도 js함수 다시 작성
+</script>    
+          
           
           <!-- <div class="col-md-4 sidebar ftco-animate">
             <div class="sidebar-box">
@@ -172,14 +224,8 @@
     </section> <!-- .section -->
 
     <!-- footer.html -->
-	<div include-html="footer.html"></div>
+	<%@include file="/WEB-INF/tiles/footer.jsp"%>
 
-	<!-- 헤더와 풋터 관리해주는 자바스크립트 -->
-	<script src="js/includeHTML.js"></script>
-	<script>
-	  // 헤더, 풋터 등 불러오는 함수
-		  includeHTML();
-	</script>
     
   
 
@@ -187,22 +233,22 @@
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
 
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery-migrate-3.0.1.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.stellar.min.js"></script>
-  <script src="js/owl.carousel.min.js"></script>
-  <script src="js/jquery.magnific-popup.min.js"></script>
-  <script src="js/aos.js"></script>
-  <script src="js/jquery.animateNumber.min.js"></script>
-  <script src="js/bootstrap-datepicker.js"></script>
-  <script src="js/jquery.timepicker.min.js"></script>
-  <script src="js/scrollax.min.js"></script>
+  <script src="./../resources/js/jquery.min.js"></script>
+  <script src="./../resources/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="./../resources/js/popper.min.js"></script>
+  <script src="./../resources/js/bootstrap.min.js"></script>
+  <script src="./../resources/js/jquery.easing.1.3.js"></script>
+  <script src="./../resources/js/jquery.waypoints.min.js"></script>
+  <script src="./../resources/js/jquery.stellar.min.js"></script>
+  <script src="./../resources/js/owl.carousel.min.js"></script>
+  <script src="./../resources/js/jquery.magnific-popup.min.js"></script>
+  <script src="./../resources/js/aos.js"></script>
+  <script src="./../resources/js/jquery.animateNumber.min.js"></script>
+  <script src="./../resources/js/bootstrap-datepicker.js"></script>
+  <script src="./../resources/js/jquery.timepicker.min.js"></script>
+  <script src="./../resources/js/scrollax.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-  <script src="js/main.js"></script>
+  <script src="./../resources/js/main.js"></script>
     
   </body>
 </html>

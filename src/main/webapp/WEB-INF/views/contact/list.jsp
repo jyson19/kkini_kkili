@@ -149,7 +149,7 @@
 						
 						</c:if>
 						<c:if test='${contactOne.NAME == null}'>
-							컨택을 통해 회원님의 경험을 공유해주세요. <a href="" style="color: #2DAD92; text-decoration: underline;">생성하기</a>
+							컨택을 통해 회원님의 경험을 공유해주세요. <a href="insert.do" style="color: #2DAD92; text-decoration: underline;">생성하기</a>
 						</c:if>
 						<br/>  
 						<hr/>

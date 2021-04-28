@@ -7,6 +7,8 @@ import java.util.Map;
 import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,13 @@ public class ContactController {
 
 	@Autowired
 	private ContactService contactService;
+	
+//private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
+//	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String kakaoMap() {
+//		return "map/testMap";
+//	}
 
 	// 컨택 목록
 	@RequestMapping("contact/list.do")
@@ -80,6 +89,14 @@ public class ContactController {
 		map.put("enddate", enddate);
 		model.addAttribute("contactList", contactService.searchContactList(map));
 	}
+	
+	// 컨택 생성
+	@RequestMapping("contact/insert.do")
+	public void insertContact() {
+		System.out.println("ContactController.insertContact() 실행");
+	}
+	
+	
 
 	@RequestMapping("host/profile.do")
 	public void temp() {
