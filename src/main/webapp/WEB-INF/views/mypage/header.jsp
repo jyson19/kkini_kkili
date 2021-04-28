@@ -103,7 +103,7 @@
                                 </a>
                             </li>
                             <li class="waves-effect waves-light">
-                                <a href="user-profile.html">
+                                <a href="${pageContext.request.contextPath}/mypage/profile.do">
                                     <i class="ti-user"></i> 호스트 신청하기
                                 </a>
                             </li>

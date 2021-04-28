@@ -11,9 +11,9 @@
     
         <div class="sidebar_toggle"><i class="icon-close icons"></i></div>
         <div class="pcoded-inner-navbar main-menu">
-            <div class="">
+            <div class="" style="position:relative; right:10px">
                 <div class="main-menu-header">
-                    <img class="img-80 img-radius" src="assets/images/avatar-1.jpg" alt="User-Profile-Image">
+                    <img class="img-80 img-radius" src="../resources/assets/images/avatar-1.jpg" alt="User-Profile-Image">
                     <div class="user-details">
                         <span id="more-details">Admin</span>
                     </div>

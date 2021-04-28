@@ -1,5 +1,7 @@
 package com.kk.controller;
 
+import java.io.IOException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -114,5 +116,35 @@ public class MypageController {
 		
 		return "0";
 		
+
 	}
+	
+	// 프로필 등록 페이지
+	@RequestMapping("mypage/profile.do")
+	public void profile(MemberVO vo) {
+		System.out.println("profile 실행");
+	}
+	// 프로필 등록
+	@RequestMapping("saveProfile.do")
+	public String insertProfile(MemberVO vo) throws IOException {
+		System.out.println("insertProfile 실행");
+		memberService.insertMember(vo);
+		return "redirect:/profile.do";
+	}
+//	// 프로필 수정
+//	@RequestMapping("")
+//	public void updateProfile(MemberVO vo){
+//		System.out.println("updateProfile 실행");
+//	}
+//	// 프로필 삭제
+//	@RequestMapping("")
+//	public void deleteProfile(MemberVO vo){
+//		System.out.println("deleteProfile 실행");
+//	}
+//	// 프로필 상세 조회
+//	@RequestMapping("")
+//	public void getProfile(MemberVO vo){
+//		System.out.println("getProfile 실행");
+//	}
+	
 }
