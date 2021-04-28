@@ -17,6 +17,7 @@
 		<typeAlias alias="contact" type="com.kk.domain.ContactVO" />
 		<typeAlias alias="emailAuth" type="com.kk.domain.EmailAuthVO" />
 		<typeAlias alias="member" type="com.kk.domain.MemberVO" />
+		<typeAlias alias="bookmarkVO" type="com.kk.domain.BookmarkVO" />
 	</typeAliases>
 
 
