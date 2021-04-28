@@ -15,6 +15,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 import com.kk.domain.PageMaker;
 import com.kk.domain.PagingCriteria;
@@ -92,8 +93,17 @@ public class ContactController {
 	
 	// 컨택 생성
 	@RequestMapping("contact/insert.do")
-	public void insertContact() {
+	public void insertContact(ContactVO vo, HttpSession session) {
 		System.out.println("ContactController.insertContact() 실행");
+	}
+	// 컨택 생성확인
+	@RequestMapping("contact/insertCheck.do")
+	public String insertCheck(ContactVO vo, HttpSession session) {
+		System.out.println("ContactController.insertCheck() 실행");
+		if(contactService.insertContact(vo) == 1) {
+			return "redirect:/contact/list.do";
+		}
+		return "redirect:/contact/insert.do";
 	}
 //	@RequestMapping("host/profile.do")
 //	public void temp() {

@@ -171,6 +171,21 @@
 	</select>
 
 	<!-- 생성 -->
+	<insert id="insertContact">
+		INSERT INTO contact VALUES(
+			seq_cid.nextval, 
+			#{hostId}, 
+			'', 
+			TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS'), 
+			#{contactIntro}, 
+			#{storeName}, 
+			#{location}, 
+			#{meetingTime}, 
+			#{startValue}, 
+			0, 
+			0
+		)
+	</insert>
 
 	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
 

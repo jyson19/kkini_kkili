@@ -35,6 +35,9 @@
 <link rel="stylesheet" href="./../resources/css/ionicons.min.css">
 <link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
 <link rel="stylesheet" href="./../resources/css/jquery.timepicker.css">
+<link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../resources/css/bootstrap-material-datetimepicker.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 <link rel="stylesheet" href="./../resources/css/flaticon.css">
 <link rel="stylesheet" href="./../resources/css/icomoon.css">
@@ -65,7 +68,9 @@
      -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=services,clusterer,drawing"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="./../resources/js/bootstrap-material-datetimepicker.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
 <style>
 #bid_price:focus {
 	outline: none;
@@ -118,14 +123,14 @@
 							<h5>컨택을 생성합니다</h5>
 						</div>
 						<div class="card-block">
-							<form class="form-material" action="" method="post">
+							<form class="form-material" action="${pageContext.request.contextPath}/contact/insertCheck.do" method="post">
 								<div class="form-group form-default form-static-label">
 									<input type="text" name="contactIntro" class="form-control"
 										placeholder="제목을 입력해주세요"> <span class="form-bar"></span>
 									<label class="float-label">제목</label>
 								</div>
 								<div class="form-group form-default form-static-label">
-									<input type="text" name="meetingTime" class="form-control"
+									<input type="text" name="meetingTime" id="date-format" class="form-control"
 										placeholder="일시를 입력해주세요"> <span class="form-bar"></span>
 									<label class="float-label">일시</label>
 								</div>
@@ -141,13 +146,11 @@
 								</div>
 								<div class="form-group form-default form-static-label">
 									<input type="text" name="startValue" class="form-control"
-										placeholder="경매시작가를 입력해주세요"> <span class="form-bar"></span>
+										placeholder="경매시작가를 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> <span class="form-bar"></span>
 									<label class="float-label">경매시작가</label>
 								</div>
-								<input type="hidden" name="hostId" class="form-control"
-									value="<%=hostId%>"> <input id="bid" type="button"
-									value="생성" class="btn py-2 px-2 btn-primary col-md-2"
-									style="float: right;">
+								<input type="hidden" name="hostId" class="form-control"	value="<%=hostId%>"> 
+								<input id="bid" type="submit" value="생성" class="btn py-2 px-2 btn-primary col-md-2" style="float: right;">
 							</form>
 						</div>
 					</div>
@@ -175,7 +178,6 @@
 									<div id="pagination"></div>
 								</div>
 							</div>
-							<p id="closehere">Close</p>
 						</div>
 						<div id="fade" class="black_overlay"></div>
 						
@@ -452,6 +454,8 @@
 	</div>
 
 
+	<script src="./../resources/js/moment.js"></script>
+	<script src="./../resources/js/bootstrap-material-datetimepicker.js"></script>
 	<script src="./../resources/js/jquery.min.js"></script>
 	<script src="./../resources/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="./../resources/js/popper.min.js"></script>
@@ -472,7 +476,10 @@
 
 </body>
 <script type="text/javascript">
+	document.write("<script src='./../resources/js/moment.js'><"+"/script>");  
+	document.write("<script type='text/javascript' src='./../resources/js/bootstrap-material-datetimepicker.js'><"+"/script>");  
 $(document).ready(function(){
+
     $('[name=location], [name=storeName]').click(function(){
    		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
    	    $('#light').css({'display':'block'});
@@ -486,11 +493,16 @@ $(document).ready(function(){
     $(document).on("click",'#placesList > li > .info',function(){
     	//alert("무야호");
 
-        $('[name=location]').val($(this).children('h5').text());
-        $('[name=storeName]').val($(this).children('.jibun').text());
+        $('[name=storeName]').val($(this).children('h5').text());
+        $('[name=location]').val($(this).children('.jibun').text());
         $('#light').css({'display':'none'});
    	    $('#fade').css({'display':'none'});
     });
+    
+    $('#date-format').bootstrapMaterialDatePicker({ format : 'YYYY-MM-DD HH:mm' });
 });
+</script>
+<script>
+
 </script>
 </html>

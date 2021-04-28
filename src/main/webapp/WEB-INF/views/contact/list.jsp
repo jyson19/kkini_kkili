@@ -114,7 +114,7 @@
 						<!-- 로그인 유저가 호스트일때 -->
 						<%if(login && auth >= 1) { %>
 						<!-- 유효한 마감시간의 컨택이 있을 때 -->
-						<c:if test='${contactOne.NAME != null}'>
+						<c:if test="${contactOne.NAME != null}">
 						<p class="name">${contactOne.NAME}님이 마련한 컨택이 있습니다.</p>
 						<div class="item border-top">
 								<div class="testimony-wrap d-flex">
@@ -131,7 +131,6 @@
 									</a>
 									<div class="text ml-4">
 
-										<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
 										<p style="font-size: 20px; font-weight: bolder;">${contactOne.CONTACT_INTRO}</p>
 										<span class="position">일시 : ${contactOne.MEETING_TIME}</span><br />
 										<span class="position">상호명 : ${contactOne.STORE_NAME}</span><br />
@@ -148,7 +147,7 @@
 							</div>
 						
 						</c:if>
-						<c:if test='${contactOne.NAME == null}'>
+						<c:if test="${contactOne.NAME == null}">
 							컨택을 통해 회원님의 경험을 공유해주세요. <a href="insert.do" style="color: #2DAD92; text-decoration: underline;">생성하기</a>
 						</c:if>
 						<br/>  
