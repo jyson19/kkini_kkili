@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.kk.domain.CmtVO;
 import com.kk.domain.HostVO;
 import com.kk.domain.MemberVO;
 import com.kk.service.CmtService;
+import com.kk.service.MemberService;
+import com.kk.service.ProfileService;
 
 // 호스트 프로필 관련 controller
 @Controller
@@ -22,19 +25,33 @@ public class HostController {
 	@Autowired
 	private CmtService cmtSerivce;
 	
+	@Autowired
+	private ProfileService profileSerivce;
+	
+	@Autowired
+	private MemberService memeberService;
+	
+	// 프로필 상세 조회 접속시
 	@RequestMapping("host/profile.do")
-	public void moveToProfilePage(HostVO hostId) { // 들어오는 파라미터 값은 hostId
-		// 재완님 호스트 테이블 작성으로 vo 진행하면 받아서 진행하기
-		
-		// 해당 호스트 아이디를 멤버로 가져와서 권한 확인후
-		
-		// 1보다 크면
-		
-		// 호스트 내용 가져와서 뷰 페이지로 뿌려주기
-		
-		
+	public ModelAndView moveToProfilePage(HostVO hostVO) { // 들어오는 파라미터 값은 hostId
+		// 접속확인
 		System.out.println("HostController.moveToProfilePage");
 		
+		// 뷰 객체로 넘기기 위한 선언
+		ModelAndView mv = new ModelAndView();
+		MemberVO member = new MemberVO();
+		
+		member.setMemberId(hostVO.getHostId());
+		
+		// 해당 호스트 아이디를 멤버로 가져와서 권한 확인후
+		if( memeberService.getMember(member).getAuth() == 1 ) {
+			// 1 : 호스트이면 호스트 정보, 멤버 정보 담기
+			mv.addObject("hostVO", profileSerivce.getProfile(hostVO));
+			mv.addObject("hostInfo", memeberService.getMember(member));
+		};
+		
+		// 호스트 내용 가져와서 뷰 페이지로 뿌려주기
+		return mv;		
 	};
 	
 	

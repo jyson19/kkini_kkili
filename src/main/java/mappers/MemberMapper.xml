@@ -9,7 +9,14 @@
 	<select id="getMember" resultType="member">
 		SELECT *
 		FROM member
-		WHERE email = #{email}
+		<choose>
+			<when test = "email != null">
+				WHERE email = #{email}
+			</when>
+			<when test = "memberId != null">
+				WHERE member_id = #{memberId}
+			</when>
+		</choose>
 	</select>
 	
 	<select id="getMemberList" resultType="member">

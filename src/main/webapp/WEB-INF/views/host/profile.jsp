@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	String hostId = request.getParameter("hostId");
+
+%>	
+	
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -71,12 +77,14 @@
 
 					<div class="d-flex p-5">
 						<div class="bio align-self-md-center mr-5">
-							<img src="images/person_1.jpg" alt="Image placeholder"
+							<img src="../upload/host/pic<%=hostId%>.jpg" alt="Image placeholder"
 								class="img-fluid rounded-circle mb-4">
 						</div>
 						<div class="desc align-self-md-center">
-							<h3 class="name">김라인</h3>
-							<p>경력을 짧게 쓰면 사진이 크게 나옴</p>
+							<h3 class="name">${hostInfo.name}</h3>
+							<p>소속 : ${hostVO.company}</p>
+							<p>최근 접속일 : ${hostInfo.lastConnDate}</p>
+							<p>간단한 소개 : ${hostVO.content}</p>
 						</div>
 					</div>
 
@@ -84,22 +92,19 @@
 					2.
 
 
-					<h2 class="mb-3">간단한 자기소개 부탁드립니다!</h2>
+					<!-- <h2 class="mb-3">간단한 자기소개 부탁드립니다!</h2>
 					<p>안녕하세요. 오늘 날씨가 참 좋습니다. 어떻게 잘 지내고 계신지는 모르겠어요. 요즘 저는 프로젝트하나라
 						바쁘게 지내는 것 같습니다. 요즘 저는 프로젝트하나라 바쁘게 지내는 것 같습니다. 요즘 저는 프로젝트하나라 바쁘게
 						지내는 것 같습니다. 토스도 공고 나왔던데 가고 싶어요. 아무튼 프로젝트 잘 해서 포트폴리오 한번 기막히게 구성해
 						봅시다.</p>
-					<!-- <img src="images/image_7.jpg" alt="" class="img">
-             -->
+					
 					<p>요즘 코로나 때문에 누구 만나지도 못하는데, 이번에 이런 서비스가 생겨서 한번 사용해보고 싶네요. 어쨌든지
 						간에 재밌게 사용할 수 있을 것 같습니다. 점심한끼 합시다.</p>
 					<h2 class="mb-3 mt-5">어떤 업무에 종사하고 계신가요?</h2>
 					<p>나는 지금 포트폴리오를 만들기 위해 열심히 프론트단을 고치고 있습니다. 장인정신이 필요한 작업인 거 같아요.
 						나중에 백엔드에서 DB로 연결해야하고 지금 링크건 것도 전부 다 콘트럴러 쪽으로 변경해야하는데 팀원들이 많이 도와주리라
 						믿습니다. 감사합니다.</p>
-					<!-- <p>
-              <img src="images/image_8.jpg" alt="" class="img-fluid">
-            </p> -->
+					
 					<p>참 사진이 이쁜 거 같아요. 그죠? 빨리 여행이나 가고 싶네요. 근데 돈이 없어서 ㅠㅠ. 일단 취직부터
 						해야겠습니다. 어떤 말을 써야할지 감이 안잡히는데 일단 구성은 해야 하니까요...</p>
 					<p>미국의 하버드, 그리고 엠아이티, 유럽의 저기 어디냐 아.. 기억이 안나는데 취리히 공대 말고 로잔 공대다.
@@ -113,7 +118,7 @@
 								class="tag-cloud-link">백엔드</a> <a href="#"
 								class="tag-cloud-link">자바</a> <a href="#" class="tag-cloud-link">여행</a>
 						</div>
-					</div>
+					</div> -->
 
 
 					<!-- 댓글 파트 -->
@@ -126,18 +131,12 @@
 
 							<li class="comment">
 								<div class="vcard bio">
-									<img src="images/person_1.jpg" alt="Image placeholder">
+									<img src="../upload/host/pic0.jpg" alt="Image placeholder">
 								</div>
 								<div class="comment-body">
-									<h3>John Doe</h3>
-									<div class="meta">June 27, 2018 at 2:21pm</div>
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
-										elit. Pariatur quidem laborum necessitatibus, ipsam impedit
-										vitae autem, eum officia, fugiat saepe enim sapiente iste
-										iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-									<p>
-										<a href="#" class="reply">Reply</a>
-									</p>
+									<h3>댓글 작성자</h3>
+									<div class="meta">2021-04-19 00:00:00</div>
+									<p>이 페이지는 댓글을 못 불러왔을 때, 나오는 페이지입니다.</p>
 								</div>
 							</li>
 						</ul>
