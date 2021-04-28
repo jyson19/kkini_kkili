@@ -64,7 +64,8 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&​libraries=services"></script>
      -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=services,clusterer,drawing"></script>
-<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <style>
 #bid_price:focus {
 	outline: none;
@@ -129,12 +130,15 @@
 									<label class="float-label">일시</label>
 								</div>
 								<div class="form-group form-default form-static-label">
-									<a href="javascript:void(0)" onclick="document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'">
-									<input type="text" name="location" class="form-control"	placeholder="주소를 입력해주세요" id="location"></a>
+									<input type="text" name="location" class="form-control"	placeholder="주소를 입력해주세요" id="location" readonly="readonly">
 									 <span class="form-bar"></span>
 									<label class="float-label" id="insert-label-addr">주소</label>
 								</div>
-								<input type="hidden" name="storeName" class="form-control">
+								<div class="form-group form-default form-static-label">
+									<input type="text" name="storeName" class="form-control" placeholder="상호명을 입력해주세요" readonly="readonly">
+									 <span class="form-bar"></span>
+									<label class="float-label" id="insert-label-addr">상호명</label>
+								</div>
 								<div class="form-group form-default form-static-label">
 									<input type="text" name="startValue" class="form-control"
 										placeholder="경매시작가를 입력해주세요"> <span class="form-bar"></span>
@@ -171,8 +175,7 @@
 									<div id="pagination"></div>
 								</div>
 							</div>
-							<a href="javascript:void(0)"
-								onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'; document.getElementById('location').value='아';">Close</a>
+							<p id="closehere">Close</p>
 						</div>
 						<div id="fade" class="black_overlay"></div>
 						
@@ -468,4 +471,26 @@
 	<script src="./../resources/js/main.js"></script>
 
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('[name=location], [name=storeName]').click(function(){
+   		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
+   	    $('#light').css({'display':'block'});
+   	    $('#fade').css({'display':'block'});
+   	});	
+    $('#closehere').click(function(){
+   		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
+        $('#light').css({'display':'none'});
+   	    $('#fade').css({'display':'none'});
+   	});
+    $(document).on("click",'#placesList > li > .info',function(){
+    	//alert("무야호");
+
+        $('[name=location]').val($(this).children('h5').text());
+        $('[name=storeName]').val($(this).children('.jibun').text());
+        $('#light').css({'display':'none'});
+   	    $('#fade').css({'display':'none'});
+    });
+});
+</script>
 </html>
