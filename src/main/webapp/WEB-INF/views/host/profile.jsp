@@ -222,6 +222,8 @@
        		commentStart();
        	},
 	  })
+	  
+	  $("#message").val("");
   })
   
   // 댓글 삭제 버튼
@@ -261,7 +263,7 @@
 				       				'<img src="../upload/host/pic'+data[i].GUEST_ID+'.jpg" onerror="this.src=\'../upload/host/pic0.jpg\'" alt="Image placeholder">'+
 				       				'</div>'+
 				       				'<div class="comment-body">'+
-				       				'<h3 class="cmt_name">'+data[i].NAME+'</h3>'+'<button class="btn btn-light btn-sm reply_delete float-right">삭제</button>'+
+				       				'<h3 class="cmt_name">'+data[i].NAME+'</h3>'+'<button class="btn btn-light btn-sm reply_delete float-right" value="'+ data[i].CMT_ID +'">삭제</button>'+
 				       				'<div class="meta">'+data[i].WRITE_DATE+'</div>'+
 				       				'<p>'+data[i].CONTENT+'</p>'+
 									'</div>'+
@@ -269,7 +271,21 @@
 		       		    
 		       		}
 		       		
-		       		
+		       		// 위의 리스트 생성 후 삭제 버튼 클릭시 발동
+		       		$(".reply_delete").click(function(){
+		       			let btn = $(this);	
+		       			
+		       			$.ajax({
+		       				type :'post',
+		       		       	data : ({"cmtId" : btn.val(), "hostId" : ${param.hostId}}),
+		       		       	url : 'deleteCmt.do',
+		       		       	success : function(result){
+		       		       		if(result == '1'){
+		       		       			btn.parent().parent().remove();
+		       		       		}
+		       		       	}   	
+		       			})
+		       		})
 	       		}
 	       	}
 	})
@@ -282,6 +298,7 @@
 	}
 	
 	commentStart();
+
 
 
   

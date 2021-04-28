@@ -21,6 +21,6 @@
 	<!-- 삭제, 코멘트 아이디, 작성자, 댓글자 일치시 -->
 	<delete id="deleteCmt" parameterType="cmt">	
 		DELETE FROM cmt
-		WHERE cmt_id = #{cmt_id} AND host_id = #{hostId} AND guest_id = #{guestId}
+		WHERE cmt_id = #{cmtId} AND host_id = #{hostId} AND guest_id = #{guestId}
 	</delete>
 </mapper>

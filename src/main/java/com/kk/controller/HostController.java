@@ -33,7 +33,7 @@ public class HostController {
 		// 호스트 내용 가져와서 뷰 페이지로 뿌려주기
 		
 		
-		System.out.println("ContactController.moveToProfilePage");
+		System.out.println("HostController.moveToProfilePage");
 		
 	};
 	
@@ -42,7 +42,7 @@ public class HostController {
 	@RequestMapping("host/saveCmt.do")
 	@ResponseBody
 	public List<HashMap<String, String>> saveCmt(String cmt, int hostId, HttpSession session) { // 들어오는 파라미터 값은 hostId
-		System.out.println("ContactController.saveCmt 요청");
+		System.out.println("HostController.saveCmt 요청");
 		
 		// 로그인하지 않을시 댓글 못남김
 		if(session.getAttribute("member")!=null) {
@@ -63,28 +63,41 @@ public class HostController {
 		
 	};
 	
+	// 호스트 프로필 페이지에서 댓글 삭제
+	@RequestMapping("host/deleteCmt.do")
+	@ResponseBody
+	public String deleteCmt(CmtVO cmtVO, HttpSession session) {
+		System.out.println("HostController.deleteCmt 요청");
+		
+		String result = "0";
+		
+		// 로그인하지 않을시 댓글 삭제 불가
+		if(session.getAttribute("member")!=null) {
+			
+			// 세션으로 게스트 아이디 지정하기
+			cmtVO.setGuestId( ((MemberVO) session.getAttribute("member")).getMemberId() );
+			
+			System.out.println(cmtVO);
+			
+			if(cmtSerivce.deleteCmt(cmtVO)==1) {
+				result = "1"; // 성공적으로 삭제했음을 알림
+			};
+		}
+		
+		return result;
+		
+	};
+	
 	// 호스트 프로필 페이지에서 댓글 조회
 	@RequestMapping("host/getCmtList.do")
 	@ResponseBody
 	public List<HashMap<String, String>> getCmtList(String cmt, int hostId, HttpSession session) { // 들어오는 파라미터 값은 hostId
-		System.out.println("ContactController.saveCmt 요청");
+		System.out.println("HostController.getCmtList 요청");
 		
 		CmtVO cmtVO = new CmtVO();
 		
-		
-		// test 코드
 		cmtVO.setHostId(hostId); // 호스트 아이디 담기
 		return cmtSerivce.getCmtList(cmtVO);
-		
-//		// 로그인하지 않을시 댓글 못남김
-//		if(session.getAttribute("member")!=null) {
-//			System.out.println(hostId + " / " + cmt + " / " + session.getAttribute("member"));
-//			
-//			
-//			return cmtSerivce.getCmtList(cmtVO);
-//		}
-//		
-//		return null;
-		
+
 	};
 }
