@@ -168,7 +168,7 @@
 							<!--  ${contactList }-->
 							<div class="item border-top">
 								<div class="testimony-wrap d-flex">
-									<a href="${pageContext.request.contextPath}/host/profile.do">
+									<a href="${pageContext.request.contextPath}/host/profile.do?hostId=${contact.HOST_ID}">
 										<div>
 											<div class="user-img mb-4"
 												style="background-image: url('./../upload/host/${contact.HOST_PIC}')">

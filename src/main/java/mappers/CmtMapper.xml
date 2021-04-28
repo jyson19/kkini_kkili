@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="BoardDAO">
+<mapper namespace="cmtDAO">
 	
-	<!-- 댓글 관련 매퍼 -->
-	
-	
+	<!-- 댓글 관련 매퍼 -->	
+	<!-- 댓글 조회 -->
+	<select id="getCmtList" parameterType="cmt" resultType="map">
+		SELECT c.*, m.name  
+		FROM cmt c, member m
+		WHERE c.host_id = #{hostId} AND c.guest_id = m.member_id 
+		ORDER BY WRITE_DATE
+	</select>
+
 	<!-- 생성 -->
+	<insert id="insertCmt" parameterType="cmt">
+		INSERT INTO cmt(cmt_id, host_id, guest_id, write_date, content) 
+		VALUES(SEQ_CMT_ID.nextval, #{hostId}, #{guestId}, SYSDATE, #{content})
+	</insert>
 	
-	<!-- 수정 -->
-	
-	<!-- 삭제 -->
+	<!-- 삭제, 코멘트 아이디, 작성자, 댓글자 일치시 -->
+	<delete id="deleteCmt" parameterType="cmt">	
+		DELETE FROM cmt
+		WHERE cmt_id = #{cmtId} AND host_id = #{hostId} AND guest_id = #{guestId}
+	</delete>
 </mapper>

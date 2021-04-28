@@ -96,11 +96,11 @@ public class ContactController {
 		System.out.println("ContactController.insertContact() 실행");
 	}
 	
-	
 
 	@RequestMapping("host/profile.do")
 	public void temp() {
 		System.out.println("임시 프로필 페이지 : 아직 미연동");
 		System.out.println("ContactController.temp");
 	};
+
 }
