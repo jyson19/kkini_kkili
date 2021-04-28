@@ -7,8 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kk.dao.AdminDAOImpl;
-import com.kk.dao.MemberDAO;
-import com.kk.domain.AdminVO;
+import com.kk.domain.HostVO;
 
 @Service("adminMainService")
 public class AdminServiceImpl implements AdminService{
@@ -18,13 +17,13 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	// 관리자 메인 페이지
-	public List<AdminVO> getAdminMain(AdminVO vo) {
+	public List<HostVO> getAdminMain(HostVO vo) {
 		return null;
 	}
 	
 	@Override
 	//스탭 관리
-	public List<AdminVO> getStaff(AdminVO vo) {
+	public List<HostVO> getStaff(HostVO vo) {
 		return null;
 	}
 
@@ -36,31 +35,31 @@ public class AdminServiceImpl implements AdminService{
 
 	@Override
 	// 휴먼 계정
-	public List<AdminVO> getDormancy(AdminVO vo) {
+	public List<HostVO> getDormancy(HostVO vo) {
 		return null;
 	}
 
 	@Override
 	// 이용자 수 조회
-	public List<AdminVO> getUsers(AdminVO vo) {
+	public List<HostVO> getUsers(HostVO vo) {
 		return null;
 	}
 
 	@Override
 	// 매칭 현황 조회
-	public List<AdminVO> getMatch(AdminVO vo) {
+	public List<HostVO> getMatch(HostVO vo) {
 		return null;
 	}
 
 	@Override
 	// 총 매출 조회
-	public List<AdminVO> getSales(AdminVO vo) {
+	public List<HostVO> getSales(HostVO vo) {
 		return null;
 	}
 
 	@Override
 	// 매출 장부 조회
-	public List<AdminVO> getBook(AdminVO vo) {
+	public List<HostVO> getBook(HostVO vo) {
 		return null;
 	}
 }

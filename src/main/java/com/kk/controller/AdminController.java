@@ -5,9 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.kk.domain.AdminVO;
 import com.kk.service.AdminService;
-import com.kk.service.NoticeService;
 
 @Controller
 public class AdminController {

@@ -12,7 +12,7 @@
 
 	<!-- Alias 설정 -->
 	<typeAliases>
-		<typeAlias alias="admin" type="com.kk.domain.AdminVO" />
+		<typeAlias alias="host" type="com.kk.domain.HostVO" />
 		<typeAlias alias="cmt" type="com.kk.domain.CmtVO" />
 		<typeAlias alias="contact" type="com.kk.domain.ContactVO" />
 		<typeAlias alias="emailAuth" type="com.kk.domain.EmailAuthVO" />

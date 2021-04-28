@@ -3,22 +3,22 @@ package com.kk.service;
 import java.util.List;
 import java.util.Map;
 
-import com.kk.domain.AdminVO;
+import com.kk.domain.HostVO;
 
 public interface AdminService {
-	List<AdminVO> getAdminMain(AdminVO vo);
+	List<HostVO> getAdminMain(HostVO vo);
 
-	List<AdminVO> getStaff(AdminVO vo);
+	List<HostVO> getStaff(HostVO vo);
 	
 	List<Map<String, String>> getHostup();
 	
-	List<AdminVO> getDormancy(AdminVO vo);
+	List<HostVO> getDormancy(HostVO vo);
 	
-	List<AdminVO> getUsers(AdminVO vo);
+	List<HostVO> getUsers(HostVO vo);
 	
-	List<AdminVO> getMatch(AdminVO vo);
+	List<HostVO> getMatch(HostVO vo);
 	
-	List<AdminVO> getSales(AdminVO vo);
+	List<HostVO> getSales(HostVO vo);
 	
-	List<AdminVO> getBook(AdminVO vo);
+	List<HostVO> getBook(HostVO vo);
 }

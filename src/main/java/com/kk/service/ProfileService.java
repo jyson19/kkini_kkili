@@ -1,18 +1,18 @@
 package com.kk.service;
 
-import com.kk.domain.MemberVO;
+import com.kk.domain.HostVO;
 
 public interface ProfileService {
 	// 프로필 등록
-	void insertProfile(MemberVO vo);
+	void insertProfile(HostVO vo);
 	
 	// 프로필 수정
-	void updateProfile(MemberVO vo);
+	void updateProfile(HostVO vo);
 	
 	// 프로필 삭제
-	void deleteProfile(MemberVO vo);
+	void deleteProfile(HostVO vo);
 	
 	// 프로필 상세 조회
-	MemberVO getProfile(MemberVO vo);
+	HostVO getProfile(HostVO vo);
 	
 }
