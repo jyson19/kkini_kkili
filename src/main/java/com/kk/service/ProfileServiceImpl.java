@@ -30,7 +30,6 @@ public class ProfileServiceImpl implements ProfileService{
 	// 프로필 상세 조회
 	public HostVO getProfile(HostVO vo) {
 		return profileDAO.getProfile(vo);
-		
 	}
 	
 }
