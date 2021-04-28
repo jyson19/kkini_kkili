@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,10 +15,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.kk.dao.BookmarkDAOImpl;
 import com.kk.domain.BookmarkVO;
+import com.kk.domain.HostVO;
 import com.kk.domain.MemberVO;
 import com.kk.service.BookmarkService;
 import com.kk.service.MemberService;
 import com.kk.service.NoticeService;
+import com.kk.service.ProfileService;
 
 @Controller
 public class MypageController {
@@ -26,7 +29,18 @@ public class MypageController {
 	private MemberService memberService;
 	
 	@Autowired
+	private ProfileService profileService;
+	
+	@Autowired
 	private BookmarkService bookmarkService;
+	
+	// 관련 페이지로 이동
+	@RequestMapping("mypage/{step}.do")
+	public String movingPage(@PathVariable("step") String step) {
+		System.out.println("MypageController : " + step + "페이지로 이동 요청");
+		return step;
+	}
+		
 
 	// 마이 페이지 클릭시 권한에 따라 분기
 	@RequestMapping("mypage/enter.do")
@@ -124,12 +138,20 @@ public class MypageController {
 	public void profile(MemberVO vo) {
 		System.out.println("profile 실행");
 	}
+	
+	// 프로필 등록 페이지
+	@RequestMapping("mypage/viewProfile.do")
+	public void viewProfile(HostVO vo) {
+		System.out.println("viewProfile 실행");
+	}
+	
 	// 프로필 등록
-	@RequestMapping("saveProfile.do")
-	public String insertProfile(MemberVO vo) throws IOException {
-		System.out.println("insertProfile 실행");
-		memberService.insertMember(vo);
-		return "redirect:/profile.do";
+	@RequestMapping(value = "mypage/saveProfile.do")
+	public String insertProfile(HostVO vo, HttpSession session) throws IOException {
+		vo.setHostId( ((MemberVO)session.getAttribute("member")).getMemberId() ); 
+		System.out.println("insertProfile 실행" + vo);
+		profileService.insertProfile(vo);
+		return "mypage/viewProfile";
 	}
 //	// 프로필 수정
 //	@RequestMapping("")
@@ -141,10 +163,11 @@ public class MypageController {
 //	public void deleteProfile(MemberVO vo){
 //		System.out.println("deleteProfile 실행");
 //	}
-//	// 프로필 상세 조회
-//	@RequestMapping("")
-//	public void getProfile(MemberVO vo){
-//		System.out.println("getProfile 실행");
-//	}
+	// 프로필 상세 조회
+	@RequestMapping("mypage/viewProfile")
+	public void getProfile(HostVO vo, Model m){
+		System.out.println("getProfile 실행" + vo);
+		m.addAttribute("profile", profileService.getProfile(vo));
+	}
 	
 }

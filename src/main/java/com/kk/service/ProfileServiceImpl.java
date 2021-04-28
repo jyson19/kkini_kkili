@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kk.dao.ProfileDAOImpl;
-import com.kk.domain.MemberVO;
+import com.kk.domain.HostVO;
 
 @Service("profileService")
 public class ProfileServiceImpl implements ProfileService{
@@ -13,22 +13,22 @@ public class ProfileServiceImpl implements ProfileService{
 	private ProfileDAOImpl profileDAO;
 	
 	// 프로필 등록
-	public void insertProfile(MemberVO vo) {
+	public void insertProfile(HostVO vo) {
 		profileDAO.insertProfile(vo);
 	}
 	
 	// 프로필 수정
-	public void updateProfile(MemberVO vo) {
+	public void updateProfile(HostVO vo) {
 		profileDAO.updateProfile(vo);
 	}
 	
 	// 프로필 삭제
-	public void deleteProfile(MemberVO vo) {
+	public void deleteProfile(HostVO vo) {
 		profileDAO.deleteProfile(vo);
 	}
 	
 	// 프로필 상세 조회
-	public MemberVO getProfile(MemberVO vo) {
+	public HostVO getProfile(HostVO vo) {
 		return profileDAO.getProfile(vo);
 		
 	}

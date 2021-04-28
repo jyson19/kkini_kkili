@@ -6,19 +6,19 @@
 	
 	
 	<!-- 등록 -->
-	<!-- <insert id="insertProfile" parameterType="profile">
-		INSERT INTO host(host_id, host_pic, company, uni, host_value)
-		VALUES(member_id, #{name}, #{email}, #{password}, ${tel}, 0, SYSDATE, SYSDATE)
-	</insert> -->
+	<insert id="insertProfile" parameterType="host" useGeneratedKeys="true" keyProperty="no">
+		INSERT INTO host(host_id, host_pic, company, uni, write_date, auth_file, content)
+		VALUES(#{hostId}, #{hostPic}, #{company}, #{uni}, sysdate, #{authFile}, #{content})
+	</insert>
  
- 	<!-- 단순 조회 -->
-	<!-- <select id="getMember" resultType="profile">
+ 	<!-- 프로필 상세 조회 -->
+	<!-- <select id="getMember" resultType="host" parameterType="host">
 		SELECT *
-		FROM member
-		WHERE email = #{email}
+		FROM host
+		WHERE member_id = #{memberId}
 	</select>
  	
- 	<select id="getMemberList" resultType="profile">
+ 	 <select id="getMemberList" resultType="profile">
 		SELECT *
 		FROM member
 	</select> -->
