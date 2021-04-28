@@ -91,8 +91,8 @@ CREATE TABLE cmt (
 CREATE TABLE notice (
 	notice_no NUMBER NOT NULL, /* 공지사항번호 */
 	no_write_date DATE, /* 등록일 */
-	subject VARCHAR2(30), /* 제목 */
-	contents VARCHAR2(200) /* 내용 */
+	subject VARCHAR2(50), /* 제목 */
+	contents VARCHAR2(300) /* 내용 */
 );
 
 /* 매출액 */
