@@ -30,19 +30,26 @@ public class ContactController {
 	@RequestMapping("contact/list.do")
 	public void getContactList(PagingCriteria cri, Model model, HttpSession session) {
 		System.out.println("ContactController.getContactList");
-		
+
 		List<Map<String, String>> boardList = contactService.getContactList(cri);
-		
+
 		int total = contactService.totalCnt();
 		System.out.println("컨택 글 갯수 : " + total);
-		
+
 		model.addAttribute("contactList", boardList);
-		model.addAttribute("paging",new PageMaker(cri,total));
-		
+		model.addAttribute("paging", new PageMaker(cri, total));
+
 		// 로그인 시
-		if(session.getAttribute("member") != null) {
+		if (session.getAttribute("member") != null) {
 			int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
 			System.out.println("memberId : " + memberId);
+			// 유저가 호스트일 때
+			if (memberId >= 1) {
+				Map<String, String> someContact = contactService.getContactOne(memberId);
+//				if (someContact.containsKey("HOST_ID")) {
+//					System.out.println("매핑 갯수 : " + someContact.size());
+					model.addAttribute("contactOne", someContact);
+			}
 		}
 	}
 
@@ -64,9 +71,9 @@ public class ContactController {
 		System.out.println("region : " + region);
 		System.out.println("startdate : " + startdate);
 		System.out.println("enddate : " + enddate);
-		
+
 		HashMap<String, String> map = new HashMap<String, String>();
-		
+
 		map.put("keyword", keyword);
 		map.put("region", region);
 		map.put("startdate", startdate);

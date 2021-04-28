@@ -33,4 +33,10 @@ public class ContactServiceImpl implements ContactService {
 	public int totalCnt() {
 		return contactDAO.totalCnt();
 	}
+
+	// 컨택 1개 반환
+	@Override
+	public Map<String, String> getContactOne(int memberId) {
+		return (Map<String, String>) contactDAO.getContactOne(memberId);
+	}
 }

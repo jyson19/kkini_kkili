@@ -3,12 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%!
 	String email = "";
+	String name = "";
+	int auth = 0;
 	Boolean login = false;
 %>
 <%
 	if( session.getAttribute("member")!= null ) {
 		email = (String) ((MemberVO) session.getAttribute("member")).getEmail();
-		//System.out.println(session.getAttribute("member").getClass());
+		name = (String) ((MemberVO) session.getAttribute("member")).getName();
+		auth = ((MemberVO) session.getAttribute("member")).getAuth();
 	}
 	if(email.length()>=1 && email.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$")) {
 		login = true;
@@ -58,9 +61,6 @@
 	<section class="ftco-section ftco-degree-bg">
 
 		<div class="container">
-			<%if(login) { %>
-			<h1>로그인됐다</h1>
-			<%} %>
 			<h2 class="mb-4 text-dark">컨택 조회</h2>
 			<div class="row">
 				<div class="col-lg-3 sidebar ftco-animate">
@@ -111,8 +111,60 @@
 
 				<div class="col-lg-9">
 					<div class="col-md-12">
+						<!-- 로그인 유저가 호스트일때 -->
+						<%if(login && auth >= 1) { %>
+						<!-- 유효한 마감시간의 컨택이 있을 때 -->
+						<c:if test='${contactOne.NAME != null}'>
+						<p class="name">${contactOne.NAME}님이 마련한 컨택이 있습니다.</p>
+						<div class="item border-top">
+								<div class="testimony-wrap d-flex">
+									<a href="${pageContext.request.contextPath}/host/profile.do">
+										<div>
+											<div class="user-img mb-4"
+												style="background-image: url('./../upload/host/${contactOne.HOST_PIC}')">
+											</div>
+											<div>
+												<p style="font-size: 2.0vmin; margin-bottom: 0%; text-align: center; color: black; font-weight: bold;">${contactOne.NAME}</p>
+												<p style="font-size: 1.7vmin; text-align: center; color: dimgrey;">${contactOne.COMPANY}</p>
+											</div>
+										</div>
+									</a>
+									<div class="text ml-4">
+
+										<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
+										<p style="font-size: 20px; font-weight: bolder;">${contactOne.CONTACT_INTRO}</p>
+										<span class="position">일시 : ${contactOne.MEETING_TIME}</span><br />
+										<span class="position">상호명 : ${contactOne.STORE_NAME}</span><br />
+										<span class="position">장소 : ${contactOne.LOCATION}</span>
+										<p class="name count_time_con">마감 시간 : <span class="count_time">${contactOne.REGI_DATE }</span></p>
+										<p class="name">현재 최고가 : ${contactOne.LAST_VALUE}원</p>
+										<p>
+											<a href="meeting_detail.html"
+												class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택
+												신청</a>
+										</p>
+									</div>
+								</div>
+							</div>
+						
+						</c:if>
+						<c:if test='${contactOne.NAME == null}'>
+							컨택을 통해 회원님의 경험을 공유해주세요. <a href="" style="color: #2DAD92; text-decoration: underline;">생성하기</a>
+						</c:if>
+						<br/>  
+						<hr/>
+						<br/>
+						<%} %>
+						
+						<!-- 로그인 유저가 게스트일때 -->
+						<%if(login && auth == 0) { %>
+							호스트가 되어 회원님의 경험을 공유해주세요. <a href="" style="color: #2DAD92; text-decoration: underline;">호스트 인증신청</a>
+							<br/>  
+							<hr/>
+							<br/>
+						<%} %>
+						
 						<c:forEach items="${contactList }" var="contact">
-						<c:set var="idx" value="${idx+1 }"></c:set>
 							<!--  ${contactList }-->
 							<div class="item border-top">
 								<div class="testimony-wrap d-flex">
