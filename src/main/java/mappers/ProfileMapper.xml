@@ -12,15 +12,24 @@
 	</insert>
  
  	<!-- 프로필 상세 조회 -->
-	<!-- <select id="getMember" resultType="host" parameterType="host">
+	<select id="getProfile" resultType="host" parameterType="host">
 		SELECT *
 		FROM host
-		WHERE member_id = #{memberId}
+		WHERE host_id = #{hostId}
 	</select>
  	
- 	 <select id="getMemberList" resultType="profile">
-		SELECT *
-		FROM member
-	</select> -->
+ 	<!-- <update id="updateProfile" resultType="host">
+		UPDATE host SET
+		host_pic = #{hostPic}
+		company = #{company}
+		uni = #{uni}
+		auth_file = #{authFile}
+		content
+		WHERE host_id = #{hostId}
+	</update> -->
+	
+	<!-- <delete id="deleteProfile" resultType="host">
+		SELECT FROM host WHERE host_id = #{hostId}
+	</delete> -->
 	
 </mapper>

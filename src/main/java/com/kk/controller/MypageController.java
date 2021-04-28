@@ -26,9 +26,6 @@ import com.kk.service.ProfileService;
 public class MypageController {
 
 	@Autowired
-	private MemberService memberService;
-	
-	@Autowired
 	private ProfileService profileService;
 	
 	@Autowired
@@ -38,7 +35,7 @@ public class MypageController {
 	@RequestMapping("mypage/{step}.do")
 	public String movingPage(@PathVariable("step") String step) {
 		System.out.println("MypageController : " + step + "페이지로 이동 요청");
-		return step;
+		return "mypage/" + step;
 	}
 		
 
@@ -132,29 +129,17 @@ public class MypageController {
 		
 
 	}
-	
-	// 프로필 등록 페이지
-	@RequestMapping("mypage/profile.do")
-	public void profile(MemberVO vo) {
-		System.out.println("profile 실행");
-	}
-	
-	// 프로필 등록 페이지
-	@RequestMapping("mypage/viewProfile.do")
-	public void viewProfile(HostVO vo) {
-		System.out.println("viewProfile 실행");
-	}
-	
+		
 	// 프로필 등록
 	@RequestMapping(value = "mypage/saveProfile.do")
 	public String insertProfile(HostVO vo, HttpSession session) throws IOException {
 		vo.setHostId( ((MemberVO)session.getAttribute("member")).getMemberId() ); 
 		System.out.println("insertProfile 실행" + vo);
 		profileService.insertProfile(vo);
-		return "mypage/viewProfile";
+		return "redirect:/mypage/viewProfile.do";
 	}
 //	// 프로필 수정
-//	@RequestMapping("")
+//	@RequestMapping("updateProfile.do")
 //	public void updateProfile(MemberVO vo){
 //		System.out.println("updateProfile 실행");
 //	}
@@ -165,9 +150,10 @@ public class MypageController {
 //	}
 	// 프로필 상세 조회
 	@RequestMapping("mypage/viewProfile")
-	public void getProfile(HostVO vo, Model m){
+	public String getProfile(HostVO vo, Model m){
 		System.out.println("getProfile 실행" + vo);
-		m.addAttribute("profile", profileService.getProfile(vo));
+		m.addAttribute("host", profileService.getProfile(vo));
+		return "mypage/viewProfile";
 	}
 	
 }

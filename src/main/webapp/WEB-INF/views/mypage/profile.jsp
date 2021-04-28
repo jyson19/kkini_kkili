@@ -313,7 +313,8 @@
         <span>보내주신 프로필은  <code>관리자 </code> 확인 후 <code>&lt;호스트&gt;</code> 로 변경됩니다</span>
     </div>
     <div class="card-block">
-        <form method="post" action="saveProfile.do?member_id=<%=member.getMemberId()%>" enctype="multipart/form-data">
+        <form method="post" action="saveProfile.do?id=<%=member.getMemberId()%>" enctype="multipart/form-data">
+        <input name="id" type="hidden" value="${host.hostId}" />
         <h4 class="sub-title">NO.<%=member.getMemberId()%></h4>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">이름</label>
