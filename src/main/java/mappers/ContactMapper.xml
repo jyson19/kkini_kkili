@@ -148,7 +148,9 @@
 			c.store_name AS store_name, 
 			c.location AS location, 
 			c.meeting_time AS meeting_time, 
-			c.start_value AS start_value, 
+			(SELECT 
+				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.start_value)), '([0-9]{3})','\1,')), '^,','') 
+				FROM DUAL) AS start_value,  
 			(SELECT 
 				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
 				FROM DUAL) AS last_value, 
@@ -182,7 +184,7 @@
 			#{location}, 
 			#{meetingTime}, 
 			#{startValue}, 
-			0, 
+			#{startValue}, 
 			0
 		)
 	</insert>

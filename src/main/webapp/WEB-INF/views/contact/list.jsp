@@ -114,7 +114,7 @@
 				<div class="col-lg-9">
 					<div class="col-md-12">
 						<!-- 로그인 유저가 호스트일때 -->
-						<%if(login && auth >= 1) { %>
+						<%if(login && auth == 1) { %>
 						<!-- 유효한 마감시간의 컨택이 있을 때 -->
 						<c:if test="${contactOne.NAME != null}">
 						<p class="name">${contactOne.NAME}님이 마련한 컨택이 있습니다.</p>
@@ -138,7 +138,7 @@
 										<span class="position">상호명 : ${contactOne.STORE_NAME}</span><br />
 										<span class="position">장소 : ${contactOne.LOCATION}</span>
 										<p class="name count_time_con">마감 시간 : <span class="count_time">${contactOne.REGI_DATE }</span></p>
-										<p class="name">현재 최고가 : ${contactOne.LAST_VALUE}원</p>
+										<p class="name">현재 최고가 : ${contactOne.START_VALUE}원</p>
 										<p>
 											<a href="meeting_detail.html"
 												class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택

@@ -146,7 +146,7 @@
 								</div>
 								<div class="form-group form-default form-static-label">
 									<input type="text" name="startValue" class="form-control"
-										placeholder="경매시작가를 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> <span class="form-bar"></span>
+										placeholder="경매시작가를 입력해주세요"> <span class="form-bar"></span>
 									<label class="float-label">경매시작가</label>
 								</div>
 								<input type="hidden" name="hostId" class="form-control"	value="<%=hostId%>"> 
@@ -167,7 +167,7 @@
 									<div class="option">
 										<div>
 											<form onsubmit="searchPlaces(); return false;">
-												키워드 : <input type="text" value="판교역" id="keyword"
+												키워드 : <input type="text" value="스타벅스 몬테소리점" id="keyword"
 													size="15">
 												<button type="submit">검색하기</button>
 											</form>
@@ -211,7 +211,7 @@
 
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
-				center : new kakao.maps.LatLng(37.3947702,127.1103856), // 지도의 중심좌표
+				center : new kakao.maps.LatLng(37.5007937,127.0169523), // 지도의 중심좌표
 				level : 3
 			// 지도의 확대 레벨
 			};
@@ -480,23 +480,35 @@
 	document.write("<script type='text/javascript' src='./../resources/js/bootstrap-material-datetimepicker.js'><"+"/script>");  
 $(document).ready(function(){
 
+	// 주소나 상호명 클릭시, 지도 띄움
     $('[name=location], [name=storeName]').click(function(){
    		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
+   		
    	    $('#light').css({'display':'block'});
    	    $('#fade').css({'display':'block'});
-   	});	
+		//$( '#light' ).animate( {width : '50%'}, 500, 'swing' );
+        //$( '#fade' ).animate( {width : '50%'}, 500, 'linear' );
+   	    
+   	    // 지도 크기 동적 변경
+		setInterval(map.relayout(), 5000); 
+   	});
+	/*
     $('#closehere').click(function(){
    		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
         $('#light').css({'display':'none'});
    	    $('#fade').css({'display':'none'});
    	});
-    $(document).on("click",'#placesList > li > .info',function(){
+	*/
+
+	$(document).on("click",'#placesList > li > .info',function(){
     	//alert("무야호");
 
         $('[name=storeName]').val($(this).children('h5').text());
         $('[name=location]').val($(this).children('.jibun').text());
         $('#light').css({'display':'none'});
    	    $('#fade').css({'display':'none'});
+		//$( '#light' ).animate( {width : '0%'}, 500, 'swing' );
+        //$( '#fade' ).animate( {width : '0%'}, 500, 'linear' );
     });
     
     $('#date-format').bootstrapMaterialDatePicker({ format : 'YYYY-MM-DD HH:mm' });
