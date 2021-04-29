@@ -18,6 +18,7 @@ import com.kk.domain.BookmarkVO;
 import com.kk.domain.HostVO;
 import com.kk.domain.MemberVO;
 import com.kk.service.BookmarkService;
+import com.kk.service.ContactService;
 import com.kk.service.MemberService;
 import com.kk.service.NoticeService;
 import com.kk.service.ProfileService;
@@ -31,6 +32,9 @@ public class MypageController {
 	@Autowired
 	private BookmarkService bookmarkService;
 	
+	@Autowired
+	private ContactService contactService;
+	
 	
 	// 관련 페이지로 이동
 //	@RequestMapping("mypage/{step}.do")
@@ -38,6 +42,22 @@ public class MypageController {
 //		System.out.println("MypageController : " + step + "페이지로 이동 요청");
 //		return "mypage/" + step;
 //	}
+	
+	
+	// 마이페이지 내 컨택 히스토리 조회
+	@RequestMapping("mypage/contactHistory.do")
+	public String contactHistory(Model m, HttpSession session) {
+		System.out.println("MypageController : contactHistory" + "페이지로 이동 요청");
+		
+		// 로그인 시
+		if(session.getAttribute("member")!=null) {
+			int userId = ((MemberVO)session.getAttribute("member")).getMemberId();
+			m.addAttribute("contactInfo", contactService.getMyContactList(userId));
+		}
+		
+		return "mypage/contactHistory";	
+	}
+	
 	
 	@RequestMapping("mypage/profile.do")
 	public String movePageProfile(Model m, HttpSession session) {

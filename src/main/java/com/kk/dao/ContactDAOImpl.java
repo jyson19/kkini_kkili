@@ -16,6 +16,7 @@ public class ContactDAOImpl implements ContactDAO{
 	@Autowired
 	private SqlSessionTemplate mybatis;
 	
+	
 	// 컨택 리스트
 	@Override
 	public List<Map<String, String>> getContactList(PagingCriteria paging) {
@@ -49,6 +50,11 @@ public class ContactDAOImpl implements ContactDAO{
 	// 컨택 생성-프로필
 	public Map<String, String> getHostProfile(int memberId) {
 		return mybatis.selectOne("contact.getHostProfile", memberId);
+	}
+
+	// 나의 컨택 정보 가져오기
+	public List<Map<String, String>> getMyContactList(int memberId) {
+		return mybatis.selectList("contact.getMyContactList", memberId);
 	}
 	
 }

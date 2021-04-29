@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.kk.domain.MemberVO" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% 
 
@@ -9,7 +11,12 @@
 		member = (MemberVO) session.getAttribute("member"); 	
 	}
 	
+	long time = System.currentTimeMillis(); 
+	SimpleDateFormat simpl = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	String s = simpl.format(time);
 	
+	pageContext.setAttribute("today", s) ;
+
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -47,6 +54,7 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/jquery.mCustomScrollbar.css">
+    
 </head>
 
 <body>
@@ -130,8 +138,8 @@
                                         <!-- Hover table card start -->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>관심 호스트 목록</h5>
-                                                <span>내가 관심있는 <code>호스트의</code> 목록입니다.</span>
+                                                <h5>컨택 내역</h5>
+                                                <span>지금까지 진행했던 <code>컨택 내역을</code> 확인하세요.</span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -144,22 +152,44 @@
                                             </div>
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
-                                                    <table class="table table-hover">
+                                                    <table class="table hover">
                                                         <thead>
                                                             <tr>
-                                                                <!-- <th>고유번호</th> -->
-                                                                <th>이름</th>
-                                                                <th>소속</th>
-                                                                <th>대학교</th>
+                                                            	<th>포지션</th>
+                                                                <th>만난 이</th>
+                                                                <th>컨택 제목</th>
+                                                                <th>컨택 장소</th>
+                                                                <th>컨택 시간</th>
+                                                                <th>만남 가치</th>
+                                                                <th>만남 여부</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-	                                                        <c:forEach items="${memberList }" var="member">
+	                                                        <c:forEach items="${contactInfo }" var="contact">
 	                                                            <tr>
-	                                                                <%-- <td>${member.memberId }</td> --%>
-	                                                                <td>${member.name }</td>
-	                                                                <td>추후 업데이트 예정</td>
-	                                                                <td>추후 업데이트 예정</td>
+	                                                            	<c:if test="${contact.HOST_ID eq contact.MEMBER_ID }">
+	                                                                	<td> 게스트 </td>
+	                                                            	</c:if>
+	                                                            	<c:if test="${contact.HOST_ID ne contact.MEMBER_ID }">
+	                                                                	<td> 호스트 </td>
+	                                                            	</c:if>
+	                                                                <td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
+	                                                                <td><a href="../contact/detail.do?contactId=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
+	                                                                <td>${contact.STORE_NAME }</td>
+	                                                                <td>${contact.MEETING_TIME }</td>
+	                                                                <td>${contact.LAST_VALUE }</td>
+	                                                                <c:if test="${contact.QR_CHECK eq 1}">
+	                                                                	
+	                                                                	<td> 만남 완료 </td>
+	                                                            	</c:if>
+	                                                            	<c:if test="${contact.QR_CHECK eq 0}">
+	                                                                	<c:if test="${contact.MEETING_TIME >= today }">
+		                                                                	<td> 만남 예정 </td>
+	                                                                	</c:if>
+	                                                                	<c:if test="${contact.MEETING_TIME < today }">
+		                                                                	<td> 만남 취소 </td>
+	                                                                	</c:if>
+	                                                            	</c:if>
 	                                                            </tr>
                                                             </c:forEach>
                                                         </tbody>
@@ -330,6 +360,7 @@
     <script src="./../resources/assets/js/vertical/vertical-layout.min.js"></script>
     <script src="./../resources/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/script.js"></script>
+    <script type="text/javascript" src="./../resources/assets/js/interest.js"></script>
 </body>
 
 </html>

@@ -52,4 +52,9 @@ public class ContactServiceImpl implements ContactService {
 	public Map<String, String> getHostProfile(int memberId) {
 		return contactDAO.getHostProfile(memberId);
 	}
+
+	@Override
+	public List<Map<String, String>> getMyContactList(int memberId) {
+		return contactDAO.getMyContactList(memberId);
+	}
 }
