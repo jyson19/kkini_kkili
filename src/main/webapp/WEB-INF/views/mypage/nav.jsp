@@ -153,7 +153,7 @@
             <div class="pcoded-navigation-label">사용 내역</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
-                    <a href="bs-basic-table.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/contactHistory.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
                         <span class="pcoded-mtext">컨택 내역</span>
                         <span class="pcoded-mcaret"></span>
