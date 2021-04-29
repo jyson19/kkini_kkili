@@ -10,15 +10,11 @@
 	</insert>
  
  	<!-- 프로필 상세 조회 -->
-	<select id="getProfile" parameterType="host" resultType="host">
-		SELECT * 
-		FROM host 
+	<select id="getProfile" resultType="host" parameterType="host">
+		SELECT *
+		FROM host
 		WHERE host_id = #{hostId}
 	</select>
- 	
- 	 <!-- <select id="getProfileList" resultType="profile">
-		SELECT *
-		FROM member
-	</select> -->
+
 	
 </mapper>

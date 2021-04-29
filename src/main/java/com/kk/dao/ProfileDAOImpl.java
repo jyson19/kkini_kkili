@@ -34,6 +34,6 @@ public class ProfileDAOImpl implements ProfileDAO{
 	// 프로필 상세 조회
 	public HostVO getProfile(HostVO vo) {
 		System.out.println("===> Mybatis getProfile() 호출");
-		return (HostVO)mybatis.selectOne("ProfileDAO.getProfile", vo);
+		return mybatis.selectOne("ProfileDAO.getProfile", vo);
 	}
 }
