@@ -5,6 +5,7 @@
 	String email = "";
 	String name = "";
 	int auth = 0;
+	int memberId = 0;
 	Boolean login = false;
 %>
 <%
@@ -12,6 +13,7 @@
 		email = (String) ((MemberVO) session.getAttribute("member")).getEmail();
 		name = (String) ((MemberVO) session.getAttribute("member")).getName();
 		auth = ((MemberVO) session.getAttribute("member")).getAuth();
+		memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
 	}
 	if(email.length()>=1 && email.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$")) {
 		login = true;
@@ -118,7 +120,7 @@
 						<p class="name">${contactOne.NAME}님이 마련한 컨택이 있습니다.</p>
 						<div class="item border-top">
 								<div class="testimony-wrap d-flex">
-									<a href="${pageContext.request.contextPath}/host/profile.do">
+									<a href="${pageContext.request.contextPath}/host/profile.do?hostId=<%=memberId%>">
 										<div>
 											<div class="user-img mb-4"
 												style="background-image: url('./../upload/host/${contactOne.HOST_PIC}')">

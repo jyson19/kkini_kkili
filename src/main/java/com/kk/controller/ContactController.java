@@ -105,9 +105,4 @@ public class ContactController {
 		}
 		return "redirect:/contact/insert.do";
 	}
-//	@RequestMapping("host/profile.do")
-//	public void temp() {
-//		System.out.println("임시 프로필 페이지 : 아직 미연동");
-//		System.out.println("ContactController.temp");
-//	};
 }
