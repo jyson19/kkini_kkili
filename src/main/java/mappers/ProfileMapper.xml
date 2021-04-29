@@ -3,8 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProfileDAO">
 
-	
-	
 	<!-- 등록 -->
 	<insert id="insertProfile" parameterType="host" useGeneratedKeys="true" keyProperty="no">
 		INSERT INTO host(host_id, host_pic, company, uni, write_date, auth_file, content)
@@ -17,19 +15,6 @@
 		FROM host
 		WHERE host_id = #{hostId}
 	</select>
- 	
- 	<!-- <update id="updateProfile" resultType="host">
-		UPDATE host SET
-		host_pic = #{hostPic}
-		company = #{company}
-		uni = #{uni}
-		auth_file = #{authFile}
-		content
-		WHERE host_id = #{hostId}
-	</update> -->
-	
-	<!-- <delete id="deleteProfile" resultType="host">
-		SELECT FROM host WHERE host_id = #{hostId}
-	</delete> -->
+
 	
 </mapper>

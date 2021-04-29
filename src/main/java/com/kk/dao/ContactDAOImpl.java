@@ -35,4 +35,14 @@ public class ContactDAOImpl implements ContactDAO{
 		return mybatis.selectOne("contact.getTotalCnt");
 	}
 	
+	// 컨택 1개 반환
+	public Map<String, String> getContactOne(int memberId) {
+		return mybatis.selectOne("contact.getContactOne", memberId);
+	}
+
+	// 컨택 생성
+	public int insertContact(ContactVO vo) {
+		return mybatis.insert("contact.insertContact", vo);
+	}
+	
 }

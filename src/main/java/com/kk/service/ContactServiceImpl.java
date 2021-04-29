@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kk.dao.ContactDAOImpl;
+import com.kk.domain.ContactVO;
 import com.kk.domain.PagingCriteria;
 
 // 컨택 서비스
@@ -32,5 +33,17 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public int totalCnt() {
 		return contactDAO.totalCnt();
+	}
+
+	// 컨택 1개 반환
+	@Override
+	public Map<String, String> getContactOne(int memberId) {
+		return (Map<String, String>) contactDAO.getContactOne(memberId);
+	}
+
+	// 컨택 생성
+	@Override
+	public int insertContact(ContactVO vo) {
+		return contactDAO.insertContact(vo);
 	}
 }

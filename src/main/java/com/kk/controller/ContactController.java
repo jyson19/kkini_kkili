@@ -7,12 +7,15 @@ import java.util.Map;
 import javax.mail.Session;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 import com.kk.domain.PageMaker;
 import com.kk.domain.PagingCriteria;
@@ -25,24 +28,38 @@ public class ContactController {
 
 	@Autowired
 	private ContactService contactService;
+	
+//private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
+//	
+//	@RequestMapping(value = "/", method = RequestMethod.GET)
+//	public String kakaoMap() {
+//		return "map/testMap";
+//	}
 
 	// 컨택 목록
 	@RequestMapping("contact/list.do")
 	public void getContactList(PagingCriteria cri, Model model, HttpSession session) {
 		System.out.println("ContactController.getContactList");
-		
+
 		List<Map<String, String>> boardList = contactService.getContactList(cri);
-		
+
 		int total = contactService.totalCnt();
 		System.out.println("컨택 글 갯수 : " + total);
-		
+
 		model.addAttribute("contactList", boardList);
-		model.addAttribute("paging",new PageMaker(cri,total));
-		
+		model.addAttribute("paging", new PageMaker(cri, total));
+
 		// 로그인 시
-		if(session.getAttribute("member") != null) {
+		if (session.getAttribute("member") != null) {
 			int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
 			System.out.println("memberId : " + memberId);
+			// 유저가 호스트일 때
+			if (memberId >= 1) {
+				Map<String, String> someContact = contactService.getContactOne(memberId);
+//				if (someContact.containsKey("HOST_ID")) {
+//					System.out.println("매핑 갯수 : " + someContact.size());
+					model.addAttribute("contactOne", someContact);
+			}
 		}
 	}
 
@@ -64,19 +81,33 @@ public class ContactController {
 		System.out.println("region : " + region);
 		System.out.println("startdate : " + startdate);
 		System.out.println("enddate : " + enddate);
-		
+
 		HashMap<String, String> map = new HashMap<String, String>();
-		
+
 		map.put("keyword", keyword);
 		map.put("region", region);
 		map.put("startdate", startdate);
 		map.put("enddate", enddate);
 		model.addAttribute("contactList", contactService.searchContactList(map));
 	}
-
-	@RequestMapping("host/profile.do")
-	public void temp() {
-		System.out.println("임시 프로필 페이지 : 아직 미연동");
-		System.out.println("ContactController.temp");
-	};
+	
+	// 컨택 생성
+	@RequestMapping("contact/insert.do")
+	public void insertContact(ContactVO vo, HttpSession session) {
+		System.out.println("ContactController.insertContact() 실행");
+	}
+	// 컨택 생성확인
+	@RequestMapping("contact/insertCheck.do")
+	public String insertCheck(ContactVO vo, HttpSession session) {
+		System.out.println("ContactController.insertCheck() 실행");
+		if(contactService.insertContact(vo) == 1) {
+			return "redirect:/contact/list.do";
+		}
+		return "redirect:/contact/insert.do";
+	}
+//	@RequestMapping("host/profile.do")
+//	public void temp() {
+//		System.out.println("임시 프로필 페이지 : 아직 미연동");
+//		System.out.println("ContactController.temp");
+//	};
 }

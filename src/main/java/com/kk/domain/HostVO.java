@@ -15,7 +15,7 @@ public class HostVO extends MemberVO {
 	private String writeDate; // 호스트 신청 일자
 	private String authFile; // 호스트 인증 파일
 	private String content; // 호스트 소개 내용
-	private int result; // 인증 결과
+	private String result; // 인증 결과
 
 	public HostVO() {
 		super();
@@ -23,7 +23,7 @@ public class HostVO extends MemberVO {
 	
 
 	public HostVO(int hostId, String hostPic, String company, String uni, int hostValue, String writeDate,
-			String authFile, int result, String content) {
+			String authFile, String result, String content) {
 		super();
 		this.hostId = hostId;
 		this.hostPic = hostPic;
@@ -111,11 +111,11 @@ public class HostVO extends MemberVO {
 		this.authFile = authFile;
 	}
 
-	public int getResult() {
+	public String getResult() {
 		return result;
 	}
 
-	public void setResult(int result) {
+	public void setResult(String result) {
 		this.result = result;
 	}
 
