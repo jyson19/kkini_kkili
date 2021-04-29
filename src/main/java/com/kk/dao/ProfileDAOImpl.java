@@ -1,5 +1,8 @@
 package com.kk.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -35,5 +38,9 @@ public class ProfileDAOImpl implements ProfileDAO{
 	public HostVO getProfile(HostVO vo) {
 		System.out.println("===> Mybatis getProfile() 호출");
 		return (HostVO)mybatis.selectOne("ProfileDAO.getProfile", vo);
+	}
+
+	public List<HashMap<String, String>> getHostInfo() {
+		return mybatis.selectList("ProfileDAO.getHostInfo");
 	}
 }

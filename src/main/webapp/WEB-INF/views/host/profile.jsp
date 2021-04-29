@@ -134,9 +134,9 @@
 									<img src="../upload/host/pic0.jpg" alt="Image placeholder">
 								</div>
 								<div class="comment-body">
-									<h3>댓글 작성자</h3>
+									<h3>관리자</h3>
 									<div class="meta">2021-04-19 00:00:00</div>
-									<p>이 페이지는 댓글을 못 불러왔을 때, 나오는 페이지입니다.</p>
+									<p>남겨진 댓글이 없습니다. 댓글을 남겨주세요!</p>
 								</div>
 							</li>
 						</ul>
@@ -204,8 +204,6 @@
 	<script src="./../resources/js/bootstrap-datepicker.js"></script>
 	<script src="./../resources/js/jquery.timepicker.min.js"></script>
 	<script src="./../resources/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./../resources/js/google-map.js"></script>
 	<script src="./../resources/js/main.js"></script>
 

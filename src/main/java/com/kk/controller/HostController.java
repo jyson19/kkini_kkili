@@ -32,6 +32,21 @@ public class HostController {
 	private MemberService memeberService;
 	
 	// 프로필 상세 조회 접속시
+	@RequestMapping("host/hostList.do")
+	public ModelAndView moveToHostListPage() { // 들어오는 파라미터 값은 hostId
+		// 접속확인
+		System.out.println("HostController.moveToHostListPage");
+		
+		// 뷰 객체로 넘기기 위한 선언
+		ModelAndView mv = new ModelAndView();
+		
+		// 호스트 정보 가져와서 뷰로 넘겨주기
+		mv.addObject("hostInfo", profileSerivce.getHostInfo());
+		
+		return mv;		
+	};
+	
+	// 프로필 상세 조회 접속시
 	@RequestMapping("host/profile.do")
 	public ModelAndView moveToProfilePage(HostVO hostVO) { // 들어오는 파라미터 값은 hostId
 		// 접속확인

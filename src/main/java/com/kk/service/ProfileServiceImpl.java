@@ -1,5 +1,8 @@
 package com.kk.service;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -32,4 +35,8 @@ public class ProfileServiceImpl implements ProfileService{
 		return profileDAO.getProfile(vo);
 	}
 	
+	// 프로필 전체 조회
+	public List<HashMap<String, String>> getHostInfo() {
+		return profileDAO.getHostInfo();
+	}
 }
