@@ -159,7 +159,7 @@
 	                                                        <c:forEach items="${memberList }" var="member">
 	                                                            <tr>
 	                                                                <td>${member.memberId }</td>
-	                                                                <td><a href="">${member.name }</a></td>
+	                                                                <td><a href="../host/profile.do?hostId=${member.memberId }">${member.name }</a></td>
 	                                                                <td>추후 업데이트 예정</td>
 	                                                                <td>추후 업데이트 예정</td>
 	                                                                <td><button id="delete_btn" class="btn btn-secondary">삭제</button></td>

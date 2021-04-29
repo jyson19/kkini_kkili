@@ -147,7 +147,7 @@
                                                     <table class="table table-hover">
                                                         <thead>
                                                             <tr>
-                                                                <th>고유번호</th>
+                                                                <!-- <th>고유번호</th> -->
                                                                 <th>이름</th>
                                                                 <th>소속</th>
                                                                 <th>대학교</th>
@@ -156,8 +156,8 @@
                                                         <tbody>
 	                                                        <c:forEach items="${memberList }" var="member">
 	                                                            <tr>
-	                                                                <td>${member.memberId }</td>
-	                                                                <td><a href="">${member.name }</a></td>
+	                                                                <%-- <td>${member.memberId }</td> --%>
+	                                                                <td>${member.name }</td>
 	                                                                <td>추후 업데이트 예정</td>
 	                                                                <td>추후 업데이트 예정</td>
 	                                                            </tr>
