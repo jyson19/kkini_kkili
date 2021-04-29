@@ -15,4 +15,6 @@ public interface BookmarkDAO {
 
 	public int deleteBookmark(BookmarkVO user);
 	
+	public BookmarkVO selectBookmark(BookmarkVO user);
+	
 }

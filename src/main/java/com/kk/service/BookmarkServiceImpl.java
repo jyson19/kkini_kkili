@@ -35,4 +35,9 @@ public class BookmarkServiceImpl implements BookmarkService{
 		return bookmarkDAO.deleteBookmark(bookmark);
 	}
 
+	@Override
+	public BookmarkVO selectBookmark(BookmarkVO bookmark) {
+		return bookmarkDAO.selectBookmark(bookmark);
+	}
+
 }

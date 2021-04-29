@@ -121,16 +121,36 @@ public class MypageController {
 	// 주목하기 삭제
 	@RequestMapping("mypage/deleteInterest.do")
 	@ResponseBody
-	public String deleteBookmark(String guestId, HttpSession session) {
+	public String deleteBookmark(String hostId, HttpSession session) {
 		
-		BookmarkVO bookmark = new BookmarkVO(((MemberVO) session.getAttribute("member")) .getMemberId(), Integer.parseInt(guestId));
-		if(bookmarkService.deleteBookmark(bookmark)==1) {
-			return "1";
-		};
-		
+		// 로그인했다면
+		if(session.getAttribute("member")!=null) {
+			
+			BookmarkVO bookmark = new BookmarkVO(Integer.parseInt(hostId), ((MemberVO) session.getAttribute("member")) .getMemberId());
+			if(bookmarkService.deleteBookmark(bookmark)==1) {
+				return "1";
+			};
+			
+		}
 		return "0";
+	}
+	
+	// 주목하기 추가
+	@RequestMapping("mypage/insertInterest.do")
+	@ResponseBody
+	public String insertBookmark(String hostId, HttpSession session) {
 		
-
+		// 로그인했다면
+		if(session.getAttribute("member")!=null) {
+			
+			BookmarkVO bookmark = new BookmarkVO(Integer.parseInt(hostId), ((MemberVO) session.getAttribute("member")) .getMemberId());
+			System.out.println("bookmark");
+			if(bookmarkService.insertBookmark(bookmark)==1) {
+				return "1";
+			};
+			
+		}
+		return "0";
 	}
 	
 	// 프로필 등록 페이지

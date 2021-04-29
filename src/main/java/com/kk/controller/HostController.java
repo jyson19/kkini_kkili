@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.kk.domain.BookmarkVO;
 import com.kk.domain.CmtVO;
 import com.kk.domain.HostVO;
 import com.kk.domain.MemberVO;
+import com.kk.service.BookmarkService;
 import com.kk.service.CmtService;
 import com.kk.service.MemberService;
 import com.kk.service.ProfileService;
@@ -31,6 +33,9 @@ public class HostController {
 	@Autowired
 	private MemberService memeberService;
 	
+	@Autowired
+	private BookmarkService bookmarkService;
+	
 	// 프로필 상세 조회 접속시
 	@RequestMapping("host/hostList.do")
 	public ModelAndView moveToHostListPage() { // 들어오는 파라미터 값은 hostId
@@ -46,14 +51,15 @@ public class HostController {
 		return mv;		
 	};
 	
-	// 프로필 상세 조회 접속시
+	// 프로필 상세 조회 접속시 - 즐겨찾기도 같이 가져오는 걸로
 	@RequestMapping("host/profile.do")
-	public ModelAndView moveToProfilePage(HostVO hostVO) { // 들어오는 파라미터 값은 hostId
+	public ModelAndView moveToProfilePage(HostVO hostVO, HttpSession session) { // 들어오는 파라미터 값은 hostId
 		// 접속확인
 		System.out.println("HostController.moveToProfilePage");
 		
 		// 뷰 객체로 넘기기 위한 선언
 		ModelAndView mv = new ModelAndView();
+		BookmarkVO bookmark = new BookmarkVO();
 		MemberVO member = new MemberVO();
 		
 		member.setMemberId(hostVO.getHostId());
@@ -64,6 +70,16 @@ public class HostController {
 			mv.addObject("hostVO", profileSerivce.getProfile(hostVO));
 			mv.addObject("hostInfo", memeberService.getMember(member));
 		};
+		
+		// 로그인이 되어 있으면
+		if( session.getAttribute("member") != null) {
+			// 즐겨찾기 가져오기
+			bookmark.setHostId(hostVO.getHostId());
+			bookmark.setGuestId( ((MemberVO) session.getAttribute("member")).getMemberId() );
+			if(bookmarkService.selectBookmark(bookmark)!=null) {
+				mv.addObject("bookmark", "1");				
+			}
+		}
 		
 		// 호스트 내용 가져와서 뷰 페이지로 뿌려주기
 		return mv;		
