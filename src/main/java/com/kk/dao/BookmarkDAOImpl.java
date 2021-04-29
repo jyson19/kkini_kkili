@@ -35,4 +35,8 @@ public class BookmarkDAOImpl implements BookmarkDAO {
 		return mybatis.insert("bookmark.deleteBookmark", user);
 	}
 
+	public BookmarkVO selectBookmark(BookmarkVO bookmark) {
+		return mybatis.selectOne("bookmark.selectBookmark", bookmark);
+	}
+
 }

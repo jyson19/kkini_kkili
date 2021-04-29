@@ -38,7 +38,7 @@
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/main/ct.do" class="nav-link">채용</a></li>
 				<li class="nav-item"><a href="${pageContext.request.contextPath}/contact/list.do" class="nav-link">컨택조회</a></li>
 				<!-- <li class="nav-item"><a href="hotel.html" class="nav-link">프로필조회</a></li> -->
-				<li class="nav-item"><a href="blog.html" class="nav-link">프로필조회</a></li>
+				<li class="nav-item"><a href="${pageContext.request.contextPath}/host/hostList.do" class="nav-link">호스트조회</a></li>
 				
 				
 				<%if(login){ %>

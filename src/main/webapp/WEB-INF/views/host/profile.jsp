@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="bookmarkIs" value="${bookmark}" />
 <%
 	String hostId = request.getParameter("hostId");
-
+	String bookmarkIs = (String) pageContext.getAttribute("bookmarkIs");
 %>	
 	
 <!DOCTYPE html>
@@ -43,6 +45,9 @@
 <link rel="stylesheet" href="./../resources/css/flaticon.css">
 <link rel="stylesheet" href="./../resources/css/icomoon.css">
 <link rel="stylesheet" href="./../resources/css/style.css">
+<!-- 아이콘 css -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
 
@@ -80,14 +85,24 @@
 							<img src="../upload/host/pic<%=hostId%>.jpg" alt="Image placeholder"
 								class="img-fluid rounded-circle mb-4">
 						</div>
+						
 						<div class="desc align-self-md-center">
 							<h3 class="name">${hostInfo.name}</h3>
 							<p>소속 : ${hostVO.company}</p>
 							<p>최근 접속일 : ${hostInfo.lastConnDate}</p>
 							<p>간단한 소개 : ${hostVO.content}</p>
 						</div>
+						
+						
 					</div>
-
+					
+					<%if( session.getAttribute("member") != null) { %>					
+						<% if(bookmarkIs != null && bookmarkIs.equals("1")) { %>
+							<div id="star_div" class="float-right"><i id="star" class="fa fa-star" aria-hidden="true" style="color:#2DAD92"></i></div>					
+						<% } else {%>
+							<div id="star_div" class="float-right"><i id="star" class="fa fa-star-o" aria-hidden="true" style="color:#2DAD92"></i></div>						
+						<% } %>
+					<% } %>
 					호스트 프로필 페이지 표기 목록 1. 사진 2. 소속(회사) 3. 생성했던 컨택 목록 4. 댓글 제외 항목 1. 자기소개
 					2.
 
@@ -134,9 +149,9 @@
 									<img src="../upload/host/pic0.jpg" alt="Image placeholder">
 								</div>
 								<div class="comment-body">
-									<h3>댓글 작성자</h3>
+									<h3>관리자</h3>
 									<div class="meta">2021-04-19 00:00:00</div>
-									<p>이 페이지는 댓글을 못 불러왔을 때, 나오는 페이지입니다.</p>
+									<p>남겨진 댓글이 없습니다. 댓글을 남겨주세요!</p>
 								</div>
 							</li>
 						</ul>
@@ -204,12 +219,40 @@
 	<script src="./../resources/js/bootstrap-datepicker.js"></script>
 	<script src="./../resources/js/jquery.timepicker.min.js"></script>
 	<script src="./../resources/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-	<script src="./../resources/js/google-map.js"></script>
 	<script src="./../resources/js/main.js"></script>
 
 	<script>
+	
+	// 즐겨찾기
+	$("#star_div").click(function(){
+		
+		if($("#star").attr('class') == "fa fa-star-o"){
+			$.ajax({
+				type :'get',
+		       	data : {"hostId" : ${param.hostId}},
+		       	url : '../mypage/insertInterest.do',
+		       	success : function(data){
+		       		console.log("즐찾 추가 성공");
+		       		if(data == "1"){
+		       			$("#star").attr('class','fa fa-star');
+		       		}
+		       	}
+			})
+		} else {
+			$.ajax({
+				type :'get',
+		       	data : {"hostId" : ${param.hostId}},
+		       	url : '../mypage/deleteInterest.do',
+		       	success : function(data){
+		       		console.log("즐찾 삭제 성공");
+		       		if(data == "1"){
+		       			$("#star").attr('class','fa fa-star-o');
+		       		}
+		       	}
+			})
+		}
+	})
+	
   // 댓글 남기기
   $("#reply_complete").click(function(){
 	  $.ajax({
