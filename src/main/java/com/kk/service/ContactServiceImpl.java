@@ -46,4 +46,10 @@ public class ContactServiceImpl implements ContactService {
 	public int insertContact(ContactVO vo) {
 		return contactDAO.insertContact(vo);
 	}
+
+	// 컨택생성-프로필
+	@Override
+	public Map<String, String> getHostProfile(int memberId) {
+		return contactDAO.getHostProfile(memberId);
+	}
 }

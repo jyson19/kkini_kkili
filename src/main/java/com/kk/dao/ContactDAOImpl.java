@@ -44,5 +44,11 @@ public class ContactDAOImpl implements ContactDAO{
 	public int insertContact(ContactVO vo) {
 		return mybatis.insert("contact.insertContact", vo);
 	}
+
+	
+	// 컨택 생성-프로필
+	public Map<String, String> getHostProfile(int memberId) {
+		return mybatis.selectOne("contact.getHostProfile", memberId);
+	}
 	
 }

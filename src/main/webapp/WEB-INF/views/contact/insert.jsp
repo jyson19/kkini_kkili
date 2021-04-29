@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%!String email = "";
 	int hostId = 0;
 	Boolean login = false;%>
@@ -93,20 +94,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 ftco-animate">
-
+					<c:if test="${hostProfile.NAME != null}">
 					<div class="d-flex p-5">
 						<div class="bio align-self-md-center mr-5">
-							<img src="images/person_1.jpg" alt="Image placeholder"
+							<img src="./../upload/host/${hostProfile.HOST_PIC}" alt="Image placeholder"
 								class="img-fluid rounded-circle mb-4">
 						</div>
 						<div class="desc align-self-md-center">
-							<span><h3 id="name" class="name font-weight-bold">김라인</h3></span>
-							<span><h4 id="company" class="font-weight-light">네이버
-									웹툰</h4></span>
-							<p>안녕하세요. 네이버에서 일하고 있는 김라인입니다.</p>
-							<p>네이버 웹툰 백엔드 개발자로 일하고 있으며 ... 얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나
-								길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나
-								길게얼마나 길게얼마나 길게얼</p>
+							<span><h3 id="name" class="name font-weight-bold">${hostProfile.NAME}</h3></span>
+							<span><h4 id="company" class="font-weight-light">${hostProfile.COMPANY}</h4></span>
+							<p>최근 접속일 : ${hostProfile.LAST_CONN_DATE}</p>
+							<p>소개 : ${hostProfile.CONTENT}</p>
 							<div class="tag-widget post-tag-container mb-5 mt-5">
 								<div class="tagcloud">
 									<a href="#" class="tag-cloud-link">네이버</a> <a href="#"
@@ -117,7 +115,7 @@
 							</div>
 						</div>
 					</div>
-					
+					</c:if>
 					<div class="card" style="width: 60%; margin: 0 auto;">
 						<div class="card-header">
 							<h5>컨택을 생성합니다</h5>

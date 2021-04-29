@@ -20,4 +20,7 @@ public interface ContactDAO {
 	
 	// 컨택 생성
 	int insertContact(ContactVO vo);
+	
+	// 컨택 생성-프로필
+	Map<String, String> getHostProfile(int memberId);
 }

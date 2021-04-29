@@ -189,6 +189,19 @@
 		)
 	</insert>
 
+	<!-- 호스트 프로필 -->
+	<select id="getHostProfile" parameterType="int" resultType="hashmap">
+		SELECT 
+			m.name AS name,
+			m.last_conn_date AS last_conn_date,
+			h.host_pic AS host_pic,
+			h.company AS company,
+			h.content AS content
+		FROM member m, host h
+		Where m.member_id = h.host_id
+			AND h.host_id = #{memberId}
+	</select>
+	
 	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
 
 	<!-- 마감 -->

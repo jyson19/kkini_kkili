@@ -93,8 +93,12 @@ public class ContactController {
 	
 	// 컨택 생성
 	@RequestMapping("contact/insert.do")
-	public void insertContact(ContactVO vo, HttpSession session) {
+	public void insertContact(ContactVO vo, HttpSession session, Model model) {
 		System.out.println("ContactController.insertContact() 실행");
+		
+		// 호스트 프로필 전달
+		int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
+		model.addAttribute("hostProfile", contactService.getHostProfile(memberId));
 	}
 	// 컨택 생성확인
 	@RequestMapping("contact/insertCheck.do")
