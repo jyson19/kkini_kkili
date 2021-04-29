@@ -28,4 +28,9 @@
 		WHERE host_id = #{hostId}
 	</update>
 	
+	<select id="getHostInfo" resultType="map">
+		SELECT h.host_id, h.company, h.uni, h.write_date, h.content, h.host_value, m.auth, m.email, m.join_date, m.last_conn_date, m.name, m.tel 
+		FROM host h, member m WHERE h.host_id = m.member_id AND m.auth = 1
+	</select>
+	
 </mapper>

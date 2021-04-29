@@ -148,7 +148,9 @@
 			c.store_name AS store_name, 
 			c.location AS location, 
 			c.meeting_time AS meeting_time, 
-			c.start_value AS start_value, 
+			(SELECT 
+				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.start_value)), '([0-9]{3})','\1,')), '^,','') 
+				FROM DUAL) AS start_value,  
 			(SELECT 
 				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
 				FROM DUAL) AS last_value, 
@@ -182,11 +184,24 @@
 			#{location}, 
 			#{meetingTime}, 
 			#{startValue}, 
-			0, 
+			#{startValue}, 
 			0
 		)
 	</insert>
 
+	<!-- 호스트 프로필 -->
+	<select id="getHostProfile" parameterType="int" resultType="hashmap">
+		SELECT 
+			m.name AS name,
+			m.last_conn_date AS last_conn_date,
+			h.host_pic AS host_pic,
+			h.company AS company,
+			h.content AS content
+		FROM member m, host h
+		Where m.member_id = h.host_id
+			AND h.host_id = #{memberId}
+	</select>
+	
 	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
 
 	<!-- 마감 -->

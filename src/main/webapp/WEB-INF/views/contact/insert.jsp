@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%!String email = "";
 	int hostId = 0;
 	Boolean login = false;%>
@@ -93,20 +94,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 ftco-animate">
-
+					<c:if test="${hostProfile.NAME != null}">
 					<div class="d-flex p-5">
 						<div class="bio align-self-md-center mr-5">
-							<img src="images/person_1.jpg" alt="Image placeholder"
+							<img src="./../upload/host/${hostProfile.HOST_PIC}" alt="Image placeholder"
 								class="img-fluid rounded-circle mb-4">
 						</div>
 						<div class="desc align-self-md-center">
-							<span><h3 id="name" class="name font-weight-bold">김라인</h3></span>
-							<span><h4 id="company" class="font-weight-light">네이버
-									웹툰</h4></span>
-							<p>안녕하세요. 네이버에서 일하고 있는 김라인입니다.</p>
-							<p>네이버 웹툰 백엔드 개발자로 일하고 있으며 ... 얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나
-								길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나 길게얼마나
-								길게얼마나 길게얼마나 길게얼</p>
+							<span><h3 id="name" class="name font-weight-bold">${hostProfile.NAME}</h3></span>
+							<span><h4 id="company" class="font-weight-light">${hostProfile.COMPANY}</h4></span>
+							<p>최근 접속일 : ${hostProfile.LAST_CONN_DATE}</p>
+							<p>소개 : ${hostProfile.CONTENT}</p>
 							<div class="tag-widget post-tag-container mb-5 mt-5">
 								<div class="tagcloud">
 									<a href="#" class="tag-cloud-link">네이버</a> <a href="#"
@@ -117,7 +115,7 @@
 							</div>
 						</div>
 					</div>
-					
+					</c:if>
 					<div class="card" style="width: 60%; margin: 0 auto;">
 						<div class="card-header">
 							<h5>컨택을 생성합니다</h5>
@@ -146,7 +144,7 @@
 								</div>
 								<div class="form-group form-default form-static-label">
 									<input type="text" name="startValue" class="form-control"
-										placeholder="경매시작가를 입력해주세요" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"> <span class="form-bar"></span>
+										placeholder="경매시작가를 입력해주세요"> <span class="form-bar"></span>
 									<label class="float-label">경매시작가</label>
 								</div>
 								<input type="hidden" name="hostId" class="form-control"	value="<%=hostId%>"> 
@@ -167,7 +165,7 @@
 									<div class="option">
 										<div>
 											<form onsubmit="searchPlaces(); return false;">
-												키워드 : <input type="text" value="판교역" id="keyword"
+												키워드 : <input type="text" value="스타벅스 몬테소리점" id="keyword"
 													size="15">
 												<button type="submit">검색하기</button>
 											</form>
@@ -211,7 +209,7 @@
 
 			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 			mapOption = {
-				center : new kakao.maps.LatLng(37.3947702,127.1103856), // 지도의 중심좌표
+				center : new kakao.maps.LatLng(37.5007937,127.0169523), // 지도의 중심좌표
 				level : 3
 			// 지도의 확대 레벨
 			};
@@ -480,23 +478,35 @@
 	document.write("<script type='text/javascript' src='./../resources/js/bootstrap-material-datetimepicker.js'><"+"/script>");  
 $(document).ready(function(){
 
+	// 주소나 상호명 클릭시, 지도 띄움
     $('[name=location], [name=storeName]').click(function(){
    		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
+   		
    	    $('#light').css({'display':'block'});
    	    $('#fade').css({'display':'block'});
-   	});	
+		//$( '#light' ).animate( {width : '50%'}, 500, 'swing' );
+        //$( '#fade' ).animate( {width : '50%'}, 500, 'linear' );
+   	    
+   	    // 지도 크기 동적 변경
+		setInterval(map.relayout(), 5000); 
+   	});
+	/*
     $('#closehere').click(function(){
    		//document.getElementById('light').style.display='block';document.getElementById('fade').style.display='block'
         $('#light').css({'display':'none'});
    	    $('#fade').css({'display':'none'});
    	});
-    $(document).on("click",'#placesList > li > .info',function(){
+	*/
+
+	$(document).on("click",'#placesList > li > .info',function(){
     	//alert("무야호");
 
         $('[name=storeName]').val($(this).children('h5').text());
         $('[name=location]').val($(this).children('.jibun').text());
         $('#light').css({'display':'none'});
    	    $('#fade').css({'display':'none'});
+		//$( '#light' ).animate( {width : '0%'}, 500, 'swing' );
+        //$( '#fade' ).animate( {width : '0%'}, 500, 'linear' );
     });
     
     $('#date-format').bootstrapMaterialDatePicker({ format : 'YYYY-MM-DD HH:mm' });
