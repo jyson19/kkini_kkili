@@ -15,7 +15,18 @@
 		FROM host
 		WHERE host_id = #{hostId}
 	</select>
-
+	
+	<!-- 프로필 수정 -->
+	<update id="updateProfile" parameterType="host">
+		UPDATE host SET
+			host_pic = #{hostPic},
+			company = #{company},
+			uni = #{uni},
+			write_date = sysdate,
+			auth_file = #{authFile},
+			content = #{content}
+		WHERE host_id = #{hostId}
+	</update>
 	
 	<select id="getHostInfo" resultType="map">
 		SELECT h.host_id, h.company, h.uni, h.write_date, h.content, h.host_value, m.auth, m.email, m.join_date, m.last_conn_date, m.name, m.tel 

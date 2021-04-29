@@ -1,5 +1,6 @@
 package com.kk.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -11,6 +12,8 @@ public interface AdminService {
 	List<HostVO> getStaff(HostVO vo);
 	
 	List<Map<String, String>> getHostup();
+	
+	HashMap<String, String> getAuth(HostVO vo);
 	
 	List<HostVO> getDormancy(HostVO vo);
 	

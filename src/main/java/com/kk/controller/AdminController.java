@@ -1,11 +1,16 @@
 package com.kk.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kk.domain.HostVO;
+import com.kk.domain.MemberVO;
 import com.kk.service.AdminService;
+import com.kk.service.ProfileService;
 
 @Controller
 public class AdminController {
@@ -30,7 +35,15 @@ public class AdminController {
 	public void getHostup(Model m) {
 		System.out.println("getHostup 실행");
 		m.addAttribute("hostUpList", adminService.getHostup());
+	}
+	// 프로필 인증 페이지로 이동
+	@RequestMapping("admin/auth.do")
+	public String getAuth(HostVO vo, Model m){
+		System.out.println("pageMoveUpdate 실행" + vo);
+		System.out.println(adminService.getAuth(vo));
 		
+		m.addAttribute("host", adminService.getAuth(vo));
+		return "admin/auth";
 	}
 	
 	// 휴먼 계정

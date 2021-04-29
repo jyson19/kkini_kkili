@@ -1,5 +1,6 @@
 package com.kk.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,12 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
+	// 호스트 인증 승인 페이지
+	public HashMap<String, String> getAuth(HostVO vo) {
+		return AdminDAO.getAuth(vo);
+	}
+	
+	@Override
 	// 휴먼 계정
 	public List<HostVO> getDormancy(HostVO vo) {
 		return null;
@@ -62,4 +69,6 @@ public class AdminServiceImpl implements AdminService{
 	public List<HostVO> getBook(HostVO vo) {
 		return null;
 	}
+
+	
 }
