@@ -241,59 +241,30 @@
     </div>
     <div class="card-block table-border-style">
         <div class="table-responsive">
-        	<form action="호스트 요청 자료.do" method="post">
-	            <table class="table table-hover">
-	                <thead>
-	                    <tr>
-	                        <th>#</th>
-	                        <th>신청 일시</th>
-	                        <th>이름</th>
-	                        <th>핸드폰</th>
-	                        <th>이메일</th>
-	                        <th>인증</th>
-	                    </tr>
-	                </thead>
-	                <tbody>
-	                <!-- 
-	                    <tr>
-	                        <th scope="row">1</th>
-	                        <td>21/04/01</td>
-	                        <td>이재용</td>
-	                        <td>1012343333</td>
-	                        <td>samsung@gmail.com</td>
-	                        <td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
-	                    </tr>
-	                    <tr>
-	                        <th scope="row">2</th>
-	                        <td>21/04/01</td>
-	                        <td>최태원</td>
-	                        <td>1012342222</td>
-	                        <td>sk@gmail.com</td>                        
-	                        <td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
-	                    </tr>
-	                    <tr>
-	                        <th scope="row">3</th>
-	                        <td>21/04/01</td>
-	                        <td>김범석</td>
-	                        <td>1012342222</td>
-	                        <td>coopang@gmail.com</td>                        
-	                        <td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
-	                    </tr>
-	                 -->
-						<!-- 프라퍼티이름 변경 -->
-	                    <c:forEach items="${hostUpList}" var="a">
-						<tr>
-							<td>${a.MEMBER_ID }</td>
-							<td>${a.WRITE_DATE }</td>
-							<td>${a.NAME}</td>
-							<td>${a.TEL}</td>
-							<td>${a.EMAIL}</td>
-							<td><button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></td>
-						</tr>
-						</c:forEach>
-	                </tbody>
-	            </table>
-            </form>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>신청 일시</th>
+                        <th>이름</th>
+                        <th>핸드폰</th>
+                        <th>이메일</th>
+                        <th>인증</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   <c:forEach items="${hostUpList}" var="a">
+					<tr>
+						<td>${a.MEMBER_ID }</td>
+						<td>${a.WRITE_DATE }</td>
+						<td>${a.NAME}</td>
+						<td>${a.TEL}</td>
+						<td>${a.EMAIL}</td>
+						<td><a href="auth.do?hostId=${a.MEMBER_ID }"><button id="confirm" type="button" class="btn btn-primary btn-md btn-blocktext-center m-b-20">확인</button></a></td>
+					</tr>
+					</c:forEach>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>

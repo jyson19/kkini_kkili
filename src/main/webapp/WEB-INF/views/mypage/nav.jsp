@@ -178,7 +178,7 @@
             <div class="pcoded-navigation-label">호스트 기능</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
-                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/profile.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-id-badge"></i><b>FC</b></span>
                         <span class="pcoded-mtext">프로필 보기</span>
                         <span class="pcoded-mcaret"></span>

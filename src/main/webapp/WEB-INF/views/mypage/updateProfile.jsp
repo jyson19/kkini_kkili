@@ -17,7 +17,7 @@
 <html lang="ko">
 
 <head>
-    <title>끼니끼리 프로필 상세 페이지</title>
+    <title>끼니끼리 프로필 수정 페이지</title>
     <!-- HTML5 Shim and Respond.js IE10 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 10]>
@@ -318,7 +318,7 @@
         <span>보내주신 프로필은  <code>관리자 </code> 확인 후 <code>&lt;호스트&gt;</code> 로 변경됩니다</span>
     </div>
     <div class="card-block">
-        <form>
+        <form method="post" action="updateProfile.do" enctype="multipart/form-data">
         <h4 class="sub-title">NO.<%=member.getMemberId()%></h4>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">이름</label>
@@ -341,13 +341,13 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">소속</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" value="${host.company}" name='company' readonly>
+                    <input type="text" class="form-control" value="${host.company}" name='company'>
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">학교</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" value="${host.uni}" name='uni' readonly>
+                    <input type="text" class="form-control" value="${host.uni}" name='uni'>
                 </div>
             </div>
                                                            <!-- <div class="form-group row">
@@ -419,41 +419,38 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">프로필 사진</label>
     <div class="col-sm-10">
-        <input value="${host.hostPic}" class="form-control" name='pic' readonly>
+        <input type="file" class="form-control" name='pic' required>
     </div>
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"></label>
     <div class="col-sm-10">
-        <div class="form-control-static">
+        <div class="form-control-static">${host.hostPic}
         </div>
     </div>
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">인증 자료</label>
     <div class="col-sm-10">
-        <input value="${host.authFile}" class="form-control" name='file' required readonly>
+        <input type="file" class="form-control" name='file' required>
         
     </div>
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label"></label>
     <div class="col-sm-10">
-        <div class="form-control-static">
+        <div class="form-control-static">${host.authFile}
         </div>
     </div>
 </div>
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">내용</label>
     <div class="col-sm-10">
-        <textarea name='content' rows="10" cols="5" class="form-control" required readonly>${host.content}</textarea>
+        <textarea name='content' rows="10" cols="5" class="form-control" required>${host.content}</textarea>
     </div>
 </div>
-  <a href="pageMoveUpdate.do"><button id="confirm" type="button" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right ml-3" >수정하기</button></a>
+  <button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right" >수정하기</button>
 </form>                                                            
-  <form method="post" action="enter.do">
-  <button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right" >확인</button>
-  </form>
                                                          
                                                         <!--<div class="row">
                                                             <div class="col-sm-6">

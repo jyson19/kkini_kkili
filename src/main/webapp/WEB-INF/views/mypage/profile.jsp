@@ -313,8 +313,7 @@
         <span>보내주신 프로필은  <code>관리자 </code> 확인 후 <code>&lt;호스트&gt;</code> 로 변경됩니다</span>
     </div>
     <div class="card-block">
-        <form method="post" action="saveProfile.do?id=<%=member.getMemberId()%>" enctype="multipart/form-data">
-        <input name="id" type="hidden" value="${host.hostId}" />
+        <form method="post" action="saveProfile.do" enctype="multipart/form-data">
         <h4 class="sub-title">NO.<%=member.getMemberId()%></h4>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">이름</label>
@@ -337,7 +336,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">소속</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" placeholder="회사명 또는 프리랜서 등 자유롭게 기재해주세요" name='company'>
+                    <input type="text" class="form-control" placeholder="회사명 또는 프리랜서 등 자유롭게 기재해주세요" name='company' required>
                 </div>
             </div>
             <div class="form-group row">
@@ -415,7 +414,7 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">프로필 사진</label>
     <div class="col-sm-10">
-        <input type="file" class="form-control" name='pic'>
+        <input type="file" class="form-control" name='pic' required>
     </div>
 </div>
 <div class="form-group row">
@@ -441,10 +440,10 @@
 <div class="form-group row">
     <label class="col-sm-2 col-form-label">내용</label>
     <div class="col-sm-10">
-        <textarea name='content' rows="5" cols="5" class="form-control" placeholder="경력사항 등 자신을 소개해 주세요 (흥미로운 경험을 들려주세요)" required></textarea>
+        <textarea name='content' rows="10" cols="5" class="form-control" placeholder="경력사항 등 자신을 소개해 주세요 (흥미로운 경험을 들려주세요)" required></textarea>
     </div>
 </div>
-  <button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right" >등록하기</button>
+  <button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right" >글쓰기 완료</button>
 </form>                                                            
                                                          
                                                         <!--<div class="row">

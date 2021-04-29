@@ -1,5 +1,6 @@
 package com.kk.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +35,12 @@ public class AdminDAOImpl implements AdminDAO{
 		System.out.println(mybatis.selectList("admin.getHostup").size());
 		return mybatis.selectList("admin.getHostup");
 	}
+	
+	@Override
+	public HashMap<String, String> getAuth(HostVO vo) {
+		System.out.println("===> Mybatis getAuth() 호출");
+		return mybatis.selectOne("admin.getAuth", vo);
+	}
 
 	@Override
 	// 휴먼 계정
@@ -64,4 +71,5 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<HostVO> getBook(HostVO vo) {
 		return null;
 	}
+
 }

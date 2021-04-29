@@ -31,13 +31,32 @@ public class MypageController {
 	@Autowired
 	private BookmarkService bookmarkService;
 	
+	
 	// 관련 페이지로 이동
-	@RequestMapping("mypage/{step}.do")
-	public String movingPage(@PathVariable("step") String step) {
-		System.out.println("MypageController : " + step + "페이지로 이동 요청");
-		return "mypage/" + step;
-	}
+//	@RequestMapping("mypage/{step}.do")
+//	public String movingPage(@PathVariable("step") String step) {
+//		System.out.println("MypageController : " + step + "페이지로 이동 요청");
+//		return "mypage/" + step;
+//	}
+	
+	@RequestMapping("mypage/profile.do")
+	public String movePageProfile(Model m, HttpSession session) {
+		System.out.println("MypageController : movePageProfile" + "페이지로 이동 요청");
 		
+		HostVO vo = new HostVO();
+		
+		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
+		
+		// 가져온게 없다 = DB에 없다 = 작성 아직 안함
+		if(profileService.getProfile(vo) == null) {
+			return "mypage/profile";			
+		} if(profileService.getProfile(vo) != null) { // 이미 호스트 신청함
+			m.addAttribute("host", profileService.getProfile(vo));
+			return "mypage/viewProfile";		
+		}
+		
+		return "mypage/profile";	
+	}
 
 	// 마이 페이지 클릭시 권한에 따라 분기
 	@RequestMapping("mypage/enter.do")
@@ -138,11 +157,32 @@ public class MypageController {
 		profileService.insertProfile(vo);
 		return "redirect:/mypage/viewProfile.do";
 	}
-//	// 프로필 수정
-//	@RequestMapping("updateProfile.do")
-//	public void updateProfile(MemberVO vo){
-//		System.out.println("updateProfile 실행");
-//	}
+	// 프로필 수정
+	@RequestMapping("mypage/updateProfile.do")
+	public String updateProfile(HostVO vo, Model m, HttpSession session){
+		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
+		System.out.println("updateProfile 실행" + vo);
+		
+		profileService.updateProfile(vo);
+		
+		m.addAttribute("host", profileService.getProfile(vo));
+		
+		return "mypage/viewProfile";
+	}
+	
+	// 프로필 수정 페이지로 이동
+	@RequestMapping("mypage/pageMoveUpdate.do")
+	public String pageMoveUpdate(HostVO vo, Model m, HttpSession session){
+		System.out.println("pageMoveUpdate 실행" + vo);
+		
+		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
+		
+		m.addAttribute("host", profileService.getProfile(vo));
+		
+		return "mypage/updateProfile";
+	}
+	
+	
 //	// 프로필 삭제
 //	@RequestMapping("")
 //	public void deleteProfile(MemberVO vo){
@@ -150,10 +190,12 @@ public class MypageController {
 //	}
 	// 프로필 상세 조회
 	@RequestMapping("mypage/viewProfile")
-	public String getProfile(HostVO vo, Model m){
+	public String getProfile(HostVO vo, Model m, HttpSession session){
 		System.out.println("getProfile 실행" + vo);
+		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
 		m.addAttribute("host", profileService.getProfile(vo));
 		return "mypage/viewProfile";
 	}
+	
 	
 }

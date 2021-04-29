@@ -6,7 +6,7 @@
 	
 	<!-- 관리자 초대 -->
 	
-	<!-- 호스트 인증처리 -->
+	<!-- 호스트 인증 리스트 -->
  	<select id="getHostup" resultType="hashmap">
 		SELECT 
 			m.member_id as member_id, 
@@ -18,6 +18,31 @@
 		 	
 		FROM host h, member m
 		WHERE h.host_id = m.member_id
+	</select>
+	
+	<!-- 호스트 인증 확인 페이지 -->
+	<select id="getAuth" parameterType="host" resultType="hashmap">
+		SELECT 
+			m.member_id as member_id, 
+		 	m.name as name, 
+		 	m.email as email,
+		 	m.password as password, 
+		 	m.tel as tel,
+		 	m.join_date as join_date,
+		 	m.last_conn_date as last_conn_date,
+		 	m.auth as auth,
+		 	h.host_pic as host_pic,
+		 	h.company as company,
+		 	h.uni as uni,
+		 	h.auth_file as auth_file,
+		 	h.host_value as host_value,
+		 	h.write_date as write_date,
+		 	h.content as content,
+		 	h.result as result
+		 	
+		FROM host h, member m
+		WHERE h.host_id = m.member_id
+		AND h.host_id = #{hostId}
 	</select>
 		
 	<!-- 휴먼 계정 -->
