@@ -35,18 +35,9 @@ public class AdminServiceImpl implements AdminService{
 	}
 
 	@Override
+	// 호스트 인증 승인 페이지
 	public HashMap<String, String> getAuth(HostVO vo) {
-		HashMap<String, String> result = AdminDAO.getAuth(vo);
-		System.out.println(result);
-//			result.replace("member_id", String.valueOf(result.get("member_id")));
-//			result.replace("host_id", String.valueOf(result.get("host_id")));
-//			result.replace("write_date", String.valueOf(result.get("write_date")));
-//			result.replace("host_value", String.valueOf(result.get("host_value")));
-//			result.replace("auth", String.valueOf(result.get("auth")));
-//			result.replace("join_date", String.valueOf(result.get("join_date")));
-//			result.replace("last_conn_date", String.valueOf(result.get("last_conn_date")));
-//			result.replace("host_value", String.valueOf(result.get("host_value")));
-		return result;
+		return AdminDAO.getAuth(vo);
 	}
 	
 	@Override
