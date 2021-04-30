@@ -143,12 +143,15 @@ public class ContactController {
 				+ "\ncontactId : " + contactId 
 				+ "\nbidPrice : " + bidPrice);
 		
+		// 입찰 금액이 없을시(null)
+		if(bidPrice == null) {
+			return "입찰 금액을 입력해주세요.";
 		// 로그인 상태가 아닐시
-		if(loginFlag.equals("false")) {
+		} else if(loginFlag.equals("false")) {
 			return "로그인 이후 이용 가능합니다.";
 		// 현재 최고가보다 낮거나 같은 금액일시
 		} else if(Integer.parseInt(lastValue) >= Integer.parseInt(bidPrice)) {
-			// 같은시간에 누군가 최고금액 입찰시 해당 데이터 변경
+			// 같은 시간에 누군가 최고금액 입찰시 해당 데이터 변경
 			int f_lastValue = contactService.lastValueCheck(Integer.parseInt(contactId));
 			return "최고가보다 높은 금액을 입력해주세요.:" + f_lastValue;
 		// 마감완료 됐을시
