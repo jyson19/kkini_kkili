@@ -139,7 +139,7 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <h5>컨택 내역</h5>
-                                                <span>지금까지 진행했던 <code>컨택 내역</code> 확인하세요.</span>
+                                                <span>지금까지 진행했던 <code>컨택 내역</code>을 확인하세요.</span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -169,11 +169,12 @@
 	                                                            <tr>
 	                                                            	<c:if test="${contact.HOST_ID eq contact.MEMBER_ID }">
 	                                                                	<td> 게스트 </td>
+	                                                                	<td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
 	                                                            	</c:if>
 	                                                            	<c:if test="${contact.HOST_ID ne contact.MEMBER_ID }">
 	                                                                	<td> 호스트 </td>
+	                                                                	<td> ${contact.NAME } </td>
 	                                                            	</c:if>
-	                                                                <td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
 	                                                                <td><a href="../contact/detail.do?contactId=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
 	                                                                <td>${contact.STORE_NAME }</td>
 	                                                                <td>${contact.MEETING_TIME }</td>
