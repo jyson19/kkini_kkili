@@ -20,5 +20,7 @@ public interface ProfileService {
 
 	// 프로필 멤버 포함 전체 조회
 	List<HashMap<String, String>> getHostInfo();
+
+	List<HashMap<String, String>> getMainHostInfo();
 	
 }

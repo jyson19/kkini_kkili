@@ -164,8 +164,90 @@
 			  <h2><strong>프로필</strong></h2>
 			</div>
 		  </div>
-		  <div class="row d-flex">
-			<div class="col-md-3 d-flex ftco-animate">
+		  <div class="row d-flex" id="profileList">
+		  
+		  <script src="resources/js/jquery.min.js"></script>
+	
+	<script>
+	// 컨택 목록 요청
+    $.ajax({
+		type :'post',
+       	/* data : ({"cri":"1"}), */
+       	url : 'main/r/contactList.do',
+       	
+       	success : function(data){
+       		
+       		for(i=0; i<4; i++){
+	       		$("#contactList").append(	       				
+					'<div class="item">'+
+					'<div class="testimony-wrap d-flex">'+
+						'<a href="${pageContext.request.contextPath}/host/profile.do?hostId='+ data[i].HOST_ID+'">'+
+							'<div>'+
+								'<div class="user-img mb-4"'+
+									'style="background-image: url(\'upload/host/'+data[i].HOST_PIC+'\')">'+
+								'</div>'+
+								'<div>'+
+									'<p style="font-size: 2.0vmin; margin-bottom: 0%; text-align: center; color: black; font-weight: bold;">'+data[i].NAME+'</p>'+
+									'<p style="font-size: 1.7vmin; text-align: center; color: dimgrey;">'+data[i].COMPANY+'</p>'+
+								'</div>'+
+							'</div>'+
+						'</a>'+
+						'<div class="text ml-4">'+
+
+							<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
+							'<p style="font-size: 20px; font-weight: bolder;">'+data[i].CONTACT_INTRO+'</p>'+
+							'<span class="position">일시 : '+data[i].MEETING_TIME+'</span><br />'+
+							'<span class="position">상호명 : '+data[i].STORE_NAME+'</span><br />'+
+							'<span class="position">장소 : '+data[i].LOCATION+'</span>'+
+							'<p class="name count_time_con">마감 시간 : <span class="count_time">'+data[i].REGI_DATE+'</span></p>'+
+							'<p class="name">현재 최고가 : '+data[i].LAST_VALUE+'원</p>'+
+							'<p>'+
+								'<a href="${pageContext.request.contextPath}/contact/bid.do?contact_id='+data[i].CONTACT_ID+'"'+
+									'class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택'+
+									'신청</a>'+
+							'</p>'+
+						'</div>'+
+					'</div>'+
+				'</div>')
+       		}
+       	}
+	})
+		
+	// 호스트 프로필 요청
+    $.ajax({
+		type :'post',
+       	/* data : ({"cri":"1"}), */
+       	url : 'main/r/profileList.do',
+       	
+       	success : function(data){
+       		
+       		for(i=0; i<4; i++){
+       			console.log(data[i].HOST_ID);
+	       		$("#profileList").append(	       				
+	       				
+       	          '<div class="col-md-3 d-flex ftco-animate">'+
+       	            '<div class="blog-entry align-self-stretch" style="width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">'+
+       	              '<a href="${pageContext.request.contextPath}/host/profile.do?hostId='+data[i].HOST_ID+'" class="block-20" style="background-image: url(\'upload/host/pic'+data[i].HOST_ID+'.jpg\');">'+
+       	              '</a>'+
+       	              '<div class="text p-4 d-block">'+
+       	                '<span class="heading">'+data[i].NAME+'</span>'+
+       	                '<h3 class="heading mt-3">'+data[i].CONTENT+'</h3>'+
+       	                '<div class="meta mb-3">'+
+       	                '</div>'+
+       	              '</div>'+
+       	            '</div>'+
+       	          '</div>'
+	       	        
+				)
+       		}
+       	}
+	})
+    
+	
+	
+    </script>
+		  
+			<!-- <div class="col-md-3 d-flex ftco-animate">
 			  <div class="blog-entry align-self-stretch">
 				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_1.jpg');">
 				</a>
@@ -221,7 +303,8 @@
 				</div>
 			  </div>
 			</div>
-		  </div>
+		  </div> -->
+		  
 		</div>
 	  </section>
 	  <!-- 프로필 종료 -->
@@ -283,56 +366,7 @@
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 	
-	<script src="resources/js/jquery.min.js"></script>
 	
-	<script>
-    
-	    $.ajax({
-			type :'post',
-	       	/* data : ({"cri":"1"}), */
-	       	url : 'main/r/contactList.do',
-	       	
-	       	success : function(data){
-	       		
-	       		for(i=0; i<4; i++){
-		       		$("#contactList").append(	       				
-						'<div class="item">'+
-						'<div class="testimony-wrap d-flex">'+
-							'<a href="${pageContext.request.contextPath}/host/profile.do?hostId='+ data[i].HOST_ID+'">'+
-								'<div>'+
-									'<div class="user-img mb-4"'+
-										'style="background-image: url(\'upload/host/'+data[i].HOST_PIC+'\')">'+
-									'</div>'+
-									'<div>'+
-										'<p style="font-size: 2.0vmin; margin-bottom: 0%; text-align: center; color: black; font-weight: bold;">'+data[i].NAME+'</p>'+
-										'<p style="font-size: 1.7vmin; text-align: center; color: dimgrey;">'+data[i].COMPANY+'</p>'+
-									'</div>'+
-								'</div>'+
-							'</a>'+
-							'<div class="text ml-4">'+
-	
-								<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
-								'<p style="font-size: 20px; font-weight: bolder;">'+data[i].CONTACT_INTRO+'</p>'+
-								'<span class="position">일시 : '+data[i].MEETING_TIME+'</span><br />'+
-								'<span class="position">상호명 : '+data[i].STORE_NAME+'</span><br />'+
-								'<span class="position">장소 : '+data[i].LOCATION+'</span>'+
-								'<p class="name count_time_con">마감 시간 : <span class="count_time">'+data[i].REGI_DATE+'</span></p>'+
-								'<p class="name">현재 최고가 : '+data[i].LAST_VALUE+'원</p>'+
-								'<p>'+
-									'<a href="${pageContext.request.contextPath}/contact/bid.do?contact_id='+data[i].CONTACT_ID+'"'+
-										'class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택'+
-										'신청</a>'+
-								'</p>'+
-							'</div>'+
-						'</div>'+
-					'</div>')
-	       		}
-	       	}
-		})
-    
-	
-	
-    </script>
 	
 	<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="resources/js/popper.min.js"></script>
