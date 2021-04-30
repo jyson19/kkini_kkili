@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.kk.dao.ContactDAO;
 import com.kk.dao.ContactDAOImpl;
 import com.kk.domain.ContactVO;
 import com.kk.domain.PagingCriteria;
@@ -15,7 +16,7 @@ import com.kk.domain.PagingCriteria;
 public class ContactServiceImpl implements ContactService {
 
 	@Autowired
-	private ContactDAOImpl contactDAO;
+	private ContactDAO contactDAO;
 
 	// 컨택 목록
 	@Override
@@ -53,8 +54,15 @@ public class ContactServiceImpl implements ContactService {
 		return contactDAO.getHostProfile(memberId);
 	}
 
+	// 나의 컨택 정보 가져오기
 	@Override
 	public List<Map<String, String>> getMyContactList(int memberId) {
 		return contactDAO.getMyContactList(memberId);
+	}
+
+	// 컨택 비드 페이지
+	@Override
+	public Map<String, String> getBidView(int contactId) {
+		return contactDAO.getBidView(contactId);
 	}
 }

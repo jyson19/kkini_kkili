@@ -21,6 +21,12 @@ public interface ContactDAO {
 	// 컨택 생성
 	int insertContact(ContactVO vo);
 	
+	public List<Map<String, String>> getMyContactList(int memberId);
+	
 	// 컨택 생성-프로필
 	Map<String, String> getHostProfile(int memberId);
+
+	// 컨택 비드 페이지
+	Map<String, String> getBidView(int contactId);
+
 }
