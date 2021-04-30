@@ -270,6 +270,12 @@
                                             </div>
                                         </div>
                                         <!-- Hover table card end -->
+                                        <c:if test="${!empty profile}">
+                                        <div class="card-header">
+                                          <h5>프로필 작성</h5>
+                                          <span><code>${profile }</code></span>
+  	                                    </div>
+                                        </c:if>
                                         
                                     </div>
                                     <!-- Page-body end -->
