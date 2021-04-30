@@ -151,7 +151,7 @@
                                             </div>
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
-                                                    <table class="table table-hover">
+                                                    <table class="table table-hover" style="margin: 0 auto; text-align: center;">
                                                         <thead>
                                                             <tr>
                                                             	<th>포지션</th>
@@ -174,7 +174,7 @@
 	                                                                	<td> 호스트 </td>
 	                                                                	<td> ${contact.NAME } </td>
 	                                                            	</c:if>
-	                                                                <td><a href="../contact/detail.do?contactId=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
+	                                                                <td><a href="../contact/bid.do?contact_id=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
 	                                                                <td>${contact.STORE_NAME }</td>
 	                                                                <td>${contact.MEETING_TIME }</td>
 	                                                                <td>${contact.LAST_VALUE }</td>
@@ -184,7 +184,7 @@
 	                                                            	</c:if>
 	                                                            	<c:if test="${contact.QR_CHECK eq 0}">
 	                                                                	<c:if test="${contact.MEETING_TIME >= today }">
-		                                                                	<td> 만남 예정 </td>
+		                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td>
 	                                                                	</c:if>
 	                                                                	<c:if test="${contact.MEETING_TIME < today }">
 		                                                                	<td> 만남 취소 </td>
@@ -361,6 +361,7 @@
     <script src="./../resources/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/script.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/interest.js"></script>
+	<script src="./../resources/js/contactHistory.js"></script>
 </body>
 
 </html>

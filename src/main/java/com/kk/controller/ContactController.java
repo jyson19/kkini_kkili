@@ -178,4 +178,11 @@ public class ContactController {
 			return "입찰 실패.. 이유는.. 음..";
 		}
 	}
+	
+	// 만남확인 (qr check)
+	@RequestMapping("contact/qr_check.do")
+	public void qrCheck() {
+		System.out.println("ContactController.qrCheck() 실행");
+		
+	}
 }

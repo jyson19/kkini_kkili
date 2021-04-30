@@ -70,25 +70,25 @@ INSERT INTO host VALUES(6, 'pic6.jpg', '라인', '', 47500, '2021-04-05', '명�
 
 /* contact */
 INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, TO_CHAR(TO_DATE('20210427120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '구글링하지말고 이제 웨일링하자', '판교역', '경기 성남시 분당구 판교역로 지하 160', 
-    '2021-05-01 12:30', 1000, 20000, 1);
+    '2021-05-01 12:30', 1000, 20000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 1, 9, TO_CHAR(TO_DATE('20210427150000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '삼성공화국 Q&A', '스시쿤 판교', '경기 성남시 분당구 대왕판교로 660 유스페이스몰 1차 지하1층 115호', 
-    '2021-05-02 12:30', 2000, 50000, 1);
+    '2021-05-02 12:30', 2000, 50000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 2, 9, TO_CHAR(TO_DATE('20210428210000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), 'KT보다 SK로 가야하는 이유', '봉피양 판교점', '경기 성남시 분당구 판교역로 235 H스퀘어 N동 121,122호', 
-    '2021-05-03 12:30', 3000, 10000, 1);
+    '2021-05-03 12:30', 3000, 10000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 3, 9, TO_CHAR(TO_DATE('20210429120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '쿠팡은 어떻게 중견기업이 되었나', '황제갈비 판교점', '경기 성남시 분당구 대왕판교로 670 유스페이스2A동 1층 104호', 
-    '2021-05-04 12:30', 4000, 20000, 1);
+    '2021-05-04 12:30', 4000, 20000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 4, 9, TO_CHAR(TO_DATE('20210429150000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '구글링하지말고 이제 웨일링하자', '판교역', '경기 성남시 분당구 판교역로 지하 160', 
-    '2021-05-05 12:30', 5000, 30000, 1);
+    '2021-05-05 12:30', 5000, 30000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 5, 9, TO_CHAR(TO_DATE('20210429180000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), 'IT 직장인들의 종착역 카카오로 당신을 초대합니다.', '송도갈비 판교브릿지타워점', '경기 성남시 분당구 판교로227번길 6', 
-    '2021-05-06 12:30', 6000, 40000, 1);
+    '2021-05-06 12:30', 6000, 40000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 6, 9, TO_CHAR(TO_DATE('20210429210000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '일본시장을 지배한 라인, 신중호입니다.', '이오오', '경기 성남시 분당구 판교로255번길 9-22 112,113호', 
-    '2021-05-07 12:30', 7000, 50000, 1);
+    '2021-05-07 12:30', 7000, 50000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 1, 9, TO_CHAR(TO_DATE('20210430073000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '삼성공화국 Q&A', '스시쿤 판교', '경기 성남시 분당구 대왕판교로 660 유스페이스몰 1차 지하1층 115호', 
-    '2021-05-08 12:30', 8000, 60000, 1);
+    '2021-05-08 12:30', 8000, 60000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 2, 9, TO_CHAR(TO_DATE('20210430090000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), 'KT보다 SK로 가야하는 이유', '봉피양 판교점', '경기 성남시 분당구 판교역로 235 H스퀘어 N동 121,122호', 
-    '2021-05-09 12:30', 9000, 70000, 1);
+    '2021-05-09 12:30', 9000, 70000, 0);
 INSERT INTO contact VALUES(seq_cid.nextval, 3, 9, TO_CHAR(TO_DATE('20210430100000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'), '쿠팡은 어떻게 중견기업이 되었나', '황제갈비 판교점', '경기 성남시 분당구 대왕판교로 670 유스페이스2A동 1층 104호', 
-    '2021-05-10 12:30', 10000, 80000, 1);
+    '2021-05-10 12:30', 10000, 80000, 0);
 
 
 /* cmt */
