@@ -276,7 +276,6 @@
 		FROM (SELECT * FROM CONTACT WHERE HOST_ID = #{memberId} OR GUEST_ID = #{memberId}) CT, (SELECT * FROM MEMBER WHERE NOT MEMBER_ID = #{memberId}) A
 		WHERE CT.HOST_ID = A.MEMBER_ID OR CT.GUEST_ID = A.MEMBER_ID
 	</select>
-
 	
 	<!-- host join table 
 	<select id="" resultType="member">

@@ -143,50 +143,10 @@
 			  <h2 class="mb-4 pb-3"><strong>컨택 목록</strong></h2>
 				<div class="row ftco-animate">
 					<div class="col-md-12">
-					  <div class="carousel-testimony owl-carousel">
-						<div class="item border-top">
-							<div class="testimony-wrap d-flex">
-							  <div class="user-img mb-4" style="background-image: url(resources/images/person_1.jpg)">
-							</div>
-							  <div class="text ml-4">
-								<p class="mb-3">안녕하세요. <br><br> 
-									네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다. 1안 입니다.</p>
-									<p class="name">김라인</p>
-								<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-								<p class="name">10,000원</p> 
-							  </div>
-							</div>
-						  </div>
-						<div class="item">
-						  <div class="testimony-wrap d-flex">
-							<div class="user-img mb-5" style="background-image: url(resources/images/person_2.jpg)">
-							  <span class="quote d-flex align-items-center justify-content-center">
-								<i class="icon-quote-left"></i>
-							  </span>
-							</div>
-							<div class="text ml-md-4">
-								<p class="mb-5">네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다.</p>
-								<p class="name">김라인</p>
-								<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-								<p class="name">50,000원</p>
-							  </div>
-						  </div>
-						</div>
-						<div class="item">
-						  <div class="testimony-wrap d-flex">
-							<div class="user-img mb-5" style="background-image: url(resources/images/person_3.jpg)">
-							  <span class="quote d-flex align-items-center justify-content-center">
-								<i class="icon-quote-left"></i>
-							  </span>
-							</div>
-							<div class="text ml-md-4">
-								<p class="mb-5">네이버 백엔드 개발 종사자입니다. 점심시간 이용해서 같이 밥 먹고 싶네요. 같이 현업 정보 공유하고 싶습니다.</p>
-								<p class="name">김라인</p>
-								<span class="position">경기도 성남시 정자역 5번 출구 앞</span>
-								<p class="name">50,000원</p>
-							  </div>
-						  </div>
-						</div>
+					  <div class="carousel-testimony owl-carousel" id="contactList">
+					  	
+						
+						
 					  </div>
 					</div>
 				  </div>
@@ -324,6 +284,56 @@
 	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 	
 	<script src="resources/js/jquery.min.js"></script>
+	
+	<script>
+    
+	    $.ajax({
+			type :'post',
+	       	/* data : ({"cri":"1"}), */
+	       	url : 'main/r/contactList.do',
+	       	
+	       	success : function(data){
+	       		
+	       		for(i=0; i<4; i++){
+		       		$("#contactList").append(	       				
+						'<div class="item">'+
+						'<div class="testimony-wrap d-flex">'+
+							'<a href="${pageContext.request.contextPath}/host/profile.do?hostId='+ data[i].HOST_ID+'">'+
+								'<div>'+
+									'<div class="user-img mb-4"'+
+										'style="background-image: url(\'upload/host/'+data[i].HOST_PIC+'\')">'+
+									'</div>'+
+									'<div>'+
+										'<p style="font-size: 2.0vmin; margin-bottom: 0%; text-align: center; color: black; font-weight: bold;">'+data[i].NAME+'</p>'+
+										'<p style="font-size: 1.7vmin; text-align: center; color: dimgrey;">'+data[i].COMPANY+'</p>'+
+									'</div>'+
+								'</div>'+
+							'</a>'+
+							'<div class="text ml-4">'+
+	
+								<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
+								'<p style="font-size: 20px; font-weight: bolder;">'+data[i].CONTACT_INTRO+'</p>'+
+								'<span class="position">일시 : '+data[i].MEETING_TIME+'</span><br />'+
+								'<span class="position">상호명 : '+data[i].STORE_NAME+'</span><br />'+
+								'<span class="position">장소 : '+data[i].LOCATION+'</span>'+
+								'<p class="name count_time_con">마감 시간 : <span class="count_time">'+data[i].REGI_DATE+'</span></p>'+
+								'<p class="name">현재 최고가 : '+data[i].LAST_VALUE+'원</p>'+
+								'<p>'+
+									'<a href="${pageContext.request.contextPath}/contact/bid.do?contact_id='+data[i].CONTACT_ID+'"'+
+										'class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택'+
+										'신청</a>'+
+								'</p>'+
+							'</div>'+
+						'</div>'+
+					'</div>')
+	       		}
+	       	}
+		})
+    
+	
+	
+    </script>
+	
 	<script src="resources/js/jquery-migrate-3.0.1.min.js"></script>
 	<script src="resources/js/popper.min.js"></script>
 	<script src="resources/js/bootstrap.min.js"></script>
@@ -340,6 +350,7 @@
 	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script> -->
 	<script src="resources/js/google-map.js"></script>
 	<script src="resources/js/main.js"></script>
+	
     
   </body>
 </html>

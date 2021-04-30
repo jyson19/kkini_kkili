@@ -21,4 +21,5 @@ public interface ContactService {
 	Map<String, String> getBidView(int contactId);
 	int bidUpdate(HashMap<String, String> map);
 	int lastValueCheck(int contactId);
+	List<Map<String, String>> getMainContactList(PagingCriteria cri);
 }

@@ -85,4 +85,15 @@ public class ContactServiceImpl implements ContactService {
 	public int lastValueCheck(int contactId) {
 		return contactDAO.lastValueCheck(contactId);
 	}
+
+	@Override
+	public List<Map<String, String>> getMainContactList(PagingCriteria cri) {
+		List<Map<String, String>> result = contactDAO.getContactList(cri);
+		for(int i = 0; i < result.size(); i++) {
+			for(String key : result.get(i).keySet()) {
+				result.get(i).replace(key, String.valueOf(result.get(i).get(key)));				
+			}
+		}
+		return result;
+	}
 }
