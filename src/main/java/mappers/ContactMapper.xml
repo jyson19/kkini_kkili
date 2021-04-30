@@ -241,15 +241,21 @@
 	</select>
 	
 	<!-- 컨택 입찰 -->
-	<update id="bidUpdate" parameterType="hashmap">
+	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
+	<update id="bidUpdate" parameterType="java.util.HashMap">
 		UPDATE contact 
 		SET
 			guest_id = #{memberId},
-			last_value = #{lastValue} 
+			last_value = #{bidPrice} 
 		WHERE contact_id = #{contactId}
 	</update>
-
-	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
+	
+	<!-- 컨택 최고입찰가 확인 -->
+	<select id="lastValueCheck" parameterType="int" resultType="int">
+		SELECT last_value
+		FROM contact
+		WHERE contact_id = #{contactId}
+	</select>
 
 	<!-- 마감 -->
 

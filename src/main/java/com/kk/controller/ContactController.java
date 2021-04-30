@@ -132,18 +132,25 @@ public class ContactController {
 			String memberId, 
 			String bidPrice,
 			String contactId,
-			String loginFlag) {
+			String loginFlag,
+			Model model) {
 		System.out.println("ContactController.bidAfter() 실행");
-		System.out.println(lvc + " : " + lastValue + " : " + hostId + " : " + memberId + " : " + bidPrice);
+		System.out.println(
+				"lvc : " + lvc 
+				+ "\nlastValue : " + lastValue 
+				+ "\nhostId : " + hostId 
+				+ "\nmemberId : " + memberId 
+				+ "\ncontactId : " + contactId 
+				+ "\nbidPrice : " + bidPrice);
 		
 		// 로그인 상태가 아닐시
 		if(loginFlag.equals("false")) {
 			return "로그인 이후 이용 가능합니다.";
 		// 현재 최고가보다 낮거나 같은 금액일시
 		} else if(Integer.parseInt(lastValue) >= Integer.parseInt(bidPrice)) {
-			// [추가] 같은시간에 누군가 최고금액 입찰시 해당 데이터 변경해줘야함
-			
-			return "최고가보다 높은 금액을 입력해주세요.";
+			// 같은시간에 누군가 최고금액 입찰시 해당 데이터 변경
+			int f_lastValue = contactService.lastValueCheck(Integer.parseInt(contactId));
+			return "최고가보다 높은 금액을 입력해주세요.:" + f_lastValue;
 		// 마감완료 됐을시
 		} else if(lvc.equals("마감 완료")) {
 			return "해당 컨택은 마감 완료되었습니다.";
@@ -156,9 +163,10 @@ public class ContactController {
 			// 2. 컨택 테이블 last_value 변경
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("memberId", memberId);
-			map.put("lastValue", lastValue);
+			map.put("bidPrice", bidPrice);
 			map.put("contactId", contactId);
 			int resultInt = contactService.bidUpdate(map);
+			System.out.println("resultInt : " + resultInt);
 			if(resultInt == 1) {
 				return "입찰이 완료되었습니다!";
 			}

@@ -79,4 +79,10 @@ public class ContactServiceImpl implements ContactService {
 	public int bidUpdate(HashMap<String, String> map) {
 		return contactDAO.bidUpdate(map);
 	}
+
+	// 컨택 최고가 금액 확인
+	@Override
+	public int lastValueCheck(int contactId) {
+		return contactDAO.lastValueCheck(contactId);
+	}
 }

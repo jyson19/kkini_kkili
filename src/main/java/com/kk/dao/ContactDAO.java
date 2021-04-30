@@ -36,4 +36,7 @@ public interface ContactDAO {
 	Map<String, String> getBidView(int contactId);
 
 	int bidUpdate(HashMap<String, String> map);
+
+	// 컨택 최고가 체크
+	int lastValueCheck(int contactId);
 }

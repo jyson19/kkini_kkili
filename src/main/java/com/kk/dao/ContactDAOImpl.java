@@ -12,17 +12,15 @@ import com.kk.domain.ContactVO;
 import com.kk.domain.PagingCriteria;
 
 @Repository("ContactDAO")
-public class ContactDAOImpl implements ContactDAO{
+public class ContactDAOImpl implements ContactDAO {
 
 	@Autowired
 	private SqlSessionTemplate mybatis;
-	
-	
+
 	// 컨택 리스트
 	@Override
 	public List<Map<String, String>> getContactList(PagingCriteria paging) {
 		System.out.println("ContactDAOImpl.getContactList");
-//		System.out.println("리스트 크기 : " + mybatis.selectList("contact.getContactList", vo).size());
 		return mybatis.selectList("contact.getContactList", paging);
 	}
 
@@ -36,7 +34,7 @@ public class ContactDAOImpl implements ContactDAO{
 	public int totalCnt() {
 		return mybatis.selectOne("contact.getTotalCnt");
 	}
-	
+
 	// 컨택 1개 반환
 	public Map<String, String> getContactOne(int memberId) {
 		return mybatis.selectOne("contact.getContactOne", memberId);
@@ -47,7 +45,6 @@ public class ContactDAOImpl implements ContactDAO{
 		return mybatis.insert("contact.insertContact", vo);
 	}
 
-	
 	// 컨택 생성-프로필
 	public Map<String, String> getHostProfile(int memberId) {
 		return mybatis.selectOne("contact.getHostProfile", memberId);
@@ -58,11 +55,11 @@ public class ContactDAOImpl implements ContactDAO{
 		return mybatis.selectList("contact.getMyContactList", memberId);
 	}
 
-
 	// 컨택 가치 확인
 	public List<Map<String, String>> contactValue(int memberId) {
 		return mybatis.selectList("contact.contactValue", memberId);
 	}
+
 	// 컨택 비드 페이지
 	@Override
 	public Map<String, String> getBidView(int contactId) {
@@ -75,5 +72,10 @@ public class ContactDAOImpl implements ContactDAO{
 	public int bidUpdate(HashMap<String, String> map) {
 		return mybatis.update("contact.bidUpdate", map);
 	}
-	
+
+	// 컨택 최고가 확인
+	@Override
+	public int lastValueCheck(int contactId) {
+		return mybatis.selectOne("contact.lastValueCheck", contactId);
+	}
 }
