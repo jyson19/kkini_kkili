@@ -57,4 +57,9 @@ public class ContactServiceImpl implements ContactService {
 	public List<Map<String, String>> getMyContactList(int memberId) {
 		return contactDAO.getMyContactList(memberId);
 	}
+	
+	@Override
+	public List<Map<String, String>> contactValue(int memberId) {
+		return contactDAO.contactValue(memberId);
+	}
 }

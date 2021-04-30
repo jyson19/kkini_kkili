@@ -141,7 +141,7 @@
                                     <div class="page-body">
                                         <div class="row">
                                             <!-- SITE VISIT CHART start -->
-                                            <div class="col-md-12 col-lg-6">
+                                            <!-- <div class="col-md-12 col-lg-6">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>Site Visit Chart</h5>
@@ -151,13 +151,13 @@
                                                         <div id="morris-site-visit"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- SITE VISIT CHART Ends -->
                                             <!-- Bar Chart start -->
-                                            <div class="col-md-12 col-lg-6">
+                                            <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Bar Chart</h5>
+                                                        <h5>컨택 건수</h5>
                                                         <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
                                                     </div>
                                                     <div class="card-block">

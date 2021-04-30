@@ -56,5 +56,10 @@ public class ContactDAOImpl implements ContactDAO{
 	public List<Map<String, String>> getMyContactList(int memberId) {
 		return mybatis.selectList("contact.getMyContactList", memberId);
 	}
+
+	// 컨택 가치 확인
+	public List<Map<String, String>> contactValue(int memberId) {
+		return mybatis.selectList("contact.contactValue", memberId);
+	}
 	
 }

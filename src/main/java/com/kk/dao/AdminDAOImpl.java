@@ -37,9 +37,18 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 	
 	@Override
+	// 호스트 인증 승인 페이지
 	public HashMap<String, String> getAuth(HostVO vo) {
 		System.out.println("===> Mybatis getAuth() 호출");
 		return mybatis.selectOne("admin.getAuth", vo);
+	}
+	
+	@Override
+	// 호스트 인증 승인
+	public void levelup(HostVO vo) {
+		System.out.println("===> Mybatis levelup() 호출");
+		mybatis.update("admin.levelup1", vo);
+		mybatis.update("admin.levelup2", vo);
 	}
 
 	@Override
@@ -71,5 +80,7 @@ public class AdminDAOImpl implements AdminDAO{
 	public List<HostVO> getBook(HostVO vo) {
 		return null;
 	}
+
+	
 
 }
