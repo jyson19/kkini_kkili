@@ -78,9 +78,9 @@ public class MypageController {
 		return "mypage/profile";	
 	}
 
-	// 마이 페이지 클릭시 권한에 따라 분기
+	// 마이 페이지 클릭시 권한에 따라 분기 - 요약 페이지임으로 필요한 DB 전달하기
 	@RequestMapping("mypage/enter.do")
-	public String enterPage(HttpServletRequest request, HttpSession session) {
+	public String enterPage(Model m, HttpServletRequest request, HttpSession session) {
 		System.out.println("MypageController : enterPage 실행");
 
 		MemberVO memberSession;
@@ -95,7 +95,28 @@ public class MypageController {
 
 		// 게스트 권한 : 0 / 호스트 권한 : 1 / 관리자 권한 : 2 --> 분기
 		if (memberSession.getAuth() == 0) {
+			
+			// 컨택 내역 가져와서 보내기
+			int userId = ((MemberVO)session.getAttribute("member")).getMemberId();
+			m.addAttribute("contactInfo", contactService.getMyContactList(userId));
+			
+			// 북마크 내역 가져와서 보내기
+			BookmarkVO bookmark = new BookmarkVO();
+			bookmark.setHostId( userId );
+			m.addAttribute("memberList", bookmarkService.getMemberListByHostId(bookmark));
+			
+			// 프로필 관련 사항 조회
+			HostVO hostVO = new HostVO();
+			hostVO.setHostId(userId);
+			if(profileService.getProfile(hostVO) == null) {
+				// 프로필 작성을 안했다면 그냥 통과
+			} if(profileService.getProfile(hostVO) != null) { // 이미 호스트 신청함
+				// 프로필 작성을 했다면 호스트 심사 중 메세지 띄워야 함
+				m.addAttribute("profile", "호스트 심사 중");		
+			}
+			
 			return "mypage/summary";
+			
 		} else if (memberSession.getAuth() == 1) {
 			return "mypage/summary";
 		} else if (memberSession.getAuth() == 2) {

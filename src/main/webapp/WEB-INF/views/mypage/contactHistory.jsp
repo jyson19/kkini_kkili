@@ -139,7 +139,7 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <h5>컨택 내역</h5>
-                                                <span>지금까지 진행했던 <code>컨택 내역을</code> 확인하세요.</span>
+                                                <span>지금까지 진행했던 <code>컨택 내역</code> 확인하세요.</span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>

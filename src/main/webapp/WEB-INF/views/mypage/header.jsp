@@ -92,7 +92,7 @@
                     </li>--%>
                     <li class="user-profile header-notification">
                         <a href="#!" class="waves-effect waves-light">
-                            <img src="../upload/host/pic${member.memberId}.jpg" class="img-radius" alt="User-Profile-Image">
+                            <img src="../upload/host/pic${member.memberId}.jpg" onerror="this.src='../upload/host/pic0.jpg';" class="img-radius" alt="User-Profile-Image">
                             <span><%=member.getName()%></span>
                             <i class="ti-angle-down"></i>
                         </a>

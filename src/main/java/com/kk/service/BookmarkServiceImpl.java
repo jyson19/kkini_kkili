@@ -1,5 +1,6 @@
 package com.kk.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,12 @@ public class BookmarkServiceImpl implements BookmarkService{
 	private BookmarkDAOImpl bookmarkDAO;
 	
 	@Override
-	public List<MemberVO> getMemberListByHostId(BookmarkVO bookmark) {
+	public List<HashMap<String, String>> getMemberListByHostId(BookmarkVO bookmark) {
 		return bookmarkDAO.getMemberListByHostId(bookmark);
 	}
 
 	@Override
-	public List<MemberVO> getMemberListByGuestId(BookmarkVO bookmark) {
+	public List<HashMap<String, String>> getMemberListByGuestId(BookmarkVO bookmark) {
 		return bookmarkDAO.getMemberListByGuestId(bookmark);
 	}
 
