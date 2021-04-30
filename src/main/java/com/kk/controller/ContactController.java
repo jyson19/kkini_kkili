@@ -144,7 +144,7 @@ public class ContactController {
 				+ "\nbidPrice : " + bidPrice);
 		
 		// 입찰 금액이 없을시(null)
-		if(bidPrice == null) {
+		if(bidPrice.isEmpty()) {
 			return "입찰 금액을 입력해주세요.";
 		// 로그인 상태가 아닐시
 		} else if(loginFlag.equals("false")) {
