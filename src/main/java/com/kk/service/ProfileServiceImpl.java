@@ -39,4 +39,15 @@ public class ProfileServiceImpl implements ProfileService{
 	public List<HashMap<String, String>> getHostInfo() {
 		return profileDAO.getHostInfo();
 	}
+
+	@Override
+	public List<HashMap<String, String>> getMainHostInfo() {
+		List<HashMap<String, String>> result = profileDAO.getHostInfo();
+		for(int i = 0; i < result.size(); i++) {
+			for(String key : result.get(i).keySet()) {
+				result.get(i).replace(key, String.valueOf(result.get(i).get(key)));				
+			}
+		}
+		return result;
+	}
 }
