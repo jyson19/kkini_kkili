@@ -60,13 +60,17 @@ $(function() {
 		function parseData(result) {
 			$("#bid_result").text(result);
 			var result = result.trim();
-			alert(result);
-			if(result.indexOf(":")) {
+			var iValue1 = result.indexOf(":");
+			var iValue2 = result.indexOf("완료");
+			
+			// 최고가 변경시
+			if(iValue1 != -1) {
 				result = result.split(":");
 				$("#bid_result").text(result[0]);
 				$("#lastValue").text(result[1]);
-			} else if(result=="입찰이 완료되었습니다!"){
-				alert("무야호");
+				
+			// 입찰 완료시 최고가 금액 변경
+			} else if(iValue2 != -1){
 				$("#lastValue").text($("#bid_price").val());
 			}
 		}
