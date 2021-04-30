@@ -22,35 +22,49 @@
 			name, 
 			company, 
 			host_pic
-		<![CDATA[
-		FROM (SELECT /*+INDEX_DESC(boardTest pk_board) */	
-		]]>
+	
+		FROM (SELECT 
+
 			rownum rn, 
-			c.contact_id AS contact_id, 
-			c.host_id AS host_id, 
-			c.guest_id AS guest_id, 
-			c.regi_date AS regi_date, 
-			c.contact_intro AS contact_intro, 
-			c.store_name AS store_name, 
-			c.location AS location, 
-			c.meeting_time AS meeting_time, 
-			c.start_value AS start_value, 
-			(SELECT 
-				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
-				FROM DUAL) AS last_value, 
-			c. qr_check AS qr_check, 
-    		m.name AS name, 
-    		h.company AS company, 
-    		h.host_pic AS host_pic 
-		FROM contact c, member m, host h
+			contact_id, 
+			host_id, 
+			guest_id, 
+			regi_date, 
+			contact_intro, 
+			store_name, 
+			location, 
+			meeting_time, 
+			start_value, 
+			last_value, 
+			qr_check, 
+    		name, 
+    		company, 
+    		host_pic 
+			FROM (SELECT 
+				c.contact_id AS contact_id, 
+				c.host_id AS host_id, 
+				c.guest_id AS guest_id, 
+				c.regi_date AS regi_date, 
+				c.contact_intro AS contact_intro, 
+				c.store_name AS store_name, 
+				c.location AS location, 
+				c.meeting_time AS meeting_time, 
+				c.start_value AS start_value, 
+				(SELECT 
+					REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
+					FROM DUAL) AS last_value, 
+				c. qr_check AS qr_check, 
+	    		m.name AS name, 
+	    		h.company AS company, 
+	    		h.host_pic AS host_pic  
+	            FROM contact c, member m, host h 
+	            WHERE c.host_id = m.member_id 
+					AND h.host_id = c.host_id
+	            ORDER BY regi_date DESC)
 		<![CDATA[
-		WHERE rownum <= #{pageNum} * #{amount}
-		]]>
-			AND c.host_id = m.member_id 
-			AND h.host_id = c.host_id)
-		<![CDATA[
+        WHERE rownum <= #{pageNum} * #{amount})
 		WHERE rn > (#{pageNum}-1) * #{amount}
-		ORDER BY meeting_time DESC
+		
 		]]>
 	 </select>
 	 
