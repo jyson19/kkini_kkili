@@ -75,5 +75,10 @@ public class AdminServiceImpl implements AdminService{
 		return null;
 	}
 
+	@Override
+	public List<HashMap<String, String>> getAllContact() {
+		return AdminDAO.getAllContact();
+	}
+
 	
 }

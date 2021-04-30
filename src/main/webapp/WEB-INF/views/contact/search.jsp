@@ -129,7 +129,7 @@
 										<span class="position">일시 : ${contact.MEETING_TIME}</span><br/>
 										<span class="position">상호명 : ${contact.STORE_NAME}</span><br/>
 										<span class="position">장소 : ${contact.LOCATION}</span>
-										<p class="name">마감 시간 :</p>
+										<p class="name count_time_con">마감 시간 : <span class="count_time">${contact.REGI_DATE }</span></p>
 										<p class="name">현재 최고가 : ${contact.LAST_VALUE}원</p>
 										<p>
 											<a href="meeting_detail.html"
@@ -203,6 +203,7 @@
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./../resources/js/google-map.js"></script>
 	<script src="./../resources/js/main.js"></script>
+	<script src="./../resources/js/contact.js"></script>
 	<script>
 		
 	</script>

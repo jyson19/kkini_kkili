@@ -67,7 +67,13 @@ public class AdminController {
 	
 	// 매칭 현황 조회
 	@RequestMapping("admin/match.do")
-	public void getMatch() {
+	public void getMatch(Model m, HttpSession session) {
+		
+		// 관리자면
+//		if( ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
+			m.addAttribute("contactList", adminService.getAllContact());
+//		}
+		
 		System.out.println("getMatch 실행");
 	}
 	

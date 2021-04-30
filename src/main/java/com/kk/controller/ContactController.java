@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.mail.Session;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
@@ -28,7 +30,7 @@ public class ContactController {
 
 	@Autowired
 	private ContactService contactService;
-	
+
 //private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
 //	
 //	@RequestMapping(value = "/", method = RequestMethod.GET)
@@ -58,7 +60,7 @@ public class ContactController {
 				Map<String, String> someContact = contactService.getContactOne(memberId);
 //				if (someContact.containsKey("HOST_ID")) {
 //					System.out.println("매핑 갯수 : " + someContact.size());
-					model.addAttribute("contactOne", someContact);
+				model.addAttribute("contactOne", someContact);
 			}
 		}
 	}
@@ -90,23 +92,63 @@ public class ContactController {
 		map.put("enddate", enddate);
 		model.addAttribute("contactList", contactService.searchContactList(map));
 	}
-	
+
 	// 컨택 생성
 	@RequestMapping("contact/insert.do")
 	public void insertContact(ContactVO vo, HttpSession session, Model model) {
 		System.out.println("ContactController.insertContact() 실행");
-		
+
 		// 호스트 프로필 전달
 		int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
 		model.addAttribute("hostProfile", contactService.getHostProfile(memberId));
 	}
+
 	// 컨택 생성확인
 	@RequestMapping("contact/insertCheck.do")
 	public String insertCheck(ContactVO vo, HttpSession session) {
 		System.out.println("ContactController.insertCheck() 실행");
-		if(contactService.insertContact(vo) == 1) {
+		if (contactService.insertContact(vo) == 1) {
 			return "redirect:/contact/list.do";
 		}
 		return "redirect:/contact/insert.do";
+	}
+
+	@RequestMapping("contact/bid.do")
+	public void bidContact(HttpServletRequest request, Model model) {
+		System.out.println("ContactController.bidContact() 실행");
+		int contactId = Integer.parseInt(request.getParameter("contact_id"));
+		System.out.println("컨택 번호: " + contactId);
+		model.addAttribute("bidView", contactService.getBidView(contactId));
+//		, String lvc, String lastValue, String hostId
+//		System.out.println(lvc + " : " + lastValue + " : " + hostId);
+	}
+
+	@RequestMapping(value = "contact/bid_after.do", produces="application/text; charset=utf-8")
+	@ResponseBody
+	public String bidAfter(
+			String lvc, 
+			String lastValue, 
+			String hostId, 
+			String memberId, 
+			String bidPrice,
+			String loginFlag) {
+		System.out.println("ContactController.bidAfter() 실행");
+		System.out.println(lvc + " : " + lastValue + " : " + hostId + " : " + memberId + " : " + bidPrice);
+		// 로그인 상태가 아닐시
+		if(loginFlag.equals("false")) {
+			return "로그인 이후 이용 가능합니다.";
+		// 현재 최고가보다 낮거나 같은 금액일시
+		} else if(Integer.parseInt(lastValue) >= Integer.parseInt(bidPrice)) {
+			return "최고가보다 높은 금액을 입력해주세요.";
+		// 마감완료 됐을시
+		} else if(lvc.equals("마감 완료")) {
+			return "해당 컨택은 마감 완료되었습니다.";
+		// 개최한 호스트와 같은 사람일시
+		}else if (hostId.equals(memberId)) {
+			return "개최자는 입찰에 참여할 수 없습니다.";
+		// 정상처리
+		} else {
+			return "";
+		}
 	}
 }

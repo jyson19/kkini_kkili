@@ -130,8 +130,8 @@
                                         <!-- Hover table card start -->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>관심 호스트 목록</h5>
-                                                <span>내가 관심있는 <code>호스트의</code> 목록입니다.</span>
+                                                <h5>나를 주목하는 사람들 목록</h5>
+                                                <span>내게 관심있는 <code>유저</code> 목록입니다.</span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -150,16 +150,14 @@
                                                                 <!-- <th>고유번호</th> -->
                                                                 <th>이름</th>
                                                                 <th>소속</th>
-                                                                <th>대학교</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
 	                                                        <c:forEach items="${memberList }" var="member">
 	                                                            <tr>
 	                                                                <%-- <td>${member.memberId }</td> --%>
-	                                                                <td>${member.name }</td>
-	                                                                <td>추후 업데이트 예정</td>
-	                                                                <td>추후 업데이트 예정</td>
+	                                                                <td>${member.NAME }</td>
+	                                                                <td>${member.COMPANY }</td>
 	                                                            </tr>
                                                             </c:forEach>
                                                         </tbody>

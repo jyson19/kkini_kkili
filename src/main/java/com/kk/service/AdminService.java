@@ -26,4 +26,6 @@ public interface AdminService {
 	List<HostVO> getSales(HostVO vo);
 	
 	List<HostVO> getBook(HostVO vo);
+
+	List<HashMap<String, String>> getAllContact();
 }

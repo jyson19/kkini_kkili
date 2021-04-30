@@ -22,35 +22,47 @@
 			name, 
 			company, 
 			host_pic
+		FROM (SELECT 
+				rownum rn, 
+				contact_id, 
+				host_id, 
+				guest_id, 
+				regi_date, 
+				contact_intro, 
+				store_name, 
+				location, 
+				meeting_time, 
+				start_value, 
+				last_value, 
+				qr_check, 
+	    		name, 
+	    		company, 
+	    		host_pic 
+				FROM (SELECT 
+					c.contact_id AS contact_id, 
+					c.host_id AS host_id, 
+					c.guest_id AS guest_id, 
+					c.regi_date AS regi_date, 
+					c.contact_intro AS contact_intro, 
+					c.store_name AS store_name, 
+					c.location AS location, 
+					c.meeting_time AS meeting_time, 
+					c.start_value AS start_value, 
+					(SELECT 
+						REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
+						FROM DUAL) AS last_value, 
+					c. qr_check AS qr_check, 
+		    		m.name AS name, 
+		    		h.company AS company, 
+		    		h.host_pic AS host_pic  
+		            FROM contact c, member m, host h 
+		            WHERE c.host_id = m.member_id 
+						AND h.host_id = c.host_id
+		            ORDER BY regi_date DESC)
 		<![CDATA[
-		FROM (SELECT /*+INDEX_DESC(boardTest pk_board) */	
-		]]>
-			rownum rn, 
-			c.contact_id AS contact_id, 
-			c.host_id AS host_id, 
-			c.guest_id AS guest_id, 
-			c.regi_date AS regi_date, 
-			c.contact_intro AS contact_intro, 
-			c.store_name AS store_name, 
-			c.location AS location, 
-			c.meeting_time AS meeting_time, 
-			c.start_value AS start_value, 
-			(SELECT 
-				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
-				FROM DUAL) AS last_value, 
-			c. qr_check AS qr_check, 
-    		m.name AS name, 
-    		h.company AS company, 
-    		h.host_pic AS host_pic 
-		FROM contact c, member m, host h
-		<![CDATA[
-		WHERE rownum <= #{pageNum} * #{amount}
-		]]>
-			AND c.host_id = m.member_id 
-			AND h.host_id = c.host_id)
-		<![CDATA[
+        WHERE rownum <= #{pageNum} * #{amount})
 		WHERE rn > (#{pageNum}-1) * #{amount}
-		ORDER BY meeting_time DESC
+		
 		]]>
 	 </select>
 	 
@@ -140,30 +152,30 @@
 			company, 
 			host_pic
 		FROM (SELECT 
-			c.contact_id AS contact_id, 
-			c.host_id AS host_id, 
-			c.guest_id AS guest_id, 
-			c.regi_date AS regi_date, 
-			c.contact_intro AS contact_intro, 
-			c.store_name AS store_name, 
-			c.location AS location, 
-			c.meeting_time AS meeting_time, 
-			(SELECT 
-				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.start_value)), '([0-9]{3})','\1,')), '^,','') 
-				FROM DUAL) AS start_value,  
-			(SELECT 
-				REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
-				FROM DUAL) AS last_value, 
-			c. qr_check AS qr_check, 
-    		m.name AS name, 
-    		h.company AS company, 
-    		h.host_pic AS host_pic 
-		FROM contact c, member m, host h
-
-		WHERE  c.host_id = m.member_id 
-			AND h.host_id = c.host_id
-            ORDER BY regi_date DESC
-            )
+				c.contact_id AS contact_id, 
+				c.host_id AS host_id, 
+				c.guest_id AS guest_id, 
+				c.regi_date AS regi_date, 
+				c.contact_intro AS contact_intro, 
+				c.store_name AS store_name, 
+				c.location AS location, 
+				c.meeting_time AS meeting_time, 
+				(SELECT 
+					REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.start_value)), '([0-9]{3})','\1,')), '^,','') 
+					FROM DUAL) AS start_value,  
+				(SELECT 
+					REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
+					FROM DUAL) AS last_value, 
+				c. qr_check AS qr_check, 
+	    		m.name AS name, 
+	    		h.company AS company, 
+	    		h.host_pic AS host_pic 
+			FROM contact c, member m, host h
+	
+			WHERE  c.host_id = m.member_id 
+				AND h.host_id = c.host_id
+	            ORDER BY regi_date DESC
+		)
 
 		<![CDATA[
 		WHERE host_id = #{memberId}
@@ -200,6 +212,32 @@
 		FROM member m, host h
 		Where m.member_id = h.host_id
 			AND h.host_id = #{memberId}
+	</select>
+	
+	<!-- 컨택 비드 페이지 -->
+	<select id="getBidView" parameterType="int" resultType="hashmap">
+		SELECT 
+		    h.host_pic AS host_pic,
+		    h.company AS company,
+		    h.content AS content,
+		    h.host_id AS host_id,
+		    m.name AS name,
+		    m.last_conn_date AS last_conn_date,
+		    c.contact_intro AS contact_intro,
+		    c.meeting_time AS meeting_time,
+		    c.store_name AS store_name,
+		    c.location AS location,
+		    c.regi_date AS regi_date,
+		    c.last_value AS last_value,
+		    c.contact_id AS contact_id
+		FROM 
+		    host h,
+		    member m,
+		    contact c
+		WHERE
+		    h.host_id = m.member_id
+		    AND c.host_id = h.host_id
+		    AND c.contact_id = #{contactId}
 	</select>
 	
 	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->

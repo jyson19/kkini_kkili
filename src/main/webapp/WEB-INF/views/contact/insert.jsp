@@ -107,10 +107,10 @@
 							<p>소개 : ${hostProfile.CONTENT}</p>
 							<div class="tag-widget post-tag-container mb-5 mt-5">
 								<div class="tagcloud">
-									<a href="#" class="tag-cloud-link">네이버</a> <a href="#"
-										class="tag-cloud-link">백엔드</a> <a href="#"
-										class="tag-cloud-link">자바</a> <a href="#"
-										class="tag-cloud-link">여행</a>
+									<a href="#" class="tag-cloud-link">네이버</a> 
+									<a href="#" class="tag-cloud-link">백엔드</a> 
+									<a href="#" class="tag-cloud-link">자바</a>
+									<a href="#" class="tag-cloud-link">여행</a>
 								</div>
 							</div>
 						</div>
