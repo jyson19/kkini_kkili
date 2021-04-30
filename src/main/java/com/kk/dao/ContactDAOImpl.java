@@ -1,5 +1,6 @@
 package com.kk.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -61,6 +62,12 @@ public class ContactDAOImpl implements ContactDAO{
 	@Override
 	public Map<String, String> getBidView(int contactId) {
 		return mybatis.selectOne("contact.getBidView", contactId);
+	}
+
+	// 컨택 입찰
+	@Override
+	public int bidUpdate(HashMap<String, String> map) {
+		return mybatis.update("contact.bidUpdate", map);
 	}
 	
 }

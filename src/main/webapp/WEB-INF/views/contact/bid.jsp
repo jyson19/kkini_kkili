@@ -110,6 +110,7 @@
       <div id="hostId" style="display:none">${bidView.HOST_ID}</div>
       <div id="memberId" style="display:none"><%=memberId %></div>
       <div id="loginFlag" style="display:none"><%=login %></div>
+      <div id="contactId" style="display:none">${bidView.CONTACT_ID}</div>
     </section> <!-- .section -->
 
     <!-- footer.html -->

@@ -46,21 +46,19 @@ $(function() {
 			hostId : $("#hostId").text().trim(),
 			memberId : $("#memberId").text().trim(),
 			loginFlag : $("#loginFlag").text().trim(),
-			bidPrice : $("#bid_price").val().trim()
+			bidPrice : $("#bid_price").val().trim(),
+			contactId : $("#contactId").val().trim()
 		};
 	
 		$.ajax({
 			type : 'post',
 			data : param,
 			url : 'bid_after.do',
-			// json : 라이브러리 필요
 			success : parseData
 		});
 	
 		function parseData(result) {
-//			alert("parseData 실행" + result);
 			$("#bid_result").text(result);
-			//$("#bid_price").css('color','red');
 		}
 	})
 })

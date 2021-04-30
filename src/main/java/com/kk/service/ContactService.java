@@ -1,5 +1,6 @@
 package com.kk.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,5 +18,6 @@ public interface ContactService {
 	Map<String, String> getHostProfile(int memberId);
 	List<Map<String, String>> getMyContactList(int memberId);
 	Map<String, String> getBidView(int contactId);
+	int bidUpdate(HashMap<String, String> map);
 	
 }

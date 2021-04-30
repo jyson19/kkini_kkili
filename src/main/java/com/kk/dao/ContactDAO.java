@@ -1,5 +1,6 @@
 package com.kk.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -28,5 +29,8 @@ public interface ContactDAO {
 
 	// 컨택 비드 페이지
 	Map<String, String> getBidView(int contactId);
+
+	// 컨택 입찰
+	int bidUpdate(HashMap<String, String> map);
 
 }

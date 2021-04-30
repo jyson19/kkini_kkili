@@ -240,6 +240,15 @@
 		    AND c.contact_id = #{contactId}
 	</select>
 	
+	<!-- 컨택 입찰 -->
+	<update id="bidUpdate" parameterType="hashmap">
+		UPDATE contact 
+		SET
+			guest_id = #{memberId},
+			last_value = #{lastValue} 
+		WHERE contact_id = #{contactId}
+	</update>
+
 	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
 
 	<!-- 마감 -->
@@ -255,7 +264,7 @@
 		WHERE CT.HOST_ID = A.MEMBER_ID OR CT.GUEST_ID = A.MEMBER_ID
 	</select>
 
-
+	
 	<!-- host join table 
 	<select id="" resultType="member">
 		SELECT m.member_id, m.name, m.email, m.password, m.tel, m.auth, m.join_date, m.last_conn_date

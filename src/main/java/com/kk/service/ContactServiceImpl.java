@@ -1,5 +1,6 @@
 package com.kk.service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -64,5 +65,11 @@ public class ContactServiceImpl implements ContactService {
 	@Override
 	public Map<String, String> getBidView(int contactId) {
 		return contactDAO.getBidView(contactId);
+	}
+
+	// 컨택 입찰
+	@Override
+	public int bidUpdate(HashMap<String, String> map) {
+		return contactDAO.bidUpdate(map);
 	}
 }
