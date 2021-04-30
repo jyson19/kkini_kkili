@@ -132,8 +132,7 @@
                                 <div class="page-wrapper">
                                     <!-- Page-body start -->
                                     <div class="page-body">
-                                        <!-- Basic table card start -->
-                                        <div class="card">
+                                        
                                             
                                         <!-- Hover table card start -->
                                         <div class="card">
@@ -152,7 +151,7 @@
                                             </div>
                                             <div class="card-block table-border-style">
                                                 <div class="table-responsive">
-                                                    <table class="table hover">
+                                                    <table class="table table-hover">
                                                         <thead>
                                                             <tr>
                                                             	<th>포지션</th>

@@ -112,17 +112,14 @@ public class MypageController {
 			HostVO hostVO = new HostVO();
 			hostVO.setHostId(userId);
 			if(profileService.getProfile(hostVO) == null) {
-				System.out.println("통과");
 				// 프로필 작성을 안했다면 그냥 통과
 			} if(profileService.getProfile(hostVO) != null) { // 이미 호스트 신청함
 				// 프로필 작성을 했다면 호스트 심사 중 메세지 띄워야 함
 				MemberVO memberVO = new MemberVO();
 				
 				memberVO.setMemberId(userId);
-				System.out.println("호스트");
 				
 				if(memberService.getMember(memberVO).getAuth()==1) {
-					System.out.println("권한확인");
 					m.addAttribute("profile", "호스트 인증 완료");	
 				} else { 
 					m.addAttribute("profile", "호스트 심사 중");		

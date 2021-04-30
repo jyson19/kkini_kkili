@@ -1,5 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="com.kk.domain.MemberVO" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<% 
+
+	MemberVO member = null;
+	if(session.getAttribute("member")!=null){
+		member = (MemberVO) session.getAttribute("member"); 	
+	}
+	
+	long time = System.currentTimeMillis(); 
+	SimpleDateFormat simpl = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	String s = simpl.format(time);
+	
+	pageContext.setAttribute("today", s) ;
+	
+	
+%>
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -118,115 +138,11 @@
                                 <div class="page-wrapper">
                                     <!-- Page-body start -->
                                     <div class="page-body">
-                                        <!-- Basic table card start -->
-                                        <!-- <div class="card">
-                                            <div class="card-header">
-                                                <h5>Basic Table</h5>
-                                                <span>use class <code>table</code> inside table element</span>
-                                                <div class="card-header-right">
-                                                    <ul class="list-unstyled card-option">
-                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                                                        <li><i class="fa fa-minus minimize-card"></i></li>
-                                                        <li><i class="fa fa-refresh reload-card"></i></li>
-                                                        <li><i class="fa fa-trash close-card"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="card-block table-border-style">
-                                                <div class="table-responsive">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        Basic table card end
-                                        Inverse table card start
+                                       <!-- Background Utilities table start-->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>Dark Table</h5>
-                                                <span>use class <code>table-dark</code> inside table element</span>
-                                                <div class="card-header-right">
-                                                    <ul class="list-unstyled card-option">
-                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                                                        <li><i class="fa fa-minus minimize-card"></i></li>
-                                                        <li><i class="fa fa-refresh reload-card"></i></li>
-                                                        <li><i class="fa fa-trash close-card"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="card-block table-border-style">
-                                                <div class="table-responsive">
-                                                    <table class="table table-dark">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <!-- Inverse table card end -->
-                                        
-                                        
-                                        <!-- Hover table card start -->
-                                        <!-- <div class="card">
-                                            <div class="card-header">
-                                                <h5>Hover Table</h5>
-                                                <span>use class <code>table-hover</code> inside table element</span>
+                                                <h5>매칭 현황 조회</h5>
+                                                <span>매칭 성공시 <code>일반 테이블</code>, 매칭 실패시 <code>노란색</code></span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -242,154 +158,55 @@
                                                     <table class="table table-hover">
                                                         <thead>
                                                             <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
+                                                                <th>호스트이름</th>
+                                                                <th>호스트 메일</th>
+                                                                <th>호스트 전화</th>
+                                                                <th>게스트 이름</th>
+                                                                <th>게스트 메일</th>
+                                                                <th>게스트 전화</th>
+                                                                <th>컨택 등록일</th>
+                                                                <th>컨택 제목</th>
+                                                                <th>만남 장소(주소)</th>
+                                                                <th>만남 시간</th>
+                                                                <th>시작가</th>
+                                                                <th>최종가</th>
+                                                                <th>만남 성사</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <!-- Hover table card end -->
-                                        
-                                       
-                                        <!-- Contextual classes table starts
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h5>Contextual Classes</h5>
-                                                <span>For Make row Contextual add Contextual class like <code>.table-success</code> in <code> tr tag</code> and For cell add Contextual class in <code> td or th tag</code> . </span>
-                                                <div class="card-header-right">
-                                                    <ul class="list-unstyled card-option">
-                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                                                        <li><i class="fa fa-minus minimize-card"></i></li>
-                                                        <li><i class="fa fa-refresh reload-card"></i></li>
-                                                        <li><i class="fa fa-trash close-card"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="card-block table-border-style">
-                                                <div class="table-responsive">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr class="table-active">
-                                                                <th scope="row">1</th>
-                                                                <td>Mark</td>
-                                                                <td>Otto</td>
-                                                                <td>@mdo</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td>Jacob</td>
-                                                                <td>Thornton</td>
-                                                                <td>@fat</td>
-                                                            </tr>
-                                                            <tr class="table-success">
-                                                                <th scope="row">3</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">4</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                            <tr class="table-warning">
-                                                                <th scope="row">5</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">6</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                            <tr class="table-danger">
-                                                                <th scope="row">7</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">8</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                            <tr class="table-info">
-                                                                <th scope="row">9</th>
-                                                                <td>Larry</td>
-                                                                <td>the Bird</td>
-                                                                <td>@twitter</td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div> -->
-                                        <!--Contextual classes table ends -->
-                                       <!-- Background Utilities table start-->
-                                        <div class="card">
-                                            <div class="card-header">
-                                                <h5>Background Utilities</h5>
-                                                <span>Regular table background variants are not available with the inverse table, however, you may use <code>text or background utilities</code> to achieve similar styles.</span>
-                                                <div class="card-header-right">
-                                                    <ul class="list-unstyled card-option">
-                                                        <li><i class="fa fa fa-wrench open-card-option"></i></li>
-                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
-                                                        <li><i class="fa fa-minus minimize-card"></i></li>
-                                                        <li><i class="fa fa-refresh reload-card"></i></li>
-                                                        <li><i class="fa fa-trash close-card"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="card-block table-border-style">
-                                                <div class="table-responsive">
-                                                    <table class="table table-inverse">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>#</th>
-                                                                <th>First Name</th>
-                                                                <th>Last Name</th>
-                                                                <th>Username</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr class="bg-primary">
+	                                                        <c:forEach items="${contactList}" var="contact">
+		                                                        <c:if test="${contact.QR_CHECK == 1}">
+		                                                        	<tr class="">
+		                                                        </c:if>
+		                                                        <c:if test="${contact.QR_CHECK != 1}">
+		                                                        	<tr class="bg-warning">
+		                                                        </c:if>
+			                                                        	<td><a href="../host/profile.do?hostId=${contact.HOST_ID}">${contact.HNAME}</a></td>
+			                                                            <td>${contact.HEMAIL}</td>
+			                                                            <td>${contact.HTEL}</td>
+			                                                            <td>${contact.NAME}</td>
+			                                                            <td>${contact.EMAIL}</td>
+			                                                            <td>${contact.TEL}</td>
+			                                                            <td>${contact.REGI_DATE}</td>
+			                                                            <td><a href="${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
+			                                                            <td>${contact.STORE_NAME}(${contact.LOCATION})</td>
+			                                                            <td>${contact.MEETING_TIME}</td>
+			                                                            <td>${contact.START_VALUE}</td>
+			                                                            <td>${contact.LAST_VALUE}</td>
+			                                                            <c:if test="${contact.QR_CHECK eq 1}">
+			                                                            		<td> 만남 완료 </td>
+			                                                            </c:if>
+			                                                            <c:if test="${contact.QR_CHECK eq 0}">
+		                                                                	<c:if test="${contact.MEETING_TIME >= today }">
+			                                                                	<td> 만남 예정 </td>
+		                                                                	</c:if>
+		                                                                	<c:if test="${contact.MEETING_TIME < today }">
+			                                                                	<td> 만남 취소 </td>
+		                                                                	</c:if>
+	                                                            		</c:if>
+                                                        			<tr>
+                                                        	</c:forEach>
+                                                            <!-- <tr class="bg-primary">
                                                                 <th scope="row">1</th>
                                                                 <td>Mark</td>
                                                                 <td>Otto</td>
@@ -442,7 +259,7 @@
                                                                 <td>Larry</td>
                                                                 <td>the Bird</td>
                                                                 <td>@twitter</td>
-                                                            </tr>
+                                                            </tr> -->
                                                         </tbody>
                                                     </table>
                                                 </div>
