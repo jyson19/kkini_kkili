@@ -27,10 +27,13 @@ public interface ContactDAO {
 	// 컨택 생성-프로필
 	Map<String, String> getHostProfile(int memberId);
 
+	
+	// 컨택 가치 확인
+	List<Map<String, String>> contactValue(int memberId);
+
+
 	// 컨택 비드 페이지
 	Map<String, String> getBidView(int contactId);
 
-	// 컨택 입찰
 	int bidUpdate(HashMap<String, String> map);
-
 }

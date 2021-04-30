@@ -46,6 +46,13 @@ public class AdminController {
 		return "admin/auth";
 	}
 	
+	@RequestMapping("admin/levelup.do")
+	public String levelup(HostVO vo, Model m){
+		System.out.println("levelup 실행" + vo);
+		adminService.levelup(vo);
+		return "admin/main";
+	}
+	
 	// 휴먼 계정
 	@RequestMapping("admin/dormancy.do")
 	public void getDormancy() {

@@ -40,6 +40,11 @@ public class AdminServiceImpl implements AdminService{
 		return AdminDAO.getAuth(vo);
 	}
 	
+	// 호스트 인증 실행
+	public void levelup(HostVO vo) {
+		AdminDAO.levelup(vo);
+	}
+	
 	@Override
 	// 휴먼 계정
 	public List<HostVO> getDormancy(HostVO vo) {

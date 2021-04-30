@@ -17,7 +17,11 @@ public interface ContactService {
 	int insertContact(ContactVO vo);
 	Map<String, String> getHostProfile(int memberId);
 	List<Map<String, String>> getMyContactList(int memberId);
+
+	List<Map<String, String>> contactValue(int memberId);
+
 	Map<String, String> getBidView(int contactId);
 	int bidUpdate(HashMap<String, String> map);
 	
+
 }
