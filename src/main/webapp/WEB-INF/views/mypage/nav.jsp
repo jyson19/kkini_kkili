@@ -143,7 +143,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/secession.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                         <span class="pcoded-mtext">회원탈퇴</span>
                         <span class="pcoded-mcaret"></span>

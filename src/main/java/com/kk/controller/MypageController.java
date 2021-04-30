@@ -47,6 +47,13 @@ public class MypageController {
 //	}
 	
 	
+	// 마이페이지 회원 탈퇴
+	@RequestMapping("mypage/secession.do")
+	public String pageSecession(Model m, HttpSession session) {
+		System.out.println("MypageController : 탈퇴" + "페이지로 이동 요청");
+		return "mypage/secession";	
+	}
+	
 	// 마이페이지 내 컨택 히스토리 조회
 	@RequestMapping("mypage/contactHistory.do")
 	public String contactHistory(Model m, HttpSession session) {
