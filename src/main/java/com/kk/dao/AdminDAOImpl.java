@@ -72,4 +72,8 @@ public class AdminDAOImpl implements AdminDAO{
 		return null;
 	}
 
+	public List<HashMap<String, String>> getAllContact() {
+		return mybatis.selectList("admin.getAllContact");
+	}
+
 }

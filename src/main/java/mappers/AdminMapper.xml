@@ -47,6 +47,14 @@
 		
 	<!-- 휴먼 계정 -->
 	
+	<!-- 매칭 조회 -->
+	<select id="getAllContact" resultType="hashmap">
+		SELECT C.*, M1.*, M2.NAME AS HNAME, M2.Member_ID AS HID, M2.EMAIL AS HEMAIL, M2.TEL AS HTEL
+		FROM CONTACT C, MEMBER M1, MEMBER M2
+		WHERE c.guest_id = m1.member_id AND c.host_id = m2.member_id
+		ORDER BY C.REGI_DATE DESC
+	</select>
+	
 	<!-- 이용자 수 조회 -->
 	
 	<!-- 총 매출 조회 -->

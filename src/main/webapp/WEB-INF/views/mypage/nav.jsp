@@ -16,7 +16,7 @@
         <div class="pcoded-inner-navbar main-menu">
             <div class="" >
                 <div class="main-menu-header">
-                    <img class="img-80 img-radius" src="../upload/host/pic${member.memberId}.jpg" alt="User-Profile-Image">
+                    <img class="img-80 img-radius" src="../upload/host/pic${member.memberId}.jpg" onerror="this.src='../upload/host/pic0.jpg';" alt="User-Profile-Image">
                     <div class="user-details">
                         <span id="more-details"><%=member.getName()%></span>
                     </div>
@@ -143,7 +143,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/secession.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                         <span class="pcoded-mtext">회원탈퇴</span>
                         <span class="pcoded-mcaret"></span>

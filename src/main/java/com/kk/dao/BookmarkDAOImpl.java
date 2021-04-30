@@ -1,5 +1,6 @@
 package com.kk.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -16,12 +17,12 @@ public class BookmarkDAOImpl implements BookmarkDAO {
 	private SqlSessionTemplate mybatis;
 	
 	@Override
-	public List<MemberVO> getMemberListByHostId(BookmarkVO user) {
+	public List<HashMap<String, String>> getMemberListByHostId(BookmarkVO user) {
 		return mybatis.selectList("bookmark.getBookmarkListByHostId", user);
 	}
 
 	@Override
-	public List<MemberVO> getMemberListByGuestId(BookmarkVO user) {
+	public List<HashMap<String, String>> getMemberListByGuestId(BookmarkVO user) {
 		return mybatis.selectList("bookmark.getBookmarkListByGuestId", user);
 	}
 

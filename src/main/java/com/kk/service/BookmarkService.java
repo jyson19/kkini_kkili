@@ -1,13 +1,14 @@
 package com.kk.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import com.kk.domain.BookmarkVO;
 import com.kk.domain.MemberVO;
 
 public interface BookmarkService {
-	List<MemberVO> getMemberListByHostId(BookmarkVO bookmark);
-	List<MemberVO> getMemberListByGuestId(BookmarkVO bookmark);
+	List<HashMap<String, String>> getMemberListByHostId(BookmarkVO bookmark);
+	List<HashMap<String, String>> getMemberListByGuestId(BookmarkVO bookmark);
 	
 	BookmarkVO selectBookmark(BookmarkVO bookmark);
 	

@@ -132,7 +132,7 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <h5>관심 호스트 목록</h5>
-                                                <span>내가 관심있는 <code>호스트의</code> 목록입니다.</span>
+                                                <span>내가 관심있는 <code>호스트</code> 목록입니다.</span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -151,17 +151,17 @@
                                                                 <th>고유번호</th>
                                                                 <th>이름</th>
                                                                 <th>소속</th>
-                                                                <th>대학교</th>
+                                                                <!-- <th>대학교</th> -->
                                                                 <th>삭제</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
 	                                                        <c:forEach items="${memberList }" var="member">
 	                                                            <tr>
-	                                                                <td>${member.memberId }</td>
-	                                                                <td><a href="../host/profile.do?hostId=${member.memberId }">${member.name }</a></td>
-	                                                                <td>추후 업데이트 예정</td>
-	                                                                <td>추후 업데이트 예정</td>
+	                                                                <td>${member.MEMBER_ID }</td>
+	                                                                <td><a href="../host/profile.do?hostId=${member.MEMBER_ID }">${member.NAME }</a></td>
+	                                                                <td>${member.COMPANY }</td>
+	                                                                <!-- <td>추후 업데이트 예정</td> -->
 	                                                                <td><button id="delete_btn" class="btn btn-secondary">삭제</button></td>
 	                                                            </tr>
                                                             </c:forEach>
