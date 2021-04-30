@@ -192,7 +192,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/contactValue.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-bar-chart-alt"></i><b>FC</b></span>
                         <span class="pcoded-mtext">컨택 가치 확인</span>
                         <span class="pcoded-mcaret"></span>

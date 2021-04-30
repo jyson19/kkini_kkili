@@ -15,6 +15,8 @@ public interface AdminService {
 	
 	HashMap<String, String> getAuth(HostVO vo);
 	
+	void levelup(HostVO vo);
+	
 	List<HostVO> getDormancy(HostVO vo);
 	
 	List<HostVO> getUsers(HostVO vo);

@@ -15,6 +15,8 @@ public interface AdminDAO {
 	
 	public HashMap<String, String> getAuth(HostVO vo);
 	
+	public void levelup(HostVO vo);
+	
 	List<HostVO> getDormancy(HostVO vo);
 	
 	List<HostVO> getUsers(HostVO vo);

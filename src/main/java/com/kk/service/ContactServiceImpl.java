@@ -60,9 +60,16 @@ public class ContactServiceImpl implements ContactService {
 		return contactDAO.getMyContactList(memberId);
 	}
 
+	
+	@Override
+	public List<Map<String, String>> contactValue(int memberId) {
+		return contactDAO.contactValue(memberId);
+
+	}
 	// 컨택 비드 페이지
 	@Override
 	public Map<String, String> getBidView(int contactId) {
 		return contactDAO.getBidView(contactId);
+
 	}
 }

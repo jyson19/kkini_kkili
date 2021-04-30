@@ -164,6 +164,8 @@
     <label class="col-sm-2 col-form-label">프로필 사진</label>
     <div class="col-sm-10">
         <input value="${host.HOST_PIC}" class="form-control" name='pic' readonly>
+		<br/>
+		<img src="../upload/host/${host.HOST_PIC}"/>
     </div>
 </div>
 <div class="form-group row">
@@ -177,7 +179,8 @@
     <label class="col-sm-2 col-form-label">인증 자료</label>
     <div class="col-sm-10">
         <input value="${host.AUTH_FILE}" class="form-control" name='file' required readonly>
-        
+		<br/>
+		<img src="../upload/host/${host.AUTH_FILE}"/>
     </div>
 </div>
 <div class="form-group row">
@@ -193,7 +196,7 @@
         <textarea name='content' rows="10" cols="5" class="form-control" required readonly>${host.CONTENT}</textarea>
     </div>
 </div>
-  <a href="pageMoveUpdate.do"><button id="confirm" type="button" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right ml-3" >등업하기</button></a>
+  <a href="levelup.do?hostId=${host.MEMBER_ID}"><button id="confirm" type="button" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right ml-3" >등업하기</button></a>
 </form>                                                            
   <form method="post" action="main.do">
   <button id="confirm" type="submit" class="btn btn-primary btn-md btn-blocktext-center m-b-20 float-right" >거절</button>

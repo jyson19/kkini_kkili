@@ -68,7 +68,13 @@ public class MypageController {
 		return "mypage/contactHistory";	
 	}
 	
+	// 컨택 가치 확인
+	@RequestMapping("mypage/contactValue")
+	public void contactValue(HostVO vo, Model m) {
+		System.out.println("getProfile 실행" + vo);
+	}
 	
+	// 프로필 페이지 보기
 	@RequestMapping("mypage/profile.do")
 	public String movePageProfile(Model m, HttpSession session) {
 		System.out.println("MypageController : movePageProfile" + "페이지로 이동 요청");
@@ -275,6 +281,8 @@ public class MypageController {
 		m.addAttribute("host", profileService.getProfile(vo));
 		return "mypage/viewProfile";
 	}
+	
+	
 	
 	
 }

@@ -13,7 +13,8 @@
 		 	h.write_date as write_date,
 		 	h.result as result,
 		 	m.name as name, 
-		 	m.email as email, 
+		 	m.email as email,
+		 	m.auth as auth,
 		 	m.tel as tel 
 		 	
 		FROM host h, member m
@@ -44,6 +45,18 @@
 		WHERE h.host_id = m.member_id
 		AND h.host_id = #{hostId}
 	</select>
+		
+	<!-- 호스트 인증 승인 -->	
+	<update id="levelup1" parameterType="host">
+		UPDATE member SET
+			auth = 1
+		WHERE member_id = #{hostId}
+	</update>
+	<update id="levelup2" parameterType="host">
+		UPDATE host SET
+			result = sysdate
+		WHERE host_id = #{hostId}
+	</update>
 		
 	<!-- 휴먼 계정 -->
 	
