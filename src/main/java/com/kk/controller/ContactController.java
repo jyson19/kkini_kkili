@@ -1,22 +1,28 @@
 package com.kk.controller;
 
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.mail.Session;
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageConfig;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 import com.kk.domain.PageMaker;
@@ -123,44 +129,32 @@ public class ContactController {
 //		System.out.println(lvc + " : " + lastValue + " : " + hostId);
 	}
 
-	@RequestMapping(value = "contact/bid_after.do", produces="application/text; charset=utf-8")
+	@RequestMapping(value = "contact/bid_after.do", produces = "application/text; charset=utf-8")
 	@ResponseBody
-	public String bidAfter(
-			String lvc, 
-			String lastValue, 
-			String hostId, 
-			String memberId, 
-			String bidPrice,
-			String contactId,
-			String loginFlag,
-			Model model) {
+	public String bidAfter(String lvc, String lastValue, String hostId, String memberId, String bidPrice,
+			String contactId, String loginFlag, Model model) {
 		System.out.println("ContactController.bidAfter() 실행");
-		System.out.println(
-				"lvc : " + lvc 
-				+ "\nlastValue : " + lastValue 
-				+ "\nhostId : " + hostId 
-				+ "\nmemberId : " + memberId 
-				+ "\ncontactId : " + contactId 
-				+ "\nbidPrice : " + bidPrice);
-		
+		System.out.println("lvc : " + lvc + "\nlastValue : " + lastValue + "\nhostId : " + hostId + "\nmemberId : "
+				+ memberId + "\ncontactId : " + contactId + "\nbidPrice : " + bidPrice);
+
 		// 입찰 금액이 없을시(null)
-		if(bidPrice.isEmpty()) {
+		if (bidPrice.isEmpty()) {
 			return "입찰 금액을 입력해주세요.";
-		// 로그인 상태가 아닐시
-		} else if(loginFlag.equals("false")) {
+			// 로그인 상태가 아닐시
+		} else if (loginFlag.equals("false")) {
 			return "로그인 이후 이용 가능합니다.";
-		// 현재 최고가보다 낮거나 같은 금액일시
-		} else if(Integer.parseInt(lastValue) >= Integer.parseInt(bidPrice)) {
+			// 현재 최고가보다 낮거나 같은 금액일시
+		} else if (Integer.parseInt(lastValue) >= Integer.parseInt(bidPrice)) {
 			// 같은 시간에 누군가 최고금액 입찰시 해당 데이터 변경
 			int f_lastValue = contactService.lastValueCheck(Integer.parseInt(contactId));
 			return "최고가보다 높은 금액을 입력해주세요.:" + f_lastValue;
-		// 마감완료 됐을시
-		} else if(lvc.equals("마감 완료")) {
+			// 마감완료 됐을시
+		} else if (lvc.equals("마감 완료")) {
 			return "해당 컨택은 마감 완료되었습니다.";
-		// 개최한 호스트와 같은 사람일시
-		}else if (hostId.equals(memberId)) {
+			// 개최한 호스트와 같은 사람일시
+		} else if (hostId.equals(memberId)) {
 			return "개최자는 입찰에 참여할 수 없습니다.";
-		// 정상처리
+			// 정상처리
 		} else {
 			// 1. 컨택 테이블 입찰자 변경
 			// 2. 컨택 테이블 last_value 변경
@@ -170,19 +164,63 @@ public class ContactController {
 			map.put("contactId", contactId);
 			int resultInt = contactService.bidUpdate(map);
 			System.out.println("resultInt : " + resultInt);
-			if(resultInt == 1) {
+			if (resultInt == 1) {
 				return "입찰이 완료되었습니다!";
 			}
-			
+
 			// 추후 추가 : 컨택 history
 			return "입찰 실패.. 이유는.. 음..";
 		}
 	}
-	
+
 	// 만남확인 (qr check)
 	@RequestMapping("contact/qr_check.do")
-	public void qrCheck() {
+	public void qrCheck(HttpServletRequest request, Model model) {
 		System.out.println("ContactController.qrCheck() 실행");
+
+		String memberId = request.getParameter("memberId");
+		System.out.println("memberId : " + memberId);
+		String root_path = request.getSession().getServletContext().getRealPath("/upload/qrcheck/");
+//		String attach_path = "qr/";
+		//파일이 업로드 될 경로 설정 
+//		String saveDir = request.getSession().getServletContext().getRealPath("/resources/upload/file"); 
+//		//위에서 설정한 경로의 폴더가 없을 경우 생성 
+		File dir = new File(root_path); 
+		if(!dir.exists()) { 
+			dir.mkdirs(); 
+		}
+
 		
+
+		try {
+			File file = null;
+			// qr코드 이미지를 저장할 디렉토리 지정
+			System.out.println(root_path);
+			file = new File(root_path);
+			if (!file.exists()) {
+				file.mkdirs();
+			}
+			// qr코드 인식시 이동할 url 주소
+			String codeurl = new String(
+					("http://112.170.105.233:8180/kkini_kkili/qr/signin.jsp?memberId=" + memberId).getBytes("UTF-8"),
+					"ISO-8859-1");
+			// qr코드 바코드 생성값
+			int qrcodeColor = 0xFF2e4e96;
+			// qr코드 배경색상값
+			int backgroundColor = 0xFFFFFFFF;
+
+			QRCodeWriter qrCodeWriter = new QRCodeWriter();
+			// 3,4번째 parameter값 : width/height값 지정
+			BitMatrix bitMatrix = qrCodeWriter.encode(codeurl, BarcodeFormat.QR_CODE, 200, 200);
+			//
+			MatrixToImageConfig matrixToImageConfig = new MatrixToImageConfig(qrcodeColor, backgroundColor);
+			BufferedImage bufferedImage = MatrixToImageWriter.toBufferedImage(bitMatrix, matrixToImageConfig);
+			// ImageIO를 사용한 바코드 파일쓰기
+			ImageIO.write(bufferedImage, "png", new File(root_path + "qr_img.png"));
+//			String final_path = root_path + attach_path + "qr_img.png";
+//			model.addAttribute("path", final_path);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

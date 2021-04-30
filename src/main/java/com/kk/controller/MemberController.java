@@ -73,7 +73,18 @@ public class MemberController {
 		System.out.println("signinAttempt 메소드 호출");
 		// 이전 페이지를 세션에서 불러오기
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
-		if (memberService.memberSigninService(member) != null) {
+		String memberId = request.getParameter("memberId");
+		System.out.println("memberId : " + memberId);
+		
+		// qr코드를 통한 로그인시
+		if(memberId != null && memberService.memberSigninService(member) != null) {
+			MemberVO mem = (MemberVO) memberService.memberSigninService(member);
+			if(Integer.parseInt(memberId) == mem.getMemberId()) {
+				System.out.println("qr인증");
+			}
+			return "redirect:/sign/signin.do";
+			
+		} else if (memberId == null && memberService.memberSigninService(member) != null) {
 			session.setAttribute("member", (MemberVO) memberService.memberSigninService(member));
 			System.out.println(session.getAttribute("member"));
 //			session.setAttribute("member", (MemberVO) memberService.getMember(member));

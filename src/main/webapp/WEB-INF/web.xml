@@ -31,6 +31,8 @@
 
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
+		<url-pattern>/kkinikkili/signin.jsp</url-pattern>
+		<url-pattern>/kkinikkili/qr/signin.jsp</url-pattern>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 

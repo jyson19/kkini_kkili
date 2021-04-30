@@ -54,7 +54,7 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
     <link rel="stylesheet" type="text/css" href="./../resources/assets/css/jquery.mCustomScrollbar.css">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -184,13 +184,17 @@
 	                                                            	</c:if>
 	                                                            	<c:if test="${contact.QR_CHECK eq 0}">
 	                                                                	<c:if test="${contact.MEETING_TIME >= today }">
-		                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td>
+		                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do?memberId=${contact.MEMBER_ID}'"> 만남 예정 <br/> (QR코드 생성) </td>
+		                                                                	<!-- <td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td> -->
+		                                                                	<!-- <td class="qr_td"> 만남 예정 <br/> (QR코드 생성) </td> -->
 	                                                                	</c:if>
 	                                                                	<c:if test="${contact.MEETING_TIME < today }">
 		                                                                	<td> 만남 취소 </td>
 	                                                                	</c:if>
 	                                                            	</c:if>
 	                                                            </tr>
+	                                                            <!-- ajax로 넘겨주는 값 -->
+      															<div id="div_memberId" style="display:none">${contact.MEMBER_ID}</div>
                                                             </c:forEach>
                                                         </tbody>
                                                     </table>
