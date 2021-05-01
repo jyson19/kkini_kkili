@@ -96,4 +96,10 @@ public class ContactServiceImpl implements ContactService {
 		}
 		return result;
 	}
+
+	// 컨택 만남처리
+	@Override
+	public int qrCheckIn(ContactVO contact) {
+		return contactDAO.qrCheckIn(contact);
+	}
 }

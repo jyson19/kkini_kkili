@@ -78,4 +78,10 @@ public class ContactDAOImpl implements ContactDAO {
 	public int lastValueCheck(int contactId) {
 		return mybatis.selectOne("contact.lastValueCheck", contactId);
 	}
+
+	// 컨택 만남처리
+	@Override
+	public int qrCheckIn(ContactVO contact) {
+		return mybatis.update("contact.qrCheckIn", contact);
+	}
 }

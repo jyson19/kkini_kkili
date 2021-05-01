@@ -256,6 +256,13 @@
 		FROM contact
 		WHERE contact_id = #{contactId}
 	</select>
+	
+	<!-- 컨택 만남처리 -->
+	<update id="qrCheckIn">
+		UPDATE contact 
+		SET qr_check = 1 
+		WHERE contact_id = #{contactId}
+	</update>	
 
 	<!-- 마감 -->
 

@@ -22,4 +22,5 @@ public interface ContactService {
 	int bidUpdate(HashMap<String, String> map);
 	int lastValueCheck(int contactId);
 	List<Map<String, String>> getMainContactList(PagingCriteria cri);
+	int qrCheckIn(ContactVO contact);
 }

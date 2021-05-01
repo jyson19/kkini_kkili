@@ -230,14 +230,29 @@ public class ContactController {
 		}
 	}
 	
-	// memberController로부터 전달받음
+	// memberController.signinAttempt로부터 전달받음
+	// 컨택 만남처리
 	@RequestMapping(value = "contact/qrCheckIn.do")
-	public void qrCheckIn(ContactVO contact, HttpServletRequest request, HttpSession session) {
+	public void qrCheckIn(HttpServletRequest request) {
 		System.out.println("ContactController.qrCheckIn 실행");
 		String contactId = request.getParameter("contactId");
 		String memberId = request.getParameter("memberId");
 		System.out.println("contactId2 : " + contactId);
 		System.out.println("memberId2 : " + memberId);
-		
+		ContactVO contact = new ContactVO();
+		contact.setContactId(Integer.parseInt(contactId));
+		contact.setGuestId(Integer.parseInt(memberId));
+		int result = contactService.qrCheckIn(contact);
+		if(result == 1) {
+			// 만남처리 성공
+			System.out.println("컨택 qr_check값 변경 완료");
+			
+			// 수익배분 처리 코드 추가
+			
+		} else {
+			// 만남처리 실패
+			System.out.println("컨택 qr_check값 변경 실패");
+			
+		}
 	}
 }
