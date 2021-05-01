@@ -80,5 +80,30 @@ public class AdminServiceImpl implements AdminService{
 		return AdminDAO.getAllContact();
 	}
 
+	@Override
+	public List<HashMap<String, String>> getChartNumberOfMember() {
+		return AdminDAO.getChartNumberOfMember();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartNumberOfContact() {
+		return AdminDAO.getChartNumberOfContact();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartNumberOfSuccessContact() {
+		return AdminDAO.getChartNumberOfSuccessContact();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartMakingContactUser() {
+		return AdminDAO.getChartMakingContactUser();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartReservation() {
+		return AdminDAO.getChartReservation();
+	}
+
 	
 }

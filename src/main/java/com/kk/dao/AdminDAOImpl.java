@@ -88,6 +88,29 @@ public class AdminDAOImpl implements AdminDAO{
 		return mybatis.selectList("admin.getAllContact");
 	}
 
+	public List<HashMap<String, String>> getChartNumberOfMember() {
+		return mybatis.selectList("admin.getChartNumberOfMember");
+	}
+
+	public List<HashMap<String, String>> getChartNumberOfContact() {
+		return mybatis.selectList("admin.getChartNumberOfContact");
+
+	}
+
+	public List<HashMap<String, String>> getChartNumberOfSuccessContact() {
+		return mybatis.selectList("admin.getChartNumberOfSuccessContact");
+
+	}
+
+	public List<HashMap<String, String>> getChartMakingContactUser() {
+		return mybatis.selectList("admin.getChartMakingContactUser");
+
+	}
+
+	public List<HashMap<String, String>> getChartReservation() {
+		return mybatis.selectList("admin.getChartReservation");
+	}
+
 
 
 }

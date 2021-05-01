@@ -61,7 +61,12 @@ public class AdminController {
 	
 	// 이용자 수 조회
 	@RequestMapping("admin/users.do")
-	public void getUsers() {
+	public void getUsers(Model m, HttpSession session) {
+		m.addAttribute("numberOfMember", adminService.getChartNumberOfMember());
+		m.addAttribute("numberOfContact", adminService.getChartNumberOfContact());
+		m.addAttribute("numberOfSuccessContact", adminService.getChartNumberOfSuccessContact());
+		m.addAttribute("makingContactUser", adminService.getChartMakingContactUser());
+		m.addAttribute("reservation", adminService.getChartReservation());
 		System.out.println("getUsers 실행");
 	}
 	
