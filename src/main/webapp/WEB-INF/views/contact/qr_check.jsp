@@ -50,6 +50,7 @@
 <link rel="stylesheet" href="./../resources/css/flaticon.css">
 <link rel="stylesheet" href="./../resources/css/icomoon.css">
 <link rel="stylesheet" href="./../resources/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <style>
 #bid_price:focus {
 	outline: none;
@@ -68,7 +69,13 @@
 
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
-			<img alt="" src="../upload/qrcheck/qr_img.png" style="width: 100%; height: 100%;">
+			<div style="width: 75%; height:25%; margin: 0 auto; text-align: center; font-size: 2.5vmin; font-weight: bold;">
+				<p id="count"></p>
+			</div>
+			<div style="width: 75%; height:75%; margin: 0 auto;">
+				<img alt="" src="../upload/qrcheck/qr_img.png" style="width: 100%; height: 100%;">
+
+			</div>
 		</div>
 	</section>
 	<!-- .section -->
@@ -86,7 +93,23 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
+	<script>
+		$(function() {
+			//카운트 시작 숫자
+            var count = 30;
+            //카운트다운함수
+            var countdown = setInterval(function(){
+            $("#count").html(count + "초 후 이전페이지로 이동합니다.");
+                //1초면 초기화 후 이동
+                if (count == 1) {
+                    clearInterval(countdown);
+                    $(location).attr('href', '../mypage/contactHistory.do')
 
+                    }
+                count--;//카운트 감소
+            }, 1000);
+		})
+	</script>
 
 	<script src="./../resources/js/jquery.min.js"></script>
 	<script src="./../resources/js/jquery-migrate-3.0.1.min.js"></script>
