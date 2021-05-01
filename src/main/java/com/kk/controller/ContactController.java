@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -36,13 +35,6 @@ public class ContactController {
 
 	@Autowired
 	private ContactService contactService;
-
-//private static final Logger logger = LoggerFactory.getLogger(ContactController.class);
-//	
-//	@RequestMapping(value = "/", method = RequestMethod.GET)
-//	public String kakaoMap() {
-//		return "map/testMap";
-//	}
 
 	// 컨택 목록
 	@RequestMapping("contact/list.do")
@@ -213,7 +205,6 @@ public class ContactController {
 			// 현재 임시 ip주소 -> 도메인변경해야함
 			String codeurl = new String(("http://112.170.105.233:8180/kkini_kkili/qr/signin.jsp?contactId=" + contactId + "&memberId=" + memberId).getBytes("UTF-8"), "ISO-8859-1");
 			// qr코드 바코드 생성값
-//			int qrcodeColor = 0xFF2e4e96;
 			int qrcodeColor = 0xFF000000;
 			// qr코드 배경색상값
 			int backgroundColor = 0xFFFFFFFF;
@@ -238,8 +229,8 @@ public class ContactController {
 		System.out.println("ContactController.qrCheckIn 실행");
 		String contactId = request.getParameter("contactId");
 		String memberId = request.getParameter("memberId");
-		System.out.println("contactId2 : " + contactId);
-		System.out.println("memberId2 : " + memberId);
+		System.out.println("in QRcode .. contactId : " + contactId);
+		System.out.println("in QRcode .. memberId : " + memberId);
 		ContactVO contact = new ContactVO();
 		contact.setContactId(Integer.parseInt(contactId));
 		contact.setGuestId(Integer.parseInt(memberId));
@@ -248,7 +239,7 @@ public class ContactController {
 			// 만남처리 성공
 			System.out.println("컨택 qr_check값 변경 완료");
 			
-			// 수익배분 처리 코드 추가
+			// 수익배분 처리 코드 추가(관리자95% : 호스트5%)
 			
 		} else {
 			// 만남처리 실패
