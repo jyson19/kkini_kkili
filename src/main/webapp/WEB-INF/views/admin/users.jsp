@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -109,31 +111,6 @@
                     
                     
                     <div class="pcoded-content">
-                        <!-- Page-header start -->
-                        <div class="page-header">
-                            <div class="page-block">
-                                <div class="row align-items-center">
-                                    <div class="col-md-8">
-                                        <div class="page-header-title">
-                                            <h5 class="m-b-10">Morris Chart</h5>
-                                            <p class="m-b-0">Lorem Ipsum is simply dummy text of the printing</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <ul class="breadcrumb">
-                                            <li class="breadcrumb-item">
-                                                <a href="index.html"> <i class="fa fa-home"></i> </a>
-                                            </li>
-                                            <li class="breadcrumb-item"><a href="#!">Chart</a>
-                                            </li>
-                                            <li class="breadcrumb-item"><a href="#!">Morris Chart</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Page-header end -->
                         <div class="pcoded-inner-content">
                             <!-- Main-body start -->
                             <div class="main-body">
@@ -157,11 +134,11 @@
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>컨택 건수</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h5>월별 이용자 수</h5>
+                                                        <span>월별 이용자 수 조회를 파악할 수 있습니다</span>
                                                     </div>
                                                     <div class="card-block">
-                                                        <div id="morris-bar-chart"></div>
+                                                        <div id="line-example"></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,8 +147,8 @@
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Extra Area Chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h5>월별 컨택 건수</h5>
+                                                        <span>월별로 생성한 컨택과 성사된 컨택이 나타납니다</span>
                                                     </div>
                                                     <div class="card-block">
                                                         <div id="morris-extra-area"></div>
@@ -180,7 +157,7 @@
                                             </div>
                                             <!-- EXTRA AREA CHART Ends -->
                                             <!-- Area Chart start -->
-                                            <div class="col-lg-12">
+                                            <!-- <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>Area Chart</h5>
@@ -190,23 +167,23 @@
                                                         <div id="area-example"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Area Chart Ends -->
                                             <!-- LINE CHART start -->
-                                            <div class="col-md-12 col-lg-6">
+                                            <div class="col-md-12 col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>Line Chart</h5>
-                                                        <span>lorem ipsum dolor sit amet, consectetur adipisicing elit</span>
+                                                        <h5>컨택 생성 유저 순위</h5>
+                                                        <span>유저별 컨택 생성 순위입니다</span>
                                                     </div>
                                                     <div class="card-block">
-                                                        <div id="line-example"></div>
+                                                        <div id="morris-bar-chart"></div>
                                                     </div>
                                                 </div>
                                             </div>
                                             <!-- LINE CHART Ends -->
                                             <!-- Donut chart start -->
-                                            <div class="col-md-12 col-lg-6">
+                                            <!-- <div class="col-md-12 col-lg-6">
                                                 <div class="card">
                                                     <div class="card-header">
                                                         <h5>Donut Chart</h5>
@@ -216,7 +193,7 @@
                                                         <div id="donut-example"></div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <!-- Donut chart Ends -->
                                         </div>
                                     </div>
@@ -284,18 +261,193 @@
     <script type="text/javascript" src="./../resources/assets/js/popper.js/popper.min.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/bootstrap/js/bootstrap.min.js "></script>
     <!-- waves js -->
-    <script src="assets/pages/waves/js/waves.min.js"></script>
+    <script src="./../resources/assets/pages/waves/js/waves.min.js"></script>
     <!-- jquery slimscroll js -->
     <script type="text/javascript" src="./../resources/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
     <!-- Morris Chart js -->
     <script src="./../resources/assets/js/raphael/raphael.min.js"></script>
     <script src="./../resources/assets/js/morris.js/morris.js"></script>
     <!-- Custom js -->
-    <script src="./../resources/assets/pages/chart/morris/morris-custom-chart.js"></script>
+    <!-- <script src="./../resources/assets/pages/chart/morris/morris-custom-chart.js"></script> -->
     <script src="./../resources/assets/js/pcoded.min.js"></script>
     <script src="./../resources/assets/js/vertical/vertical-layout.min.js"></script>
     <script src="./../resources/assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="./../resources/assets/js/script.js"></script>
+
+	<script>
+	"use strict";
+	setTimeout(function(){
+	$(document).ready(function() {
+
+	    lineChart();
+	    areaChart();
+	    donutChart();
+
+	    $(window).on('resize',function() {
+	        window.lineChart.redraw();
+	        window.areaChart.redraw();
+	        window.donutChart.redraw();
+	    });
+	    
+	});
+
+	let numberOfMember = ${fn:replace(numberOfMember,"=",":")};
+	let numberOfContact = ${fn:replace(numberOfContact,"=",":")};
+	let numberOfSuccessContact = ${fn:replace(numberOfSuccessContact,"=",":")};
+	let makingContactUser = ${fn:replace(fn:replace(fn:replace(makingContactUser,"=",":"),"NAME:","NAME:'"),"}","'}")};
+	let reservation = ${fn:replace(reservation,"=",":")};
+	
+	let pip = [];
+	
+	/*Line chart*/
+	function lineChart() {
+	    window.lineChart = Morris.Line({
+	        element: 'line-example',
+		    data: numberOfMember,
+		    xkey: 'YEARMONTH',
+		    redraw: true,
+		    ykeys: ['COUNTMEMBER'],
+		    hideHover: 'auto',
+		    labels: ['멤버수'],
+	        lineColors: ['#B4C1D7'],
+	        parseTime : false
+	    });
+	}
+
+	/*Area chart*/
+	function areaChart() {
+	    window.areaChart = Morris.Area({
+	        element: 'area-example',
+	        data: [
+	            { y: '2006', a: 100, b: 90 },
+	            { y: '2007', a: 75, b: 65 },
+	            { y: '2008', a: 50, b: 40 },
+	            { y: '2009', a: 75, b: 65 },
+	            { y: '2010', a: 50, b: 40 },
+	            { y: '2011', a: 75, b: 65 },
+	            { y: '2012', a: 100, b: 90 }
+	        ],
+	        xkey: 'y',
+	        resize: true,
+	        redraw: true,
+	        ykeys: ['a', 'b'],
+	        labels: ['Series A', 'Series B'],
+	        lineColors: ['#93EBDD', '#64DDBB']
+	    });
+	}
+
+	/*Donut chart*/
+	function donutChart() {
+	    window.areaChart = Morris.Donut({
+	        element: 'donut-example',
+	        redraw: true,
+	        data: [
+	            { label: "Download Sales", value: 2 },
+	            { label: "In-Store Sales", value: 50 },
+	            { label: "Mail-Order Sales", value: 20 }
+	        ],
+	        colors: ['#5FBEAA', '#34495E', '#FF9F55']
+	    });
+	}
+
+	
+	let i;
+	for(i=0; i<numberOfContact.length; i++){
+		if(numberOfSuccessContact.length !=0 && numberOfContact[i].YEARMONTH == numberOfSuccessContact[i].YEARMONTH){
+			numberOfContact[i].SUCCESSCONTACT = numberOfSuccessContact[i].SUCCESSCONTACT
+		} else {
+			numberOfContact[i].SUCCESSCONTACT = 0
+		}
+	}	
+	
+	// Morris bar chart
+	Morris.Bar({
+	    element: 'morris-bar-chart',
+	    data: makingContactUser,
+	    xkey: 'NAME',
+	    ykeys: ['COUNTCONTACT'],
+	    labels: ['컨택생성수'],
+	    barColors: ['#5FBEAA'],
+	    hideHover: 'auto',
+	    gridLineColor: '#eef0f2',
+	    resize: true
+	});
+	// Extra chart
+	Morris.Area({
+	    element: 'morris-extra-area',
+	    data: numberOfContact,
+	    lineColors: ['#fb9678', '#7E81CB'],
+	    xkey: 'YEARMONTH',
+	    ykeys: ['COUNTREGICONTACT', 'SUCCESSCONTACT'],
+	    labels: ['전체 컨택수 ', '성사된 컨택'],
+	    pointSize: 0,
+	    lineWidth: 0,
+	    resize: true,
+	    fillOpacity: 0.8,
+	    behaveLikeLine: true,
+	    gridLineColor: '#5FBEAA',
+	    hideHover: 'auto',
+	    parseTime: false  
+	});
+
+	/*Site visit Chart*/
+
+	Morris.Area({
+	    element: 'morris-site-visit',
+	    data: [{
+	        period: '2010',
+	        SiteA: 0,
+	        SiteB: 0,
+
+	    }, {
+	        period: '2011',
+	        SiteA: 130,
+	        SiteB: 100,
+
+	    }, {
+	        period: '2012',
+	        SiteA: 80,
+	        SiteB: 60,
+
+	    }, {
+	        period: '2013',
+	        SiteA: 70,
+	        SiteB: 200,
+
+	    }, {
+	        period: '2014',
+	        SiteA: 180,
+	        SiteB: 150,
+
+	    }, {
+	        period: '2015',
+	        SiteA: 105,
+	        SiteB: 90,
+
+	    }, {
+	        period: '2016',
+	        SiteA: 250,
+	        SiteB: 150,
+
+	    }],
+	    xkey: 'period',
+	    ykeys: ['SiteA', 'SiteB'],
+	    labels: ['Site A', 'Site B'],
+	    pointSize: 0,
+	    fillOpacity: 0.4,
+	    pointStrokeColors: ['#b4becb', '#01c0c8'],
+	    behaveLikeLine: true,
+	    gridLineColor: '#e0e0e0',
+	    lineWidth: 0,
+	    smooth: false,
+	    hideHover: 'auto',
+	    lineColors: ['#b4becb', '#01c0c8'],
+	    resize: true
+
+	});
+	},350);
+	
+	</script>
 </body>
 
 </html>

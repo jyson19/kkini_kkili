@@ -69,6 +69,62 @@
 	</select>
 	
 	<!-- 이용자 수 조회 -->
+	<!-- 월별 가입 멤버 수 -->
+	<select id="getChartNumberOfMember" resultType="hashmap">
+	<![CDATA[ 
+		select TO_CHAR(join_date, 'YYYYMM') as yearmonth, count(*) as countMember
+		from member 
+		where join_date >='20200101' and join_date <= to_char(SYSDATE,'YYYYMMDD') 
+		GROUP BY to_char(join_date, 'YYYYMM')
+		ORDER BY yearmonth
+	]]>
+	</select>
+	
+	<!-- 월별 컨택 생성 건수 -->
+	<select id="getChartNumberOfContact" resultType="hashmap">
+	<![CDATA[ 
+		select TO_CHAR(TO_DATE(SUBSTR(regi_date,1, 10)), 'YYYYMM') as yearmonth, count(*) as countRegiContact
+		from contact 
+		where TO_DATE(SUBSTR(regi_date,1, 10)) >='20200101' and TO_DATE(SUBSTR(regi_date,1, 10)) <= to_char(sysdate,'YYYYMMDD') 
+		GROUP BY to_char(TO_DATE(SUBSTR(regi_date,1, 10)), 'YYYYMM')
+		ORDER BY yearmonth
+		]]>
+	</select>
+	
+	<!-- 월별 컨택 성사 건수 -->
+	<select id="getChartNumberOfSuccessContact" resultType="hashmap">
+	<![CDATA[ 
+		select TO_CHAR(TO_DATE(SUBSTR(MEETING_TIME,1, 10)), 'YYYYMM') as yearmonth, count(*) as countSuccessContact
+		from contact 
+		where TO_DATE(SUBSTR(MEETING_TIME,1, 10)) >='20200101' and TO_DATE(SUBSTR(MEETING_TIME,1, 10)) <= to_char(sysdate,'YYYYMMDD') and QR_CHECK = 1
+		GROUP BY to_char(TO_DATE(SUBSTR(MEETING_TIME,1, 10)), 'YYYYMM')
+		ORDER BY yearmonth
+	]]>
+	</select>
+	
+	<!-- 유저가 생성한 컨택갯수 순위 -->
+	<select id="getChartMakingContactUser" resultType="hashmap">
+	<![CDATA[ 
+		SELECT M.NAME, H.HOST_ID, H.countContact
+		FROM (select HOST_ID, count(*) as countContact
+		        from contact 
+		        where TO_DATE(SUBSTR(regi_date,1, 10)) >='20200101' and TO_DATE(SUBSTR(regi_date,1, 10)) <= to_char(sysdate,'YYYYMMDD')
+		        GROUP BY HOST_ID) H, 
+		    MEMBER M
+		WHERE m.member_id = h.host_id
+		ORDER BY h.countContact desc
+		]]>
+	</select>
+	
+	<!-- 컨택예정 건수 -->
+	<select id="getChartReservation" resultType="hashmap">
+	<![CDATA[ 
+		select TO_CHAR(TO_DATE(SUBSTR(MEETING_TIME,1, 10)), 'YYYYMM') as yearmonth, count(*) as countReservation 
+		from contact 
+		where TO_DATE(SUBSTR(MEETING_TIME,1, 10)) >= to_char(sysdate,'YYYYMMDD') and QR_CHECK = 0
+		GROUP BY to_char(TO_DATE(SUBSTR(MEETING_TIME,1, 10)), 'YYYYMM')
+	]]>
+	</select>
 	
 	<!-- 총 매출 조회 -->
 	

@@ -28,4 +28,14 @@ public interface AdminService {
 	List<HostVO> getBook(HostVO vo);
 
 	List<HashMap<String, String>> getAllContact();
+
+	List<HashMap<String, String>> getChartNumberOfMember();
+
+	List<HashMap<String, String>> getChartNumberOfContact();
+
+	List<HashMap<String, String>> getChartNumberOfSuccessContact();
+
+	List<HashMap<String, String>> getChartMakingContactUser();
+
+	List<HashMap<String, String>> getChartReservation();
 }

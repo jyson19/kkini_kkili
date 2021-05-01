@@ -174,6 +174,7 @@
 		type :'post',
        	/* data : ({"cri":"1"}), */
        	url : 'main/r/contactList.do',
+       	async    : false,
        	
        	success : function(data){
        		
@@ -218,6 +219,7 @@
 		type :'post',
        	/* data : ({"cri":"1"}), */
        	url : 'main/r/profileList.do',
+       	async    : false,
        	
        	success : function(data){
        		
