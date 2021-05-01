@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 
 @Repository("memberDAO")

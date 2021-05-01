@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.kk.dao.MemberDAOImpl;
+import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 
 @Service("memberService")
@@ -31,5 +32,4 @@ public class MemberServiceImpl implements MemberService {
 	public int insertMember(MemberVO vo) {
 		return memberDAO.insertMember(vo);
 	}
-
 }

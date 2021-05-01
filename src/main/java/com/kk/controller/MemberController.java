@@ -1,5 +1,7 @@
 package com.kk.controller;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 import com.kk.service.MemberService;
 
@@ -74,16 +77,18 @@ public class MemberController {
 		// 이전 페이지를 세션에서 불러오기
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
 		String memberId = request.getParameter("memberId");
-		System.out.println("memberId : " + memberId);
 		
 		// qr코드를 통한 로그인시
 		if(memberId != null && memberService.memberSigninService(member) != null) {
 			MemberVO mem = (MemberVO) memberService.memberSigninService(member);
 			if(Integer.parseInt(memberId) == mem.getMemberId()) {
-				System.out.println("qr인증");
+				System.out.println("MemberController.signinAttempt qr값 전달");
+				return "forward:../contact/qrCheckIn.do"; 
+			} else {
+				return "redirect:/sign/signin.do";
 			}
-			return "redirect:/sign/signin.do";
-			
+		
+		// 일반 로그인시
 		} else if (memberId == null && memberService.memberSigninService(member) != null) {
 			session.setAttribute("member", (MemberVO) memberService.memberSigninService(member));
 			System.out.println(session.getAttribute("member"));

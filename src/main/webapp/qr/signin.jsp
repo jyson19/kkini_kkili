@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
-<%int memberId = Integer.parseInt(request.getParameter("memberId")); %>
+<%
+	int contactId = Integer.parseInt(request.getParameter("contactId")); 
+	int memberId = Integer.parseInt(request.getParameter("memberId")); 
+%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -142,7 +145,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- memberId값 전달 -->
+                                    <!-- 값 전달 -->
+                                    <input type="hidden" name="contactId" value="<%=contactId%>">
                                     <input type="hidden" name="memberId" value="<%=memberId%>">
                                     <div class="row m-t-30">
                                         <div class="col-md-12">

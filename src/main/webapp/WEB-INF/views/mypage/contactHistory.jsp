@@ -184,7 +184,7 @@
 	                                                            	</c:if>
 	                                                            	<c:if test="${contact.QR_CHECK eq 0}">
 	                                                                	<c:if test="${contact.MEETING_TIME >= today }">
-		                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do?memberId=${contact.MEMBER_ID}'"> 만남 예정 <br/> (QR코드 생성) </td>
+		                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do?contactId=${contact.CONTACT_ID}&memberId=${contact.MEMBER_ID}'"> 만남 예정 <br/> (QR코드 생성) </td>
 		                                                                	<!-- <td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td> -->
 		                                                                	<!-- <td class="qr_td"> 만남 예정 <br/> (QR코드 생성) </td> -->
 	                                                                	</c:if>
