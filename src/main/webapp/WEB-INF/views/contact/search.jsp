@@ -12,34 +12,20 @@
 
 <!-- 한글 관련 css 적용 -->
 <link rel="stylesheet" href="./../resources/css/korean.css">
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="./../resources/css/open-iconic-bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alex+Brush"	rel="stylesheet">
+<link rel="stylesheet" href="./../resources/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="./../resources/css/animate.css">
-
 <link rel="stylesheet" href="./../resources/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="./../resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../resources/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="./../resources/css/magnific-popup.css">
-
 <link rel="stylesheet" href="./../resources/css/aos.css">
-
 <link rel="stylesheet" href="./../resources/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="./../resources/css/bootstrap-datepicker.css">
+<link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
 <link rel="stylesheet" href="./../resources/css/jquery.timepicker.css">
-
-
 <link rel="stylesheet" href="./../resources/css/flaticon.css">
 <link rel="stylesheet" href="./../resources/css/icomoon.css">
 <link rel="stylesheet" href="./../resources/css/style.css">
-
 
 </head>
 
@@ -81,8 +67,6 @@
 											<option value="4">광주 / 전북 / 전남</option>
 											<option value="5">부산 / 대구 / 울산 / 경북 / 경남</option>
 											<option value="6">제주</option>
-											<!-- <option value="">Lodon United Kingdom</option>
-	                      <option value="">Paris Italy</option> -->
 										</select>
 									</div>
 								</div>
@@ -123,8 +107,6 @@
 									</div>
 								</a>
 									<div class="text ml-4">
-
-										<!--  <p class="name">${contact.NAME}</p><span>${contact.COMPANY}</span>-->
 										<p class="mb-3">${contact.CONTACT_INTRO}</p>
 										<span class="position">일시 : ${contact.MEETING_TIME}</span><br/>
 										<span class="position">상호명 : ${contact.STORE_NAME}</span><br/>
@@ -140,30 +122,9 @@
 								</div>
 							</div>
 						</c:forEach>
-
-
 					</div>
 				</div>
 			</div>
-
-			<!-- 하단 숫자 -->
-			<!-- 
-			<div class="row mt-5">
-				<div class="col text-center">
-					<div class="block-27">
-						<ul>
-							<li><a href="#">&lt;</a></li>
-							<li class="active"><span>1</span></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#">5</a></li>
-							<li><a href="#">&gt;</a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			 -->
 		</div>
 		<!-- .col-md-8 -->
 		</div>
@@ -199,15 +160,10 @@
 	<script src="./../resources/js/jquery.timepicker.min.js"></script>
 	<script src="./../resources/js/scrollax.min.js"></script>
 	<script src="./../resources/js/range.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./../resources/js/google-map.js"></script>
 	<script src="./../resources/js/main.js"></script>
 	<script src="./../resources/js/contact.js"></script>
-	<script>
-		
-	</script>
-
 
 </body>
 </html>

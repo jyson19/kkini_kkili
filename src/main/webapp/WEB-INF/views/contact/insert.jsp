@@ -39,14 +39,9 @@
 <link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
 <link rel="stylesheet" href="./../resources/css/bootstrap-material-datetimepicker.css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 <link rel="stylesheet" href="./../resources/css/flaticon.css">
 <link rel="stylesheet" href="./../resources/css/icomoon.css">
 <link rel="stylesheet" href="./../resources/css/style.css">
-
-<!-- 
-<link rel="stylesheet" type="text/css" href="./../resources/assets/css/style.css">
- -->
 
 <link rel="icon" href="./../resources/assets/images/favicon.ico" type="image/x-icon">
 <!-- Google font-->
@@ -63,10 +58,6 @@
 <link rel="stylesheet" type="text/css" href="./../resources/assets/css/jquery.mCustomScrollbar.css">
 
 <link rel="stylesheet" href="./../resources/css/kakaomap.css">
-<!-- 
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&​libraries=services"></script>
-     -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275&libraries=services,clusterer,drawing"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="./../resources/js/bootstrap-material-datetimepicker.js"></script>
@@ -178,31 +169,9 @@
 							</div>
 						</div>
 						<div id="fade" class="black_overlay"></div>
-						
 				</div>
-				
 			</div>
 			
-
-		<!-- 지도 테스트 -->
-		<!-- 
- 		  	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275"/>
- 		  <div id="map" style="width:500px;height:400px;">
- 		  </div>
- 		   -->
-		<!-- 
- 		  <div id="map"></div>
-		<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=cea82077363b87add2391c95334df275"></script>
-		<script>
-			var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-			var options = { //지도를 생성할 때 필요한 기본 옵션
-				center: new kakao.maps.LatLng(37.160865, 127.754386), //지도의 중심좌표.
-				level: 13 //지도의 레벨(확대, 축소 정도)
-			};
-			var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
-		</script>
- 		    -->
-
 		<script>
 			// 마커를 담을 배열입니다
 			var markers = [];
@@ -428,9 +397,6 @@
 			}
 		</script>
 
-
-
-
 		</div>
 		</div>
 	</section>
@@ -438,9 +404,6 @@
 
 	<!-- footer.html -->
 	<%@include file="/WEB-INF/tiles/footer.jsp"%>
-
-
-
 
 	<!-- loader -->
 	<div id="ftco-loader" class="show fullscreen">
@@ -450,7 +413,6 @@
 			<circle class="path" cx="24" cy="24" r="22" fill="none"
 				stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg>
 	</div>
-
 
 	<script src="./../resources/js/moment.js"></script>
 	<script src="./../resources/js/bootstrap-material-datetimepicker.js"></script>
@@ -468,8 +430,7 @@
 	<script src="./../resources/js/bootstrap-datepicker.js"></script>
 	<script src="./../resources/js/jquery.timepicker.min.js"></script>
 	<script src="./../resources/js/scrollax.min.js"></script>
-	<script
-		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 	<script src="./../resources/js/main.js"></script>
 
 </body>
@@ -511,8 +472,5 @@ $(document).ready(function(){
     
     $('#date-format').bootstrapMaterialDatePicker({ format : 'YYYY-MM-DD HH:mm' });
 });
-</script>
-<script>
-
 </script>
 </html>

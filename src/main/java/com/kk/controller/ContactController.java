@@ -111,16 +111,16 @@ public class ContactController {
 		return "redirect:/contact/insert.do";
 	}
 
+	// 컨택 입찰페이지
 	@RequestMapping("contact/bid.do")
 	public void bidContact(HttpServletRequest request, Model model) {
 		System.out.println("ContactController.bidContact() 실행");
 		int contactId = Integer.parseInt(request.getParameter("contact_id"));
 		System.out.println("컨택 번호: " + contactId);
 		model.addAttribute("bidView", contactService.getBidView(contactId));
-//		, String lvc, String lastValue, String hostId
-//		System.out.println(lvc + " : " + lastValue + " : " + hostId);
 	}
 
+	// 컨택 입찰시
 	@RequestMapping(value = "contact/bid_after.do", produces = "application/text; charset=utf-8")
 	@ResponseBody
 	public String bidAfter( //
@@ -194,7 +194,7 @@ public class ContactController {
 		try {
 			File file = null;
 			// qr코드 이미지를 저장할 디렉토리 지정
-			System.out.println(root_path);
+			System.out.println("QR코드파일 저장 경로 : " + root_path);
 			file = new File(root_path);
 			if (!file.exists()) {
 				file.mkdirs();
@@ -246,14 +246,13 @@ public class ContactController {
 			} else {
 				System.out.println("수익배분 실패");
 			}
-			
 		} else {
 			// 만남처리 실패
 			System.out.println("컨택 qr_check값 변경 실패");
-			
 		}
 	}
 	
+	// 컨택 해당 게스트 이외 qr체크시
 	@RequestMapping("contact/qrCheckIn_fail.do")
 	public void qrCheckInFail() {
 		System.out.println("ContactController.qrCheckIn 실행 -> qr checkin 실패");

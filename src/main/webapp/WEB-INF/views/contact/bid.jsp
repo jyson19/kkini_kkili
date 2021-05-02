@@ -23,25 +23,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- 한글 관련 css 적용 -->
-	  <link rel="stylesheet" href="./../resources/css/korean.css">
+	<link rel="stylesheet" href="./../resources/css/korean.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
-
     <link rel="stylesheet" href="./../resources/css/open-iconic-bootstrap.min.css">
     <link rel="stylesheet" href="./../resources/css/animate.css">
-    
     <link rel="stylesheet" href="./../resources/css/owl.carousel.min.css">
     <link rel="stylesheet" href="./../resources/css/owl.theme.default.min.css">
     <link rel="stylesheet" href="./../resources/css/magnific-popup.css">
-
     <link rel="stylesheet" href="./../resources/css/aos.css">
-
     <link rel="stylesheet" href="./../resources/css/ionicons.min.css">
-
     <link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
     <link rel="stylesheet" href="./../resources/css/jquery.timepicker.css">
-
-    
     <link rel="stylesheet" href="./../resources/css/flaticon.css">
     <link rel="stylesheet" href="./../resources/css/icomoon.css">
     <link rel="stylesheet" href="./../resources/css/style.css">
@@ -61,8 +54,6 @@
   <div class="hero-wrap" style="background-color: #2DAD92; height: 120px;">
     
   </div>
-
-
     <section class="ftco-section ftco-degree-bg">
       <div class="container">
         <div class="row">
@@ -120,7 +111,6 @@
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
   <script src="./../resources/js/jquery.min.js"></script>
   <script src="./../resources/js/jquery-migrate-3.0.1.min.js"></script>

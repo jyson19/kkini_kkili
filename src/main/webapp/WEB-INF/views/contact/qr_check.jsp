@@ -23,29 +23,15 @@
 
 <!-- 한글 관련 css 적용 -->
 <link rel="stylesheet" href="./../resources/css/korean.css">
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700"
-	rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Alex+Brush"
-	rel="stylesheet">
-
-<link rel="stylesheet"
-	href="./../resources/css/open-iconic-bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Alex+Brush" rel="stylesheet">
+<link rel="stylesheet" href="./../resources/css/open-iconic-bootstrap.min.css">
 <link rel="stylesheet" href="./../resources/css/animate.css">
-
 <link rel="stylesheet" href="./../resources/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="./../resources/css/owl.theme.default.min.css">
+<link rel="stylesheet" href="./../resources/css/owl.theme.default.min.css">
 <link rel="stylesheet" href="./../resources/css/magnific-popup.css">
-
 <link rel="stylesheet" href="./../resources/css/aos.css">
-
 <link rel="stylesheet" href="./../resources/css/ionicons.min.css">
-
-<link rel="stylesheet"
-	href="./../resources/css/bootstrap-datepicker.css">
-<link rel="stylesheet" href="./../resources/css/jquery.timepicker.css">
-
 
 <link rel="stylesheet" href="./../resources/css/flaticon.css">
 <link rel="stylesheet" href="./../resources/css/icomoon.css">
@@ -122,8 +108,6 @@
 	<script src="./../resources/js/jquery.magnific-popup.min.js"></script>
 	<script src="./../resources/js/aos.js"></script>
 	<script src="./../resources/js/jquery.animateNumber.min.js"></script>
-	<script src="./../resources/js/bootstrap-datepicker.js"></script>
-	<script src="./../resources/js/jquery.timepicker.min.js"></script>
 	<script src="./../resources/js/scrollax.min.js"></script>
 	<script src="./../resources/js/main.js"></script>
 	<script src="./../resources/js/bid.js"></script>
