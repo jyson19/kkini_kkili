@@ -107,7 +107,7 @@
 									</div>
 								</a>
 									<div class="text ml-4">
-										<p class="mb-3">${contact.CONTACT_INTRO}</p>
+										<p style="font-size: 20px; font-weight: bolder;">${contact.CONTACT_INTRO}</p>
 										<span class="position">일시 : ${contact.MEETING_TIME}</span><br/>
 										<span class="position">상호명 : ${contact.STORE_NAME}</span><br/>
 										<span class="position">장소 : ${contact.LOCATION}</span>
@@ -122,6 +122,15 @@
 								</div>
 							</div>
 						</c:forEach>
+						<!-- 검색 결과가 존재하지 않을 때 -->
+						<c:if test="${contactList.size() == 0 }">
+							<div class="item border-top">
+								<div style="text-align: center; line-height: 100%;">
+									<h3>검색 결과가 존재하지 않습니다.</h3>
+								</div>
+							</div>
+							<div class="item border-top"></div>
+						</c:if>
 					</div>
 				</div>
 			</div>

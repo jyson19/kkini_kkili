@@ -26,7 +26,7 @@ public class ContactDAOImpl implements ContactDAO {
 
 	// 컨택 검색
 	public List<Map<String, String>> searchContactList(Map m) {
-		System.out.println(mybatis.selectList("contact.getSearchList", m).size());
+		System.out.println("검색 결과 수 : " + mybatis.selectList("contact.getSearchList", m).size());
 		return mybatis.selectList("contact.getSearchList", m);
 	}
 

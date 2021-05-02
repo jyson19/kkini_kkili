@@ -90,11 +90,11 @@
 			AND h.host_id = c.host_id 
             
             <if test="keyword != null">
-            AND (c.contact_intro LIKE '%'||#{keyword}||'%'
-            OR c.store_name LIKE '%'||#{keyword}||'%'
-            OR m.name LIKE '%'||#{keyword}||'%'
-            OR h.company LIKE '%'||#{keyword}||'%'
-            OR c.location LIKE '%'||#{keyword}||'%')
+            AND (UPPER(c.contact_intro) LIKE '%'||UPPER(#{keyword})||'%'
+            OR UPPER(c.store_name) LIKE '%'||UPPER(#{keyword})||'%'
+            OR UPPER(m.name) LIKE '%'||UPPER(#{keyword})||'%'
+            OR UPPER(h.company) LIKE '%'||UPPER(#{keyword})||'%'
+            OR UPPER(c.location) LIKE '%'||UPPER(#{keyword})||'%')
             </if>
 			<if test='region == "1"'>
 				AND REGEXP_LIKE(c.location,'서울|경기|인천')
