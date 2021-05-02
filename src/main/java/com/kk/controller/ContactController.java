@@ -253,4 +253,9 @@ public class ContactController {
 			
 		}
 	}
+	
+	@RequestMapping("contact/qrCheckIn_fail.do")
+	public void qrCheckInFail() {
+		System.out.println("ContactController.qrCheckIn 실행 -> qr checkin 실패");
+	}
 }

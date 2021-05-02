@@ -78,7 +78,8 @@ public class MemberController {
 				System.out.println("MemberController.signinAttempt qr값 전달");
 				return "forward:../contact/qrCheckIn.do"; 
 			} else {
-				return "redirect:/sign/signin.do";
+				// 해당 컨택의 참가자가 아닐때
+				return "redirect:../contact/qrCheckIn_fail.do"; 
 			}
 		
 		// 일반 로그인시

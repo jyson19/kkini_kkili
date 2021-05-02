@@ -55,7 +55,7 @@
 
 	<section class="ftco-section ftco-degree-bg">
 		<div class="container">
-			<p>만남 확인이 완료되었습니다!<br/></p>
+			<p>컨택에 초청받은 참가자가 아닙니다.<br/></p>
 			<div class="nav-item cta"><a href="${pageContext.request.contextPath}/index.jsp" class="nav-link"><span>홈으로</span></a></div>
 		</div>
 	</section>
@@ -92,7 +92,7 @@
 	<script src="./../resources/js/scrollax.min.js"></script>
 	<script src="./../resources/js/main.js"></script>
 	<script src="./../resources/js/bid.js"></script>
-
-
+ 
+ 
 </body>
 </html>
