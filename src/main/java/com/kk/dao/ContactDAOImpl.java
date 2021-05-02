@@ -84,4 +84,14 @@ public class ContactDAOImpl implements ContactDAO {
 	public int qrCheckIn(ContactVO contact) {
 		return mybatis.update("contact.qrCheckIn", contact);
 	}
+
+	// 컨택 수익배분
+	@Override
+	public int addRevenue(String contactId) {
+		int hostResult = mybatis.update("contact.updateHostRevenue", Integer.parseInt(contactId));
+		System.out.println("컨택 수익배분 호스트 결과(1:성공, 0:실패) : " + hostResult);
+		int AdminResult = mybatis.insert("contact.addAdminRevenue", Integer.parseInt(contactId));
+		System.out.println("컨택 수익배분 관리자 결과(1:성공, 0:실패) : " + AdminResult);
+		return hostResult + AdminResult;
+	}
 }

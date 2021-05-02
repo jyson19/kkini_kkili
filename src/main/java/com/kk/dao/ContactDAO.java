@@ -40,4 +40,7 @@ public interface ContactDAO {
 
 	// 컨택 만남처리
 	int qrCheckIn(ContactVO contact);
+
+	// 컨택 수익배분
+	int addRevenue(String contactId);
 }

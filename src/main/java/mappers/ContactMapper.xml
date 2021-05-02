@@ -267,6 +267,25 @@
 	<!-- 마감 -->
 
 	<!-- 마감 이후 결제처리(95%:호스트, 5%:관리자) -->
+		<!-- 호스트(95%) -->
+		<update id="updateHostRevenue" parameterType="int">
+			UPDATE host 
+			SET host_value = host_value+(SELECT (last_value * 0.95)
+											FROM contact
+											WHERE contact_id = #{contactId})
+			WHERE host_id = (SELECT host_id
+								FROM contact
+								WHERE contact_id = #{contactId})
+		</update>
+		<!-- 관리자(5%) -->
+		<insert id="addAdminRevenue" parameterType="int">
+			INSERT INTO account VALUES(
+				#{contactId},
+				(SELECT (last_value * 0.05)
+					FROM contact
+					WHERE contact_id = #{contactId})
+			)
+		</insert>
 
 	<!-- 취소 -->
 

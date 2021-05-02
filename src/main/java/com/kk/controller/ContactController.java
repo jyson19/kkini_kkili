@@ -239,7 +239,15 @@ public class ContactController {
 			// 만남처리 성공
 			System.out.println("컨택 qr_check값 변경 완료");
 			
-			// 수익배분 처리 코드 추가(관리자95% : 호스트5%)
+			// 수익배분 (contact.last_value)
+			// 호스트 95% update (host.host_value)
+			// 관리자 5% insert (account.contact_id, sales)
+			int revenueResult = contactService.addRevenue(contactId);
+			if(revenueResult == 2) {
+				System.out.println("수익배분 완료");
+			} else {
+				System.out.println("수익배분 실패");
+			}
 			
 		} else {
 			// 만남처리 실패

@@ -102,4 +102,10 @@ public class ContactServiceImpl implements ContactService {
 	public int qrCheckIn(ContactVO contact) {
 		return contactDAO.qrCheckIn(contact);
 	}
+
+	// 컨택 수익배분
+	@Override
+	public int addRevenue(String contactId) {
+		return contactDAO.addRevenue(contactId);
+	}
 }
