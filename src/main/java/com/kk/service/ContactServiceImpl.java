@@ -60,7 +60,7 @@ public class ContactServiceImpl implements ContactService {
 		return contactDAO.getMyContactList(memberId);
 	}
 
-	
+	// 컨택 가치 가져오기
 	@Override
 	public List<Map<String, String>> contactValue(int memberId) {
 		return contactDAO.contactValue(memberId);

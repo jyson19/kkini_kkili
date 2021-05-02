@@ -1,5 +1,6 @@
 package com.kk.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.kk.domain.BookmarkVO;
 import com.kk.domain.HostVO;
 import com.kk.domain.MemberVO;
 import com.kk.service.AdminService;
@@ -87,5 +89,11 @@ public class AdminController {
 	@RequestMapping("admin/book.do")
 	public void getBook() {
 		System.out.println("getBook 실행");
+	}
+	
+	// 마이 페이지 클릭시 권한에 따라 분기 - 요약 페이지임으로 필요한 DB 전달하기
+	@RequestMapping("admin/summary.do")
+	public void summary() {
+		System.out.println("MypageController : enterPage 실행");
 	}
 }
