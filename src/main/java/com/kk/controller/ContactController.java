@@ -167,11 +167,9 @@ public class ContactController {
 			map.put("contactId", contactId);
 			int resultInt = contactService.bidUpdate(map);
 			System.out.println("resultInt : " + resultInt);
-			if (resultInt == 1) {
+			if (resultInt == 2) {
 				return "입찰이 완료되었습니다!";
 			}
-
-			// 추후 추가 : 컨택 history
 			return "입찰 실패.. 이유는.. 음..";
 		}
 	}

@@ -241,14 +241,24 @@
 	</select>
 	
 	<!-- 컨택 입찰 -->
-	<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
-	<update id="bidUpdate" parameterType="java.util.HashMap">
-		UPDATE contact 
-		SET
-			guest_id = #{memberId},
-			last_value = #{bidPrice} 
-		WHERE contact_id = #{contactId}
-	</update>
+		<!-- 최고입찰가 갱신 (게스트, 입찰가 변경) -->
+		<update id="bidUpdate" parameterType="java.util.HashMap">
+			UPDATE contact 
+			SET
+				guest_id = #{memberId},
+				last_value = #{bidPrice} 
+			WHERE contact_id = #{contactId}
+		</update>
+		<!-- 컨택 히스토리 내역 추가 -->
+		<insert id="insertHistory" parameterType="java.util.HashMap">
+			INSERT INTO contact_history
+			VALUES(
+				#{contactId}, 
+				#{memberId}, 
+				#{bidPrice}, 
+				TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
+			)
+		</insert>
 	
 	<!-- 컨택 최고입찰가 확인 -->
 	<select id="lastValueCheck" parameterType="int" resultType="int">

@@ -30,10 +30,6 @@ DROP TABLE bookmark
 DROP TABLE contact_history 
 	CASCADE CONSTRAINTS;
 
-/* 호스트인증 */
-DROP TABLE host_auth 
-	CASCADE CONSTRAINTS;
-
 /* 이메일인증 */
 DROP TABLE email_auth 
 	CASCADE CONSTRAINTS;
@@ -112,7 +108,7 @@ CREATE TABLE contact_history (
 	contact_id NUMBER NOT NULL, /* 컨택번호 */
 	guest_id NUMBER, /* 게스트번호 */
 	price NUMBER, /* 가격 */
-	bid_time DATE /* 입찰시간 */
+	bid_time VARCHAR2(30) /* 입찰시간 */
 );
 
 /* 이메일인증 */

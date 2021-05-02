@@ -70,7 +70,9 @@ public class ContactDAOImpl implements ContactDAO {
 	// 컨택 입찰
 	@Override
 	public int bidUpdate(HashMap<String, String> map) {
-		return mybatis.update("contact.bidUpdate", map);
+		int bidResult = mybatis.update("contact.bidUpdate", map);
+		int hisResult = mybatis.insert("contact.insertHistory", map);
+		return (bidResult + hisResult);
 	}
 
 	// 컨택 최고가 확인
@@ -92,6 +94,6 @@ public class ContactDAOImpl implements ContactDAO {
 		System.out.println("컨택 수익배분 호스트 결과(1:성공, 0:실패) : " + hostResult);
 		int AdminResult = mybatis.insert("contact.addAdminRevenue", Integer.parseInt(contactId));
 		System.out.println("컨택 수익배분 관리자 결과(1:성공, 0:실패) : " + AdminResult);
-		return hostResult + AdminResult;
+		return (hostResult + AdminResult);
 	}
 }
