@@ -79,18 +79,17 @@
 					</div>
 				</div>
 			</div>
-              
               <div class="row">
                 <h4 class="col-md-2">약속 시간</h4>
-                    <h5 class="col-md-4">${bidView.MEETING_TIME}</h5>
+                <h5 class="col-md-4">${bidView.MEETING_TIME}</h5>
                 <h4 class="col-md-2">장소</h4>
-                    <h5 class="col-md-4">${bidView.LOCATION}</h5>
+                <h5 class="col-md-4">${bidView.LOCATION}</h5>
                 <h4 class="col-md-2" id="count_time_con">마감 시간<h5 class="col-md-4" id="count_time">${bidView.REGI_DATE}</h5></h4>
                 <h4 class="col-md-2" id="lastValue_con">현재 최고가</h4>
-                    <h5 class="col-md-4" id="lastValue">${bidView.LAST_VALUE}</h5><br/>
-                  <div class ="col-md-8" id="bid_result" style="text-align: right; line-height: 42px"></div>
-                  <input id="bid_price" type="text" class="col-md-2" style="border: 0; border-bottom:1px solid; font-size:15px; text-align: center;" placeholder="새 경매가를 입력하세요"></input><br/>
-                  <input id="bid" type="text" value="경매 참여" class="btn py-2 px-2 btn-primary col-md-2"/>               
+                <h5 id="lastValue" class="col-md-4">${bidView.LAST_VALUE}원</h5><br/>
+                <div class ="col-md-8" id="bid_result" style="text-align: right; line-height: 42px"></div>
+                <input id="bid_price" type="text" class="col-md-2" style="border: 0; border-bottom:1px solid; font-size:15px; text-align: center;" placeholder="새 경매가를 입력하세요"></input><br/>
+                <input id="bid" type="text" value="경매 참여" class="btn py-2 px-2 btn-primary col-md-2"/>               
               </div>
             </div>
           </div>

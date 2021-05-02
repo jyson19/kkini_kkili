@@ -228,7 +228,8 @@
 		    c.store_name AS store_name,
 		    c.location AS location,
 		    c.regi_date AS regi_date,
-		    c.last_value AS last_value,
+		    (SELECT REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(c.last_value)), '([0-9]{3})','\1,')), '^,','') 
+				FROM DUAL) AS last_value,
 		    c.contact_id AS contact_id
 		FROM 
 		    host h,
@@ -275,17 +276,18 @@
 	</update>	
 
 	<!-- 마감 -->
-
 	<!-- 마감 이후 결제처리(95%:호스트, 5%:관리자) -->
 		<!-- 호스트(95%) -->
 		<update id="updateHostRevenue" parameterType="int">
 			UPDATE host 
-			SET host_value = host_value+(SELECT (last_value * 0.95)
-											FROM contact
-											WHERE contact_id = #{contactId})
-			WHERE host_id = (SELECT host_id
-								FROM contact
-								WHERE contact_id = #{contactId})
+			SET host_value = host_value + 
+				(SELECT (last_value * 0.95)
+					FROM contact
+					WHERE contact_id = #{contactId})
+			WHERE 
+				host_id = (SELECT host_id
+							FROM contact
+							WHERE contact_id = #{contactId})
 		</update>
 		<!-- 관리자(5%) -->
 		<insert id="addAdminRevenue" parameterType="int">
@@ -302,7 +304,10 @@
 	<!-- 컨택 내역 조회를 위한 매퍼 -->
 	<select id="getMyContactList" parameterType="int" resultType="hashmap">
 		SELECT * 
-		FROM (SELECT * FROM CONTACT WHERE HOST_ID = #{memberId} OR GUEST_ID = #{memberId}) CT, (SELECT * FROM MEMBER WHERE NOT MEMBER_ID = #{memberId}) A
+		FROM (SELECT * 
+				FROM CONTACT 
+				WHERE HOST_ID = #{memberId} 
+					OR GUEST_ID = #{memberId}) CT, (SELECT * FROM MEMBER WHERE NOT MEMBER_ID = #{memberId}) A
 		WHERE CT.HOST_ID = A.MEMBER_ID OR CT.GUEST_ID = A.MEMBER_ID
 	</select>
 	

@@ -135,16 +135,20 @@ public class ContactController {
 		System.out.println("lvc : " + lvc + "\nlastValue : " + lastValue + "\nhostId : " + hostId + "\nmemberId : "
 				+ memberId + "\ncontactId : " + contactId + "\nbidPrice : " + bidPrice);
 
-		// 입찰 금액이 없을시(null)
-		if (bidPrice.isEmpty()) {
-			return "입찰 금액을 입력해주세요.";
-			
 		// 로그인 상태가 아닐시
-		} else if (loginFlag.equals("false")) {
+		if (loginFlag.equals("false")) {
 			return "로그인 이후 이용 가능합니다.";
 			
+		// 입찰 금액이 없을시(null)
+		} else if (bidPrice.isEmpty()) {
+			return "입찰 금액을 입력해주세요.";
+			
+		// 개최한 호스트와 같은 사람일시
+		} else if (hostId.equals(memberId)) {
+			return "개최자는 입찰에 참여할 수 없습니다.";
+			
 		// 현재 최고가보다 낮거나 같은 금액일시
-		} else if (Integer.parseInt(lastValue) >= Integer.parseInt(bidPrice)) {
+		} else if (Integer.parseInt(lastValue.replace(",", "").replace("원", "")) >= Integer.parseInt(bidPrice)) {
 			// 같은 시간에 누군가 최고금액 입찰시 해당 데이터 변경
 			int f_lastValue = contactService.lastValueCheck(Integer.parseInt(contactId));
 			return "최고가보다 높은 금액을 입력해주세요.:" + f_lastValue;
@@ -153,9 +157,9 @@ public class ContactController {
 		} else if (lvc.equals("마감 완료")) {
 			return "해당 컨택은 마감 완료되었습니다.";
 			
-		// 개최한 호스트와 같은 사람일시
-		} else if (hostId.equals(memberId)) {
-			return "개최자는 입찰에 참여할 수 없습니다.";
+		// 1000원 미만 단위 입력시
+		} else if ((Integer.parseInt(bidPrice) % 1000) > 0) {
+			return "입찰금액은 1000원 단위로 입력해주세요.";
 			
 		// 정상처리
 		} else {
@@ -201,6 +205,8 @@ public class ContactController {
 			}
 			// qr코드 인식시 이동할 url 주소
 			// 현재 임시 ip주소 -> 도메인변경해야함
+			// 집desktop : 112.170.105.233
+			// 씨앗 : 
 			String codeurl = new String(("http://112.170.105.233:8180/kkini_kkili/qr/signin.jsp?contactId=" + contactId + "&memberId=" + memberId).getBytes("UTF-8"), "ISO-8859-1");
 			// qr코드 바코드 생성값
 			int qrcodeColor = 0xFF000000;

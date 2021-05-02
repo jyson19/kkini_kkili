@@ -71,8 +71,14 @@ $(function() {
 				
 			// 입찰 완료시 최고가 금액 변경
 			} else if(iValue2 != -1){
-				$("#lastValue").text($("#bid_price").val());
+				$("#lastValue").text(addComma($("#bid_price").val()) + "원");
 			}
+		}
+		
+		//천단위 콤마 펑션
+		function addComma(value){
+			value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			return value; 
 		}
 	})
 })
