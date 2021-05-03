@@ -325,6 +325,22 @@
 		 -->
 	</select>
 	
+	<!-- 마이페이지 내 입찰 내역조회 -->
+	<select id="getBidHistory" parameterType="int" resultType="hashmap">
+		SELECT 
+			c.contact_intro AS contact_intro, 
+			m.name AS name, 
+			ch.bid_time AS bid_time, 
+			ch.price AS price, 
+			c.guest_id AS guest_id, 
+			c.contact_id AS contact_id
+		FROM contact c, member m, contact_history ch
+		WHERE c.contact_id = ch.contact_id
+			AND c.guest_id = m.member_id
+			AND ch.guest_id = #{memberId}
+	</select>
+	
+	
 	<!-- host join table 
 	<select id="" resultType="member">
 		SELECT m.member_id, m.name, m.email, m.password, m.tel, m.auth, m.join_date, m.last_conn_date

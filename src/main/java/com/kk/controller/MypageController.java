@@ -67,6 +67,18 @@ public class MypageController {
 		
 		return "mypage/contactHistory";	
 	}
+
+	// 마이페이지 내 입찰 내역조회
+	@RequestMapping("mypage/bidHistory.do")
+	public void bidHistory(Model m, HttpSession session) {
+		System.out.println("MypageController.bidHistory() 실행");
+		
+		// 로그인 시
+		if(session.getAttribute("member")!=null) {
+			int memberId = ((MemberVO)session.getAttribute("member")).getMemberId();
+			System.out.println("반환 : " + m.addAttribute("contactBid", contactService.getBidHistory(memberId)));
+		}
+	}
 	
 	// 컨택 가치 확인
 	@RequestMapping("mypage/contactValue")

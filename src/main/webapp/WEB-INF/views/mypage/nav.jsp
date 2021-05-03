@@ -160,7 +160,7 @@
                     </a>
                 </li>
                 <li class="">
-                    <a href="${pageContext.request.contextPath}/mypage/contactHistory.do" class="waves-effect waves-dark">
+                    <a href="${pageContext.request.contextPath}/mypage/bidHistory.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
                         <span class="pcoded-mtext">입찰 내역 조회</span>
                         <span class="pcoded-mcaret"></span>

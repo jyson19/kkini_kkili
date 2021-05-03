@@ -108,4 +108,10 @@ public class ContactServiceImpl implements ContactService {
 	public int addRevenue(String contactId) {
 		return contactDAO.addRevenue(contactId);
 	}
+
+	// 마이페이지 내 입찰 내역조회
+	@Override
+	public List<Map<String, String>> getBidHistory(int memberId) {
+		return contactDAO.getBidHistory(memberId);
+	}
 }
