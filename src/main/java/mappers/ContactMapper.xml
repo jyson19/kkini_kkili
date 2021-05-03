@@ -313,9 +313,16 @@
 	
 	<!-- 컨택 가치 확인을 위한 매퍼 -->
 	<select id="contactValue" parameterType="int" resultType="hashmap">
-		SELECT * 
-		FROM (SELECT * FROM CONTACT WHERE HOST_ID = #{memberId} OR GUEST_ID = #{memberId}) CT, (SELECT * FROM MEMBER WHERE NOT MEMBER_ID = #{memberId}) A
-		WHERE CT.HOST_ID = A.MEMBER_ID OR CT.GUEST_ID = A.MEMBER_ID
+		
+		SELECT CT.*, A.*, h.host_value, ch.cnt
+		FROM (SELECT * FROM CONTACT WHERE HOST_ID = #{memberId} OR GUEST_ID = #{memberId}) CT, (SELECT * FROM MEMBER WHERE NOT MEMBER_ID = #{memberId}) A, HOST H, (SELECT CONTACT_ID, COUNT(*) AS CNT FROM contact_history CH GROUP BY CONTACT_ID) CH
+		WHERE CT.HOST_ID = A.MEMBER_ID OR CT.GUEST_ID = A.MEMBER_ID AND CT.HOST_ID = H.HOST_ID AND CT.CONTACT_ID = ch.contact_id
+		
+		<!-- 		
+	    SELECT CT.*, A.*, h.host_value
+		FROM (SELECT * FROM CONTACT WHERE HOST_ID = #{memberId} OR GUEST_ID = #{memberId}) CT, (SELECT * FROM MEMBER WHERE NOT MEMBER_ID = #{memberId}) A, HOST H
+		WHERE CT.HOST_ID = A.MEMBER_ID OR CT.GUEST_ID = A.MEMBER_ID AND CT.HOST_ID = H.HOST_ID
+		 -->
 	</select>
 	
 	<!-- host join table 
