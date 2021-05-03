@@ -65,10 +65,11 @@
 								class="img-fluid rounded-circle mb-4">
 				</div>
 				<div class="desc align-self-md-center">
-					<span><h3 id="name" class="name font-weight-bold">${bidView.NAME}</h3></span>
-					<span><h4 id="company" class="font-weight-light">${bidView.COMPANY}</h4></span>
+					<span><h3 id="name" class="name font-weight-bold" style="display: inline;">${bidView.NAME}</h3></span>
+					<span><h4 id="company" class="font-weight-light" style="display: inline; color: gray;">${bidView.COMPANY}</h4></span>
 					<p>최근 접속일 : ${bidView.LAST_CONN_DATE}</p>
 					<p>소개 : ${bidView.CONTENT}</p>
+					<!-- 
 					<div class="tag-widget post-tag-container mb-5 mt-5">
 						<div class="tagcloud">
 							<a href="#" class="tag-cloud-link">네이버</a> 
@@ -77,6 +78,7 @@
 							<a href="#" class="tag-cloud-link">여행</a>
 						</div>
 					</div>
+					 -->
 				</div>
 			</div>
               <div class="row">

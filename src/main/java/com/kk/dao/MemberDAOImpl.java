@@ -38,4 +38,9 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println("MemberDAO: " + result);
 		return result;
 	}
+
+	// 최근 접속일 갱신
+	public int updateConnDate(MemberVO member) {
+		return mybatis.update("member.updateConnDate", member);
+	}
 }

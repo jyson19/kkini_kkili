@@ -78,9 +78,13 @@ public class MemberController {
 		// qr코드를 통한 로그인시
 		if(memberId != null && memberService.memberSigninService(member) != null) {
 			MemberVO mem = (MemberVO) memberService.memberSigninService(member);
+			// 최근접속일 갱신
+			memberService.updateConnDate(member);
+			
 			if(Integer.parseInt(memberId) == mem.getMemberId()) {
 				log.info("MemberController.signinAttempt qr값 전달");
 				return "forward:../contact/qrCheckIn.do"; 
+				
 			} else {
 				// 해당 컨택의 참가자가 아닐때
 				return "redirect:../contact/qrCheckIn_fail.do"; 
@@ -89,8 +93,9 @@ public class MemberController {
 		// 일반 로그인시
 		} else if (memberId == null && memberService.memberSigninService(member) != null) {
 			session.setAttribute("member", (MemberVO) memberService.memberSigninService(member));
-//			System.out.println(session.getAttribute("member"));
-//			session.setAttribute("member", (MemberVO) memberService.getMember(member));
+
+			// 최근접속일 갱신
+			memberService.updateConnDate(member);
 			
 			return "redirect:" + prevPage;
 		} else {

@@ -43,7 +43,7 @@ CREATE TABLE member (
 	tel NUMBER(30), /* 휴대폰번호 */
 	auth NUMBER(1), /* 회원등급 */
 	join_date DATE, /* 가입일자 */
-	last_conn_date DATE NOT NULL /* 최근접속일 */
+	last_conn_date VARCHAR2(30) /* 최근접속일 */
 );
 
 /* 호스트 */

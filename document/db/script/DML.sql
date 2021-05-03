@@ -27,21 +27,21 @@ CREATE SEQUENCE seq_notice_no;
 /**/
 
 /* member */
-INSERT INTO member VALUES(seq_mid.nextval, '이재용', 'samsung@gmail.com', 'samsung123', 01012343333, 1, '2021-04-01', '2021-04-10');
-INSERT INTO member VALUES(seq_mid.nextval, '최태원', 'sk@gmail.com', 'sk123', 01012341111, 1, '2021-04-02', '2021-04-11');
-INSERT INTO member VALUES(seq_mid.nextval, '김범석', 'coopang@gmail.com', 'coopang123', 01012342222, 1, '2021-04-02', '2021-04-12');
-INSERT INTO member VALUES(seq_mid.nextval, '이해진', 'naver@gmail.com', 'naver123', 01012345555, 1, '2021-04-03', '2021-04-13');
-INSERT INTO member VALUES(seq_mid.nextval, '김범수', 'kakao@gmail.com', 'kakao123', 01012346666, 1, '2021-04-04', '2021-04-14');
-INSERT INTO member VALUES(seq_mid.nextval, '신중호', 'line@gmail.com', 'line123', 01012347777, 1, '2021-04-05', '2021-04-16');
-INSERT INTO member VALUES(seq_mid.nextval, '김봉진', 'baemin@gmail.com', 'baemin123', 01012348888, 0, '2021-04-06', '2021-04-12');
-INSERT INTO member VALUES(seq_mid.nextval, '이승건', 'toss@gmail.com', 'toss123', 01012349999, 0, '2021-04-12', '2021-04-13');
-INSERT INTO member VALUES(seq_mid.nextval, '안성우', 'zigbang@gmail.com', 'zigbang123', 01012351111, 0, '2021-04-01', '2021-04-02');
-INSERT INTO member VALUES(seq_mid.nextval, '김팀쿡', 'apple@gmail.com', 'apple123', 01012353333, 0, '2021-04-02', '2021-04-14');
-INSERT INTO member VALUES(seq_mid.nextval, '관리자', 'manager@kkinikkili.com', 'kkinimaster', 01012364444, 2, '2021-04-26', '2021-04-26');
+INSERT INTO member VALUES(seq_mid.nextval, '이재용', 'samsung@gmail.com', 'samsung123', 01012343333, 1, '2021-04-01', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '최태원', 'sk@gmail.com', 'sk123', 01012341111, 1, '2021-04-02', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '김범석', 'coopang@gmail.com', 'coopang123', 01012342222, 1, '2021-04-02', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '이해진', 'naver@gmail.com', 'naver123', 01012345555, 1, '2021-04-03', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '김범수', 'kakao@gmail.com', 'kakao123', 01012346666, 1, '2021-04-04', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '신중호', 'line@gmail.com', 'line123', 01012347777, 1, '2021-04-05', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '김봉진', 'baemin@gmail.com', 'baemin123', 01012348888, 0, '2021-04-06', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '이승건', 'toss@gmail.com', 'toss123', 01012349999, 0, '2021-04-12', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '안성우', 'zigbang@gmail.com', 'zigbang123', 01012351111, 0, '2021-04-01', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '김팀쿡', 'apple@gmail.com', 'apple123', 01012353333, 0, '2021-04-02', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '관리자', 'manager@kkinikkili.com', 'kkinimaster', 01012364444, 2, '2021-04-26', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
 
-INSERT INTO member VALUES(seq_mid.nextval, '멤버1', 'member1@gmail.com', 'member123', 01012364444, 2, '2021-05-01', '2021-05-26');
-INSERT INTO member VALUES(seq_mid.nextval, '멤버2', 'member2@gmail.com', 'member123', 01012364444, 2, '2021-03-02', '2021-03-02');
-INSERT INTO member VALUES(seq_mid.nextval, '멤버3', 'member3@gmail.com', 'member123', 01012364444, 2, '2021-05-02', '2021-05-02');
+INSERT INTO member VALUES(seq_mid.nextval, '멤버1', 'member1@gmail.com', 'member123', 01012364444, 2, '2021-05-01', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '멤버2', 'member2@gmail.com', 'member123', 01012364444, 2, '2021-03-02', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
+INSERT INTO member VALUES(seq_mid.nextval, '멤버3', 'member3@gmail.com', 'member123', 01012364444, 2, '2021-05-02', TO_CHAR(TO_DATE('20210502120000', 'YYYYMMDDHH24MISS'), 'YYYY-MM-DD HH24:MI:SS'));
 
 /* host */
 /* 임시 DB상 회원번호 1~6번만 호스트 권한 보유 */

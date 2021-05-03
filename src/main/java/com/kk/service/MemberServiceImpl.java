@@ -32,4 +32,10 @@ public class MemberServiceImpl implements MemberService {
 	public int insertMember(MemberVO vo) {
 		return memberDAO.insertMember(vo);
 	}
+
+	// 최근접속일 갱신
+	@Override
+	public int updateConnDate(MemberVO member) {
+		return memberDAO.updateConnDate(member);
+	}
 }
