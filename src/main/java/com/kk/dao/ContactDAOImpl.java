@@ -96,4 +96,10 @@ public class ContactDAOImpl implements ContactDAO {
 		System.out.println("컨택 수익배분 관리자 결과(1:성공, 0:실패) : " + AdminResult);
 		return (hostResult + AdminResult);
 	}
+
+	// 마이페이지 내 입찰 내역조회
+	@Override
+	public List<Map<String, String>> getBidHistory(int memberId) {
+		return mybatis.selectList("contact.getBidHistory", memberId);
+	}
 }

@@ -3,7 +3,9 @@
 <%@ page import="com.kk.domain.MemberVO" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% 
 
 	MemberVO member = null;
@@ -159,19 +161,19 @@
                                                                 <th>컨택 장소</th>
                                                                 <th>만난 이</th>
                                                                 <th>컨택 제목</th>
-                                                            	<th>경매 참여자 수</th>
+                                                            	<th>경매 입찰 건수</th>
                                                                 <th>수익</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-	                                                        <c:forEach items="${contactInfo }" var="contact">
+	                                                        <c:forEach items="${contactValue }" var="contact">
 	                                                            <tr>
 	                                                                <td>${contact.MEETING_TIME }</td>
 	                                                                <td>${contact.STORE_NAME }</td>
 	                                                            	<td><a href="">${contact.NAME }</a></td>
 	                                                                <td><a href="">${contact.CONTACT_INTRO}</a></td>
-	                                                                <td>${contact.BID_TIME}</td>
-	                                                                <td>${contact.LAST_VALUE * 0.95}</td>
+	                                                                <td>${contact.CNT}</td>
+	                                                                <td> <fmt:formatNumber value="${contact.LAST_VALUE * 0.95}" type="number"/>원</td>
 	                                                            </tr>
                                                             </c:forEach>
                                                         </tbody>

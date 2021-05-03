@@ -268,4 +268,11 @@ public class ContactController {
 	public void qrCheckInFail() {
 		log.info("ContactController.qrCheckIn 실행 -> qr checkin 실패");
 	}
+	
+	// 마이페이지 내 입찰 내역조회
+//	@RequestMapping("contact/qrCheckIn.do")
+//	public void bidHistory(Model m, HttpSession session) {
+//		System.out.println("ContactController.bidHistory 실행");
+//		
+//	}
 }

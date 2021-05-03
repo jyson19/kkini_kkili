@@ -71,6 +71,18 @@ public class MypageController {
 		
 		return "mypage/contactHistory";	
 	}
+
+	// 마이페이지 내 입찰 내역조회
+	@RequestMapping("mypage/bidHistory.do")
+	public void bidHistory(Model m, HttpSession session) {
+		System.out.println("MypageController.bidHistory() 실행");
+		
+		// 로그인 시
+		if(session.getAttribute("member")!=null) {
+			int memberId = ((MemberVO)session.getAttribute("member")).getMemberId();
+			System.out.println("반환 : " + m.addAttribute("contactBid", contactService.getBidHistory(memberId)));
+		}
+	}
 	
 	// 컨택 가치 확인
 	@RequestMapping("mypage/contactValue")
@@ -79,7 +91,7 @@ public class MypageController {
 		// 로그인 시
 		if(session.getAttribute("member")!=null) {
 			int userId = ((MemberVO)session.getAttribute("member")).getMemberId();
-			m.addAttribute("contactInfo", contactService.getMyContactList(userId));
+			m.addAttribute("contactValue", contactService.contactValue(userId));
 		}
 		return "mypage/contactValue";
 	}
@@ -152,6 +164,34 @@ public class MypageController {
 			return "mypage/summary";
 			
 		} else if (memberSession.getAuth() == 1) {
+			// 컨택 내역 가져와서 보내기
+			int userId = ((MemberVO)session.getAttribute("member")).getMemberId();
+			m.addAttribute("contactInfo", contactService.getMyContactList(userId));
+			m.addAttribute("contactValue", contactService.contactValue(userId));
+			
+			// 북마크 내역 가져와서 보내기
+			BookmarkVO bookmark = new BookmarkVO();
+			bookmark.setHostId( userId );
+			m.addAttribute("memberList", bookmarkService.getMemberListByHostId(bookmark));
+			m.addAttribute("memberList2", bookmarkService.getMemberListByGuestId(bookmark));
+
+			// 프로필 관련 사항 조회
+			HostVO hostVO = new HostVO();
+			hostVO.setHostId(userId);
+			if(profileService.getProfile(hostVO) == null) {
+				// 프로필 작성을 안했다면 그냥 통과
+			} if(profileService.getProfile(hostVO) != null) { // 이미 호스트 신청함
+				// 프로필 작성을 했다면 호스트 심사 중 메세지 띄워야 함
+				MemberVO memberVO = new MemberVO();
+				
+				memberVO.setMemberId(userId);
+				
+				if(memberService.getMember(memberVO).getAuth()==1) {
+					m.addAttribute("profile", "호스트 인증 완료");	
+				} else { 
+					m.addAttribute("profile", "호스트 심사 중");		
+				}
+			}
 			return "mypage/summary";
 		} else if (memberSession.getAuth() == 2) {
 			return "redirect:../admin/main.do";
