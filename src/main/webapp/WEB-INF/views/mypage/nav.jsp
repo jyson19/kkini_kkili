@@ -18,7 +18,7 @@
                 <div class="main-menu-header">
                     <img class="img-80 img-radius" src="../upload/host/pic${member.memberId}.jpg" onerror="this.src='../upload/host/pic0.jpg';" alt="User-Profile-Image">
                     <div class="user-details">
-                        <span id="more-details"><%=member.getName()%></span>
+                        <span id="more-details">${member.name}</span>
                     </div>
                 </div>
                 <!-- <div class="main-menu-content">
@@ -156,6 +156,13 @@
                     <a href="${pageContext.request.contextPath}/mypage/contactHistory.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
                         <span class="pcoded-mtext">컨택 내역</span>
+                        <span class="pcoded-mcaret"></span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="${pageContext.request.contextPath}/mypage/contactHistory.do" class="waves-effect waves-dark">
+                        <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
+                        <span class="pcoded-mtext">입찰 내역 조회</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
