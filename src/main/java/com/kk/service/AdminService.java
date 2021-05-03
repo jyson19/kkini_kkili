@@ -38,4 +38,8 @@ public interface AdminService {
 	List<HashMap<String, String>> getChartMakingContactUser();
 
 	List<HashMap<String, String>> getChartReservation();
+
+	int totalSales();
+
+	List<HashMap<String, String>> getSalesHistory();
 }

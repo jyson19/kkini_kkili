@@ -46,13 +46,13 @@
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
-                <li class="pcoded-hasmenu">
+                <%-- <li class="pcoded-hasmenu">
                     <a href="${pageContext.request.contextPath}/admin/staff.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                         <span class="pcoded-mtext">스탭관리</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
-                </li>
+                </li> --%>
                 <li class="pcoded-hasmenu">
                     <a href="${pageContext.request.contextPath}/admin/hostup.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
@@ -60,13 +60,13 @@
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
-                <li class="pcoded-hasmenu">
+                <%-- <li class="pcoded-hasmenu">
                     <a href="${pageContext.request.contextPath}/admin/dormancy.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                         <span class="pcoded-mtext">휴면계정 조회</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
-                </li>
+                </li> --%>
             </ul>
             <!-- <div class="pcoded-navigation-label">UI Element</div>
             <ul class="pcoded-item pcoded-left-item">
@@ -148,7 +148,7 @@
                 <li class="">
                     <a href="${pageContext.request.contextPath}/admin/users.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
-                        <span class="pcoded-mtext">이용자 수 조회</span>
+                        <span class="pcoded-mtext">끼니끼리 통계 조회</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li>
@@ -162,13 +162,13 @@
             </ul>
             <div class="pcoded-navigation-label">운영관리</div>
             <ul class="pcoded-item pcoded-left-item">
-                <li class="">
+                <%-- <li class="">
                     <a href="${pageContext.request.contextPath}/admin/sales.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
                         <span class="pcoded-mtext">총매출 조회</span>
                         <span class="pcoded-mcaret"></span>
                     </a>
-                </li>
+                </li> --%>
                 <li class="">
                     <a href="${pageContext.request.contextPath}/admin/book.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-receipt"></i><b>B</b></span>
