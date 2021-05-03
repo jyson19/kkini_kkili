@@ -105,5 +105,15 @@ public class AdminServiceImpl implements AdminService{
 		return AdminDAO.getChartReservation();
 	}
 
+	@Override
+	public int totalSales() {
+		return AdminDAO.totalSales();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getSalesHistory() {
+		return AdminDAO.getSalesHistory();
+	}
+
 	
 }

@@ -111,6 +111,14 @@ public class AdminDAOImpl implements AdminDAO{
 		return mybatis.selectList("admin.getChartReservation");
 	}
 
+	public int totalSales() {
+		return mybatis.selectOne("admin.totalSales");
+	}
+
+	public List<HashMap<String, String>> getSalesHistory() {
+		return mybatis.selectList("admin.getSalesHistory");
+	}
+
 
 
 }
