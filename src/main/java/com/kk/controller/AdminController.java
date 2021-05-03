@@ -22,8 +22,9 @@ public class AdminController {
 	
 	// 관리자 메인 페이지
 	@RequestMapping("admin/main.do")
-	public void getAdminMain() {
+	public String getAdminMain() {
 		System.out.println("getAdminMain 실행");
+		return "redirect: hostup.do";
 	}
 	
 	// 스탭 관리
@@ -84,15 +85,18 @@ public class AdminController {
 		System.out.println("getMatch 실행");
 	}
 	
-	// 총 매출 조회
-	@RequestMapping("admin/sales.do")
-	public void getSales() {
-		System.out.println("getSales 실행");
-	}
+//	// 총 매출 조회
+//	@RequestMapping("admin/sales.do")
+//	public void totalSales() {
+//		System.out.println("getSales 실행");
+//	}
 	
 	// 매출 장부 조회
 	@RequestMapping("admin/book.do")
-	public void getBook() {
+	public void getSalesHistory(Model m, HttpSession session) {
+		m.addAttribute("totalSales", adminService.totalSales());
+		m.addAttribute("salesHistory", adminService.getSalesHistory());
+		
 		System.out.println("getBook 실행");
 	}
 	

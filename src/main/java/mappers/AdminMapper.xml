@@ -127,8 +127,13 @@
 	</select>
 	
 	<!-- 총 매출 조회 -->
+	<select id="totalSales" resultType="int">
+		SELECT sum(sales) as totalSales FROM account
+	</select>
 	
 	<!-- 매출 장부 조회 -->
-	
+	<select id="getSalesHistory" resultType="hashmap">
+		SELECT * FROM account a, contact c WHERE a.contact_id = c.contact_id 
+	</select>
 	
 </mapper>

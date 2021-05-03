@@ -103,8 +103,6 @@
 							<div id="star_div" class="float-right"><i id="star" class="fa fa-star-o" aria-hidden="true" style="color:#2DAD92"></i></div>						
 						<% } %>
 					<% } %>
-					호스트 프로필 페이지 표기 목록 1. 사진 2. 소속(회사) 3. 생성했던 컨택 목록 4. 댓글 제외 항목 1. 자기소개
-					2.
 
 
 					<!-- <h2 class="mb-3">간단한 자기소개 부탁드립니다!</h2>

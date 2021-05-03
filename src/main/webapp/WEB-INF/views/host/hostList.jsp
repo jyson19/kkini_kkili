@@ -34,6 +34,32 @@
     <link rel="stylesheet" href="./../resources/css/flaticon.css">
     <link rel="stylesheet" href="./../resources/css/icomoon.css">
     <link rel="stylesheet" href="./../resources/css/style.css">
+  	<style>
+  	
+  	#pfcontent{
+  	
+  	/* 한 줄 자르기 */ 
+  	display: inline-block; 
+  	width: 200px; 
+  	white-space: nowrap; 
+  	overflow: hidden; 
+  	text-overflow: ellipsis; 
+  	
+  	/* 여러 줄 자르기 추가 스타일 */ 
+  	white-space: normal; 
+  	line-height: 1.2; 
+  	height: 3.6em; 
+  	text-align: left; 
+  	word-wrap: break-word; 
+  	display: -webkit-box; 
+  	-webkit-line-clamp: 3; 
+  	-webkit-box-orient: vertical;  	
+  	
+  	}
+  	
+  	</style>
+  
+  
   </head>
   <body>
   
@@ -53,19 +79,19 @@
       </div>
     </div>
     
-
+	
     <section class="ftco-section bg-light">
       <div class="container">
         <div class="row d-flex">
         
         <c:forEach var="host" items="${hostInfo}" > <!-- begin="0" end="10" step="1" varStatus="status" -->
           <div class="col-md-3 d-flex ftco-animate">
-            <div class="blog-entry align-self-stretch">
+            <div class="blog-entry align-self-stretch" style="width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">
               <a href="${pageContext.request.contextPath}/host/profile.do?hostId=${host.HOST_ID}" class="block-20" style="background-image: url('../upload/host/pic${host.HOST_ID}.jpg');">
               </a>
               <div class="text p-4 d-block">
                 <span class="heading">${host.NAME}</span>
-                <h3 class="heading mt-3"><a href="#">${host.CONTENT}</a></h3>
+                <h3 class="heading mt-3" id="pfcontent"><a href="#">${host.CONTENT}</a></h3>
                 <div class="meta mb-3">
                 <div><a href="#">마지막 접속일 ${fn:substring(host.LAST_CONN_DATE,0,10)}</a></div>
                 <!-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 후기 3</a></div> -->
