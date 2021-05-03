@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ page import="com.kk.domain.MemberVO" %>
 
 <% 
@@ -168,6 +168,7 @@
                                                     </ul>
                                                 </div>
                                             </div>
+                                            
                                             <div class="card-block table-border-style" style="display: none;">
                                                 <div class="table-responsive">
                                                 	<c:if test="${empty contactInfo }">
@@ -220,6 +221,7 @@
                                                     </c:if>
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <!-- Hover table card end -->
                                         <!-- Hover table card start -->
@@ -270,14 +272,133 @@
                                             </div>
                                         </div>
                                         <!-- Hover table card end -->
-                                        <c:if test="${!empty profile}">
-                                        <div class="card-header">
-                                          <h5>프로필 작성</h5>
-                                          <span><code>${profile }</code></span>
-  	                                    </div>
-                                        </c:if>
-                                        
+                                        <% if(member.getAuth() == 0){ %>
+                                       <div class="card">
+	                                        <c:if test="${!empty profile}">
+	                                        <div class="card-header">
+	                                          <h5>프로필 심사</h5>
+        										<span>프로필을 <code> 심사 </code> 중 입니다. </span>
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option" style="width: 140px;">
+                                                        <li><i class="fa fa open-card-option fa-times"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa minimize-card fa-plus"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-trash close-card"></i></li>
+                                                    </ul>
+                                                </div>
+	  	                                    </div>
+	                                        </c:if>
+	                                        <c:if test="${empty profile}">
+	                                        <div class="card-header">
+	                                          <h5>프로필 작성</h5>
+        										<span>프로필을 <code> 작성 </code> 해주세요. </span>
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option" style="width: 140px;">
+                                                        <li><i class="fa fa open-card-option fa-times"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa minimize-card fa-plus"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-trash close-card"></i></li>
+                                                    </ul>
+                                                </div>
+	  	                                    </div>
+	                                        </c:if>
+                                        </div>
+                                    	<% }%>
                                     </div>
+                              		<!-- Hover table card start -->
+                                    <div class="card">
+                                            <div class="card-header">
+                                                <h5>나를 주목하는 사람들 목록</h5>
+                                                <span>내게 관심있는 <code>유저</code>목록입니다.</span>
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option" style="width: 140px;">
+                                                        <li><i class="fa fa open-card-option fa-times"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa minimize-card fa-plus"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-trash close-card"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-block table-border-style" style="display: none;">
+                                                <div class="table-responsive">
+                                            <c:if test="${empty memberList2 }">
+	                                                   	    목록에 사람이 없습니다.
+	                                                </c:if>
+	                                                <c:if test="${!empty memberList2 }">
+	                                                    <table class="table table-hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <!-- <th>고유번호</th> -->
+                                                                <th>이름</th>
+                                                                <th>소속</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+	                                                        <c:forEach items="${memberList2 }" var="member">
+	                                                            <tr>
+	                                                                <%-- <td>${member.memberId }</td> --%>
+	                                                                <td>${member.NAME }</td>
+	                                                                <td>${member.COMPANY }</td>
+	                                                            </tr>
+                                                            </c:forEach>
+                                                        </tbody>
+                                                    	</table>
+	                                                </c:if>
+	                                               </div>
+                                  			  </div>
+                                  			</div>  
+                                  			  <!-- Hover table card start -->
+                                    	<div class="card">
+                                            <div class="card-header">
+                                                <h5>컨택 가치 확인</h5>
+                                                <span>진행했던 컨택 내역을 보고 <code>수익</code>을 확인하세요.</span>
+                                                <div class="card-header-right">
+                                                    <ul class="list-unstyled card-option" style="width: 140px;">
+                                                        <li><i class="fa fa open-card-option fa-times"></i></li>
+                                                        <li><i class="fa fa-window-maximize full-card"></i></li>
+                                                        <li><i class="fa fa minimize-card fa-plus"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-trash close-card"></i></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="card-block table-border-style" style="display: none;">
+                                                <div class="table-responsive">
+                                            <c:if test="${empty contactValue }">
+	                                                   	    진행했던 컨택 내역이 없습니다. 컨택을 생성해 주세요.
+	                                                </c:if>
+	                                                <c:if test="${!empty contactValue }">
+	                                                    <table class="table hover">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>컨택 시간</th>
+                                                                <th>컨택 장소</th>
+                                                                <th>만난 이</th>
+                                                                <th>컨택 제목</th>
+                                                            	<th>경매 참여자 수</th>
+                                                                <th>수익</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+	                                                        <c:forEach items="${contactValue }" var="contact">
+	                                                            <tr>
+	                                                                <td>${contact.MEETING_TIME }</td>
+	                                                                <td>${contact.STORE_NAME }</td>
+	                                                            	<td><a href="">${contact.NAME }</a></td>
+	                                                                <td><a href="">${contact.CONTACT_INTRO}</a></td>
+	                                                                <td>${contact.CNT}</td>
+	                                                                <td> <fmt:formatNumber value="${contact.LAST_VALUE * 0.95}" type="number"/>원</td>
+	                                                            </tr>
+                                                            </c:forEach>
+                                                        </tbody>
+                                                    </table>
+	                                                </c:if>
+	                                               </div>
+                                  			  </div>
+                                  			</div> 
                                     <!-- Page-body end -->
                                 </div>
                                 <div id="styleSelector"> </div>
