@@ -118,9 +118,9 @@
 										<c:forEach items="${recentBidList}" var="recentBidList">
 											<tr>
 												<th scope="row">${recentBidList.RN }</th>
-												<td>${recentBidList.NAME }</td>
-												<td>${recentBidList.BID_TIME }</td>
-												<td>${recentBidList.PRICE }원</td>
+												<td>${recentBidList.NAME }</td=>
+												<td>${recentBidList.BID_TIME }</td=>
+												<td>${recentBidList.PRICE }원</td=>
 											</tr>
 										</c:forEach>
 										</tbody>
@@ -128,6 +128,7 @@
 								</div>
 							</div>
 						</div>
+						
 						<!-- 
 						 <div class="col-md-4"></div>
 						 -->
@@ -173,6 +174,9 @@
       </div>
       
       <!-- ajax로 넘겨주는 값 -->
+      <div id="upName" style="display:none">${recentBidListUpdate[1].NAME}</div>
+      <div id="upBidTime" style="display:none">${recentBidListUpdate[1].BID_TIME}</div>
+      <div id="upPrice" style="display:none">${recentBidListUpdate[1].PRICE}</div>
       <div id="hostId" style="display:none">${bidView.HOST_ID}</div>
       <div id="memberId" style="display:none"><%=memberId%></div>
       <div id="loginFlag" style="display:none"><%=login%></div>

@@ -39,7 +39,9 @@ countDownTimer('count_time', tag1.textContent);
 
 // 입찰
 $(function() {
-	$("#bid").click(function() {
+	// $("#bid").click(function() {
+	$(document).on("click","#bid",function(){
+
 		let param = {
 			lvc : $("#count_time_con").text().trim(),
 			lastValue : $("#lastValue").text().trim(),
@@ -72,6 +74,25 @@ $(function() {
 			// 입찰 완료시 최고가 금액 변경
 			} else if(iValue2 != -1){
 				$("#lastValue").text(addComma($("#bid_price").val()) + "원");
+
+				// 최근 입찰내역 업데이트
+				$('tbody > tr > td:nth-child(2)').addClass('recentBid-1');
+				$('tbody > tr > td:nth-child(3)').addClass('recentBid-2');
+				$('tbody > tr > td:nth-child(4)').addClass('recentBid-3');
+
+				let rb1 = document.getElementsByClassName("recentBid-1");
+				let rb2 = document.getElementsByClassName("recentBid-2");
+				let rb3 = document.getElementsByClassName("recentBid-3");
+
+				for( var i = 2; i > 0; i--) {
+					$(".recentBid-1")[i].textContent = rb1[i - 1].textContent;
+					$(".recentBid-2")[i].textContent = rb2[i - 1].textContent;
+					$(".recentBid-3")[i].textContent = rb3[i - 1].textContent;
+				}
+				
+				$(".recentBid-1")[0].textContent = $("#upName").textContent;
+				$(".recentBid-2")[0].textContent = $("#upBidTime").textContent;
+				$(".recentBid-3")[0].textContent = $("#upPrice").textContent;
 			}
 		}
 		
