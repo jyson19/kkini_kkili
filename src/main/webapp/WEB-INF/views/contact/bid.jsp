@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%!
 	String email = "";
 	int memberId = 0;
@@ -34,14 +35,17 @@
     <link rel="stylesheet" href="./../resources/css/aos.css">
     <link rel="stylesheet" href="./../resources/css/ionicons.min.css">
     <link rel="stylesheet" href="./../resources/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" type="text/css" href="./../resources/assets/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./../resources/assets/css/style.css">
     <link rel="stylesheet" href="./../resources/css/jquery.timepicker.css">
     <link rel="stylesheet" href="./../resources/css/flaticon.css">
     <link rel="stylesheet" href="./../resources/css/icomoon.css">
     <link rel="stylesheet" href="./../resources/css/style.css">
     <style>
-      #bid_price:focus{
-        outline: none;
-      }
+		#bid_price:focus{
+			outline: none;
+		}
+		p {margin: 0 auto;}
 
     </style>
   </head>
@@ -67,8 +71,11 @@
 				<div class="desc align-self-md-center">
 					<span><h3 id="name" class="name font-weight-bold" style="display: inline;">${bidView.NAME}</h3></span>
 					<span><h4 id="company" class="font-weight-light" style="display: inline; color: gray;">${bidView.COMPANY}</h4></span>
-					<p>최근 접속일 : ${bidView.LAST_CONN_DATE}</p>
-					<p>소개 : ${bidView.CONTENT}</p>
+					<p><span style="font-weight: bold;">최근 접속일</span> : ${bidView.LAST_CONN_DATE}</p><br/>
+					<p><span style="font-weight: bold;">소개</span> : ${bidView.CONTENT}</p>
+					<p><span style="font-weight: bold;">일시</span> : ${bidView.MEETING_TIME}</p>
+					<p><span style="font-weight: bold;">장소</span> : ${bidView.STORE_NAME}</p>
+					<p><span style="font-weight: bold;">주소</span> : ${bidView.LOCATION}</p>
 					<!-- 
 					<div class="tag-widget post-tag-container mb-5 mt-5">
 						<div class="tagcloud">
@@ -81,27 +88,93 @@
 					 -->
 				</div>
 			</div>
-              <div class="row">
-                <h4 class="col-md-2">약속 시간</h4>
-                <h5 class="col-md-4">${bidView.MEETING_TIME}</h5>
-                <h4 class="col-md-2">장소</h4>
-                <h5 class="col-md-4">${bidView.LOCATION}</h5>
-                <h4 class="col-md-2" id="count_time_con">마감 시간<h5 class="col-md-4" id="count_time">${bidView.REGI_DATE}</h5></h4>
-                <h4 class="col-md-2" id="lastValue_con">현재 최고가</h4>
-                <h5 id="lastValue" class="col-md-4">${bidView.LAST_VALUE}원</h5><br/>
-                <div class ="col-md-8" id="bid_result" style="text-align: right; line-height: 42px"></div>
-                <input id="bid_price" type="text" class="col-md-2" style="border: 0; border-bottom:1px solid; font-size:15px; text-align: center;" placeholder="새 경매가를 입력하세요"></input><br/>
-                <input id="bid" type="text" value="경매 참여" class="btn py-2 px-2 btn-primary col-md-2"/>               
-              </div>
-            </div>
+					<div class="row">
+						<div class="card col-md-8" style="width: 100%; margin: 0 auto;">
+							<div class="card-header">
+								<h5>최근 입찰 내역</h5>
+								<span>최근 입찰 <code>3건</code>의 내역입니다.</span> 
+								<div class="card-header-right">
+									<ul class="list-unstyled card-option">
+										<li><i class="fa fa fa-wrench open-card-option"></i></li>
+										<li><i class="fa fa-window-maximize full-card"></i></li>
+										<li><i class="fa fa-minus minimize-card"></i></li>
+										<li><i class="fa fa-refresh reload-card"></i></li>
+										<li><i class="fa fa-trash close-card"></i></li>
+									</ul>
+								</div>
+							</div>
+							<div class="card-block table-border-style">
+								<div class="table-responsive">
+									<table class="table table-hover" style="text-align: center;">
+										<thead >
+											<tr>
+												<th></th>
+												<th>입찰자</th>
+												<th>일시</th>
+												<th>금액</th>
+											</tr>
+										</thead>
+										<tbody>
+										<c:forEach items="${recentBidList}" var="recentBidList">
+											<tr>
+												<th scope="row">${recentBidList.RN }</th>
+												<td>${recentBidList.NAME }</td>
+												<td>${recentBidList.BID_TIME }</td>
+												<td>${recentBidList.PRICE }원</td>
+											</tr>
+										</c:forEach>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+						<!-- 
+						 <div class="col-md-4"></div>
+						 -->
+
+						<div class="card-block col-md-4">
+							<div class="row align-items-center b-b-default" style="height: 50%; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem;">
+								<div class="col-sm-12 b-r-default p-b-20 p-t-20">
+									<div class="row align-items-center text-center">
+										<div class="col-12 p-l-0">
+											<p class="text-muted m-b-0" id="count_time_con">마감 시간<h5 id="count_time">${bidView.REGI_DATE}</h5>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row align-items-center" style="height: 50%; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem;">
+								<div class="col-sm-12 p-b-20 p-t-20">
+									<div class="row align-items-center text-center">
+										<div class="col-12 p-l-0">
+											<p class="text-muted m-b-0" id="lastValue_con">현재 최고가<h5 id="lastValue">${bidView.LAST_VALUE}원</h5>
+											</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<!-- 
+						<h4 class="col-md-2" id="count_time_con">마감 시간<h5 class="col-md-4" id="count_time">${bidView.REGI_DATE}</h5></h4>
+						<h4 class="col-md-2" id="lastValue_con">현재 최고가</h4><h5 id="lastValue" class="col-md-4">${bidView.LAST_VALUE}원</h5>
+						 -->
+						<br />
+						<!-- <div class="col-md-2"></div> -->
+						<div class="col-md-6" id="bid_result"
+							style="text-align: right; line-height: 42px"></div>
+						<input id="bid_price" type="text" class="col-md-4" 
+						style="border: 0; border-bottom: 1px solid; font-size: 15px; text-align: center;" placeholder="새 경매가를 입력하세요"></input><br/>
+						<input id="bid" type="text" value="경매 참여" class="btn py-2 px-2 btn-primary col-md-2" />
+					</div>
+				</div>
           </div>
         </div>
       </div>
       
       <!-- ajax로 넘겨주는 값 -->
       <div id="hostId" style="display:none">${bidView.HOST_ID}</div>
-      <div id="memberId" style="display:none"><%=memberId %></div>
-      <div id="loginFlag" style="display:none"><%=login %></div>
+      <div id="memberId" style="display:none"><%=memberId%></div>
+      <div id="loginFlag" style="display:none"><%=login%></div>
       <div id="contactId" style="display:none">${bidView.CONTACT_ID}</div>
     </section> <!-- .section -->
 

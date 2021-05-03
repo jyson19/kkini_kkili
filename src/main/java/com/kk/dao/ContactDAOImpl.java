@@ -102,4 +102,10 @@ public class ContactDAOImpl implements ContactDAO {
 	public List<Map<String, String>> getBidHistory(int memberId) {
 		return mybatis.selectList("contact.getBidHistory", memberId);
 	}
+
+	// 컨택 입찰 페이지 내 최근입찰내역
+	@Override
+	public List<Map<String, String>> recentBidList(int contactId) {
+		return mybatis.selectList("contact.recentBidList", contactId);
+	}
 }

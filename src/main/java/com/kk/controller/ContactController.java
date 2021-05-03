@@ -121,7 +121,11 @@ public class ContactController {
 		log.info("ContactController.bidContact() 실행");
 		int contactId = Integer.parseInt(request.getParameter("contact_id"));
 		log.info("컨택 번호: " + contactId);
+		// 컨택 정보
 		model.addAttribute("bidView", contactService.getBidView(contactId));
+		
+		// 최근 입찰 내역
+		model.addAttribute("recentBidList", contactService.recentBidList(contactId));
 	}
 
 	// 컨택 입찰시

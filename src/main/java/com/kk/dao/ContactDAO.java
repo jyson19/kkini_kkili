@@ -46,4 +46,7 @@ public interface ContactDAO {
 
 	// 마이페이지 내 입찰 내역조회
 	List<Map<String, String>> getBidHistory(int memberId);
+
+	// 컨택 입찰 페이지 내 최근입찰내역
+	List<Map<String, String>> recentBidList(int contactId);
 }

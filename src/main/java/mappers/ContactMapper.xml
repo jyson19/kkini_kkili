@@ -268,6 +268,28 @@
 		WHERE contact_id = #{contactId}
 	</select>
 	
+	<!-- 컨택 입찰 페이지 내 최근입찰내역 -->
+	<select id="recentBidList" parameterType="int" resultType="hashmap">
+		<![CDATA[ 
+		SELECT 
+			rn, 
+			contact_id, 
+			substr(name,1,length(name)-2)||lpad('*',2,'*') AS name,  
+			(SELECT REGEXP_REPLACE(REVERSE(REGEXP_REPLACE( REVERSE(TO_CHAR(price)), '([0-9]{3})','\1,')), '^,','') 
+				FROM DUAL) AS price, 
+			bid_time
+		FROM (
+			SELECT ROWNUM rn, contact_id, name, price, bid_time
+			FROM (
+				SELECT ch.contact_id contact_id, m.name name, ch.price price, ch.bid_time bid_time
+			    FROM contact_history ch, member m
+			    WHERE ch.guest_id = m.member_id
+			    	AND contact_id = #{contactId}
+			    ORDER BY ch.bid_time DESC))
+		WHERE rn <= 3
+		]]>
+	</select>
+	
 	<!-- 컨택 만남처리 -->
 	<update id="qrCheckIn">
 		UPDATE contact 

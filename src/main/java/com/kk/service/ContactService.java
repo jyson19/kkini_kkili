@@ -25,4 +25,5 @@ public interface ContactService {
 	int qrCheckIn(ContactVO contact);
 	int addRevenue(String contactId);
 	List<Map<String, String>> getBidHistory(int memberId);
+	List<Map<String, String>> recentBidList(int contactId);
 }

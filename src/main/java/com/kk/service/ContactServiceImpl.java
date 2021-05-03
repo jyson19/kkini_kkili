@@ -114,4 +114,10 @@ public class ContactServiceImpl implements ContactService {
 	public List<Map<String, String>> getBidHistory(int memberId) {
 		return contactDAO.getBidHistory(memberId);
 	}
+
+	// 컨택 입찰 페이지 내 최근입찰내역
+	@Override
+	public List<Map<String, String>> recentBidList(int contactId) {
+		return contactDAO.recentBidList(contactId);
+	}
 }
