@@ -160,6 +160,7 @@
 						 -->
 						<br />
 						<!-- <div class="col-md-2"></div> -->
+						<span class="col-md-12" style="width: 100%; height: 42px;"></span>
 						<div class="col-md-6" id="bid_result"
 							style="text-align: right; line-height: 42px"></div>
 						<input id="bid_price" type="text" class="col-md-4" 
