@@ -40,7 +40,7 @@ public class MemberDAOImpl implements MemberDAO {
 	}
 
 	// 최근 접속일 갱신
-	public int updateConnDate(MemberVO member) {
-		return mybatis.update("member.updateConnDate", member);
+	public int updateConnDate(int memberId) {
+		return mybatis.update("member.updateConnDate", memberId);
 	}
 }

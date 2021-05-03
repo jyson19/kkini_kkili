@@ -48,7 +48,7 @@
 	</select>
 
 	<!-- 로그인시 최근접속일 갱신 -->
-	<update id="updateConnDate" parameterType="member">
+	<update id="updateConnDate" parameterType="int">
 		UPDATE member
 		SET last_conn_date = TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS')
 		WHERE member_id = #{memberId}

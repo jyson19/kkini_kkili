@@ -35,7 +35,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 최근접속일 갱신
 	@Override
-	public int updateConnDate(MemberVO member) {
-		return memberDAO.updateConnDate(member);
+	public int updateConnDate(int memberId) {
+		return memberDAO.updateConnDate(memberId);
 	}
 }

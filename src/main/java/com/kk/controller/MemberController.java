@@ -74,14 +74,14 @@ public class MemberController {
 		// 이전 페이지를 세션에서 불러오기
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
 		String memberId = request.getParameter("memberId");
+		MemberVO memberVO = memberService.memberSigninService(member);
 		
 		// qr코드를 통한 로그인시
 		if(memberId != null && memberService.memberSigninService(member) != null) {
-			MemberVO mem = (MemberVO) memberService.memberSigninService(member);
 			// 최근접속일 갱신
-			memberService.updateConnDate(member);
+			memberService.updateConnDate((int)memberVO.getMemberId());
 			
-			if(Integer.parseInt(memberId) == mem.getMemberId()) {
+			if(Integer.parseInt(memberId) == memberVO.getMemberId()) {
 				log.info("MemberController.signinAttempt qr값 전달");
 				return "forward:../contact/qrCheckIn.do"; 
 				
@@ -92,10 +92,10 @@ public class MemberController {
 		
 		// 일반 로그인시
 		} else if (memberId == null && memberService.memberSigninService(member) != null) {
-			session.setAttribute("member", (MemberVO) memberService.memberSigninService(member));
-
+			session.setAttribute("member", memberVO);
+					
 			// 최근접속일 갱신
-			memberService.updateConnDate(member);
+			memberService.updateConnDate((int)memberVO.getMemberId());
 			
 			return "redirect:" + prevPage;
 		} else {
