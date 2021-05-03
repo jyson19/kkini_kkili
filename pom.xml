@@ -202,6 +202,15 @@
 		    <artifactId>javase</artifactId>
 		    <version>3.1.0</version>
 		</dependency>
+		
+		<!-- 디비에 저장할 log4jdbc -remix -->
+        <!-- https://mvnrepository.com/artifact/org.lazyluke/log4jdbc-remix -->
+        <dependency>
+            <groupId>org.lazyluke</groupId>
+            <artifactId>log4jdbc-remix</artifactId>
+            <version>0.2.7</version>
+        </dependency>
+		
 	</dependencies>
 
 	<build>

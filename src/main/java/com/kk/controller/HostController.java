@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,6 +26,8 @@ import com.kk.service.ProfileService;
 @Controller
 public class HostController {
 	
+	private Logger log = LoggerFactory.getLogger(HostController.class);
+	
 	@Autowired
 	private CmtService cmtSerivce;
 	
@@ -40,7 +44,7 @@ public class HostController {
 	@RequestMapping("host/hostList.do")
 	public ModelAndView moveToHostListPage() { // 들어오는 파라미터 값은 hostId
 		// 접속확인
-		System.out.println("HostController.moveToHostListPage");
+		log.info("HostController.moveToHostListPage");
 		
 		// 뷰 객체로 넘기기 위한 선언
 		ModelAndView mv = new ModelAndView();
@@ -55,7 +59,7 @@ public class HostController {
 	@RequestMapping("host/profile.do")
 	public ModelAndView moveToProfilePage(HostVO hostVO, HttpSession session) { // 들어오는 파라미터 값은 hostId
 		// 접속확인
-		System.out.println("HostController.moveToProfilePage");
+		log.info("HostController.moveToProfilePage");
 		
 		// 뷰 객체로 넘기기 위한 선언
 		ModelAndView mv = new ModelAndView();
@@ -90,7 +94,7 @@ public class HostController {
 	@RequestMapping("host/saveCmt.do")
 	@ResponseBody
 	public List<HashMap<String, String>> saveCmt(String cmt, int hostId, HttpSession session) { // 들어오는 파라미터 값은 hostId
-		System.out.println("HostController.saveCmt 요청");
+		log.info("HostController.saveCmt 요청");
 		
 		// 로그인하지 않을시 댓글 못남김
 		if(session.getAttribute("member")!=null) {
@@ -101,7 +105,7 @@ public class HostController {
 			cmtVO.setContent(cmt); // 메세지 내용 담기
 			cmtVO.setGuestId(((MemberVO) session.getAttribute("member")).getMemberId());
 			
-			System.out.println(hostId + " / " + cmtVO.getGuestId() + "/" + cmt + " / " + session.getAttribute("member"));
+			log.debug(hostId + " / " + cmtVO.getGuestId() + "/" + cmt + " / " + session.getAttribute("member"));
 			
 			cmtSerivce.insertCmt(cmtVO);
 			return cmtSerivce.getCmtList(cmtVO);
@@ -115,7 +119,7 @@ public class HostController {
 	@RequestMapping("host/deleteCmt.do")
 	@ResponseBody
 	public String deleteCmt(CmtVO cmtVO, HttpSession session) {
-		System.out.println("HostController.deleteCmt 요청");
+		log.info("HostController.deleteCmt 요청");
 		
 		String result = "0";
 		
@@ -125,7 +129,7 @@ public class HostController {
 			// 세션으로 게스트 아이디 지정하기
 			cmtVO.setGuestId( ((MemberVO) session.getAttribute("member")).getMemberId() );
 			
-			System.out.println(cmtVO);
+			log.debug(cmtVO + "");
 			
 			if(cmtSerivce.deleteCmt(cmtVO)==1) {
 				result = "1"; // 성공적으로 삭제했음을 알림
@@ -140,7 +144,7 @@ public class HostController {
 	@RequestMapping("host/getCmtList.do")
 	@ResponseBody
 	public List<HashMap<String, String>> getCmtList(String cmt, int hostId, HttpSession session) { // 들어오는 파라미터 값은 hostId
-		System.out.println("HostController.getCmtList 요청");
+		log.info("HostController.getCmtList 요청");
 		
 		CmtVO cmtVO = new CmtVO();
 		
