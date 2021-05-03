@@ -3,6 +3,8 @@ package com.kk.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,8 @@ import com.kk.service.MemberService;
 // 회원 관련 controller
 @Controller
 public class MemberController {
+	
+	private Logger log = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
 	private MemberService memberService;
@@ -23,7 +27,7 @@ public class MemberController {
 	@RequestMapping(value = "main/member/idCheck.do", produces = "application/text; charset=utf8")
 	@ResponseBody
 	public String getEmail(String email) {
-		System.out.println("MemberController : idCheck");
+		log.info("MemberController : idCheck");
 		String result = "1"; // 기본적으로 해당 메일 사용불가
 
 		MemberVO vo = new MemberVO();
@@ -43,7 +47,7 @@ public class MemberController {
 
 		// 한번 더 유효성 검사
 		if (vo.getEmail() != null && vo.getName() != null && vo.getPassword() != null && vo.getTel() != 0) {
-			System.out.println("MemberController : insertMember - 가입 진행");
+			log.info("MemberController : insertMember - 가입 진행");
 			memberService.insertMember(vo);
 		}
 
@@ -52,21 +56,21 @@ public class MemberController {
 
 	@RequestMapping(value = "/sign/signin.do", method = RequestMethod.GET)
 	public void signin(MemberVO member, HttpServletRequest request) {
-		System.out.println("signin 메소드 호출");
+		log.info("signin 메소드 호출");
 		// 이전 페이지를 변수에 저장하기
 		String referrer = request.getHeader("Referer");
-		System.out.println(referrer);
+		log.debug(referrer);
 		// 이전 페이지가 로그인 페이지가 아니면 세션에 저장하기
 		if (!referrer.contains("sign")) {
 			request.getSession().setAttribute("prevPage", referrer);
-			System.out.print("이전 페이지 : ");
-			System.out.println(request.getSession().getAttribute("prevPage"));
+			log.debug("이전 페이지 : ");
+			request.getSession().getAttribute("prevPage");
 		}
 	}
 
 	@RequestMapping(value = "/sign/signinattempt.do", method = RequestMethod.POST)
 	public String signinAttempt(MemberVO member, HttpServletRequest request, HttpSession session) {
-		System.out.println("signinAttempt 메소드 호출");
+		log.info("signinAttempt 메소드 호출");
 		// 이전 페이지를 세션에서 불러오기
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
 		String memberId = request.getParameter("memberId");
@@ -75,7 +79,7 @@ public class MemberController {
 		if(memberId != null && memberService.memberSigninService(member) != null) {
 			MemberVO mem = (MemberVO) memberService.memberSigninService(member);
 			if(Integer.parseInt(memberId) == mem.getMemberId()) {
-				System.out.println("MemberController.signinAttempt qr값 전달");
+				log.info("MemberController.signinAttempt qr값 전달");
 				return "forward:../contact/qrCheckIn.do"; 
 			} else {
 				// 해당 컨택의 참가자가 아닐때
@@ -85,7 +89,7 @@ public class MemberController {
 		// 일반 로그인시
 		} else if (memberId == null && memberService.memberSigninService(member) != null) {
 			session.setAttribute("member", (MemberVO) memberService.memberSigninService(member));
-			System.out.println(session.getAttribute("member"));
+//			System.out.println(session.getAttribute("member"));
 //			session.setAttribute("member", (MemberVO) memberService.getMember(member));
 			
 			return "redirect:" + prevPage;

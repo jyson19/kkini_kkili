@@ -25,7 +25,7 @@ public class AdminController {
 	// 관리자 메인 페이지
 	@RequestMapping("admin/main.do")
 	public String getAdminMain(HttpSession session) {
-		log.info("AdminController : getAdminMain 함수 실행");
+		log.info("AdminController.getAdminMain 함수 실행");
 		
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
 			log.debug("관리자 페이지 권한 확인");
@@ -38,7 +38,7 @@ public class AdminController {
 	@RequestMapping("admin/staff.do")
 	public String getStaff(HttpSession session) {
 		
-		log.info("AdminController : getStaff 함수 실행");
+		log.info("AdminController.getStaff 함수 실행");
 		
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
 			log.debug("관리자 페이지 권한 확인");
@@ -52,7 +52,7 @@ public class AdminController {
 	// 호스트 인증 관리
 	@RequestMapping("admin/hostup.do")
 	public String getHostup(Model m, HttpSession session) {
-		log.info("AdminController : getHostup 함수 실행");
+		log.info("AdminController.getHostup 함수 실행");
 		
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
 			log.debug("관리자 페이지 권한 확인");
@@ -68,7 +68,7 @@ public class AdminController {
 	@RequestMapping("admin/auth.do")
 	public String getAuth(HostVO vo, Model m, HttpSession session){
 		
-		log.info("AdminController : getAuth 함수 실행");
+		log.info("AdminController.getAuth 함수 실행");
 		log.debug(adminService.getAuth(vo) + "");
 		
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
@@ -82,7 +82,7 @@ public class AdminController {
 	
 	@RequestMapping("admin/levelup.do")
 	public String levelup(HostVO vo, Model m){
-		log.info("AdminController : levelup 함수 실행");
+		log.info("AdminController.levelup 함수 실행");
 		adminService.levelup(vo);
 		return "admin/main";
 	}
@@ -90,14 +90,14 @@ public class AdminController {
 	// 휴먼 계정
 	@RequestMapping("admin/dormancy.do")
 	public void getDormancy() {
-		log.info("AdminController : getDormancy 함수 실행");
+		log.info("AdminController.getDormancy 함수 실행");
 	}
 	
 	// 이용자 수 조회
 	@RequestMapping("admin/users.do")
 	public String getUsers(Model m, HttpSession session) {
 		
-		log.info("AdminController : getUsers 함수 실행");
+		log.info("AdminController.getUsers 함수 실행");
 		
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
 			log.debug("관리자 페이지 권한 확인");
@@ -122,7 +122,7 @@ public class AdminController {
 	@RequestMapping("admin/match.do")
 	public void getMatch(Model m, HttpSession session) {
 		
-		log.info("AdminController : getMatch 함수 실행");
+		log.info("AdminController.getMatch 함수 실행");
 		
 		// 관리자면
 		if( ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
@@ -136,7 +136,7 @@ public class AdminController {
 	@RequestMapping("admin/book.do")
 	public void getSalesHistory(Model m, HttpSession session) {
 		
-		log.info("AdminController : getSalesHistory 함수 실행");
+		log.info("AdminController.getSalesHistory 함수 실행");
 		
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
 			log.debug("관리자 페이지 권한 확인");

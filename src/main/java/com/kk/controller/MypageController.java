@@ -5,6 +5,8 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,6 +27,8 @@ import com.kk.service.ProfileService;
 
 @Controller
 public class MypageController {
+	
+	private Logger log = LoggerFactory.getLogger(MypageController.class);
 
 	@Autowired
 	private ProfileService profileService;
@@ -50,14 +54,14 @@ public class MypageController {
 	// 마이페이지 회원 탈퇴
 	@RequestMapping("mypage/secession.do")
 	public String pageSecession(Model m, HttpSession session) {
-		System.out.println("MypageController : 탈퇴" + "페이지로 이동 요청");
+		log.info("MypageController : 탈퇴" + "페이지로 이동 요청");
 		return "mypage/secession";	
 	}
 	
 	// 마이페이지 내 컨택 히스토리 조회
 	@RequestMapping("mypage/contactHistory.do")
 	public String contactHistory(Model m, HttpSession session) {
-		System.out.println("MypageController : contactHistory" + "페이지로 이동 요청");
+		log.info("MypageController : contactHistory" + "페이지로 이동 요청");
 		
 		// 로그인 시
 		if(session.getAttribute("member")!=null) {
@@ -71,7 +75,7 @@ public class MypageController {
 	// 컨택 가치 확인
 	@RequestMapping("mypage/contactValue")
 	public String contactValue(Model m, HttpSession session) {
-		System.out.println("contactValue 실행");
+		log.info("MypageController : contactValue 실행");
 		// 로그인 시
 		if(session.getAttribute("member")!=null) {
 			int userId = ((MemberVO)session.getAttribute("member")).getMemberId();
@@ -83,7 +87,7 @@ public class MypageController {
 	// 프로필 페이지 보기
 	@RequestMapping("mypage/profile.do")
 	public String movePageProfile(Model m, HttpSession session) {
-		System.out.println("MypageController : movePageProfile" + "페이지로 이동 요청");
+		log.info("MypageController : movePageProfile" + "페이지로 이동 요청");
 		
 		HostVO vo = new HostVO();
 		
@@ -103,7 +107,7 @@ public class MypageController {
 	// 마이 페이지 클릭시 권한에 따라 분기 - 요약 페이지임으로 필요한 DB 전달하기
 	@RequestMapping("mypage/enter.do")
 	public String enterPage(Model m, HttpServletRequest request, HttpSession session) {
-		System.out.println("MypageController : enterPage 실행");
+		log.info("MypageController : enterPage 실행");
 
 		MemberVO memberSession;
 
@@ -160,7 +164,7 @@ public class MypageController {
 	// 관심 목록 접속시 - 내가 찜한 호스트 목록 가져오기
 	@RequestMapping("mypage/interest.do")
 	public ModelAndView interestPage(HttpSession session) {
-		System.out.println("MypageController : " + "interest" + "페이지로 이동 요청");
+		log.info("MypageController : " + "interest" + "페이지로 이동 요청");
 
 		ModelAndView mv = new ModelAndView();
 		
@@ -184,7 +188,7 @@ public class MypageController {
 	// 나를 주목하는 사람 목록 - 나를 찜한 게스트 목록 가져오기
 	@RequestMapping("mypage/interestReverse.do")
 	public ModelAndView interstReversePage(HttpSession session) {
-		System.out.println("MypageController : " + "interstReverse" + "페이지로 이동 요청");
+		log.info("MypageController : " + "interstReverse" + "페이지로 이동 요청");
 		
 		ModelAndView mv = new ModelAndView();
 		
@@ -209,7 +213,7 @@ public class MypageController {
 	@RequestMapping("mypage/deleteInterest.do")
 	@ResponseBody
 	public String deleteBookmark(String hostId, HttpSession session) {
-		
+		log.info("MypageController : " + "deleteBookmark" + "실행");
 		// 로그인했다면
 		if(session.getAttribute("member")!=null) {
 			
@@ -226,12 +230,12 @@ public class MypageController {
 	@RequestMapping("mypage/insertInterest.do")
 	@ResponseBody
 	public String insertBookmark(String hostId, HttpSession session) {
-		
+		log.info("MypageController : " + "insertBookmark" + "실행");
 		// 로그인했다면
 		if(session.getAttribute("member")!=null) {
 			
 			BookmarkVO bookmark = new BookmarkVO(Integer.parseInt(hostId), ((MemberVO) session.getAttribute("member")) .getMemberId());
-			System.out.println("bookmark");
+//			System.out.println("bookmark");
 			if(bookmarkService.insertBookmark(bookmark)==1) {
 				return "1";
 			};
@@ -244,7 +248,7 @@ public class MypageController {
 	@RequestMapping(value = "mypage/saveProfile.do")
 	public String insertProfile(HostVO vo, HttpSession session) throws IOException {
 		vo.setHostId( ((MemberVO)session.getAttribute("member")).getMemberId() ); 
-		System.out.println("insertProfile 실행" + vo);
+		log.info("MypageController : insertProfile 실행" + vo);
 		profileService.insertProfile(vo);
 		return "redirect:/mypage/viewProfile.do";
 	}
@@ -252,7 +256,7 @@ public class MypageController {
 	@RequestMapping("mypage/updateProfile.do")
 	public String updateProfile(HostVO vo, Model m, HttpSession session){
 		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
-		System.out.println("updateProfile 실행" + vo);
+		log.info("MypageController : updateProfile 실행" + vo);
 		
 		profileService.updateProfile(vo);
 		
@@ -264,7 +268,7 @@ public class MypageController {
 	// 프로필 수정 페이지로 이동
 	@RequestMapping("mypage/pageMoveUpdate.do")
 	public String pageMoveUpdate(HostVO vo, Model m, HttpSession session){
-		System.out.println("pageMoveUpdate 실행" + vo);
+		log.info("MypageController : pageMoveUpdate 실행" + vo);
 		
 		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
 		
@@ -282,7 +286,7 @@ public class MypageController {
 	// 프로필 상세 조회
 	@RequestMapping("mypage/viewProfile")
 	public String getProfile(HostVO vo, Model m, HttpSession session){
-		System.out.println("getProfile 실행" + vo);
+		log.info("MypageController : getProfile 실행" + vo);
 		vo.setHostId(((MemberVO)session.getAttribute("member")).getMemberId());
 		m.addAttribute("host", profileService.getProfile(vo));
 		return "mypage/viewProfile";

@@ -1,14 +1,12 @@
 package com.kk.controller;
 
-import java.util.HashMap;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.kk.domain.EmailAuthVO;
 import com.kk.service.MailSendService;
@@ -16,13 +14,15 @@ import com.kk.service.MailSendService;
 @Controller
 public class EmailAuthController {
 	
+	private Logger log = LoggerFactory.getLogger(EmailAuthController.class);
+	
     @Autowired
     private MailSendService mss;
 
     @RequestMapping("main/emailAuth/sendingEmail.do")
      public void btnClick(@ModelAttribute EmailAuthVO vo){
     	
-    	System.out.println("EmailAuthController : 메일인증 시작");
+    	log.info("EmailAuthController : 메일인증 시작");
     	
         //// 일단 이메일 보내기
     	// 이메일 인증키 생성 및 전송
@@ -35,12 +35,12 @@ public class EmailAuthController {
         // DB에 해당 메일 존재 여부 확인
     	if(mss.getEmail(vo)==null) {
     		// 존재하지 않는 경우 insert // DB에 기본정보 insert
-    		System.out.println("EmailAuthController : 메일인증 테이블에 내 데이터 주입");
+    		log.debug("EmailAuthController : 메일인증 테이블에 내 데이터 주입");
     		vo.setAuthStatus(0);
     		mss.insert(vo);
     	} else {
     		// 존재시 업데이트 - state는 0으로 셋팅해주기
-    		System.out.println("EmailAuthController : 메일인증 테이블 내 데이터 업데이트");
+    		log.debug("EmailAuthController : 메일인증 테이블 내 데이터 업데이트");
     		vo.setAuthStatus(0);
     		mss.update(vo);
     	}
@@ -56,10 +56,10 @@ public class EmailAuthController {
     	if(dbVO.getAuthKey().equals(vo.getAuthKey())) {
     		vo.setAuthStatus(1);
     		mss.update(vo);
-    		System.out.println("EmailAuthController : 메일인증 성공 페이지로 이동");
+    		log.info("EmailAuthController : 메일인증 성공 페이지로 이동");
     		return "redirect:authSuccess.do";
     	}
-    	System.out.println("EmailAuthController : 메일인증 실패 페이지로 이동");
+    	log.info("EmailAuthController : 메일인증 실패 페이지로 이동");
     	return "redirect:authFail.do";
  	}
     

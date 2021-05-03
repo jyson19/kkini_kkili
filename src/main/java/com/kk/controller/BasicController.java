@@ -21,7 +21,7 @@ import com.kk.service.ProfileService;
 @RequestMapping("main")
 public class BasicController {
 
-	private Logger log = LoggerFactory.getLogger(AdminController.class);
+	private Logger log = LoggerFactory.getLogger(BasicController.class);
 	
 	@Autowired
 	private ContactService contactService;
@@ -32,7 +32,7 @@ public class BasicController {
 	// 관련 페이지로 이동
 	@RequestMapping("{step}.do")
 	public String movingPage(@PathVariable("step") String step) {
-		log.info("BasicController : " + step + "페이지로 이동 요청");
+		log.info("BasicController.movingPage : " + step + "페이지로 이동 요청");
 		return "main/" + step;
 	}
 

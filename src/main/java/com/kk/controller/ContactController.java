@@ -10,6 +10,8 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +34,8 @@ import com.kk.service.ContactService;
 
 @Controller
 public class ContactController {
+	
+	private Logger log = LoggerFactory.getLogger(ContactController.class);
 
 	@Autowired
 	private ContactService contactService;
@@ -39,12 +43,12 @@ public class ContactController {
 	// 컨택 목록
 	@RequestMapping("contact/list.do")
 	public void getContactList(PagingCriteria cri, Model model, HttpSession session) {
-		System.out.println("ContactController.getContactList");
+		log.info("ContactController.getContactList");
 
 		List<Map<String, String>> boardList = contactService.getContactList(cri);
 
 		int total = contactService.totalCnt();
-		System.out.println("컨택 글 갯수 : " + total);
+		log.debug("컨택 글 갯수 : " + total);
 
 		model.addAttribute("contactList", boardList);
 		model.addAttribute("paging", new PageMaker(cri, total));
@@ -52,7 +56,7 @@ public class ContactController {
 		// 로그인 시
 		if (session.getAttribute("member") != null) {
 			int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
-			System.out.println("memberId : " + memberId);
+			log.debug("memberId : " + memberId);
 			// 유저가 호스트일 때
 			if (memberId >= 1) {
 				Map<String, String> someContact = contactService.getContactOne(memberId);
@@ -77,10 +81,10 @@ public class ContactController {
 			@RequestParam("region") String region, //
 			@RequestParam("startdate") String startdate, //
 			@RequestParam("enddate") String enddate) {
-		System.out.println("keyword : " + keyword);
-		System.out.println("region : " + region);
-		System.out.println("startdate : " + startdate);
-		System.out.println("enddate : " + enddate);
+		log.debug("keyword : " + keyword);
+		log.debug("region : " + region);
+		log.debug("startdate : " + startdate);
+		log.debug("enddate : " + enddate);
 
 		HashMap<String, String> map = new HashMap<String, String>();
 
@@ -94,7 +98,7 @@ public class ContactController {
 	// 컨택 생성
 	@RequestMapping("contact/insert.do")
 	public void insertContact(ContactVO vo, HttpSession session, Model model) {
-		System.out.println("ContactController.insertContact() 실행");
+		log.debug("ContactController.insertContact() 실행");
 
 		// 호스트 프로필 전달
 		int memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
@@ -104,7 +108,7 @@ public class ContactController {
 	// 컨택 생성확인
 	@RequestMapping("contact/insertCheck.do")
 	public String insertCheck(ContactVO vo, HttpSession session) {
-		System.out.println("ContactController.insertCheck() 실행");
+		log.info("ContactController.insertCheck() 실행");
 		if (contactService.insertContact(vo) == 1) {
 			return "redirect:/contact/list.do";
 		}
@@ -114,9 +118,9 @@ public class ContactController {
 	// 컨택 입찰페이지
 	@RequestMapping("contact/bid.do")
 	public void bidContact(HttpServletRequest request, Model model) {
-		System.out.println("ContactController.bidContact() 실행");
+		log.info("ContactController.bidContact() 실행");
 		int contactId = Integer.parseInt(request.getParameter("contact_id"));
-		System.out.println("컨택 번호: " + contactId);
+		log.info("컨택 번호: " + contactId);
 		model.addAttribute("bidView", contactService.getBidView(contactId));
 	}
 
@@ -131,8 +135,8 @@ public class ContactController {
 			String bidPrice, //
 			String contactId, //
 			String loginFlag, Model model) { //
-		System.out.println("ContactController.bidAfter() 실행");
-		System.out.println("lvc : " + lvc + "\nlastValue : " + lastValue + "\nhostId : " + hostId + "\nmemberId : "
+		log.info("ContactController.bidAfter() 실행");
+		log.info("lvc : " + lvc + "\nlastValue : " + lastValue + "\nhostId : " + hostId + "\nmemberId : "
 				+ memberId + "\ncontactId : " + contactId + "\nbidPrice : " + bidPrice);
 
 		// 로그인 상태가 아닐시
@@ -170,7 +174,7 @@ public class ContactController {
 			map.put("bidPrice", bidPrice);
 			map.put("contactId", contactId);
 			int resultInt = contactService.bidUpdate(map);
-			System.out.println("resultInt : " + resultInt);
+			log.debug("resultInt : " + resultInt);
 			if (resultInt == 2) {
 				return "입찰이 완료되었습니다!";
 			}
@@ -181,12 +185,12 @@ public class ContactController {
 	// 만남확인 (qr check)
 	@RequestMapping("contact/qr_check.do")
 	public void qrCheck(HttpServletRequest request, Model model) {
-		System.out.println("ContactController.qrCheck() 실행");
+		log.info("ContactController.qrCheck() 실행");
 
 		String contactId = request.getParameter("contactId");
 		String memberId = request.getParameter("memberId");
-		System.out.println("contactId : " + contactId);
-		System.out.println("memberId : " + memberId);
+		log.debug("contactId : " + contactId);
+		log.debug("memberId : " + memberId);
 		//파일이 업로드 될 경로 설정 
 		String root_path = request.getSession().getServletContext().getRealPath("/upload/qrcheck/");
 		//위에서 설정한 경로의 폴더가 없을 경우 생성 
@@ -198,7 +202,7 @@ public class ContactController {
 		try {
 			File file = null;
 			// qr코드 이미지를 저장할 디렉토리 지정
-			System.out.println("QR코드파일 저장 경로 : " + root_path);
+			log.debug("QR코드파일 저장 경로 : " + root_path);
 			file = new File(root_path);
 			if (!file.exists()) {
 				file.mkdirs();
@@ -231,37 +235,37 @@ public class ContactController {
 	// 컨택 만남처리
 	@RequestMapping(value = "contact/qrCheckIn.do")
 	public void qrCheckIn(HttpServletRequest request) {
-		System.out.println("ContactController.qrCheckIn 실행");
+		log.info("ContactController.qrCheckIn 실행");
 		String contactId = request.getParameter("contactId");
 		String memberId = request.getParameter("memberId");
-		System.out.println("in QRcode .. contactId : " + contactId);
-		System.out.println("in QRcode .. memberId : " + memberId);
+		log.debug("in QRcode .. contactId : " + contactId);
+		log.debug("in QRcode .. memberId : " + memberId);
 		ContactVO contact = new ContactVO();
 		contact.setContactId(Integer.parseInt(contactId));
 		contact.setGuestId(Integer.parseInt(memberId));
 		int result = contactService.qrCheckIn(contact);
 		if(result == 1) {
 			// 만남처리 성공
-			System.out.println("컨택 qr_check값 변경 완료");
+			log.debug("컨택 qr_check값 변경 완료");
 			
 			// 수익배분 (contact.last_value)
 			// 호스트 95% update (host.host_value)
 			// 관리자 5% insert (account.contact_id, sales)
 			int revenueResult = contactService.addRevenue(contactId);
 			if(revenueResult == 2) {
-				System.out.println("수익배분 완료");
+				log.debug("수익배분 완료");
 			} else {
-				System.out.println("수익배분 실패");
+				log.debug("수익배분 실패");
 			}
 		} else {
 			// 만남처리 실패
-			System.out.println("컨택 qr_check값 변경 실패");
+			log.debug("컨택 qr_check값 변경 실패");
 		}
 	}
 	
 	// 컨택 해당 게스트 이외 qr체크시
 	@RequestMapping("contact/qrCheckIn_fail.do")
 	public void qrCheckInFail() {
-		System.out.println("ContactController.qrCheckIn 실행 -> qr checkin 실패");
+		log.info("ContactController.qrCheckIn 실행 -> qr checkin 실패");
 	}
 }
