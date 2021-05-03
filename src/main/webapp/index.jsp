@@ -30,7 +30,30 @@
     <link rel="stylesheet" href="resources/css/flaticon.css">
     <link rel="stylesheet" href="resources/css/icomoon.css">
     <link rel="stylesheet" href="resources/css/style.css">
-
+	<style>
+  	
+  	#pfcontent{
+  	
+  	/* 한 줄 자르기 */ 
+  	display: inline-block; 
+  	width: 200px; 
+  	white-space: nowrap; 
+  	overflow: hidden; 
+  	text-overflow: ellipsis; 
+  	
+  	/* 여러 줄 자르기 추가 스타일 */ 
+  	white-space: normal; 
+  	line-height: 1.2; 
+  	height: 3.6em; 
+  	text-align: left; 
+  	word-wrap: break-word; 
+  	display: -webkit-box; 
+  	-webkit-line-clamp: 3; 
+  	-webkit-box-orient: vertical;  	
+  	
+  	}
+  	
+  	</style>
   </head>
   <body>
     
@@ -233,7 +256,7 @@
        	              '</a>'+
        	              '<div class="text p-4 d-block">'+
        	                '<span class="heading">'+data[i].NAME+'</span>'+
-       	                '<h3 class="heading mt-3">'+data[i].CONTENT+'</h3>'+
+       	                '<h3 class="heading mt-3" id="pfcontent">'+data[i].CONTENT+'</h3>'+
        	                '<div class="meta mb-3">'+
        	                '</div>'+
        	              '</div>'+
