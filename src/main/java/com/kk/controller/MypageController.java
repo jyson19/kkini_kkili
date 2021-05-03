@@ -70,8 +70,14 @@ public class MypageController {
 	
 	// 컨택 가치 확인
 	@RequestMapping("mypage/contactValue")
-	public void contactValue(HostVO vo, Model m) {
-		System.out.println("getProfile 실행" + vo);
+	public String contactValue(Model m, HttpSession session) {
+		System.out.println("contactValue 실행");
+		// 로그인 시
+		if(session.getAttribute("member")!=null) {
+			int userId = ((MemberVO)session.getAttribute("member")).getMemberId();
+			m.addAttribute("contactInfo", contactService.getMyContactList(userId));
+		}
+		return "mypage/contactValue";
 	}
 	
 	// 프로필 페이지 보기
