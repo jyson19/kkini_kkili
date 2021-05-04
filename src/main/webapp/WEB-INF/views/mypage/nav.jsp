@@ -32,11 +32,14 @@
                 </div> -->
             </div>
             <div class="p-15 p-b-0">
-                <form class="form-material">
+                <form class="form-material" action="${pageContext.request.contextPath}/contact/search.do">
                     <div class="form-group form-primary">
-                        <input type="text" name="footer-email" class="form-control">
+                        <input type="text" name="keyword" class="form-control">
                         <span class="form-bar"></span>
                         <label class="float-label"><i class="fa fa-search m-r-10"></i>호스트 찾기</label>
+                       	<input type="hidden" name="region" class="form-control">
+                       	<input type="hidden" name="startdate" class="form-control">
+                       	<input type="hidden" name="enddate" class="form-control">
                     </div>
                 </form>
             </div>

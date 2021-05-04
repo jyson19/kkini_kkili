@@ -84,7 +84,7 @@ public class AdminController {
 	public String levelup(HostVO vo, Model m){
 		log.info("AdminController.levelup 함수 실행");
 		adminService.levelup(vo);
-		return "admin/main";
+		return "redirect:hostup.do";
 	}
 	
 	// 휴먼 계정

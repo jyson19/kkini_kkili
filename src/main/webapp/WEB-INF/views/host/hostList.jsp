@@ -87,7 +87,7 @@
         <c:forEach var="host" items="${hostInfo}" > <!-- begin="0" end="10" step="1" varStatus="status" -->
           <div class="col-md-3 d-flex ftco-animate">
             <div class="blog-entry align-self-stretch border-0" style="border-radius:10px; width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">
-              <a href="${pageContext.request.contextPath}/host/profile.do?hostId=${host.HOST_ID}" class="block-20" style="background-image: url('../upload/host/pic${host.HOST_ID}.jpg');">
+              <a href="${pageContext.request.contextPath}/host/profile.do?hostId=${host.HOST_ID}" class="block-20" style="background-image: url('../upload/host/pic${host.HOST_ID}.jpg'); url('../upload/host/pic0.jpg');">
               </a>
               <div class="text p-4 d-block">
                 <span class="heading">${host.NAME}</span>

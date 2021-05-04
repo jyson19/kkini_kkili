@@ -26,7 +26,7 @@
 	<header id="header">
 		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 			<div class="container">
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/resources/logo/kk-logo-black.png" alt="끼니끼리로고" height="70" width="auto"/></a>
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/resources/logo/kk-logo-white.png" alt="끼니끼리로고" height="70" width="auto" id="kkini_logo"/></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="oi oi-menu"></span> 메뉴
 			</button>
@@ -57,4 +57,17 @@
 			</div>
 		</nav>
 	</header>
+	<script>
+					
+		let kkini_logo = document.querySelector("#kkini_logo");
+		
+		document.addEventListener('scroll', function() {
+			if(document.documentElement.scrollTop>=100){
+				kkini_logo.setAttribute('src','${pageContext.request.contextPath}/resources/logo/kk-logo-black.png');
+			} else {
+				kkini_logo.setAttribute('src','${pageContext.request.contextPath}/resources/logo/kk-logo-white.png');
+			}
+		});
+		
+	</script>
 </body>    

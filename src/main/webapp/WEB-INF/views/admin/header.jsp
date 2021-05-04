@@ -27,7 +27,7 @@
                         </div>
                     </div>
                 </div>
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/resources/logo/kk-logo-black.png" alt="끼니끼리로고" height="50" width="auto"/></a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/resources/logo/kk-logo-white.png" alt="끼니끼리로고" height="50" width="auto"/></a>
                     <!-- 로고 입력 -->
                     <h3></h3>
                     <!-- <img class="img-fluid" src="assets/images/logo.png" alt="Theme-Logo" /> -->
@@ -118,7 +118,7 @@
                                 </a>
                             </li> -->
                             <li class="waves-effect waves-light">
-                                <a href="${pageContext.request.contextPath}/index.jsp">
+                                <a href="${pageContext.request.contextPath}/sign/logout.do">
                                     <i class="ti-layout-sidebar-left"></i> 로그아웃
                                 </a>
                             </li>

@@ -149,9 +149,10 @@
 												<div class="row">
 													<div class="col">
 														<h2>비밀번호 수정하기</h2>
-													</div>
-												</div>
-												<hr />
+														<div class="card">
+                                            				<div class="card-header">
+                                            				
+												
 												<!--Password-Form Start-->
 												<form id="inputform" action="changepassword.do" method="POST">
 													<div class="row my-2">
@@ -177,9 +178,13 @@
 																<i class="fas fa-lock prefix"></i><input type="password" id="cnpasswordvalidation" class="form-control validate validate-confirm-password" required /> <label for="cnpasswordvalidation" data-error="비밀번호가 일치하지 않습니다" data-success="비밀번호가 일치합니다" style="width: 300px">비밀번호 재확인</label>
 															</div>
 														</div>
-														<input type="button" class="btn-primary" id="btn" value="비밀번호 변경" />
+														<input type="button" class="btn btn-primary" id="btn" value="비밀번호 변경" />
 													</div>
 												</form>
+												</div>
+														</div>
+													</div>
+												</div>
 												<!-- Passowrd-Form End -->
 											</div>
 										</div>

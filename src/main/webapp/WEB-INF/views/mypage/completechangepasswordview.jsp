@@ -148,12 +148,13 @@ if (session.getAttribute("member") != null) {
 											<div class="col-xl-12 col-md-12">
 												<div class="row">
 													<div class="col">
-														<h2>비밀번호 수정이 완료되었습니다</h2>
+														<div class="card">
+                                            				<div class="card-header">
+																<h2>비밀번호 수정이 완료되었습니다</h2>
+															</div>
+														</div>
 													</div>
 												</div>
-												<hr />
-													
-
 											</div>
 										</div>
 									</div>

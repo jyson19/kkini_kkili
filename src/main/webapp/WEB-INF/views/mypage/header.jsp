@@ -98,7 +98,7 @@
                         </a>
                         <ul class="show-notification profile-notification">
                             <li class="waves-effect waves-light">
-                                <a href="form-elements-component.html">
+                                <a href="${pageContext.request.contextPath}/mypage/requestresetpassword.do">
                                     <i class="ti-settings"></i> 계정관리
                                 </a>
                             </li>
