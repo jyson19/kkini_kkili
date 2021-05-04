@@ -158,7 +158,7 @@
 			  <p>현업 프로젝트 경험을 듣고 싶지 않나요?</p>
 			  <p>미래의 대학교 선배 이야기가 필요하지 않나요?</p>
 			  <p>지금 인생을 바꿀 약속을 잡아보세요!</p>
-			  <p><a href="tour.html" class="btn btn-primary btn-outline-primary mt-4 px-4 py-3">더 많은 컨택보기</a></p>
+			  <p><a href="${pageContext.request.contextPath}/contact/list.do" class="btn btn-primary btn-outline-primary mt-4 px-4 py-3">더 많은 컨택보기</a></p>
 			</div>
 		  <div class="col-md-1"></div>
 			<div class="col-md-6 heading-section ftco-animate">
@@ -251,7 +251,7 @@
 	       		$("#profileList").append(	       				
 	       				
        	          '<div class="col-md-3 d-flex ftco-animate">'+
-       	            '<div class="blog-entry align-self-stretch" style="width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">'+
+       	            '<div class="blog-entry align-self-stretch" style="border-radius:10px; width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">'+
        	              '<a href="${pageContext.request.contextPath}/host/profile.do?hostId='+data[i].HOST_ID+'" class="block-20" style="background-image: url(\'upload/host/pic'+data[i].HOST_ID+'.jpg\');">'+
        	              '</a>'+
        	              '<div class="text p-4 d-block">'+
@@ -272,64 +272,6 @@
 	
     </script>
 		  
-			<!-- <div class="col-md-3 d-flex ftco-animate">
-			  <div class="blog-entry align-self-stretch">
-				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_1.jpg');">
-				</a>
-				<div class="text p-4 d-block">
-					<span class="heading">김라인</span>
-					<h3 class="heading mt-3"><a href="#">안녕하세요. 네이버 개발자로 일하고 있습니다.</a></h3>
-					<div class="meta mb-3">
-					<div><a href="#">최근 컨택 2021년 05월 22일</a></div>
-					<div><a href="#" class="meta-chat"><span class="icon-chat"></span> 후기 3</a></div>
-					</div>
-				  </div>
-			  </div>
-			</div>
-			<div class="col-md-3 d-flex ftco-animate">
-			  <div class="blog-entry align-self-stretch">
-				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_2.jpg');">
-				</a>
-				<div class="text p-4">
-					<span class="heading">알렉스</span>
-				  <h3 class="heading mt-3"><a href="#">산악자전거 동호회 회장 알렉스입니다. 여행 경험을 공유하고 싶어요.</a></h3>
-				  <div class="meta mb-3">
-					<div><a href="#">최근 컨택 2021년 06월 02일</a></div>
-					<div><a href="#" class="meta-chat"><span class="icon-chat"></span>후기 1</a></div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-3 d-flex ftco-animate">
-			  <div class="blog-entry align-self-stretch">
-				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_3.jpg');">
-				</a>
-				<div class="text p-4">
-					<span class="heading">토마스</span>
-				  <h3 class="heading mt-3"><a href="#">산악자전거 동호회 회장 알렉스입니다. 여행 경험을 공유하고 싶어요.</a></h3>
-				  <div class="meta mb-3">
-					<div><a href="#">최근 컨택 2021년 06월 02일</a></div>
-					<div><a href="#" class="meta-chat"><span class="icon-chat"></span>후기 1</a></div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-			<div class="col-md-3 d-flex ftco-animate">
-			  <div class="blog-entry align-self-stretch">
-				<a href="blog-single.html" class="block-20" style="background-image: url('resources/images/image_4.jpg');">
-				</a>
-				<div class="text p-4">
-					<span class="heading">귀찮스</span>
-				  <h3 class="heading mt-3"><a href="#">산악자전거 동호회 회장 알렉스입니다. 여행 경험을 공유하고 싶어요.</a></h3>
-				  <div class="meta mb-3">
-					<div><a href="#">최근 컨택 2021년 06월 02일</a></div>
-					<div><a href="#" class="meta-chat"><span class="icon-chat"></span>후기 1</a></div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </div> -->
-		  
 		</div>
 	  </section>
 	  <!-- 프로필 종료 -->
@@ -340,7 +282,8 @@
     		<div class="row justify-content-center mb-5 pb-3">
           <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
             <h2 class="mb-4">현황판</h2>
-            <span class="subheading">경험이 전해지고 있습니다</span>
+            <p class="subheading">2021년 05월 04일 기준</p>
+            <span class="subheading">소중한 경험이 전해지고 있습니다</span>
           </div>
         </div>
     		<div class="row justify-content-center">
@@ -349,7 +292,7 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="12500">0</strong>
+		                <strong class="number" data-number="110">0</strong>
 		                <span>가입자수</span>
 		              </div>
 		            </div>
@@ -357,7 +300,7 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="41213">0</strong>
+		                <strong class="number" data-number="20">0</strong>
 		                <span>컨택 성사 건수</span>
 		              </div>
 		            </div>
@@ -365,7 +308,7 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="22310">0</strong>
+		                <strong class="number" data-number="80">0</strong>
 		                <span>컨택 예정 건수</span>
 		              </div>
 		            </div>
@@ -373,7 +316,7 @@
 		          <div class="col-md-3 d-flex justify-content-center counter-wrap ftco-animate">
 		            <div class="block-18 text-center">
 		              <div class="text">
-		                <strong class="number" data-number="10020400">0</strong>
+		                <strong class="number" data-number="80000	">0</strong>
 		                <span>컨택의 가치</span>
 		              </div>
 		            </div>
