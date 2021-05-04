@@ -354,6 +354,8 @@
     <label class="col-sm-2 col-form-label">프로필 사진</label>
     <div class="col-sm-10">
         <input value="${host.hostPic}" class="form-control" name='pic' readonly>
+        <br/>
+		<img src="../upload/host/${host.hostPic}"/>
     </div>
 </div>
 <div class="form-group row">
@@ -367,7 +369,8 @@
     <label class="col-sm-2 col-form-label">인증 자료</label>
     <div class="col-sm-10">
         <input value="${host.authFile}" class="form-control" name='file' required readonly>
-        
+        <br/>
+		<img src="../upload/host/${host.authFile}"/>
     </div>
 </div>
 <div class="form-group row">
