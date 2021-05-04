@@ -4,6 +4,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%!
 	String memberId = null;
 %>
@@ -129,8 +130,8 @@
                                         <!-- Hover table card start -->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h5>컨택 내역</h5>
-                                                <span>지금까지 진행했던 <code>컨택 내역</code>을 확인하세요.</span>
+                                                <h5>입찰 내역 조회</h5>
+                                                <span>지금까지 참여했던 <code>경매 내역</code>을 확인하세요.</span>
                                                 <div class="card-header-right">
                                                     <ul class="list-unstyled card-option">
                                                         <li><i class="fa fa fa-wrench open-card-option"></i></li>
@@ -156,10 +157,10 @@
                                                         <tbody>
 		                                                	<c:forEach items="${contactBid }" var="contactBid">
 		                                                    	<tr>
-		                                                        	<td>${contactBid.CONTACT_INTRO}</td>
-		                                                            <td>${contactBid.NAME}</td>
+		                                                        	<td><a href="../contact/bid.do?contact_id=${contactBid.CONTACT_ID}">${contactBid.CONTACT_INTRO}</a></td>
+		                                                            <td><a href="../host/profile.do?hostId=${contactBid.HOST_ID}">${contactBid.NAME}</a></td>
 		                                                            <td>${contactBid.BID_TIME}</td>
-		                                                            <td>${contactBid.PRICE}</td>
+		                                                            <td><fmt:formatNumber value="${contactBid.PRICE}" type="number"/>원</td>
 		                                                            <c:if test="${contactBid.GUEST_ID eq pageScope.str}">
 		                                                            	<td>낙찰</td>
 		                                                            </c:if>
