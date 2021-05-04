@@ -3,6 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%!
 	String email = "";
+	String sessionName = "";
 	int memberId = 0;
 	Boolean login = false;
 %>
@@ -10,6 +11,7 @@
 	if( session.getAttribute("member")!= null ) {
 		email = (String) ((MemberVO) session.getAttribute("member")).getEmail();
 		memberId = ((MemberVO) session.getAttribute("member")).getMemberId();
+		sessionName = ((MemberVO) session.getAttribute("member")).getName();
 	}
 	if(email.length()>=1 && email.matches("^[_a-z0-9-]+(.[_a-z0-9-]+)*@(?:\\w+\\.)+\\w+$")) {
 		login = true;
@@ -41,6 +43,7 @@
     <link rel="stylesheet" href="./../resources/css/flaticon.css">
     <link rel="stylesheet" href="./../resources/css/icomoon.css">
     <link rel="stylesheet" href="./../resources/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <style>
 		#bid_price:focus{
 			outline: none;
@@ -174,9 +177,12 @@
       </div>
       
       <!-- ajax로 넘겨주는 값 -->
-      <div id="upName" style="display:none">${recentBidListUpdate[1].NAME}</div>
-      <div id="upBidTime" style="display:none">${recentBidListUpdate[1].BID_TIME}</div>
-      <div id="upPrice" style="display:none">${recentBidListUpdate[1].PRICE}</div>
+	  <!--
+		  <div id="upName" style="display:none">${recentBidListUpdate[1].NAME}</div>
+		  <div id="upBidTime" style="display:none">${recentBidListUpdate[1].BID_TIME}</div>
+		  <div id="upPrice" style="display:none">${recentBidListUpdate[1].PRICE}</div>
+		-->
+	  <div id="upName" style="display:none"><%=sessionName %></div>
       <div id="hostId" style="display:none">${bidView.HOST_ID}</div>
       <div id="memberId" style="display:none"><%=memberId%></div>
       <div id="loginFlag" style="display:none"><%=login%></div>

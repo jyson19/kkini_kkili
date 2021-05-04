@@ -69,7 +69,7 @@ $(function() {
 			if(iValue1 != -1) {
 				result = result.split(":");
 				$("#bid_result").text(result[0]);
-				$("#lastValue").text(result[1]);
+				$("#lastValue").text(addComma(result[1]) + "원");
 				
 			// 입찰 완료시 최고가 금액 변경
 			} else if(iValue2 != -1){
@@ -90,9 +90,34 @@ $(function() {
 					$(".recentBid-3")[i].textContent = rb3[i - 1].textContent;
 				}
 				
-				$(".recentBid-1")[0].textContent = $("#upName").textContent;
-				$(".recentBid-2")[0].textContent = $("#upBidTime").textContent;
-				$(".recentBid-3")[0].textContent = $("#upPrice").textContent;
+				// 입찰 날짜 계산
+				var Now = new Date();
+				var NowTime = String(Now.getFullYear());
+				var monthCount = String(Now.getMonth() + 1);
+				if(monthCount.length == 1) { 
+					monthCount = String("0" + monthCount); 
+				} 
+				NowTime += String('-' + monthCount);
+				var dayCount = String(Now.getDate());
+				if(dayCount.length == 1) { 
+					dayCount = String("0" + dayCount); 
+				}
+				NowTime += String('-' + dayCount);
+				NowTime += String(' ' + Now.getHours());
+				NowTime += String(':' + Now.getMinutes());
+				NowTime += String(':' + Now.getSeconds());
+
+				// 이름 마스킹
+				var maskName = $("#upName").text().trim();
+				maskName = maskName.replace(/(?<=.{1})./gi, "*");
+
+				// 입찰내역 값 삽입
+				$(".recentBid-1")[0].textContent = maskName;
+				$(".recentBid-2")[0].textContent = NowTime;
+				$(".recentBid-3")[0].textContent = addComma($("#bid_price").val()) + "원"
+				
+				$('tbody > tr:nth-child(1)').css({fontSize:"20px"});
+				$('tbody > tr:nth-child(1)').animate({fontSize:"14px"}, 600);
 			}
 		}
 		

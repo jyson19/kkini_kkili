@@ -180,8 +180,8 @@ public class ContactController {
 			int resultInt = contactService.bidUpdate(map);
 			log.debug("resultInt : " + resultInt);
 			if (resultInt == 2) {
-				// 입찰 성공시 입찰 내역 업데이트
-				model.addAttribute("recentBidListUpdate", contactService.recentBidList(Integer.parseInt(contactId)));
+//				// 입찰 성공시 입찰 내역 업데이트
+//				model.addAttribute("recentBidListUpdate", contactService.recentBidList(Integer.parseInt(contactId)));
 				return "입찰이 완료되었습니다!";
 			}
 			return "입찰 실패.. 이유는.. 음..";
