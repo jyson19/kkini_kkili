@@ -349,16 +349,19 @@
 	        colors: ['#5FBEAA', '#34495E', '#FF9F55']
 	    });
 	}
-
 	
 	let i;
-	for(i=0; i<numberOfContact.length; i++){
-		if(numberOfSuccessContact.length !=0 && numberOfContact[i].YEARMONTH == numberOfSuccessContact[i].YEARMONTH){
-			numberOfContact[i].SUCCESSCONTACT = numberOfSuccessContact[i].SUCCESSCONTACT
-		} else {
-			numberOfContact[i].SUCCESSCONTACT = 0
-		}
-	}	
+	let j;
+	for(j = 0; j<numberOfContact.length; j++){
+		for(i = 0; i<numberOfSuccessContact.length; i++){
+			if(numberOfContact[j].YEARMONTH == numberOfSuccessContact[i].YEARMONTH){
+				numberOfContact[j].SUCCESSCONTACT = numberOfSuccessContact[i].COUNTSUCCESSCONTACT;
+				break;
+			} else {
+				numberOfContact[j].SUCCESSCONTACT = 0;
+			}
+		}		
+	}
 	
 	// Morris bar chart
 	Morris.Bar({
