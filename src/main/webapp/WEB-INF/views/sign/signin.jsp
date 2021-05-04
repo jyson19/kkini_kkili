@@ -135,9 +135,9 @@
                                                     <span class="text-inverse">저장</span>
                                                 </label>
                                             </div>
-                                            <div class="forgot-phone text-right f-right">
+                                            <!-- <div class="forgot-phone text-right f-right">
                                                 <a href="auth-reset-password.html" class="text-right f-w-600"> 비밀번호 찾기</a>
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                     <div class="row m-t-30">
