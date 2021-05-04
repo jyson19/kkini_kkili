@@ -251,7 +251,7 @@
 	       		$("#profileList").append(	       				
 	       				
        	          '<div class="col-md-3 d-flex ftco-animate">'+
-       	            '<div class="blog-entry align-self-stretch" style="border-radius:10px; width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">'+
+       	            '<div class="blog-entry align-self-stretch border-0" style="border-radius:10px; width:100%; overflow:hidden; text-overflow:ellipsis; word-wrap:break-word;">'+
        	              '<a href="${pageContext.request.contextPath}/host/profile.do?hostId='+data[i].HOST_ID+'" class="block-20" style="background-image: url(\'upload/host/pic'+data[i].HOST_ID+'.jpg\');">'+
        	              '</a>'+
        	              '<div class="text p-4 d-block">'+
