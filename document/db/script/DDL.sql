@@ -37,13 +37,13 @@ DROP TABLE email_auth
 /* 회원 */
 CREATE TABLE member (
 	member_id NUMBER NOT NULL, /* 회원번호 */
-	name VARCHAR2(10), /* 이름 */
-	email VARCHAR2(30), /* 이메일 */
-	password VARCHAR2(30), /* 비밀번호 */
+	name VARCHAR2(10) NOT NULL, /* 이름 */
+	email VARCHAR2(30) NOT NULL, /* 이메일 */
+	password VARCHAR2(30) NOT NULL, /* 비밀번호 */
 	tel NUMBER(30), /* 휴대폰번호 */
 	auth NUMBER(1), /* 회원등급 */
 	join_date DATE, /* 가입일자 */
-	last_conn_date VARCHAR2(30) /* 최근접속일 */
+	last_conn_date VARCHAR2(30) NOT NULL /* 최근접속일 */
 );
 
 /* 호스트 */
@@ -54,9 +54,9 @@ CREATE TABLE host (
 	uni VARCHAR2(30), /* 대학교 */
 	host_value NUMBER, /* 수익 */
 	write_date DATE, /* 신청일자 */
-	auth_file VARCHAR2(30) NOT NULL, /* 인증파일 */
-    content VARCHAR2(2000) NOT NULL, /* 소개내용 */
-	result VARCHAR2(30) /* 결과 -> 등록일자*/
+	auth_file VARCHAR2(30), /* 인증파일 */
+	content VARCHAR2(2000), /* 소개 */
+	result VARCHAR2(30) /* 결과 */
 );
 
 /* 컨택 */
@@ -78,7 +78,7 @@ CREATE TABLE contact (
 CREATE TABLE cmt (
 	cmt_id NUMBER NOT NULL, /* 댓글번호 */
 	host_id NUMBER NOT NULL, /* 호스트번호 */
-	guest_id NUMBER, /* 회원번호 */
+	guest_id NUMBER NOT NULL, /* 회원번호 */
 	write_date DATE, /* 등록일 */
 	content VARCHAR2(200) /* 댓글내용 */
 );
@@ -88,7 +88,7 @@ CREATE TABLE notice (
 	notice_no NUMBER NOT NULL, /* 공지사항번호 */
 	no_write_date DATE, /* 등록일 */
 	subject VARCHAR2(50), /* 제목 */
-	contents VARCHAR2(300) /* 내용 */
+	contents VARCHAR2(200) /* 내용 */
 );
 
 /* 매출액 */
