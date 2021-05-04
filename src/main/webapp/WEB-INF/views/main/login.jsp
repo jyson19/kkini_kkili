@@ -153,7 +153,7 @@
                                     <div class="row">
                                         <div class="col-md-10">
                                             <p class="text-inverse text-left m-b-0">처음오셨나요?</p>
-                                            <p class="text-inverse text-left"><a href="auth-sign-up.html"><b>회원가입하기</b></a></p>
+                                            <p class="text-inverse text-left"><a href="${pageContext.request.contextPath}/main/sign.do"><b>회원가입하기</b></a></p>
                                         </div>
                                         <!-- 로고 위치 -->
                                         <!-- <div class="col-md-2">

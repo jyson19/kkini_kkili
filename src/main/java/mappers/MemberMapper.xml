@@ -31,19 +31,22 @@
 	</insert>
  	<!-- 개인정보 수정 -->
 
+	<update id="updatePassword" parameterType="member">
+		UPDATE member
+		set password = #{password} WHERE email = #{email}
+	</update>
 	<!-- 탈퇴 -->
 
 	<!-- 호스트 인증처리 -->
 
 	<!-- 이메일 확인 -->
 	<select id="emailCheck" resultType="member">
-		<if test="email != null">
-			SELECT * FROM member WHERE
-			email=#{email}
-		</if>
-		<!-- 비밀번호 확인 -->
-		<if test="password != null">
-			AND password=#{password}
+		SELECT * FROM member WHERE
+		email = #{email}
+
+		<!-- 이메일 및 비밀번호 확인 -->
+		<if test="email != null and password != null">
+			AND password = #{password}
 		</if>
 	</select>
 

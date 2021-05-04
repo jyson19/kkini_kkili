@@ -136,7 +136,7 @@
             <div class="pcoded-navigation-label">계정 관리</div>
             <ul class="pcoded-item pcoded-left-item">
                 <li class="">
-                    <a href="form-elements-component.html" class="waves-effect waves-dark">
+                    <a href="requestresetpassword.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
                         <span class="pcoded-mtext">비밀번호 수정</span>
                         <span class="pcoded-mcaret"></span>
