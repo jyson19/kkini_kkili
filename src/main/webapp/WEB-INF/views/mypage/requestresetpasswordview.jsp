@@ -151,11 +151,11 @@ if (session.getAttribute("member") != null) {
 												<div class="row">
 													<div class="col">
 														<h2>비밀번호 확인</h2>
-														<br /> <br />
-														<h4>비밀번호 수정 전 보안을 위해 비밀번호를 확인합니다</h4>
-													</div>
-												</div>
-												<hr />
+														<div class="card">
+                                           					<div class="card-header">
+																<h5>비밀번호 수정 전 보안을 위해 비밀번호를 확인합니다</h5>
+															
+												
 												<!--Password-Form Start-->
 												<form action="passwordcheck.do" method="POST">
 													<div class="row my-2">
@@ -168,10 +168,14 @@ if (session.getAttribute("member") != null) {
 															</div>
 														</div>
 														<div class="col-md-5">
-															<input type="button" class="btn-primary" id="btn" value="비밀번호 확인" />
+															<input type="button" class="btn-primary btn" id="btn" value="비밀번호 확인" />
 														</div>
 													</div>
 												</form>
+												</div>
+														</div>
+													</div>
+												</div>
 												<!-- Passowrd-Form End -->
 											</div>
 										</div>
