@@ -28,7 +28,7 @@
 			  <li><a href="${pageContext.request.contextPath}/main/term-and-policy.do" class="py-2 d-block">이용약관</a></li>
 			  <li><a href="${pageContext.request.contextPath}/main/ct.do" class="py-2 d-block">제휴문의</a></li>
 			  <!-- <li><a href="#" class="py-2 d-block">Best Price Guarantee</a></li> -->
-			  <li><a href="#" class="py-2 d-block">개인정보보호정책</a></li>
+			  <!-- <li><a href="#" class="py-2 d-block">개인정보보호정책</a></li> -->
 			</ul>
 		  </div>
 		</div>
@@ -36,10 +36,10 @@
 		   <div class="ftco-footer-widget mb-4">
 			<h2 class="ftco-heading-2">소비자 지원</h2>
 			<ul class="list-unstyled">
-			  <li><a href="#" class="py-2 d-block">문의사항</a></li>
-			  <li><a href="#" class="py-2 d-block">결제방법</a></li>
-			  <li><a href="#" class="py-2 d-block">이용방법</a></li>
-			  <li><a href="#" class="py-2 d-block">고객센터</a></li>
+			  <li><a href="${pageContext.request.contextPath}/main/ct.do" class="py-2 d-block">문의사항</a></li>
+			  <!-- <li><a href="#" class="py-2 d-block">결제방법</a></li>
+			  <li><a href="#" class="py-2 d-block">이용방법</a></li> -->
+			  <li><a href="${pageContext.request.contextPath}/main/ct.do" class="py-2 d-block">고객센터</a></li>
 			</ul>
 		  </div>
 		</div>

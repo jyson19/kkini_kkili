@@ -170,8 +170,8 @@
 	                                                            <tr>
 	                                                                <td>${contact.MEETING_TIME }</td>
 	                                                                <td>${contact.STORE_NAME }</td>
-	                                                            	<td><a href="">${contact.NAME }</a></td>
-	                                                                <td><a href="">${contact.CONTACT_INTRO}</a></td>
+	                                                            	<td>${contact.NAME }</td>
+	                                                                <td><a href="../contact/bid.do?contact_id=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
 	                                                                <td>${contact.CNT}</td>
 	                                                                <td> <fmt:formatNumber value="${contact.LAST_VALUE * 0.95}" type="number"/>원</td>
 	                                                            </tr>
