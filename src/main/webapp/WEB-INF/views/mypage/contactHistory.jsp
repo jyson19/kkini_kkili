@@ -4,6 +4,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <% 
 
 	MemberVO member = null;
@@ -167,31 +168,35 @@
 	                                                        <c:forEach items="${contactInfo }" var="contact">
 	                                                            <tr>
 	                                                            	<c:if test="${contact.HOST_ID eq contact.MEMBER_ID }">
-	                                                                	<td> 게스트 </td>
-	                                                                	<td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
-	                                                            	</c:if>
-	                                                            	<c:if test="${contact.HOST_ID ne contact.MEMBER_ID }">
-	                                                                	<td> 호스트 </td>
-	                                                                	<td> ${contact.NAME } </td>
-	                                                            	</c:if>
-	                                                                <td><a href="../contact/bid.do?contact_id=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
-	                                                                <td>${contact.STORE_NAME }</td>
-	                                                                <td>${contact.MEETING_TIME }</td>
-	                                                                <td>${contact.LAST_VALUE }</td>
-	                                                                <c:if test="${contact.QR_CHECK eq 1}">
+		                                                                	<td> 게스트 </td>
+			                                                                <td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
+		                                                            	</c:if>
+		                                                            	<c:if test="${contact.HOST_ID ne contact.MEMBER_ID }">
+		                                                                	<td> 호스트 </td>
+		                                                                	<td>${contact.NAME }</td>
+		                                                            	</c:if>
+		                                                                <td><a href="../contact/bid.do?contact_id=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
+		                                                                <td>${contact.STORE_NAME }</td>
+		                                                                <td>${contact.MEETING_TIME }</td>
+		                                                                <td><fmt:formatNumber value="${contact.LAST_VALUE}" type="number"/>원</td>
+		                                                                <c:if test="${contact.QR_CHECK eq 1}">
 	                                                                	
-	                                                                	<td> 만남 완료 </td>
-	                                                            	</c:if>
-	                                                            	<c:if test="${contact.QR_CHECK eq 0}">
-	                                                                	<c:if test="${contact.MEETING_TIME >= today }">
-		                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do?contactId=${contact.CONTACT_ID}&memberId=${contact.MEMBER_ID}'"> 만남 예정 <br/> (QR코드 생성) </td>
-		                                                                	<!-- <td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td> -->
-		                                                                	<!-- <td class="qr_td"> 만남 예정 <br/> (QR코드 생성) </td> -->
-	                                                                	</c:if>
-	                                                                	<c:if test="${contact.MEETING_TIME < today }">
-		                                                                	<td> 만남 취소 </td>
-	                                                                	</c:if>
-	                                                            	</c:if>
+	                                                                		<td> 만남 완료 </td>
+		                                                            	</c:if>
+		                                                            	<c:if test="${contact.QR_CHECK eq 0}">
+		                                                                	<c:if test="${contact.MEETING_TIME >= today }">
+		                                                                		<% if(member.getAuth() == 1){ %>
+			                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do?contactId=${contact.CONTACT_ID}&memberId=${contact.MEMBER_ID}'"> 만남 예정 <br/> (QR코드 생성) </td>
+			                                                                	<!-- <td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td> -->
+			                                                                	<!-- <td class="qr_td"> 만남 예정 <br/> (QR코드 생성) </td> -->
+		                                                                		<% } else { %>
+		                                                                		<td>만남예정</td>
+		                                                                		<% } %>
+		                                                                	</c:if>
+		                                                                	<c:if test="${contact.MEETING_TIME < today }">
+			                                                                	<td> 만남 취소 </td>
+		                                                                	</c:if>
+	                                                            		</c:if>
 	                                                            </tr>
 	                                                            <!-- ajax로 넘겨주는 값 -->
       															<div id="div_memberId" style="display:none">${contact.MEMBER_ID}</div>

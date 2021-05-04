@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="java.util.Date" %>
 <%@ page import="com.kk.domain.MemberVO" %>
 
 <% 
@@ -11,6 +13,11 @@
 		member = (MemberVO) session.getAttribute("member"); 	
 	}
 	
+	long time = System.currentTimeMillis(); 
+	SimpleDateFormat simpl = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	String s = simpl.format(time);
+	
+	pageContext.setAttribute("today", s) ;
 	
 %>
 
@@ -26,7 +33,7 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
     <!-- Meta -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -192,27 +199,34 @@
 		                                                            <tr>
 		                                                            	<c:if test="${contact.HOST_ID eq contact.MEMBER_ID }">
 		                                                                	<td> 게스트 </td>
+			                                                                <td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
 		                                                            	</c:if>
 		                                                            	<c:if test="${contact.HOST_ID ne contact.MEMBER_ID }">
 		                                                                	<td> 호스트 </td>
+		                                                                	<td>${contact.NAME }</td>
 		                                                            	</c:if>
-		                                                                <td><a href="../host/profile.do?hostId=${contact.MEMBER_ID}">${contact.NAME }</a></td>
-		                                                                <td><a href="../contact/detail.do?contactId=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
+		                                                                <td><a href="../contact/bid.do?contact_id=${contact.CONTACT_ID}">${contact.CONTACT_INTRO}</a></td>
 		                                                                <td>${contact.STORE_NAME }</td>
 		                                                                <td>${contact.MEETING_TIME }</td>
-		                                                                <td>${contact.LAST_VALUE }</td>
+		                                                                <td><fmt:formatNumber value="${contact.LAST_VALUE}" type="number"/>원</td>
 		                                                                <c:if test="${contact.QR_CHECK eq 1}">
-		                                                                	
-		                                                                	<td> 만남 완료 </td>
+	                                                                	
+	                                                                		<td> 만남 완료 </td>
 		                                                            	</c:if>
 		                                                            	<c:if test="${contact.QR_CHECK eq 0}">
 		                                                                	<c:if test="${contact.MEETING_TIME >= today }">
-			                                                                	<td> 만남 예정 </td>
+		                                                                		<% if(member.getAuth() == 1){ %>
+			                                                                	<td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do?contactId=${contact.CONTACT_ID}&memberId=${contact.MEMBER_ID}'"> 만남 예정 <br/> (QR코드 생성) </td>
+			                                                                	<!-- <td class="qr_td" onClick="location.href='${pageContext.request.contextPath}/contact/qr_check.do'"> 만남 예정 <br/> (QR코드 생성) </td> -->
+			                                                                	<!-- <td class="qr_td"> 만남 예정 <br/> (QR코드 생성) </td> -->
+		                                                                		<% } else { %>
+		                                                                		<td>만남예정</td>
+		                                                                		<% } %>
 		                                                                	</c:if>
 		                                                                	<c:if test="${contact.MEETING_TIME < today }">
 			                                                                	<td> 만남 취소 </td>
 		                                                                	</c:if>
-		                                                            	</c:if>
+	                                                            		</c:if>
 		                                                            </tr>
 	                                                            </c:forEach>
                                                             

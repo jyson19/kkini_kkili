@@ -74,7 +74,7 @@ public class AdminController {
 		if( session.getAttribute("member") != null && ((MemberVO) session.getAttribute("member")).getAuth() == 2) {
 			log.debug("관리자 페이지 권한 확인");
 			m.addAttribute("host", adminService.getAuth(vo));			
-			return "admin/hostup";
+			return "admin/auth";
 		}
 		
 		return "sign/signin";

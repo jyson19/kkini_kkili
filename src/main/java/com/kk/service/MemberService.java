@@ -17,5 +17,6 @@ public interface MemberService {
 
 	int insertMember(MemberVO vo);
 
+	int updatePassword(MemberVO vo);
 	int updateConnDate(int memberId);
 }

@@ -61,7 +61,7 @@ public class MemberController {
 		String referrer = request.getHeader("Referer");
 		log.debug(referrer);
 		// 이전 페이지가 로그인 페이지가 아니면 세션에 저장하기
-		if (!referrer.contains("sign")) {
+		if (referrer != null && !referrer.contains("sign")) {
 			request.getSession().setAttribute("prevPage", referrer);
 			log.debug("이전 페이지 : ");
 			request.getSession().getAttribute("prevPage");
@@ -73,6 +73,7 @@ public class MemberController {
 		log.info("signinAttempt 메소드 호출");
 		// 이전 페이지를 세션에서 불러오기
 		String prevPage = (String) request.getSession().getAttribute("prevPage");
+		session.removeAttribute("prevPage");
 		String memberId = request.getParameter("memberId");
 		MemberVO memberVO = memberService.memberSigninService(member);
 		
