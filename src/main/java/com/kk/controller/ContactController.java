@@ -142,6 +142,8 @@ public class ContactController {
 		log.info("ContactController.bidAfter() 실행");
 		log.info("lvc : " + lvc + "\nlastValue : " + lastValue + "\nhostId : " + hostId + "\nmemberId : "
 				+ memberId + "\ncontactId : " + contactId + "\nbidPrice : " + bidPrice);
+		// 컨택 최고가
+		int f_lastValue = contactService.lastValueCheck(Integer.parseInt(contactId));
 
 		// 로그인 상태가 아닐시
 		if (loginFlag.equals("false")) {
@@ -156,9 +158,8 @@ public class ContactController {
 			return "개최자는 입찰에 참여할 수 없습니다.";
 			
 		// 현재 최고가보다 낮거나 같은 금액일시
-		} else if (Integer.parseInt(lastValue.replace(",", "").replace("원", "")) >= Integer.parseInt(bidPrice)) {
+		} else if (f_lastValue >= Integer.parseInt(bidPrice)) {
 			// 같은 시간에 누군가 최고금액 입찰시 해당 데이터 변경
-			int f_lastValue = contactService.lastValueCheck(Integer.parseInt(contactId));
 			return "최고가보다 높은 금액을 입력해주세요.:" + f_lastValue;
 			
 		// 마감완료 됐을시
