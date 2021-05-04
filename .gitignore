@@ -37,5 +37,8 @@ target/
 # Compiled Pre-Linked Libraries
 *.plx
 
+/.metadata/
+
 # DS_Store
 *.DS_Store
+
