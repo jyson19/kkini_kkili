@@ -163,7 +163,7 @@
 														<div class="col-md-6">
 															<div class="alert alert-warning password-alert" role="alert">
 																<ul>
-																	<li class="requirements leng" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 최소 6글자 이상이어야합니다.</li>
+																	<li class="requirements leng" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 최소 6글자 이상이어야 합니다.</li>
 																	<li class="requirements big-letter" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 대문자가 한 글자 이상 포함되어야 합니다</li>
 																	<li class="requirements num" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 숫자가 한 글자 이상 포함되어야 합니다.</li>
 																	<li class="requirements special-char" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 특수문자가 한 글자 이상 포함되어야 합니다.</li>
@@ -174,7 +174,7 @@
 													<div class="row my-2">
 														<div class="col-md-4">
 															<div class="md-form">
-																<i class="fas fa-lock prefix"></i><input type="password" id="cnpasswordvalidation" class="form-control validate validate-confirm-password" required /> <label for="cnpasswordvalidation" data-error="비밀번호를 조건에 맞게 입력해주세요" data-success="좋아요" style="width: 300px">비밀번호 재확인</label>
+																<i class="fas fa-lock prefix"></i><input type="password" id="cnpasswordvalidation" class="form-control validate validate-confirm-password" required /> <label for="cnpasswordvalidation" data-error="비밀번호가 일치하지 않습니다" data-success="비밀번호가 일치합니다" style="width: 300px">비밀번호 재확인</label>
 															</div>
 														</div>
 														<input type="button" class="btn-primary" id="btn" value="비밀번호 변경" />
