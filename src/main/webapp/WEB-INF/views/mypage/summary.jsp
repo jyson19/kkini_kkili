@@ -308,11 +308,11 @@
 	                                          <h5>프로필 작성</h5>
         										<span>프로필을 <code> 작성 </code> 해주세요. </span>
                                                 <div class="card-header-right">
-                                                    <ul class="list-unstyled card-option" style="width: 140px;">
-                                                        <li><i class="fa fa open-card-option fa-times"></i></li>
+                                                    <ul class="list-unstyled card-option">
+                                                        <!-- <li><i class="fa fa open-card-option fa-times"></i></li>
                                                         <li><i class="fa fa-window-maximize full-card"></i></li>
                                                         <li><i class="fa fa minimize-card fa-plus"></i></li>
-                                                        <li><i class="fa fa-refresh reload-card"></i></li>
+                                                        <li><i class="fa fa-refresh reload-card"></i></li> -->
                                                         <li><i class="fa fa-trash close-card"></i></li>
                                                     </ul>
                                                 </div>
@@ -322,6 +322,7 @@
                                     	<% }%>
                                     </div>
                               		<!-- Hover table card start -->
+                              		<% if(member.getAuth() == 1){ %>
                                     <div class="card">
                                             <div class="card-header">
                                                 <h5>나를 주목하는 사람들 목록</h5>
@@ -413,6 +414,7 @@
 	                                               </div>
                                   			  </div>
                                   			</div> 
+                                  			<% }%>
                                     <!-- Page-body end -->
                                 </div>
                                 <div id="styleSelector"> </div>
