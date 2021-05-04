@@ -118,7 +118,7 @@
                                 </a>
                             </li> -->
                             <li class="waves-effect waves-light">
-                                <a href="${pageContext.request.contextPath}/index.jsp">
+                                <a href="${pageContext.request.contextPath}/sign/logout.do">
                                     <i class="ti-layout-sidebar-left"></i> 로그아웃
                                 </a>
                             </li>
