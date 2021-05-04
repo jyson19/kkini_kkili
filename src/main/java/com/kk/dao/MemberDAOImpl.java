@@ -39,6 +39,12 @@ public class MemberDAOImpl implements MemberDAO {
 		return result;
 	}
 
+	// 비밀번호 갱신
+	public int passwordUpdate(MemberVO vo) {
+		int result = mybatis.update("member.updatePassword", vo);
+		return result;
+	}
+
 	// 최근 접속일 갱신
 	public int updateConnDate(int memberId) {
 		return mybatis.update("member.updateConnDate", memberId);
