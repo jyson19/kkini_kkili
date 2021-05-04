@@ -253,16 +253,20 @@
 	
   // 댓글 남기기
   $("#reply_complete").click(function(){
-	  $.ajax({
-		type :'post',
-       	data : { "cmt" : $("#message").val(), "hostId" : ${param.hostId}},
-       	url : 'saveCmt.do',
-       	success : function(data){
-       		// 정상적으로 등록시
-       		commentStart();
-       	},
-	  })
 	  
+	  if($("#message").val().trim() != ""){
+	  
+		  $.ajax({
+			type :'post',
+	       	data : { "cmt" : $("#message").val(), "hostId" : ${param.hostId}},
+	       	url : 'saveCmt.do',
+	       	success : function(data){
+	       		// 정상적으로 등록시 댓글 갈기
+	       		(data == "" || data == null) ? alert("로그인 후 입력해주시길 바랍니다.") : commentStart();
+	       		
+	       	}
+		  })
+	  }
 	  $("#message").val("");
   })
   
