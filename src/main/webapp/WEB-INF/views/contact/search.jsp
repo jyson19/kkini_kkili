@@ -90,12 +90,11 @@
 
 				<div class="col-lg-9">
 					<div class="col-md-12">
-
 						<c:forEach items="${contactList }" var="contact">
 							<!--  ${contactList }-->
 							<div class="item border-top">
 								<div class="testimony-wrap d-flex">
-								<a href="${pageContext.request.contextPath}/host/profile.do">
+								<a href="${pageContext.request.contextPath}/host/profile.do?hostId=${contact.HOST_ID}">
 									<div>
 										<div class="user-img mb-4"
 											style="background-image: url('./../upload/host/${contact.HOST_PIC}')">
@@ -114,7 +113,7 @@
 										<p class="name count_time_con">마감 시간 : <span class="count_time">${contact.REGI_DATE }</span></p>
 										<p class="name">현재 최고가 : ${contact.LAST_VALUE}원</p>
 										<p>
-											<a href="meeting_detail.html"
+											<a href="${pageContext.request.contextPath}/contact/bid.do?contact_id=${contact.CONTACT_ID}"
 												class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right">컨택
 												신청</a>
 										</p>

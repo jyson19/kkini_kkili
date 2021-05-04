@@ -48,7 +48,7 @@
                     </li>
                 </ul>
                 <ul class="nav-right">
-                    <li class="header-notification">
+                    <!-- <li class="header-notification">
                         <a href="#!" class="waves-effect waves-light">
                             <i class="ti-bell"></i>
                             <span class="badge bg-c-red"></span>
@@ -89,7 +89,7 @@
                                 </div>
                             </li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li class="user-profile header-notification">
                         <a href="#!" class="waves-effect waves-light">
                             <img src="../resources/assets/images/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
@@ -97,21 +97,21 @@
                             <i class="ti-angle-down"></i>
                         </a>
                         <ul class="show-notification profile-notification">
-                            <li class="waves-effect waves-light">
+                            <%-- <li class="waves-effect waves-light">
                                 <a href="${pageContext.request.contextPath}/admin/staff.do">
                                     <i class="ti-settings"></i> 스탭관리
                                 </a>
-                            </li>
+                            </li> --%>
                             <li class="waves-effect waves-light">
                                 <a href="${pageContext.request.contextPath}/admin/hostup.do">
                                     <i class="ti-user"></i> 호스트 인증 관리
                                 </a>
                             </li>
-                           <li class="waves-effect waves-light">
+                           <%-- <li class="waves-effect waves-light">
                                 <a href="${pageContext.request.contextPath}/admin/dormancy.do">
                                     <i class="ti-email"></i> 휴면 계정
                                 </a>
-                            </li>
+                            </li> --%>
                             <!-- <li class="waves-effect waves-light">
                                 <a href="auth-lock-screen.html">
                                     <i class="ti-lock"></i> Lock Screen
