@@ -39,7 +39,7 @@
             </div> -->
             <div class="pcoded-navigation-label">계정 관리</div>
             <ul class="pcoded-item pcoded-left-item">
-                <li class="pcoded-hasmenu">
+                <li class="">
                     <a href="${pageContext.request.contextPath}/index.jsp" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                         <span class="pcoded-mtext">메인</span>
@@ -53,7 +53,7 @@
                         <span class="pcoded-mcaret"></span>
                     </a>
                 </li> --%>
-                <li class="pcoded-hasmenu">
+                <li class="">
                     <a href="${pageContext.request.contextPath}/admin/hostup.do" class="waves-effect waves-dark">
                         <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
                         <span class="pcoded-mtext">호스트 인증 관리</span>
