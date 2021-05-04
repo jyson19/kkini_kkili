@@ -1,7 +1,3 @@
-
-# Created by https://www.toptal.com/developers/gitignore/api/java,oracleforms,java-web
-# Edit at https://www.toptal.com/developers/gitignore?templates=java,oracleforms,java-web
-
 ### Java ###
 # Compiled class file
 *.class
@@ -41,5 +37,5 @@ target/
 # Compiled Pre-Linked Libraries
 *.plx
 
-# End of https://www.toptal.com/developers/gitignore/api/java,oracleforms,java-web
-/.metadata/
+# DS_Store
+*.DS_Store
