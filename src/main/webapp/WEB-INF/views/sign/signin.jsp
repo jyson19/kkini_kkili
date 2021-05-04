@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
     <head>
@@ -39,10 +40,10 @@
     </head>
 
     <body themebg-pattern="theme1">
-	<!-- 헤더 -->
-	<!-- <div include-html="WEB-INF/tiles/header.html"></div> -->
-	<%@include file ="/WEB-INF/tiles/header.jsp" %>
-	<!-- 헤더 종료 -->
+        <!-- 헤더 -->
+        <!-- <div include-html="WEB-INF/tiles/header.html"></div> -->
+        <%@include file ="/WEB-INF/tiles/header.jsp" %>
+        <!-- 헤더 종료 -->
         <!-- Pre-loader start : 로딩 작업-->
         <!-- <div class="theme-loader">
             <div class="loader-track">
@@ -125,6 +126,9 @@
                                         <input type="password" name="password" class="form-control" />
                                         <span class="form-bar"></span>
                                         <label class="float-label">비밀번호를 입력해주세요</label>
+                                        <c:if test="${msg =='failure'}">
+                                            <div class="col-sm-12" id="explaination"><p style="color: red">아이디 또는 비밀번호가 일치하지 않습니다.</p></div>
+                                        </c:if>
                                     </div>
                                     <div class="row m-t-25 text-left">
                                         <div class="col-12">
@@ -150,7 +154,7 @@
                                         <div class="col-md-10">
                                             <p class="text-inverse text-left m-b-0">처음오셨나요?</p>
                                             <p class="text-inverse text-left">
-                                              <a href="${pageContext.request.contextPath}/main/sign.do"><b>회원가입하기</b></a>
+                                                <a href="${pageContext.request.contextPath}/main/sign.do"><b>회원가입하기</b></a>
                                             </p>
                                         </div>
                                         <!-- 로고 위치 -->
@@ -223,7 +227,5 @@
         <!-- jquery slimscroll js -->
         <script type="text/javascript" src="../resources/assets/js/jquery-slimscroll/jquery.slimscroll.js"></script>
         <script type="text/javascript" src="../resources/assets/js/common-pages.js"></script>
-
-
     </body>
 </html>

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.kk.domain.MemberVO;
 import com.kk.service.MemberService;
@@ -17,7 +18,7 @@ import com.kk.service.MemberService;
 // 회원 관련 controller
 @Controller
 public class MemberController {
-	
+
 	private Logger log = LoggerFactory.getLogger(MemberController.class);
 
 	@Autowired
@@ -69,49 +70,50 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/sign/signinattempt.do", method = RequestMethod.POST)
-	public String signinAttempt(MemberVO member, HttpServletRequest request, HttpSession session) {
+	public String signinAttempt(MemberVO member, RedirectAttributes rttr, HttpServletRequest request, HttpSession session) {
 		log.info("signinAttempt 메소드 호출");
 		// 이전 페이지를 세션에서 불러오기
-		String prevPage = (String) request.getSession().getAttribute("prevPage");
+		String prevPage = (String) session.getAttribute("prevPage");
 		session.removeAttribute("prevPage");
 		String memberId = request.getParameter("memberId");
 		MemberVO memberVO = memberService.memberSigninService(member);
-		
+
 		// qr코드를 통한 로그인시
-		if(memberId != null && memberService.memberSigninService(member) != null) {
+		if (memberId != null && memberService.memberSigninService(member) != null) {
 			// 최근접속일 갱신
-			memberService.updateConnDate((int)memberVO.getMemberId());
-			
-			if(Integer.parseInt(memberId) == memberVO.getMemberId()) {
+			memberService.updateConnDate((int) memberVO.getMemberId());
+
+			if (Integer.parseInt(memberId) == memberVO.getMemberId()) {
 				log.info("MemberController.signinAttempt qr값 전달");
-				return "forward:../contact/qrCheckIn.do"; 
-				
+				return "forward:../contact/qrCheckIn.do";
+
 			} else {
 				// 해당 컨택의 참가자가 아닐때
-				return "redirect:../contact/qrCheckIn_fail.do"; 
+				return "redirect:../contact/qrCheckIn_fail.do";
 			}
-		
-		// 일반 로그인시
+
+			// 일반 로그인시
 		} else if (memberId == null && memberService.memberSigninService(member) != null) {
 			session.setAttribute("member", memberVO);
-					
+
 			// 최근접속일 갱신
-			memberService.updateConnDate((int)memberVO.getMemberId());
-			
+			memberService.updateConnDate((int) memberVO.getMemberId());
+
 			return "redirect:" + prevPage;
 		} else {
+			rttr.addFlashAttribute("msg", "failure");
 			return "redirect:/sign/signin.do";
 		}
 	}
-	
+
 	// 로그아웃시 세션 제거
 	@RequestMapping(value = "/sign/logout.do")
 	public String logout(MemberVO member, HttpServletRequest request, HttpSession session) {
 //		session.removeAttribute("email");			
-		session.removeAttribute("member");			
+		session.removeAttribute("member");
 		return "redirect:../index.jsp";
 	}
-	
+
 	// 예외처리
 	@RequestMapping(value = "/sign/null")
 	public String nullException() {

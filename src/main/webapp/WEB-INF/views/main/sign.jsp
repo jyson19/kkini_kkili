@@ -201,7 +201,7 @@
                                 <div class="row">
                                     <div class="col-md-10">
                                         <p class="text-inverse text-left m-b-0">이미 아이디가 있으신가요?</p>
-                                        <p class="text-inverse text-left"><a href="${pageContext.request.contextPath}/main/login.do"><b>로그인하기</b></a></p>
+                                        <p class="text-inverse text-left"><a href="${pageContext.request.contextPath}/sign/signin.do"><b>로그인하기</b></a></p>
                                     </div>
                                     <!-- <div class="col-md-2">
                                         <img src="assets/images/auth/Logo-small-bottom.png" alt="small-logo.png">

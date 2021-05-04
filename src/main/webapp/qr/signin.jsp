@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
 <%
-	int contactId = Integer.parseInt(request.getParameter("contactId")); 
-	int memberId = Integer.parseInt(request.getParameter("memberId")); 
+	int contactId = Integer.parseInt(request.getParameter("contactId"));
+	int memberId = Integer.parseInt(request.getParameter("memberId"));
 %>
 <!DOCTYPE html>
 <html lang="ko">
