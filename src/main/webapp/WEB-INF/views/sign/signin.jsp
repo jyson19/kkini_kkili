@@ -127,7 +127,7 @@
                                         <span class="form-bar"></span>
                                         <label class="float-label">비밀번호를 입력해주세요</label>
                                         <c:if test="${msg =='failure'}">
-                                            <div class="col-sm-12" id="explaination"><p style="color: red">아이디 또는 비밀번호가 일치하지 않습니다.</p></div>
+                                            <div class="col-sm-12" id="explaination"><p style="color: red">이메일 또는 비밀번호가 일치하지 않습니다.</p></div>
                                         </c:if>
                                     </div>
                                     <div class="row m-t-25 text-left">

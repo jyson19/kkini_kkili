@@ -1,4 +1,4 @@
-# 끼리끼니(Kkinikkili) sql
+# 끼니끼리(Kkinikkili) sql
 
 - sql 실행
 
@@ -15,7 +15,7 @@
   conn SYSTEM/manager
   ```
 
-  
+
 
 
 
@@ -25,7 +25,7 @@
   DROP USER KK CASCADE;
   ```
 
-  
+
 
 - oracle 계정 생성
 
@@ -41,17 +41,17 @@
 
   ```mariadb
   conn SYSTEM/manager
-  
+
   GRANT RESOURCE, CONNECT TO KK;
   ```
 
-  
+
 
 - 계정 연결
 
   ```mariadb
   conn KK/KKPW
-  
+
   --계정 확인
   show user
   ```
@@ -64,19 +64,19 @@
   ALTER USER KK IDENTIFIED BY KKPW;
   ```
 
-  
+
 
 - 테스트 코드 진행
 
   ```mariadb
   DROP TABLE testtable;
-  
+
   CREATE TABLE testtable(
-      a VARCHAR2(10), 
+      a VARCHAR2(10),
   	b NUMBER);
-  	
+
   DESC testtable;
-  
+
   DROP TABLE testtable;
   ```
 
