@@ -12,9 +12,9 @@
 	
 	<!-- 단순 조회 / 호스트 아이디로 찾기 (3번  입장에서는 자신을 찍은 다른 한 사람이 나와야 함) / 자기를 선택한 사람 -->
 	<select id="getBookmarkListByGuestId" parameterType="bookmarkVO" resultType="map">
-		SELECT *   
-		FROM MEMBER A, (SELECT GUEST_ID FROM MEMBER M, BOOKMARK B WHERE M.MEMBER_ID = B.HOST_ID AND M.MEMBER_ID = #{hostId} ) B, HOST H
-		WHERE A.MEMBER_ID IN B.GUEST_ID AND B.GUEST_ID = h.host_id
+		SELECT A.*, M.NAME, M.EMAIL, H.COMPANY
+		FROM (SELECT * FROM BOOKMARK WHERE HOST_ID = #{hostId}) A, MEMBER M, HOST H
+		WHERE A.GUEST_ID = M.MEMBER_ID AND A.GUEST_ID = H.HOST_ID(+)
 	</select>
 	
 	<select id="selectBookmark" parameterType="bookmarkVO" resultType="bookmarkVO">
