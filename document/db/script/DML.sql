@@ -1768,4 +1768,3 @@ INSERT INTO bookmark VALUES(10,220);
 
 
 commit;
-
