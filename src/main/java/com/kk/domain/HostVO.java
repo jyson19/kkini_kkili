@@ -46,9 +46,11 @@ public class HostVO extends MemberVO {
 	public void setPic(MultipartFile pic) {
 		this.pic = pic;
 		
+		// 프로필 사진 업로드
 		if(!pic.isEmpty()) {
 			hostPic = pic.getOriginalFilename();
-			File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
+//			File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
+			File f = new File("C:\\10.spring\\basic\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
 			
 			try {
 				pic.transferTo(f);
@@ -66,10 +68,11 @@ public class HostVO extends MemberVO {
 	public void setFile(MultipartFile file) {
 		this.file = file;
 		
+		// 명함 자료 업로드
 		if(!file.isEmpty()) {
 			authFile = file.getOriginalFilename();
-			File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + authFile);
-			
+//			File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + authFile);
+			File f = new File("C:\\10.spring\\basic\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + authFile);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {
