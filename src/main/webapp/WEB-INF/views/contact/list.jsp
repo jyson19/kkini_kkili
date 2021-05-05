@@ -138,7 +138,7 @@
 										<span class="position">상호명 : ${contactOne.STORE_NAME}</span><br />
 										<span class="position">장소 : ${contactOne.LOCATION}</span>
 										<p class="name count_time_con">마감 시간 : <span class="count_time">${contactOne.REGI_DATE }</span></p>
-										<p class="name">현재 최고가 : ${contactOne.START_VALUE}원</p>
+										<p class="name">현재 최고가 : ${contactOne.LAST_VALUE}원</p>
 										<p>
 											<a href="${pageContext.request.contextPath}/contact/bid.do?contact_id=${contactOne.CONTACT_ID}"
 												class="btn btn-primary btn-outline-primary mt-1 px-3 pt-1 mb-0 float-right contact-submit">컨택

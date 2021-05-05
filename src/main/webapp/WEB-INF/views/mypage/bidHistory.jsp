@@ -3,10 +3,16 @@
 <%@ page import="com.kk.domain.MemberVO" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Date" %>
+<%@ page import="java.util.Calendar" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%!
 	String memberId = null;
+
+	String today = null;
+	Date date = new Date();
+	SimpleDateFormat sdformat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	Calendar cal = Calendar.getInstance();
 %>
 <% 
 	memberId = ((MemberVO) session.getAttribute("member")).getMemberId() + "";
@@ -17,6 +23,11 @@
 		member = (MemberVO) session.getAttribute("member"); 	
 	}
 	
+	cal.setTime(date);
+	cal.add(Calendar.DATE, +1);
+	today = sdformat.format(cal.getTime());  
+
+	pageContext.setAttribute("today", today) ;
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -161,10 +172,17 @@
 		                                                            <td><a href="../host/profile.do?hostId=${contactBid.HOST_ID}">${contactBid.NAME}</a></td>
 		                                                            <td>${contactBid.BID_TIME}</td>
 		                                                            <td><fmt:formatNumber value="${contactBid.PRICE}" type="number"/>원</td>
-		                                                            <c:if test="${contactBid.GUEST_ID eq pageScope.str}">
-		                                                            	<td>낙찰</td>
+		                                                            <c:if test="${contactBid.PRICE eq contactBid.LAST_VALUE}">
+		                                                            	<c:if test="${contactBid.REGI_DATE > today}">
+		                                                            	<%-- <td><%=today %></td> --%>
+		                                                            		<td>낙찰</td>
+		                                                            	</c:if>
+		                                                            	<c:if test="${contactBid.REGI_DATE <= today}">
+		                                                            		<td>현재 최고가 입찰</td>
+		                                                            	</c:if>
+		                                                            	
 		                                                            </c:if>
-		                                                            <c:if test="${contactBid.GUEST_ID ne pageScope.str}">
+		                                                            <c:if test="${contactBid.PRICE ne contactBid.LAST_VALUE}">
 		                                                            	<td>패찰</td>
 		                                                        	</c:if>
 		                                                    	</tr>

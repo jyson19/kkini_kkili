@@ -350,16 +350,18 @@
 	<!-- 마이페이지 내 입찰 내역조회 -->
 	<select id="getBidHistory" parameterType="int" resultType="hashmap">
 		SELECT 
-			c.contact_intro AS contact_intro, 
-			m.name AS name, 
-			ch.bid_time AS bid_time, 
-			ch.price AS price, 
-			c.host_id AS host_id, 
-			c.contact_id AS contact_id
-		FROM contact c, member m, contact_history ch
-		WHERE c.contact_id = ch.contact_id
-			AND c.host_id = m.member_id
-			AND ch.guest_id = #{memberId}
+		    c.contact_intro AS contact_intro, 
+		    m.name AS name, 
+		    ch.bid_time AS bid_time, 
+		    ch.price AS price, 
+		    c.last_value AS last_value, 
+		    c.host_id AS host_id, 
+		    c.regi_date AS REGI_DATE,
+		    c.contact_id AS contact_id
+		FROM contact_history ch, contact c, member m
+		WHERE ch.guest_id = #{memberId}
+		    AND c.contact_id = ch.contact_id
+		    AND m.member_id = c.host_id
 	</select>
 	
 	
