@@ -1,4 +1,4 @@
-package com.kk.dao;
+package com.kk.dao.impl;
 
 import java.util.List;
 
@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.kk.dao.MemberDAO;
 import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
 

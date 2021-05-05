@@ -1,4 +1,4 @@
-package com.kk.service;
+package com.kk.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.kk.dao.CmtDAO;
 import com.kk.domain.CmtVO;
+import com.kk.service.CmtService;
 
 @Service
 public class CmtServiceImpl implements CmtService {

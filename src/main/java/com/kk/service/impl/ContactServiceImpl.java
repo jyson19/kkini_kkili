@@ -1,4 +1,4 @@
-package com.kk.service;
+package com.kk.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
@@ -8,9 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.kk.dao.ContactDAO;
-import com.kk.dao.ContactDAOImpl;
+import com.kk.dao.impl.ContactDAOImpl;
 import com.kk.domain.ContactVO;
 import com.kk.domain.PagingCriteria;
+import com.kk.service.ContactService;
 
 // 컨택 서비스
 @Service("contactService")
