@@ -1,7 +1,8 @@
-package com.kk.dao;
+package com.kk.dao.impl;
 
 import java.util.List;
 
+import com.kk.dao.NoticeDAO;
 import com.kk.domain.NoticeVO;
 
 public class NoticeDAOImpl implements NoticeDAO{

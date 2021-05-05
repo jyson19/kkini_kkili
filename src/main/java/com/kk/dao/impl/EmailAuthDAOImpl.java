@@ -1,10 +1,11 @@
-package com.kk.dao;
+package com.kk.dao.impl;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.kk.dao.EmailAuthDAO;
 import com.kk.domain.EmailAuthVO;
 
 @Repository("EmailAuthDAO")

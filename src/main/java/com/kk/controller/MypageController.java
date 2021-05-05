@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.kk.dao.BookmarkDAOImpl;
+import com.kk.dao.impl.BookmarkDAOImpl;
 import com.kk.domain.BookmarkVO;
 import com.kk.domain.HostVO;
 import com.kk.domain.MemberVO;
