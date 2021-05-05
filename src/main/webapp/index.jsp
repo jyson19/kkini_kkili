@@ -73,7 +73,7 @@
             <div class="block-17 my-4">
               <form action="${pageContext.request.contextPath}/contact/search.do" method="get" class="d-block d-flex">
                 <div class="fields d-block d-flex">
-                  	<input type="text" name="keyword" class="form-control" placeholder="관심 키워드를 입력하세요.   (현재 컨택검색만/ 추후 회원검색 추가예정)">
+                  	<input type="text" name="keyword" class="form-control" placeholder="관심 키워드를 입력하세요.">
                   	<input type="text" name="region" class="form-control" hidden="hidden">
                   	<input type="text" name="startdate" class="form-control" hidden="hidden">
                   	<input type="text" name="enddate" class="form-control" hidden="hidden">

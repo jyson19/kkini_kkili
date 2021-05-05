@@ -134,8 +134,8 @@
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h5>월별 이용자 수</h5>
-                                                        <span>월별 이용자 수 조회를 파악할 수 있습니다</span>
+                                                        <h5>월별 신규 회원 수</h5>
+                                                        <span>월별 신규로 가입한 회원 수를 파악할 수 있습니다</span>
                                                     </div>
                                                     <div class="card-block">
                                                         <div id="line-example"></div>
