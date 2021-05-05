@@ -151,8 +151,8 @@
 														<h2>비밀번호 수정하기</h2>
 														<div class="card">
                                             				<div class="card-header">
-                                            				
-												
+
+
 												<!--Password-Form Start-->
 												<form id="inputform" action="changepassword.do" method="POST">
 													<div class="row my-2">
@@ -164,10 +164,10 @@
 														<div class="col-md-6">
 															<div class="alert alert-warning password-alert" role="alert">
 																<ul>
-																	<li class="requirements leng" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 최소 6글자 이상이어야 합니다.</li>
-																	<li class="requirements big-letter" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 대문자가 한 글자 이상 포함되어야 합니다</li>
-																	<li class="requirements num" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 숫자가 한 글자 이상 포함되어야 합니다.</li>
-																	<li class="requirements special-char" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 특수문자가 한 글자 이상 포함되어야 합니다.</li>
+																	<li class="requirements leng" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 최소 6글자 이상인가요?</li>
+																	<li class="requirements big-letter" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 대문자가 한 글자 이상 포함되어 있나요?</li>
+																	<li class="requirements num" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 숫자가 한 글자 이상 포함되어 있나요?</li>
+																	<li class="requirements special-char" style="color: black;"><i class="fas fa-check green-text"></i> <i class="fas fa-times red-text"></i> 비밀번호는 특수문자가 한 글자 이상 포함되어 있나요?</li>
 																</ul>
 															</div>
 														</div>
