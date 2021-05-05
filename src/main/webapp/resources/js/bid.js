@@ -124,6 +124,13 @@ $(function () {
                 $('tbody > tr:nth-child(1)').animate({ fontSize: '14px' }, 600)
             }
         }
+        
+        
+      //천단위 콤마 펑션
+		function addComma(value){
+			value = value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			return value; 
+		}
     })
     function numberWithCommas(num) {
         var parts = num.toString().split('.')
