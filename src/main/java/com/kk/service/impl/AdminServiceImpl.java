@@ -1,21 +1,22 @@
-package com.kk.dao;
+package com.kk.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+import com.kk.dao.impl.AdminDAOImpl;
 import com.kk.domain.HostVO;
+import com.kk.service.AdminService;
 
-@Repository("AdminDAO")
-public class AdminDAOImpl implements AdminDAO{
-
-	@Autowired
-	private SqlSessionTemplate mybatis;
+@Service("adminMainService")
+public class AdminServiceImpl implements AdminService{
 	
+	@Autowired
+	private AdminDAOImpl AdminDAO;
+
 	@Override
 	// 관리자 메인 페이지
 	public List<HostVO> getAdminMain(HostVO vo) {
@@ -23,7 +24,7 @@ public class AdminDAOImpl implements AdminDAO{
 	}
 	
 	@Override
-	// 스탭 관리
+	//스탭 관리
 	public List<HostVO> getStaff(HostVO vo) {
 		return null;
 	}
@@ -31,26 +32,20 @@ public class AdminDAOImpl implements AdminDAO{
 	@Override
 	// 호스트 인증 관리
 	public List<Map<String, String>> getHostup() {
-		System.out.println("===> Mybatis getHostup() 호출");
-		System.out.println(mybatis.selectList("admin.getHostup").size());
-		return mybatis.selectList("admin.getHostup");
+		return AdminDAO.getHostup();
 	}
-	
+
 	@Override
 	// 호스트 인증 승인 페이지
 	public HashMap<String, String> getAuth(HostVO vo) {
-		System.out.println("===> Mybatis getAuth() 호출");
-		return mybatis.selectOne("admin.getAuth", vo);
+		return AdminDAO.getAuth(vo);
 	}
 	
-	@Override
-	// 호스트 인증 승인
+	// 호스트 인증 실행
 	public void levelup(HostVO vo) {
-		System.out.println("===> Mybatis levelup() 호출");
-		mybatis.update("admin.levelup1", vo);
-		mybatis.update("admin.levelup2", vo);
+		AdminDAO.levelup(vo);
 	}
-
+	
 	@Override
 	// 휴먼 계정
 	public List<HostVO> getDormancy(HostVO vo) {
@@ -81,44 +76,45 @@ public class AdminDAOImpl implements AdminDAO{
 		return null;
 	}
 
+	@Override
+	public List<HashMap<String, String>> getAllContact() {
+		return AdminDAO.getAllContact();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartNumberOfMember() {
+		return AdminDAO.getChartNumberOfMember();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartNumberOfContact() {
+		return AdminDAO.getChartNumberOfContact();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartNumberOfSuccessContact() {
+		return AdminDAO.getChartNumberOfSuccessContact();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartMakingContactUser() {
+		return AdminDAO.getChartMakingContactUser();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getChartReservation() {
+		return AdminDAO.getChartReservation();
+	}
+
+	@Override
+	public int totalSales() {
+		return AdminDAO.totalSales();
+	}
+
+	@Override
+	public List<HashMap<String, String>> getSalesHistory() {
+		return AdminDAO.getSalesHistory();
+	}
 
 	
-
-	public List<HashMap<String, String>> getAllContact() {
-		return mybatis.selectList("admin.getAllContact");
-	}
-
-	public List<HashMap<String, String>> getChartNumberOfMember() {
-		return mybatis.selectList("admin.getChartNumberOfMember");
-	}
-
-	public List<HashMap<String, String>> getChartNumberOfContact() {
-		return mybatis.selectList("admin.getChartNumberOfContact");
-
-	}
-
-	public List<HashMap<String, String>> getChartNumberOfSuccessContact() {
-		return mybatis.selectList("admin.getChartNumberOfSuccessContact");
-
-	}
-
-	public List<HashMap<String, String>> getChartMakingContactUser() {
-		return mybatis.selectList("admin.getChartMakingContactUser");
-
-	}
-
-	public List<HashMap<String, String>> getChartReservation() {
-		return mybatis.selectList("admin.getChartReservation");
-	}
-
-	public int totalSales() {
-		return mybatis.selectOne("admin.totalSales");
-	}
-
-	public List<HashMap<String, String>> getSalesHistory() {
-		return mybatis.selectList("admin.getSalesHistory");
-	}
-
-
-
 }

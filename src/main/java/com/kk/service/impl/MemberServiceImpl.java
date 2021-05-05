@@ -1,11 +1,13 @@
-package com.kk.service;
+package com.kk.service.impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.kk.dao.MemberDAOImpl;
+
+import com.kk.dao.impl.MemberDAOImpl;
 import com.kk.domain.ContactVO;
 import com.kk.domain.MemberVO;
+import com.kk.service.MemberService;
 
 @Service("memberService")
 public class MemberServiceImpl implements MemberService {
