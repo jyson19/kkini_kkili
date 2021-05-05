@@ -91,7 +91,7 @@
               </a>
               <div class="text p-4 d-block">
                 <span class="heading">${host.NAME}</span>
-                <h3 class="heading mt-3" id="pfcontent"><a href="#">${host.CONTENT}</a></h3>
+                <h3 class="heading mt-3" id="pfcontent"><a href="${pageContext.request.contextPath}/host/profile.do?hostId=${host.HOST_ID}">${host.CONTENT}</a></h3>
                 <div class="meta mb-3">
                 <div><a href="${pageContext.request.contextPath}/host/profile.do?hostId=${host.HOST_ID}	">마지막 접속일 ${fn:substring(host.LAST_CONN_DATE,0,10)}</a></div>
                 <!-- <div><a href="#" class="meta-chat"><span class="icon-chat"></span> 후기 3</a></div> -->
