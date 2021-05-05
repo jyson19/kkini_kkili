@@ -149,6 +149,7 @@
                                                             <tr>
                                                                 <!-- <th>고유번호</th> -->
                                                                 <th>이름</th>
+                                                                <th>이메일</th>
                                                                 <th>소속</th>
                                                             </tr>
                                                         </thead>
@@ -157,6 +158,7 @@
 	                                                            <tr>
 	                                                                <%-- <td>${member.memberId }</td> --%>
 	                                                                <td>${member.NAME }</td>
+	                                                                <td>${member.EMAIL }</td>
 	                                                                <td>${member.COMPANY }</td>
 	                                                            </tr>
                                                             </c:forEach>
