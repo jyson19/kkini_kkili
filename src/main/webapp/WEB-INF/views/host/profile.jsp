@@ -98,9 +98,9 @@
 					
 					<%if( session.getAttribute("member") != null) { %>					
 						<% if(bookmarkIs != null && bookmarkIs.equals("1")) { %>
-							<div id="star_div" class="float-right"><i id="star" class="fa fa-star" aria-hidden="true" style="color:#2DAD92"></i></div>					
+							<div id="star_div" class="float-right">관심목록  <i id="star" class="fa fa-star" aria-hidden="true" style="font-size:18px; color:#2DAD92"></i></div>					
 						<% } else {%>
-							<div id="star_div" class="float-right"><i id="star" class="fa fa-star-o" aria-hidden="true" style="color:#2DAD92"></i></div>						
+							<div id="star_div" class="float-right">관심목록  <i id="star" class="fa fa-star-o" aria-hidden="true" style="font-size:18px; color:#2DAD92"></i></div>						
 						<% } %>
 					<% } %>
 
