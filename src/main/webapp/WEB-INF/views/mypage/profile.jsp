@@ -4,8 +4,10 @@
 
 <% 
 	MemberVO member = null;
+	int memberId = 0;
 	if(session.getAttribute("member")!=null){
 		member = (MemberVO) session.getAttribute("member"); 	
+		memberId = member.getMemberId();
 	}
 %>
 <!DOCTYPE html>

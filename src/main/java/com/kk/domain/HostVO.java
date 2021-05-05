@@ -43,23 +43,24 @@ public class HostVO extends MemberVO {
 		return pic;
 	}
 
-	public void setPic(MultipartFile pic) {
-		this.pic = pic;
-		
-		// 프로필 사진 업로드
-		if(!pic.isEmpty()) {
-			hostPic = pic.getOriginalFilename();
-//			File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
-			File f = new File("C:\\10.spring\\basic\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
-			
-			try {
-				pic.transferTo(f);
-			} catch (IllegalStateException | IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-	}
+	public void setPic(MultipartFile pic, String id) {
+	      this.pic = pic;
+	      
+	      // 프로필 사진 업로드
+	      if(!pic.isEmpty()) {
+	         hostPic = "pic"+id+".jpg";
+//	         File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
+//	         File f = new File("../src/main/webapp/upload/host" + hostPic);
+	         File f = new File("C:\\Users\\jyson\\git_spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + hostPic);
+	         
+	         try {
+	            pic.transferTo(f);
+	         } catch (IllegalStateException | IOException e) {
+	            // TODO Auto-generated catch block
+	            e.printStackTrace();
+	         }
+	      }
+	   }
 
 	public MultipartFile getFile() {
 		return file;
@@ -72,7 +73,7 @@ public class HostVO extends MemberVO {
 		if(!file.isEmpty()) {
 			authFile = file.getOriginalFilename();
 //			File f = new File("C:\\00.siat\\10.Spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + authFile);
-			File f = new File("C:\\10.spring\\basic\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + authFile);
+			File f = new File("C:\\Users\\jyson\\git_spring\\kkini_kkili\\src\\main\\webapp\\upload\\host\\" + authFile);
 			try {
 				file.transferTo(f);
 			} catch (IllegalStateException | IOException e) {

@@ -5,8 +5,17 @@
 
 	<!-- 등록 -->
 	<insert id="insertProfile" parameterType="host" useGeneratedKeys="true" keyProperty="no">
+		<![CDATA[ 
 		INSERT INTO host(host_id, host_pic, company, uni, write_date, auth_file, content)
-		VALUES(#{hostId}, #{hostPic}, #{company}, #{uni}, sysdate, #{authFile}, #{content})
+		VALUES(
+			#{hostId}, 
+			#{hostPic},
+			#{company}, 
+			#{uni}, 
+			sysdate, 
+			#{authFile},
+			#{content})
+		]]>
 	</insert>
  
  	<!-- 프로필 상세 조회 -->
