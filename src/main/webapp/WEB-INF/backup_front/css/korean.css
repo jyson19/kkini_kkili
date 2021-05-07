@@ -1,8 +1,0 @@
-/* 한국어 관련 사항 - 폰트, 줄바꿈 */
-
-@import url("https://cdn.jsdelivr.net/gh/moonspam/NanumBarunGothic@latest/nanumbarungothicsubset.css");
-
-body {
-    font-family: 'NanumBarunGothic', sans-serif;
-    word-break: keep-all;
-}
