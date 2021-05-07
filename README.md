@@ -19,7 +19,7 @@
     </tr>
     <tr align="left">
       <th>개발기간</th>
-      <th>2021.04.12 ~ 2021.00.00</th>
+      <th>2021.04.12 ~ 2021.05.05</th>
     </tr>
     <tr align="left">
       <th>인원</th>
@@ -69,7 +69,7 @@
 
 
 ## 팀원
-- 손진영 https://github.com/jyson19
+- 손진영 https://github.com/sontaku
 - 박재완 https://github.com/jaewany
 - 이지섭 https://github.com/Easycelsius
 - 최현웅 https://github.com/rphonica
