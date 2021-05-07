@@ -19,7 +19,7 @@
     </tr>
     <tr align="left">
       <th>개발기간</th>
-      <th>2021.04.12 ~ 2021.00.00</th>
+      <th>2021.04.12 ~ 2021.05.05</th>
     </tr>
     <tr align="left">
       <th>인원</th>
@@ -30,11 +30,11 @@
     </tr>
     <tr align="left">
       <th>백엔드</th>
-      <th></th>
+      <th>Java, Spring</th>
     </tr>
     <tr align="left">
       <th>프론트엔드</th>
-      <th></th>
+      <th>HTML5, CSS3, JavaScript, jQuery</th>
     </tr>
     <tr align="left">
       <th>형상관리</th>
@@ -59,6 +59,8 @@
 - LinkedIn
 
 
+## 버전
+
 
 ## 시연
 
@@ -66,7 +68,11 @@
 
 
 
-
+## 팀원
+- 손진영 https://github.com/sontaku
+- 박재완 https://github.com/jaewany
+- 이지섭 https://github.com/Easycelsius
+- 최현웅 https://github.com/rphonica
 
 ## 참조
 
